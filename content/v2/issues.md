@@ -1,5 +1,5 @@
 ---
-title: Issues | GitHub API
+title: Issues | SeeClickFix API
 ---
 
 # Issues API
