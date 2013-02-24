@@ -1,6 +1,6 @@
-# developer.github.com
+# api.seeclickfix.com
 
-This is a GitHub API resource built with [nanoc][nanoc].
+This is the SeeClickFix API docs built with [nanoc][nanoc].
 
 All submissions are welcome. To submit a change, fork this repo, commit your changes, and send us a [pull request](http://help.github.com/send-pull-requests/).
 
@@ -8,7 +8,7 @@ All submissions are welcome. To submit a change, fork this repo, commit your cha
 
 Ruby 1.9 is required to build the site.
 
-Get the nanoc gem, plus kramdown for markdown parsing:
+Install the necessary gems:
 
     bundle install
 
