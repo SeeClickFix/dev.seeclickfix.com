@@ -4,11 +4,11 @@ title: Issues | SeeClickFix API
 
 # Issues API
 
-* TOC
-{:toc}
-
 Issues use [these custom media types](#custom-media-types). You can
 read more about the use of media types in the API [here](/v3/media/).
+
+* TOC
+{:toc}
 
 ## List issues
 
@@ -17,14 +17,6 @@ including owned repositories, member repositories, and organization
 repositories:
 
     GET /issues
-
-List all issues across owned and member repositories for the authenticated user:
-
-    GET /user/issues
-
-List all issues for a given organization for the authenticated user:
-
-    GET /orgs/:org/issues
 
 ### Parameters
 
@@ -56,52 +48,9 @@ since
 <%= headers 200, :pagination => true %>
 <%= json(:issue) { |h| [h] } %>
 
-## List issues for a repository
-
-    GET /repos/:owner/:repo/issues
-
-### Parameters
-
-milestone
-: * _Integer_ Milestone number
-  * `none` for Issues with no Milestone.
-  * `*` for Issues with any Milestone.
-
-state
-: `open`, `closed`, default: `open`
-
-assignee
-: * _String_ User login
-  * `none` for Issues with no assigned User.
-  * `*` for Issues with any assigned User.
-
-creator
-: _String_ User login.
-
-mentioned
-: _String_ User login.
-
-labels
-: _String_ list of comma separated Label names.  Example:
-`bug,ui,@high`
-
-sort
-: `created`, `updated`, `comments`, default: `created`
-
-direction
-: `asc` or `desc`, default: `desc`.
-
-since
-: _Optional_ **String** of a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
-
-### Response
-
-<%= headers 200, :pagination => true %>
-<%= json(:issue) { |h| [h] } %>
-
 ## Get a single issue
 
-    GET /repos/:owner/:repo/issues/:number
+    GET /issues/:number
 
 ### Response
 
@@ -112,7 +61,7 @@ since
 
 Any user with pull access to a repository can create an issue.
 
-    POST /repos/:owner/:repo/issues
+    POST /issues
 
 ### Input
 
@@ -197,12 +146,3 @@ Issue. Send an empty array (`[]`) to clear all Labels from the Issue.
 <%= headers 200 %>
 <%= json :issue %>
 
-## Custom media types
-
-These are the supported media types for issues. You can read more about the
-use of media types in the API [here](/v3/media/).
-
-    application/vnd.github.VERSION.raw+json
-    application/vnd.github.VERSION.text+json
-    application/vnd.github.VERSION.html+json
-    application/vnd.github.VERSION.full+json
