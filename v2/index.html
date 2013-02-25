@@ -21,7 +21,7 @@
         <div>
           <a class="logo" href="/"><img src="http://seeclickfix.com/images/logo.png" width="255" height="45" alt="SeeClickFix API" /></a>
           <ul class="nav">
-            <li><a href="/v2/">API v2</a></li>
+            <li><a href="http://seeclickfix.com">SeeClickFix.com</a></li>
             <li><a
               href="http://seeclickfix.com/contact_us">Support</a></li>
           </ul>
@@ -31,47 +31,44 @@
 
     <div id="wrapper">
       <div class="content">
-    <h1 id="api-v2">API v2</h1>
+    <h1 id="seeclickfix-api-v2">SeeClickFix API v2</h1>
 
 <p>This describes the resources that make up the official SeeClickFix API v2. If
 you have any problems or requests please contact
 <a href="mailto:dev@seeclickfix.com?subject=APIv2">support</a>.</p>
 
-<p>SeeClickFix provides an open311 compatible API at http://seeclickfix.com/open311.</p>
-
-<h2 id="authentication">Authentication</h2>
-
-<p>SeeClickFix uses key based authentication. You can obtain or change your key in your personal preferences page. This key should remain secret and should only be used over SSL for security. Unless noted otherwise, read-only requests do not require a key. Write requests require a key.</p>
-
-<h3 id="getting-a-key">Getting a Key</h3>
-
-<p>To obtain a key you must have a SeeClickFix account. You may register for a free account here: https://seeclickfix.com/register</p>
-
-<p>Once you have an account login and go to “My Account” &gt; “Preferences”. There is an “API Keys” section on the lefthand side of the page. Once you generate a key its ready to use. Please remember that use of the API falls under our Open Data Policy (http://seeclickfix.com/open_data) and Terms of Use (http://seeclickfix.com/terms_of_use).</p>
+<p>SeeClickFix provides an open311 compatible API at <a href="http://seeclickfix.com/open311">http://seeclickfix.com/open311</a>.</p>
 
 <ul id="markdown-toc">
-<li><a href="#authentication">Authentication</a></li>
-  <li><a href="#schema">Schema</a></li>
-  <li><a href="#parameters">Parameters</a></li>
+<li><a href="#url-schema">URL Schema</a></li>
   <li><a href="#client-errors">Client Errors</a></li>
   <li><a href="#http-redirects">HTTP Redirects</a></li>
   <li><a href="#http-verbs">HTTP Verbs</a></li>
   <li><a href="#authentication-1">Authentication</a></li>
   <li><a href="#hypermedia">Hypermedia</a></li>
-  <li><a href="#pagination">Pagination</a></li>
-  <li><a href="#rate-limiting">Rate Limiting</a></li>
   <li><a href="#user-agent-required">User Agent Required</a></li>
-  <li><a href="#conditional-requests">Conditional requests</a></li>
-  <li><a href="#cross-origin-resource-sharing">Cross Origin Resource Sharing</a></li>
-  <li><a href="#json-p-callbacks">JSON-P Callbacks</a></li>
-</ul><h2 id="schema">Schema</h2>
+</ul><h3 id="authentication">Authentication</h3>
 
-<p>All API access is over HTTPS, and accessed from the <code>api.github.com</code>
-domain (or through <code>yourdomain.com/api/v3/</code> for enterprise).  All data is
-sent and received as JSON.</p>
+<p>SeeClickFix uses key based authentication. You can obtain or change your key in your personal preferences page. This key should remain secret and should only be used over SSL for security. Unless noted otherwise, read-only requests do not require a key. Write requests require a key.</p>
+
+<h4 id="getting-a-key">Getting a Key</h4>
+
+<p>To obtain a key you must have a SeeClickFix account. You may register for a free account here: https://seeclickfix.com/register</p>
+
+<p>Once you have an account login and go to “My Account” &gt; “Preferences”. There is an “API Keys” section on the lefthand side of the page. Once you generate a key its ready to use. Please remember that use of the API falls under our Open Data Policy (http://seeclickfix.com/open_data) and Terms of Use (http://seeclickfix.com/terms_of_use).</p>
+
+<h2 id="url-schema">URL Schema</h2>
+
+<p>URLs follow the following format</p>
+
+<p>https://[locale].seeclickfix.com/api/v2/ </p>
+
+<h3 id="format">Format</h3>
+
+<p>All data is sent and received as JSON.</p>
 
 <pre class="terminal">
-$ curl -i https://api.github.com/users/octocat/orgs
+$ curl -i https://seeclickfix.com/api/v2/info
 
 HTTP/1.1 200 OK
 Server: nginx
@@ -90,14 +87,18 @@ X-Content-Type-Options: nosniff
 []
 </pre>
 
+<h3 id="blank-fields">Blank Fields</h3>
+
 <p>Blank fields are included as <code>null</code> instead of being omitted.</p>
+
+<h3 id="time-formats">Time Formats</h3>
 
 <p>All timestamps are returned in ISO 8601 format:</p>
 
 <pre><code>YYYY-MM-DDTHH:MM:SSZ
 </code></pre>
 
-<h2 id="parameters">Parameters</h2>
+<h3 id="parameters">Parameters</h3>
 
 <p>Many API methods take optional parameters. For GET requests, any parameters not
 specified as a segment in the path can be passed as an HTTP query string
@@ -285,9 +286,9 @@ gem:</p>
 =&gt; "/notifications?all=1&amp;participating=1"
 </code></pre>
 
-<h2 id="pagination">Pagination</h2>
+<h3 id="pagination">Pagination</h3>
 
-<p>Requests that return multiple items will be paginated to 30 items by
+<p>Requests that return multiple items will be paginated to 20 items by
 default.  You can specify further pages with the <code>?page</code> parameter. For some
 resources, you can also set a custom page size up to 100 with the <code>?per_page</code> parameter.
 Note that for technical reasons not all endpoints respect the <code>?per_page</code> parameter,
@@ -321,78 +322,19 @@ SHA1 and not on page number.</p>
   <dd>Shows the URL of the first page of results.</dd>
   <dt><code>prev</code></dt>
   <dd>Shows the URL of the immediate previous page of results.</dd>
-</dl><h2 id="rate-limiting">Rate Limiting</h2>
-
-<p>We limit requests to 60 per hour for unauthenticated requests. For requests
-using Basic Authentication or OAuth, we limit requests to 5,000
-per hour.  You can check the returned HTTP headers of any API request to see
-your current status:</p>
-
-<pre class="terminal">
-$ curl -i https://api.github.com/users/whatever
-
-HTTP/1.1 200 OK
-Status: 200 OK
-X-RateLimit-Limit: 5000
-X-RateLimit-Remaining: 4966
-</pre>
-
-<p>You can also check your rate limit status without incurring an API hit.</p>
-
-<pre><code>GET /rate_limit
-</code></pre>
-
-<h3 id="rate-limit">Rate limit</h3>
-
-<pre class="headers"><code>Status: 200 OK
-X-RateLimit-Limit: 5000
-X-RateLimit-Remaining: 4999</code></pre>
-
-<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
-  <span class="s2">"rate"</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">"remaining"</span><span class="o">:</span> <span class="mi">4999</span><span class="p">,</span>
-    <span class="s2">"limit"</span><span class="o">:</span> <span class="mi">5000</span>
-  <span class="p">}</span>
-<span class="p">}</span></code></pre>
-
-<p><br></p>
-
-<h4 id="unauthenticated-rate-limited-requests">Unauthenticated rate limited requests</h4>
-
-<p>If you need to make unauthenticated calls but need to use a higher rate limit
-associated with your OAuth application, you can send over your client ID and
-secret in the query string.</p>
-
-<pre class="terminal">
-$ curl -i https://api.github.com/users/whatever?client_id=xxxxxxxxxxxxxx&amp;client_secret=yyyyyyyyyyyyyyyyyyyyy
-
-HTTP/1.1 200 OK
-Status: 200 OK
-X-RateLimit-Limit: 12500
-X-RateLimit-Remaining: 11966
-</pre>
-
-<p>This method should only be used for server-to-server calls. You should never
-share your client secret with anyone or include it in client-side browser code.</p>
-
-<p>Please <a href="https://github.com/contact">contact us</a> to request a higher rate limit
-for your OAuth application.</p>
-
-<h2 id="user-agent-required">User Agent Required</h2>
+</dl><h2 id="user-agent-required">User Agent Required</h2>
 
 <p>All API requests MUST include a valid User Agent string. Requests with no User Agent
 string will be rejected. If you are hitting the API without authentication, we ask that
 you add some kind of identification to the UA header value. This is so we can contact
 you if there are problems.</p>
 
-<h2 id="conditional-requests">Conditional requests</h2>
+<h3 id="conditional-requests">Conditional requests</h3>
 
 <p>Most responses return <code>Last-Modified</code> and <code>ETag</code> headers. You can use the values
 of these headers to make subsequent requests to those resources using the
 <code>If-Modified-Since</code> and <code>If-None-Match</code> headers, respectively. If the resource
-has not changed, the server will return a <code>304 Not Modified</code>. Also note: making
-a conditional request and receiving a 304 response does not count against your
-<a href="#rate-limiting">Rate Limit</a>, so we encourage you to use it whenever possible.</p>
+has not changed, the server will return a <code>304 Not Modified</code>. </p>
 
 <pre class="terminal">
 $ curl -i https://api.github.com/user
@@ -425,43 +367,7 @@ X-RateLimit-Limit: 5000
 X-RateLimit-Remaining: 4996
 </pre>
 
-<h2 id="cross-origin-resource-sharing">Cross Origin Resource Sharing</h2>
-
-<p>The API supports Cross Origin Resource Sharing (CORS) for AJAX requests.
-you can read the <a href="http://www.w3.org/TR/cors">CORS W3C working draft</a>, or
-<a href="http://code.google.com/p/html5security/wiki/CrossOriginRequestSecurity">this intro</a> from the
-HTML 5 Security Guide.</p>
-
-<p>Here’s a sample request sent from a browser hitting
-<code>http://example.com</code>:</p>
-
-<pre><code>$ curl -i https://api.github.com -H "Origin: http://example.com"
-HTTP/1.1 302 Found
-</code></pre>
-
-<p>Any domain that is registered as an OAuth Application is accepted.
-Here’s a sample request for a browser hitting <a href="http://calendaraboutnothing.com/">Calendar About Nothing</a>:</p>
-
-<pre><code>$ curl -i https://api.github.com -H "Origin: http://calendaraboutnothing.com"
-HTTP/1.1 302 Found
-Access-Control-Allow-Origin: http://calendaraboutnothing.com
-Access-Control-Expose-Headers: Link, X-RateLimit-Limit, X-RateLimit-Remaining, X-OAuth-Scopes, X-Accepted-OAuth-Scopes
-Access-Control-Allow-Credentials: true
-</code></pre>
-
-<p>This is what the CORS preflight request looks like:</p>
-
-<pre><code>$ curl -i https://api.github.com -H "Origin: http://calendaraboutnothing.com" -X OPTIONS
-HTTP/1.1 204 No Content
-Access-Control-Allow-Origin: http://calendaraboutnothing.com
-Access-Control-Allow-Headers: Authorization, X-Requested-With
-Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE
-Access-Control-Expose-Headers: Link, X-RateLimit-Limit, X-RateLimit-Remaining, X-OAuth-Scopes, X-Accepted-OAuth-Scopes
-Access-Control-Max-Age: 86400
-Access-Control-Allow-Credentials: true
-</code></pre>
-
-<h2 id="json-p-callbacks">JSON-P Callbacks</h2>
+<h3 id="json-p-callbacks">JSON-P Callbacks</h3>
 
 <p>You can send a <code>?callback</code> parameter to any GET call to have the results
 wrapped in a JSON function.  This is typically used when browsers want
@@ -524,13 +430,17 @@ through as an array of <code>[url, options]</code> tuples.</p>
     <span class="p">]</span>
   <span class="p">]</span>
 <span class="p">}</span></code></pre>
+
+<h3 id="locale">Locale</h3>
+
+<p>All attributes are consistent between locales. Errors may be translated based on the given locale. Objects created will record the locale they were created in and notices based on these objects will be delivered with the proper locale. i.e. if an issue is created with the “es” locale, all email to the creator will be delivered with Spanish translations.</p>
       </div>
 
     <div id="js-sidebar" class="sidebar-shell">
       <div class="js-toggle-list sidebar-module expandable">
         <ul>
 
-          <li class="js-guides"><h3><a href="/v2/">Overview</a></h3></li>
+          <li class="js-guides"><h3><a href="/v2/">API v2 Overview</a></h3></li>
 
           <li class="js-topic">
             <h3><a href="#" class="js-expand-btn collapsed">&nbsp;</a><a href="/v2/issues/">Issues</a></h3>
@@ -572,7 +482,7 @@ through as an array of <code>[url, options]</code> tuples.</p>
         </ul>
       </div> <!-- /sidebar-module -->
       <div class="sidebar-module">
-        <p>This website is a <a href="https://github.com/SeeClickFix/scfapi.github.com" target="_blank">public GitHub repository</a>. Please help us by forking the project and adding to it.</p>
+        <p>This website is a <a href="https://github.com/SeeClickFix/scf_api_docs" target="_blank">public GitHub repository</a>. Please help us by forking the project and adding to it.</p>
       </div>
     </div><!-- /sidebar-shell -->
 
