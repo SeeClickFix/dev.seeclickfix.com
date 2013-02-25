@@ -4,7 +4,7 @@ require 'stringio'
 require 'cgi'
 require 'securerandom'
 
-module GitHub
+module SeeClickFix
   module Resources
     module Helpers
       STATUSES = {
@@ -26,14 +26,6 @@ module GitHub
         500 => '500 Server Error'
       }
 
-      AUTHORS = {
-        :technoweenie => '821395fe70906c8290df7f18ac4ac6cf',
-        :pengwynn     => '7e19cd5486b5d6dc1ef90e671ba52ae0',
-        :pezra        => 'f38112009dc16547051c8ac246cee443',
-        :rick         => 'a44d5abad6e86cff4e34d9f0839535c9',
-        :agh          => '6af915d3c6aa4ad30bbad43d8035fe10'
-      }
-
       DefaultTimeFormat = "%B %-d, %Y".freeze
 
       def post_date(item)
@@ -44,32 +36,12 @@ module GitHub
         attribute_to_time(time).strftime(format)
       end
 
-      def gravatar_for(login)
-        %(<img height="16" width="16" src="%s" />) % gravatar_url_for(login)
-      end
-
-      def gravatar_url_for(login)
-        md5 = AUTHORS[login.to_sym]
-        default = "https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png"
-        "https://secure.gravatar.com/avatar/%s?s=20&d=%s" %
-          [md5, default]
-      end
-
       def headers(status, head = {})
         css_class = (status == 204 || status == 404) ? 'headers no-response' : 'headers'
         lines = ["Status: #{STATUSES[status]}"]
-        head.each do |key, value|
-          case key
-            when :pagination
-              lines << 'Link: <https://api.github.com/resource?page=2>; rel="next",'
-              lines << '      <https://api.github.com/resource?page=5>; rel="last"'
-            else lines << "#{key}: #{value}"
-          end
-        end
 
-        lines << "X-RateLimit-Limit: 5000"
-        lines << "X-RateLimit-Remaining: 4999"
-
+        #lines << "X-RateLimit-Limit: 5000"
+        
         %(<pre class="#{css_class}"><code>#{lines * "\n"}</code></pre>\n)
       end
 
@@ -1030,4 +1002,4 @@ module GitHub
   end
 end
 
-include GitHub::Resources::Helpers
+include SeeClickFix::Resources::Helpers

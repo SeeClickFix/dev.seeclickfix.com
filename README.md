@@ -1,4 +1,4 @@
-# api.seeclickfix.com
+# dev.seeclickfix.com
 
 This is the SeeClickFix API docs built with [nanoc][nanoc].
 
