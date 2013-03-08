@@ -1,13 +1,5 @@
 ---
-title: Issue Show | SeeClickFix API
+title: API v2 - Issues - Vote
 ---
 
-# Issue Show API
-
-* TOC
-{:toc}
-
-Issues use [these custom media types](#custom-media-types). You can
-read more about the use of media types in the API [here](/v3/media/).
-
-## List issues
+# Vote on an Issue
