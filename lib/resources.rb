@@ -27,6 +27,14 @@ module SeeClickFix
       }
 
       DefaultTimeFormat = "%B %-d, %Y".freeze
+      
+      def root_url
+        "https://seeclickfix.com/api"
+      end
+
+      def root_v2_url
+        "#{root_url}/v2"
+      end
 
       def post_date(item)
         strftime item[:created_at]

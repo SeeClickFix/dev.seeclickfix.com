@@ -18,9 +18,29 @@ repositories:
 
     GET /issues
 
+
 ### Parameters
 
-filter
+bounds
+: * `:sw_lat,:sw_lng|:ne_lat,:ne_lng`: Issues within the defined rectangle
+
+Example
+
+    <%= root_v2_url %>/issues?bounds=0.0,0.0|4.0,4.0
+
+
+page
+: * `page` : number of the page to return, default: 1
+
+per_page
+: * `per_page` : number of issues returned per page, default: 20
+
+Example
+
+    <%= root_v2_url %>/issues?page=2&per_page=20
+
+
+filter_by
 : * `assigned`: Issues assigned to you (default)
   * `created`: Issues created by you
   * `mentioned`: Issues mentioning you
@@ -28,7 +48,7 @@ filter
   * `all`: All issues the authenticated user can see, regardless of particpation or creation
 
 state
-: `open`, `closed`, default: `open`
+: `open`, `closed`, default: open
 
 labels
 : _String_ list of comma separated Label names.  Example:
