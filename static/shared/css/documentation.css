@@ -190,10 +190,6 @@ div.sidebar-shell {
 
 div.sidebar-module {
   padding: 3px;
-  background: #EEE;
-  -moz-border-radius: 2px;
-  -webkit-border-radius: 2px;
-  border-radius: 2px;
   display: block;
   width: 332px;
   margin-bottom: 20px;
@@ -282,7 +278,6 @@ div.sidebar-module > ul h3:hover a {
 div.sidebar-module ul ul,
 div.sidebar-module .spacer {
   display: block;
-  padding-bottom: 2px;
   background-color: #FAFAFB;
 }
 
