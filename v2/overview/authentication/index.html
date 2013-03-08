@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>API v2 - Skins</title>
+  <title>API v2 - Overview - Authentication</title>
   <link rel="alternate" type="application/atom+xml" title="API Changes" href="/changes.atom" />
   <link href="/css/reset.css" rel="stylesheet" type="text/css" />
   <link href="/css/960.css" rel="stylesheet" type="text/css" />
@@ -33,7 +33,47 @@
 
     <div id="wrapper">
       <div class="content">
-    <h1 id="skins">Skins</h1>
+    <h1 id="authentication">Authentication</h1>
+
+<p>SeeClickFix uses key based authentication. You can obtain or change your key in your personal preferences page. This key should remain secret and should only be used over SSL for security. Unless noted otherwise, read-only requests do not require a key. Write requests require a key.</p>
+
+<h3 id="getting-a-key">Getting a Key</h3>
+
+<p>To obtain a key you must have a SeeClickFix account. You may register for a free account here: https://seeclickfix.com/register</p>
+
+<p>Once you have an account login and go to “My Account” &gt; “Preferences”. There is an “API Keys” section on the lefthand side of the page. Once you generate a key its ready to use. Please remember that use of the API falls under our Open Data Policy (http://seeclickfix.com/open_data) and Terms of Use (http://seeclickfix.com/terms_of_use).</p>
+
+<h3 id="basic-authentication">Basic Authentication</h3>
+
+<pre class="terminal">
+$ curl -u "username" https://api.github.com
+</pre>
+
+<h3 id="oauth2-token-sent-in-a-header">OAuth2 Token (sent in a header)</h3>
+
+<pre class="terminal">
+$ curl -H "Authorization: token OAUTH-TOKEN" https://api.github.com
+</pre>
+
+<h3 id="oauth2-token-sent-as-a-parameter">OAuth2 Token (sent as a parameter)</h3>
+
+<pre class="terminal">
+$ curl https://api.github.com/?access_token=OAUTH-TOKEN
+</pre>
+
+<p>Read <a href="/v3/oauth/">more about OAuth2</a>.  Note that OAuth2 tokens can be <a href="/v3/oauth/#create-a-new-authorization">acquired
+programmatically</a>, for applications that
+are not websites.</p>
+
+<h3 id="oauth2-keysecret">OAuth2 Key/Secret</h3>
+
+<pre class="terminal">
+$ curl https://api.github.com/users/whatever?client_id=xxxx&amp;client_secret=yyyy
+</pre>
+
+<p>This should only be used in server to server scenarios.  Don’t leak your
+OAuth application’s client secret to your users.  Read <a href="#unauthenticated-rate-limited-requests">more about
+unauthenticated rate limiting</a>.</p>
       </div>
 
     <div id="js-sidebar" class="sidebar-shell">
