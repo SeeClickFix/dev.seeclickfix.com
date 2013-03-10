@@ -94,9 +94,7 @@ module SeeClickFix
       "title"      => "Found a bug",
       "body"       => "I'm having a problem with this.",
       "user"       => USER,
-      "labels"     => [LABEL],
       "assignee"   => USER,
-      "milestone"  => MILESTONE,
       "comments"   => 0,
       "pull_request" => {
         "html_url"  => "https://github.com/octocat/Hello-World/issues/1347",
