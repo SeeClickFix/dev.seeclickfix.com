@@ -16,7 +16,7 @@ end
 compile '/CNAME/' do
 end
 
-%w(v3 */).each do |version|
+%w(v2 */).each do |version|
   compile "/changes/#{version}" do
     filter :erb
     filter :kramdown, :toc_levels => [2]
