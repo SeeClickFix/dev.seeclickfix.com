@@ -4,78 +4,63 @@ title: Issues | SeeClickFix API
 
 # Issues
 
-Issues use [these custom media types](#custom-media-types). You can
-read more about the use of media types in the API [here](/v3/media/).
-
 * TOC
 {:toc}
 
 ## List issues
 
-List all issues across all the authenticated user's visible repositories
-including owned repositories, member repositories, and organization
-repositories:
+List multiple issues.
 
     GET /issues
 
+### Required Parameters
 
-### Parameters
+None
 
-bounds
-: * `:sw_lat,:sw_lng|:ne_lat,:ne_lng`: Issues within the defined rectangle
+### Optional Parameters
 
-Example
+* **bounds**=`:sw_lat,:sw_lng|:ne_lat,:ne_lng` - Limit results to the defined bounding box.
 
-    <%= root_v2_url %>/issues?bounds=0.0,0.0|4.0,4.0
+* **page**=`:page_number` - number of the page to return, default: 1
+
+* **per_page**=`:per_page` - number of issues returned per page, default: 20
+
+* **state**=`:state1,:state2` - one of 'Open', 'Acknowledged', 'Closed', 'Archived'. default: Open,Acknowledged,Closed
+
+* **sort**=`:order` - one of `updated_at`, `rating`, default: `created_at`.
+
+* **sort_direction**=`:direction` - "asc" or "desc" default: `desc`.
+
+* **after**=`:time` - :time can be either a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ OR an integer representing minutes since current time.
+
+* **before**=`:time` - :time can be either a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ OR an integer representing minutes since current time.
 
 
-page
-: * `page` : number of the page to return, default: 1
+### Examples
 
-per_page
-: * `per_page` : number of issues returned per page, default: 20
+    <%= root_v2_url %>/issues?page=1&per_page=5
 
-Example
-
-    <%= root_v2_url %>/issues?page=2&per_page=20
-
-
-filter_by
-: * `assigned`: Issues assigned to you (default)
-  * `created`: Issues created by you
-  * `mentioned`: Issues mentioning you
-  * `subscribed`: Issues you're subscribed to updates for
-  * `all`: All issues the authenticated user can see, regardless of particpation or creation
-
-state
-: `open`, `closed`, default: open
-
-labels
-: _String_ list of comma separated Label names.  Example:
-`bug,ui,@high`
-
-sort
-: `created`, `updated`, `comments`, default: `created`.
-
-direction
-: `asc` or `desc`, default: `desc`.
-
-since
-: _Optional_ **string** of a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
-
-### Response
+Returns the last five issues.
 
 <%= headers 200, :pagination => true %>
 <%= json(:issue) { |h| [h] } %>
 
 ## Get a single issue
 
-    GET /issues/:number
+    GET /issues/:issue_id
 
 ### Response
 
 <%= headers 200 %>
 <%= json :issue %>
+
+### Required Parameters
+
+None
+
+### Examples
+
+TODO
 
 ## Create an issue
 

@@ -17,6 +17,7 @@ module SeeClickFix
         302 => '302 Found',
         307 => '307 Temporary Redirect',
         304 => '304 Not Modified',
+        400 => '400 Bad Request',
         401 => '401 Unauthorized',
         403 => '403 Forbidden',
         404 => '404 Not Found',

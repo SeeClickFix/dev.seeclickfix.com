@@ -14,6 +14,7 @@ body {
   margin: 0px;
   padding: 0px;
   height: 100%;
+  font-size: 90%;
 }
 
 p {
@@ -122,7 +123,7 @@ a img {
 #header-wrapper {
   margin-bottom: 0;
   clear: both;
-  height: 57px;
+  height: 55px;
   background: white url(../images/background-v2.png) 0 0 repeat-x;
   border-bottom: 1px solid #CCC;
 }
