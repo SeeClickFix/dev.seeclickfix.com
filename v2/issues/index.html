@@ -35,9 +35,6 @@
       <div class="content">
     <h1 id="issues">Issues</h1>
 
-<p>Issues use <a href="#custom-media-types">these custom media types</a>. You can
-read more about the use of media types in the API <a href="/v3/media/">here</a>.</p>
-
 <ul id="markdown-toc">
 <li><a href="#list-issues">List issues</a></li>
   <li><a href="#get-a-single-issue">Get a single issue</a></li>
@@ -45,82 +42,48 @@ read more about the use of media types in the API <a href="/v3/media/">here</a>.
   <li><a href="#edit-an-issue">Edit an issue</a></li>
 </ul><h2 id="list-issues">List issues</h2>
 
-<p>List all issues across all the authenticated user’s visible repositories
-including owned repositories, member repositories, and organization
-repositories:</p>
+<p>List multiple issues.</p>
 
 <pre><code>GET /issues
 </code></pre>
 
-<h3 id="parameters">Parameters</h3>
+<h3 id="required-parameters">Required Parameters</h3>
 
-<dl>
-<dt>bounds</dt>
-  <dd>
-    <ul>
+<p>None</p>
+
+<h3 id="optional-parameters">Optional Parameters</h3>
+
+<ul>
 <li>
-<code>:sw_lat,:sw_lng|:ne_lat,:ne_lng</code>: Issues within the defined rectangle</li>
-    </ul>
-</dd>
-</dl><p>Example</p>
+    <p><strong>bounds</strong>=<code>:sw_lat,:sw_lng|:ne_lat,:ne_lng</code> - Limit results to the defined bounding box.</p>
+  </li>
+  <li>
+    <p><strong>page</strong>=<code>:page_number</code> - number of the page to return, default: 1</p>
+  </li>
+  <li>
+    <p><strong>per_page</strong>=<code>:per_page</code> - number of issues returned per page, default: 20</p>
+  </li>
+  <li>
+    <p><strong>state</strong>=<code>:state1,:state2</code> - one of ‘Open’, ‘Acknowledged’, ‘Closed’, ‘Archived’. default: Open,Acknowledged,Closed</p>
+  </li>
+  <li>
+    <p><strong>sort</strong>=<code>:order</code> - one of <code>updated_at</code>, <code>rating</code>, default: <code>created_at</code>.</p>
+  </li>
+  <li>
+    <p><strong>sort_direction</strong>=<code>:direction</code> - “asc” or “desc” default: <code>desc</code>.</p>
+  </li>
+  <li>
+    <p><strong>after</strong>=<code>:time</code> - :time can be either a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ OR an integer representing minutes since current time.</p>
+  </li>
+  <li>
+    <p><strong>before</strong>=<code>:time</code> - :time can be either a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ OR an integer representing minutes since current time.</p>
+  </li>
+</ul><h3 id="examples">Examples</h3>
 
-<pre><code>https://seeclickfix.com/api/v2/issues?bounds=0.0,0.0|4.0,4.0
+<pre><code>https://seeclickfix.com/api/v2/issues?page=1&amp;per_page=5
 </code></pre>
 
-<dl>
-<dt>page</dt>
-  <dd>
-    <ul>
-<li>
-<code>page</code> : number of the page to return, default: 1</li>
-    </ul>
-</dd>
-  <dt>per_page</dt>
-  <dd>
-    <ul>
-<li>
-<code>per_page</code> : number of issues returned per page, default: 20</li>
-    </ul>
-</dd>
-</dl><p>Example</p>
-
-<pre><code>https://seeclickfix.com/api/v2/issues?page=2&amp;per_page=20
-</code></pre>
-
-<dl>
-<dt>filter_by</dt>
-  <dd>
-    <ul>
-<li>
-<code>assigned</code>: Issues assigned to you (default)</li>
-      <li>
-<code>created</code>: Issues created by you</li>
-      <li>
-<code>mentioned</code>: Issues mentioning you</li>
-      <li>
-<code>subscribed</code>: Issues you’re subscribed to updates for</li>
-      <li>
-<code>all</code>: All issues the authenticated user can see, regardless of particpation or creation</li>
-    </ul>
-</dd>
-  <dt>state</dt>
-  <dd>
-<code>open</code>, <code>closed</code>, default: open</dd>
-  <dt>labels</dt>
-  <dd>
-<em>String</em> list of comma separated Label names.  Example:
-<code>bug,ui,@high</code>
-</dd>
-  <dt>sort</dt>
-  <dd>
-<code>created</code>, <code>updated</code>, <code>comments</code>, default: <code>created</code>.</dd>
-  <dt>direction</dt>
-  <dd>
-<code>asc</code> or <code>desc</code>, default: <code>desc</code>.</dd>
-  <dt>since</dt>
-  <dd>
-<em>Optional</em> <strong>string</strong> of a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ</dd>
-</dl><h3 id="response">Response</h3>
+<p>Returns the last five issues.</p>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -139,37 +102,12 @@ repositories:</p>
       <span class="s2">"gravatar_id"</span><span class="o">:</span> <span class="s2">"somehexcode"</span><span class="p">,</span>
       <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"https://api.github.com/users/octocat"</span>
     <span class="p">},</span>
-    <span class="s2">"labels"</span><span class="o">:</span> <span class="p">[</span>
-      <span class="p">{</span>
-        <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"https://api.github.com/repos/octocat/Hello-World/labels/bug"</span><span class="p">,</span>
-        <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"bug"</span><span class="p">,</span>
-        <span class="s2">"color"</span><span class="o">:</span> <span class="s2">"f29513"</span>
-      <span class="p">}</span>
-    <span class="p">],</span>
     <span class="s2">"assignee"</span><span class="o">:</span> <span class="p">{</span>
       <span class="s2">"login"</span><span class="o">:</span> <span class="s2">"octocat"</span><span class="p">,</span>
       <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
       <span class="s2">"avatar_url"</span><span class="o">:</span> <span class="s2">"https://github.com/images/error/octocat_happy.gif"</span><span class="p">,</span>
       <span class="s2">"gravatar_id"</span><span class="o">:</span> <span class="s2">"somehexcode"</span><span class="p">,</span>
       <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"https://api.github.com/users/octocat"</span>
-    <span class="p">},</span>
-    <span class="s2">"milestone"</span><span class="o">:</span> <span class="p">{</span>
-      <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"https://api.github.com/repos/octocat/Hello-World/milestones/1"</span><span class="p">,</span>
-      <span class="s2">"number"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-      <span class="s2">"state"</span><span class="o">:</span> <span class="s2">"open"</span><span class="p">,</span>
-      <span class="s2">"title"</span><span class="o">:</span> <span class="s2">"v1.0"</span><span class="p">,</span>
-      <span class="s2">"description"</span><span class="o">:</span> <span class="s2">""</span><span class="p">,</span>
-      <span class="s2">"creator"</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s2">"login"</span><span class="o">:</span> <span class="s2">"octocat"</span><span class="p">,</span>
-        <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-        <span class="s2">"avatar_url"</span><span class="o">:</span> <span class="s2">"https://github.com/images/error/octocat_happy.gif"</span><span class="p">,</span>
-        <span class="s2">"gravatar_id"</span><span class="o">:</span> <span class="s2">"somehexcode"</span><span class="p">,</span>
-        <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"https://api.github.com/users/octocat"</span>
-      <span class="p">},</span>
-      <span class="s2">"open_issues"</span><span class="o">:</span> <span class="mi">4</span><span class="p">,</span>
-      <span class="s2">"closed_issues"</span><span class="o">:</span> <span class="mi">8</span><span class="p">,</span>
-      <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2011-04-10T20:09:31Z"</span><span class="p">,</span>
-      <span class="s2">"due_on"</span><span class="o">:</span> <span class="kc">null</span>
     <span class="p">},</span>
     <span class="s2">"comments"</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="s2">"pull_request"</span><span class="o">:</span> <span class="p">{</span>
@@ -185,10 +123,10 @@ repositories:</p>
 
 <h2 id="get-a-single-issue">Get a single issue</h2>
 
-<pre><code>GET /issues/:number
+<pre><code>GET /issues/:issue_id
 </code></pre>
 
-<h3 id="response-1">Response</h3>
+<h3 id="response">Response</h3>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -206,37 +144,12 @@ repositories:</p>
     <span class="s2">"gravatar_id"</span><span class="o">:</span> <span class="s2">"somehexcode"</span><span class="p">,</span>
     <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"https://api.github.com/users/octocat"</span>
   <span class="p">},</span>
-  <span class="s2">"labels"</span><span class="o">:</span> <span class="p">[</span>
-    <span class="p">{</span>
-      <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"https://api.github.com/repos/octocat/Hello-World/labels/bug"</span><span class="p">,</span>
-      <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"bug"</span><span class="p">,</span>
-      <span class="s2">"color"</span><span class="o">:</span> <span class="s2">"f29513"</span>
-    <span class="p">}</span>
-  <span class="p">],</span>
   <span class="s2">"assignee"</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">"login"</span><span class="o">:</span> <span class="s2">"octocat"</span><span class="p">,</span>
     <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
     <span class="s2">"avatar_url"</span><span class="o">:</span> <span class="s2">"https://github.com/images/error/octocat_happy.gif"</span><span class="p">,</span>
     <span class="s2">"gravatar_id"</span><span class="o">:</span> <span class="s2">"somehexcode"</span><span class="p">,</span>
     <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"https://api.github.com/users/octocat"</span>
-  <span class="p">},</span>
-  <span class="s2">"milestone"</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"https://api.github.com/repos/octocat/Hello-World/milestones/1"</span><span class="p">,</span>
-    <span class="s2">"number"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s2">"state"</span><span class="o">:</span> <span class="s2">"open"</span><span class="p">,</span>
-    <span class="s2">"title"</span><span class="o">:</span> <span class="s2">"v1.0"</span><span class="p">,</span>
-    <span class="s2">"description"</span><span class="o">:</span> <span class="s2">""</span><span class="p">,</span>
-    <span class="s2">"creator"</span><span class="o">:</span> <span class="p">{</span>
-      <span class="s2">"login"</span><span class="o">:</span> <span class="s2">"octocat"</span><span class="p">,</span>
-      <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-      <span class="s2">"avatar_url"</span><span class="o">:</span> <span class="s2">"https://github.com/images/error/octocat_happy.gif"</span><span class="p">,</span>
-      <span class="s2">"gravatar_id"</span><span class="o">:</span> <span class="s2">"somehexcode"</span><span class="p">,</span>
-      <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"https://api.github.com/users/octocat"</span>
-    <span class="p">},</span>
-    <span class="s2">"open_issues"</span><span class="o">:</span> <span class="mi">4</span><span class="p">,</span>
-    <span class="s2">"closed_issues"</span><span class="o">:</span> <span class="mi">8</span><span class="p">,</span>
-    <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2011-04-10T20:09:31Z"</span><span class="p">,</span>
-    <span class="s2">"due_on"</span><span class="o">:</span> <span class="kc">null</span>
   <span class="p">},</span>
   <span class="s2">"comments"</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
   <span class="s2">"pull_request"</span><span class="o">:</span> <span class="p">{</span>
@@ -248,6 +161,14 @@ repositories:</p>
   <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2011-04-22T13:33:48Z"</span><span class="p">,</span>
   <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2011-04-22T13:33:48Z"</span>
 <span class="p">}</span></code></pre>
+
+<h3 id="required-parameters-1">Required Parameters</h3>
+
+<p>None</p>
+
+<h3 id="examples-1">Examples</h3>
+
+<p>TODO</p>
 
 <h2 id="create-an-issue">Create an issue</h2>
 
@@ -296,7 +217,7 @@ silently dropped otherwise.</em>
   <span class="p">]</span>
 <span class="p">}</span></code></pre>
 
-<h3 id="response-2">Response</h3>
+<h3 id="response-1">Response</h3>
 
 <pre class="headers"><code>Status: 201 Created</code></pre>
 
@@ -314,37 +235,12 @@ silently dropped otherwise.</em>
     <span class="s2">"gravatar_id"</span><span class="o">:</span> <span class="s2">"somehexcode"</span><span class="p">,</span>
     <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"https://api.github.com/users/octocat"</span>
   <span class="p">},</span>
-  <span class="s2">"labels"</span><span class="o">:</span> <span class="p">[</span>
-    <span class="p">{</span>
-      <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"https://api.github.com/repos/octocat/Hello-World/labels/bug"</span><span class="p">,</span>
-      <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"bug"</span><span class="p">,</span>
-      <span class="s2">"color"</span><span class="o">:</span> <span class="s2">"f29513"</span>
-    <span class="p">}</span>
-  <span class="p">],</span>
   <span class="s2">"assignee"</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">"login"</span><span class="o">:</span> <span class="s2">"octocat"</span><span class="p">,</span>
     <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
     <span class="s2">"avatar_url"</span><span class="o">:</span> <span class="s2">"https://github.com/images/error/octocat_happy.gif"</span><span class="p">,</span>
     <span class="s2">"gravatar_id"</span><span class="o">:</span> <span class="s2">"somehexcode"</span><span class="p">,</span>
     <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"https://api.github.com/users/octocat"</span>
-  <span class="p">},</span>
-  <span class="s2">"milestone"</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"https://api.github.com/repos/octocat/Hello-World/milestones/1"</span><span class="p">,</span>
-    <span class="s2">"number"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s2">"state"</span><span class="o">:</span> <span class="s2">"open"</span><span class="p">,</span>
-    <span class="s2">"title"</span><span class="o">:</span> <span class="s2">"v1.0"</span><span class="p">,</span>
-    <span class="s2">"description"</span><span class="o">:</span> <span class="s2">""</span><span class="p">,</span>
-    <span class="s2">"creator"</span><span class="o">:</span> <span class="p">{</span>
-      <span class="s2">"login"</span><span class="o">:</span> <span class="s2">"octocat"</span><span class="p">,</span>
-      <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-      <span class="s2">"avatar_url"</span><span class="o">:</span> <span class="s2">"https://github.com/images/error/octocat_happy.gif"</span><span class="p">,</span>
-      <span class="s2">"gravatar_id"</span><span class="o">:</span> <span class="s2">"somehexcode"</span><span class="p">,</span>
-      <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"https://api.github.com/users/octocat"</span>
-    <span class="p">},</span>
-    <span class="s2">"open_issues"</span><span class="o">:</span> <span class="mi">4</span><span class="p">,</span>
-    <span class="s2">"closed_issues"</span><span class="o">:</span> <span class="mi">8</span><span class="p">,</span>
-    <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2011-04-10T20:09:31Z"</span><span class="p">,</span>
-    <span class="s2">"due_on"</span><span class="o">:</span> <span class="kc">null</span>
   <span class="p">},</span>
   <span class="s2">"comments"</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
   <span class="s2">"pull_request"</span><span class="o">:</span> <span class="p">{</span>
@@ -402,7 +298,7 @@ Issue. Send an empty array (<code>[]</code>) to clear all Labels from the Issue.
   <span class="p">]</span>
 <span class="p">}</span></code></pre>
 
-<h3 id="response-3">Response</h3>
+<h3 id="response-2">Response</h3>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -420,37 +316,12 @@ Issue. Send an empty array (<code>[]</code>) to clear all Labels from the Issue.
     <span class="s2">"gravatar_id"</span><span class="o">:</span> <span class="s2">"somehexcode"</span><span class="p">,</span>
     <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"https://api.github.com/users/octocat"</span>
   <span class="p">},</span>
-  <span class="s2">"labels"</span><span class="o">:</span> <span class="p">[</span>
-    <span class="p">{</span>
-      <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"https://api.github.com/repos/octocat/Hello-World/labels/bug"</span><span class="p">,</span>
-      <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"bug"</span><span class="p">,</span>
-      <span class="s2">"color"</span><span class="o">:</span> <span class="s2">"f29513"</span>
-    <span class="p">}</span>
-  <span class="p">],</span>
   <span class="s2">"assignee"</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">"login"</span><span class="o">:</span> <span class="s2">"octocat"</span><span class="p">,</span>
     <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
     <span class="s2">"avatar_url"</span><span class="o">:</span> <span class="s2">"https://github.com/images/error/octocat_happy.gif"</span><span class="p">,</span>
     <span class="s2">"gravatar_id"</span><span class="o">:</span> <span class="s2">"somehexcode"</span><span class="p">,</span>
     <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"https://api.github.com/users/octocat"</span>
-  <span class="p">},</span>
-  <span class="s2">"milestone"</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"https://api.github.com/repos/octocat/Hello-World/milestones/1"</span><span class="p">,</span>
-    <span class="s2">"number"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s2">"state"</span><span class="o">:</span> <span class="s2">"open"</span><span class="p">,</span>
-    <span class="s2">"title"</span><span class="o">:</span> <span class="s2">"v1.0"</span><span class="p">,</span>
-    <span class="s2">"description"</span><span class="o">:</span> <span class="s2">""</span><span class="p">,</span>
-    <span class="s2">"creator"</span><span class="o">:</span> <span class="p">{</span>
-      <span class="s2">"login"</span><span class="o">:</span> <span class="s2">"octocat"</span><span class="p">,</span>
-      <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-      <span class="s2">"avatar_url"</span><span class="o">:</span> <span class="s2">"https://github.com/images/error/octocat_happy.gif"</span><span class="p">,</span>
-      <span class="s2">"gravatar_id"</span><span class="o">:</span> <span class="s2">"somehexcode"</span><span class="p">,</span>
-      <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"https://api.github.com/users/octocat"</span>
-    <span class="p">},</span>
-    <span class="s2">"open_issues"</span><span class="o">:</span> <span class="mi">4</span><span class="p">,</span>
-    <span class="s2">"closed_issues"</span><span class="o">:</span> <span class="mi">8</span><span class="p">,</span>
-    <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2011-04-10T20:09:31Z"</span><span class="p">,</span>
-    <span class="s2">"due_on"</span><span class="o">:</span> <span class="kc">null</span>
   <span class="p">},</span>
   <span class="s2">"comments"</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
   <span class="s2">"pull_request"</span><span class="o">:</span> <span class="p">{</span>
@@ -473,7 +344,7 @@ Issue. Send an empty array (<code>[]</code>) to clear all Labels from the Issue.
               <ul class="js-guides">
                 <li><a href="/v2/overview/authentication/">Authentication</a></li>
                 <li><a href="/v2/overview/libraries/">Libraries</a></li>
-                <li><a href="/v2/overview/about/">About this Document</a></li>
+                <li><a href="/v2/overview/about/">Reading this Document</a></li>
             </ul>
           </li>
 
