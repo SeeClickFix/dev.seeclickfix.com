@@ -49,7 +49,7 @@ Returns the last five issues.
 
 ## Get a single issue
 
-    GET /issues/:issue_id
+    GET /issues/:id
 
 ### Response
 

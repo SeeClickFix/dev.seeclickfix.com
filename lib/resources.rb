@@ -80,11 +80,11 @@ module SeeClickFix
     end
 
     ROOT_URL = "https://seeclickfix.com/api"
+    ASSET_URL = "http://seeclickfix.com"
 
     USER = {
       "display_name"        => "Jeffb",
       "id"           => 1,
-      "place_url"     => "https://seeclickfix.com",
       "civic_points" => 10,
       "witty_title" => "Street Smart",
       "voted_issue_count" => 31,
@@ -92,63 +92,64 @@ module SeeClickFix
       "comments_count" => 62,
       "closed_issue_count" => 27,
       "following_issue_count" => 10,
-      "square_image" => "#{ROOT_URL}/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg",
-      "public_filename" => "#{ROOT_URL}/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg"
+      "avatar" => {
+        "square_100x100" => "#{ASSET_URL}/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg",
+        "full" => "#{ASSET_URL}/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg"
+      }
     }
+
+    INTEGRATION_ISSUE = {
+      "remote_id" => 2,
+      :title => "City of New Haven",
+      :status => "Accepted"
+    }
+
+        ISSUE_COMMENT = {
+                "id"         => 1,
+                      "comment"       => "Me too",
+                            "commenter"       => USER,
+                                  "media" => {
+                  "video_url"     => "http://www.youtube.com/watch?v=dQw4w9WgXcQ",
+                          "image_full" =>   "#{ASSET_URL}/files/comment_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg",
+                                  "image_square_100x100" => "#{ASSET_URL}/files/comment_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg"
+                                        },
+                                                "created_at" => "2011-04-14T16:00:49Z"
+                                            }
+    VOTE = {}
 
     ISSUE = {
       "id"         => 1,
-      "url"        => "https://api.seeclickfix.com/api/v2/issues/1",
-      "html_url"   => "https://github.com/octocat/Hello-World/issues/1347",
+      "remote_integration" => INTEGRATION_ISSUE,
+      "api_url"        => "#{ROOT_URL}/v2/issues/1",
+      "html_url"   => "http://seeclickfix.com/issues/1-pothole",
+      "shortened_url"   => "http://scf.cm/i/1",
       "status"      => "Open",
-      "summary"      => "Found a bug",
-      "description"       => "I'm having a problem with this.",
+      "summary"      => "Pothole",
+      "description"       => "Please fix my neighborhood.",
       "reporter"       => USER,
       "assignee"   => USER,
-      "num_comments"   => 5,
-      "rating"   => 2,
+      "comment_count"   => 5,
+      "comments"  => [ISSUE_COMMENT, ISSUE_COMMENT],
+      "vote_count"   => 2,
+      "votes"        => [VOTE, VOTE],
       "closed_at"  => nil,
       "acknowledged_at"  => nil,
+      "lat" => 42.30293,
+      "lng" => -72.234234234,
+      "current_user_relationship" => {
+        :following => false,
+        :voted => true,
+        :reporter => false,
+        :assignee => false
+      },
+      "address" => "123 State St. New Haven, CT",
+      "media" => {
+          "video_url"     => "http://www.youtube.com/watch?v=dQw4w9WgXcQ",
+          "image_full" =>   "#{ASSET_URL}/files/comment_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg",
+          "image_square_100x100" => "#{ASSET_URL}/files/comment_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg"
+      },
       "created_at" => "2011-04-22T13:33:48Z",
       "updated_at" => "2011-04-22T13:33:48Z"
-    }
-
-#    [
-#      {
-#      "id": 1,
-#      "issue_id": 1,
-#      "summary": "Flooding",
-#      "status": "Archived",
-#      "address": "",
-#      "rating": 2,
-#      "vote_count": 0,
-#      "description": "there is severe flooding in on State Street due to clogged storm lines.",
-#      "slug": "1-flooding",
-#      "lat": 41.3143535624866,
-#      "lng": -72.9119467735291,
-#      "bitly": "http://bit.ly/82J5zf",
-#      "minutes_since_created": 2608477,
-#      "updated_at": "08/03/2012 at 06:31PM",
-#      "created_at": "03/25/2008 at 12:32PM",
-#      "user_id": "",
-#      "square_image": "http://seeclickfix.com/images/categories/flood.png",
-#      "reporter_display": "Ben Berkowitz",
-#      "comment_count_excluding_activity": 1,
-#      "voted_before": false,
-#      "following": false,
-#      "integration_issues": [
-#    ],
-#    "created_at_epoch": 1206462761000
-#    }
-#    ]
-
-    ISSUE_COMMENT = {
-      "id"         => 1,
-      "url"        => "https://api.github.com/repos/octocat/Hello-World/issues/comments/1",
-      "body"       => "Me too",
-      "user"       => USER,
-      "created_at" => "2011-04-14T16:00:49Z",
-      "updated_at" => "2011-04-14T16:00:49Z"
     }
 
   end
