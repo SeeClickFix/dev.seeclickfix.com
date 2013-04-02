@@ -38,7 +38,9 @@ None
 
 ### Examples
 
-    <%= root_v2_url %>/issues?page=1&per_page=5
+<pre class="terminal">
+$ curl -i <%= root_v2_url %>/issues?page=1&per_page=5
+</pre>
 
 Returns the last five issues.
 
