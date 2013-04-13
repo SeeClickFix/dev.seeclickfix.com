@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>SeeClickFix API v2</title>
+  <title>SeeClickFix API v2 Overview</title>
   <link rel="alternate" type="application/atom+xml" title="API Changes" href="/changes.atom" />
   <link href="/css/reset.css" rel="stylesheet" type="text/css" />
   <link href="/css/960.css" rel="stylesheet" type="text/css" />
@@ -21,11 +21,10 @@
         <div>
           <a class="logo" href="/"><img src="http://seeclickfix.com/assets/logo.png" alt="SeeClickFix API" /></a>
           <ul class="nav">
-            <li><a href="http://seeclickfix.com">SeeClickFix.com</a></li>
-            <li><a href="/">v2</a></li>
-            <li><a href="http://help.seeclickfix.com/kb/api/api-overview" target="_blank">v1</a></li>
-            <li><a
-              href="http://seeclickfix.com/contact_us">Support</a></li>
+            <li><a href="/">v2 (current)</a></li>
+            <li><a href="http://help.seeclickfix.com/kb/api/api-overview" target="_blank">v1 (deprecated)</a></li>
+            <li><a href="http://seeclickfix.com" target="_blank">SeeClickFix.com</a></li>
+            <li><a href="http://seeclickfix.com/contact_us" target="_blank">Support</a></li>
           </ul>
         </div>
       </div><!-- #header -->
@@ -33,7 +32,7 @@
 
     <div id="wrapper">
       <div class="content">
-    <h1 id="seeclickfix-api-v2">SeeClickFix API v2</h1>
+    <h1 id="seeclickfix-api-v2-overview">SeeClickFix API v2 Overview</h1>
 
 <p>This describes the resources that make up the official SeeClickFix API v2. If
 you have any problems or requests please contact
@@ -42,13 +41,14 @@ you have any problems or requests please contact
 <p>SeeClickFix provides an open311 compatible API at <a href="http://seeclickfix.com/open311">http://seeclickfix.com/open311</a>.</p>
 
 <ul id="markdown-toc">
-<li><a href="#the-url-schema">The URL Schema</a></li>
+<li><a href="#testing">Testing</a></li>
+  <li><a href="#url-format">URL Format</a></li>
   <li><a href="#data-format">Data Format</a></li>
+  <li><a href="#responses">Responses</a></li>
+  <li><a href="#parameters">Parameters</a></li>
   <li><a href="#pagination">Pagination</a></li>
   <li><a href="#blank-fields">Blank Fields</a></li>
   <li><a href="#time-formats">Time Formats</a></li>
-  <li><a href="#parameters">Parameters</a></li>
-  <li><a href="#error-responses">Error Responses</a></li>
   <li><a href="#http-redirects">HTTP Redirects</a></li>
   <li><a href="#http-verbs">HTTP Verbs</a></li>
   <li><a href="#hypermedia">Hypermedia</a></li>
@@ -57,11 +57,17 @@ you have any problems or requests please contact
   <li><a href="#json-p-callbacks">JSON-P Callbacks</a></li>
   <li><a href="#locales">Locales</a></li>
   <li><a href="#data-license">Data License</a></li>
-</ul><h2 id="the-url-schema">The URL Schema</h2>
+</ul><h2 id="testing">Testing</h2>
+
+<p>Testing can be done on the <code>test.seeclickfix.com</code> subdomain. This 
+subdomain has data replicated from production. SSL (https) is not 
+available on test.seeclickfix.com. </p>
+
+<h2 id="url-format">URL Format</h2>
 
 <p>URLs follow the following format</p>
 
-<pre><code>https://seeclickfix.com/api/v2 
+<pre><code>https://seeclickfix.com/api/2/&lt; RESOURCE &gt;
 </code></pre>
 
 <h2 id="data-format">Data Format</h2>
@@ -70,8 +76,40 @@ you have any problems or requests please contact
 
 <pre class="terminal">
 $ curl -i https://seeclickfix.com/api/v2/info
+</pre>
 
-TODO - PUT OUTPUT HERE
+<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"version"</span><span class="o">:</span> <span class="mf">2.0</span><span class="p">,</span>
+  <span class="s2">"base"</span><span class="o">:</span> <span class="s2">""</span>
+<span class="p">}</span></code></pre>
+
+<h2 id="responses">Responses</h2>
+
+<p>All responses will return a single object with three guaranteed attributes: <code>metadata</code>, <code>result</code>, and <code>errors</code>.</p>
+
+<p>The <code>metadata</code> attribute can contain metadata for the consumer about the
+result, for example pagination information, api limits, or query
+information. Metadata can be nil.</p>
+
+<p>The <code>result</code> attribute contains the result of the action. Each action will return
+either a result object or collection, but not one or the other
+conditionally. (i.e. if you’re listing issues and there’s only one
+result the result will be an array with one element). If there’s an
+error with the request the result can be nil.</p>
+
+<p>The <code>errors</code> attribute will always be an array of human readable server
+side errors regarding the request. Not all errors are fatal to the
+request, so be sure to check the HTTP response code. Errors may be
+translated depending on the given locale. If there are no errors this attribute will be nil.</p>
+
+<h2 id="parameters">Parameters</h2>
+
+<p>Many API methods take optional parameters. Optional parameters will be identified as optional in the documentation.</p>
+
+<p>For POST requests, parameters not included in the URL should be encoded as JSON with a Content-Type of ‘application/x-www-form-urlencoded’:</p>
+
+<pre class="terminal">
+$ curl -i -u username -d '{"scopes":["public_repo"]}' https://api.github.com/authorizations
 </pre>
 
 <h2 id="pagination">Pagination</h2>
@@ -97,24 +135,9 @@ $ curl https://api.seeclickfix.com/issues?page=2&amp;per_page=10
 <pre><code>YYYY-MM-DDTHH:MM:SSZ
 </code></pre>
 
-<h2 id="parameters">Parameters</h2>
-
-<p>Many API methods take optional parameters. Optional parameters will be identified in the documentation.</p>
-
-<p>For POST requests, parameters not included in the URL should be encoded as JSON with a Content-Type of ‘application/x-www-form-urlencoded’:</p>
-
-<p>TODO: Github requests that params be a json string. Do we want a json string or regular post params format?</p>
-
-<pre class="terminal">
-$ curl -i -u username -d '{"scopes":["public_repo"]}' https://api.github.com/authorizations
-</pre>
-
-<h2 id="error-responses">Error Responses</h2>
-
 <h3 id="client-errors">Client Errors</h3>
 
-<p>There are three possible types of client errors on API calls that
-receive request bodies:</p>
+<p>There are two possible types of client errors:</p>
 
 <ol>
 <li>
@@ -122,16 +145,13 @@ receive request bodies:</p>
 
     <pre class="headers"><code>Status: 400 Bad Request</code></pre>
 
-    <pre><code>{"message":"Problems parsing JSON"}
-</code></pre>
-  </li>
-  <li>
-    <p>Sending the wrong type of JSON values will result in a <code>400 Bad
-Request</code> response. TODO: do we need this?</p>
-
-    <pre class="headers"><code>Status: 400 Bad Request</code></pre>
-
-    <pre><code>{"message":"Body should be a JSON Hash"}
+    <pre><code> {
+   "metadata": nil,
+   "result": nil,
+   "errors": [ 
+     { "request": "Unable to parse JSON" }
+   ]
+ }
 </code></pre>
   </li>
   <li>
@@ -140,22 +160,21 @@ response.</p>
 
     <pre class="headers"><code>Status: 422 Unprocessable Entity</code></pre>
 
-    <pre><code>{
-   "message": "Validation Failed",
-   "errors": [
-     {
+    <pre><code> {
+   "metadata": nil,
+   "result": nil,
+   "errors": [ 
+     { 
+       "message": "Summary missing.",
        "resource": "Issue",
        "field": "summary",
        "code": "missing_field"
      }
    ]
-}
+ }
 </code></pre>
   </li>
-</ol><p>All error objects have resource and field properties so that your client
-can tell what the problem is.  There’s also an error code to let you
-know what is wrong with the field.  These are the possible validation error
-codes:</p>
+</ol><p>These are the possible validation error codes:</p>
 
 <dl>
 <dt>missing</dt>
@@ -165,10 +184,6 @@ codes:</p>
   <dt>invalid</dt>
   <dd>This means the formatting of a field is invalid.  The documentation
 for that resource should be able to give you more specific information.</dd>
-  <dt>already_exists</dt>
-  <dd>This means another resource has the same value as this field.  This
-can happen in resources that must have some unique key (such as Label
-names).</dd>
 </dl><p>If resources have custom validation errors, they will be documented with the resource.</p>
 
 <h3 id="server-errors">Server Errors</h3>
@@ -415,7 +430,7 @@ through as an array of <code>[url, options]</code> tuples.</p>
         </ul>
       </div> <!-- /sidebar-module -->
       <div class="sidebar-module">
-        <p>This website is a <a href="https://github.com/SeeClickFix/scf_api_docs" target="_blank">public GitHub repository</a>. Please help us by forking the project and adding to it.</p>
+        <p>This website is a <a href="https://github.com/SeeClickFix/dev.seeclickfix.com" target="_blank">public GitHub repository</a>. Please help us by forking the project and adding to it.</p>
       </div>
     </div><!-- /sidebar-shell -->
 

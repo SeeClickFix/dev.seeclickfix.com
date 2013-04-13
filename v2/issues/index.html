@@ -21,11 +21,10 @@
         <div>
           <a class="logo" href="/"><img src="http://seeclickfix.com/assets/logo.png" alt="SeeClickFix API" /></a>
           <ul class="nav">
-            <li><a href="http://seeclickfix.com">SeeClickFix.com</a></li>
-            <li><a href="/">v2</a></li>
-            <li><a href="http://help.seeclickfix.com/kb/api/api-overview" target="_blank">v1</a></li>
-            <li><a
-              href="http://seeclickfix.com/contact_us">Support</a></li>
+            <li><a href="/">v2 (current)</a></li>
+            <li><a href="http://help.seeclickfix.com/kb/api/api-overview" target="_blank">v1 (deprecated)</a></li>
+            <li><a href="http://seeclickfix.com" target="_blank">SeeClickFix.com</a></li>
+            <li><a href="http://seeclickfix.com/contact_us" target="_blank">Support</a></li>
           </ul>
         </div>
       </div><!-- #header -->
@@ -39,15 +38,30 @@
 <li><a href="#list-issues">List issues</a></li>
   <li><a href="#get-a-single-issue">Get a single issue</a></li>
   <li><a href="#create-an-issue">Create an issue</a></li>
-  <li><a href="#edit-an-issue">Edit an issue</a></li>
+  <li><a href="#update-an-issue">Update an issue</a></li>
 </ul><h2 id="list-issues">List issues</h2>
 
 <p>List multiple issues.</p>
 
-<pre><code>GET /issues
+<pre><code>GET https://seeclickfix.com/api/2/issues
 </code></pre>
 
-<h3 id="required-parameters">Required Parameters</h3>
+<h3 id="defaults">Defaults</h3>
+
+<ul>
+<li>
+<strong>within</strong> - Not limited by geography.</li>
+  <li>
+<strong>status</strong> - Open, Acknowledged, or Closed. Excludes Archived.</li>
+  <li>
+<strong>page</strong> - 1</li>
+  <li>
+<strong>per_page</strong> - 20</li>
+  <li>
+<strong>sort</strong> - created_at</li>
+  <li>
+<strong>date</strong> - No date limits.</li>
+</ul><h3 id="required-parameters">Required Parameters</h3>
 
 <p>None</p>
 
@@ -55,7 +69,13 @@
 
 <ul>
 <li>
-    <p><strong>bounds</strong>=<code>:sw_lat,:sw_lng|:ne_lat,:ne_lng</code> - Limit results to the defined bounding box.</p>
+    <p><strong>within</strong>=<code>area</code> - Limit results to the defined area. Areas can be specified using one of the following formats: </p>
+
+    <pre><code>  1. Bounding box `:sw_lat,:sw_lng|:ne_lat,:ne_lng` 
+  2. Place `url_name` 
+  3. Latitude, Longitude, Zoom `:latitude|:longitude|:zoom` 
+  4. Address and Zoom `746 Chapel St. New Haven, CT|14`.
+</code></pre>
   </li>
   <li>
     <p><strong>page</strong>=<code>:page_number</code> - number of the page to return, default: 1</p>
@@ -64,7 +84,7 @@
     <p><strong>per_page</strong>=<code>:per_page</code> - number of issues returned per page, default: 20</p>
   </li>
   <li>
-    <p><strong>state</strong>=<code>:state1,:state2</code> - one of ‘Open’, ‘Acknowledged’, ‘Closed’, ‘Archived’. default: Open,Acknowledged,Closed</p>
+    <p><strong>status</strong>=<code>:state1,:state2</code> - one of ‘Open’, ‘Acknowledged’, ‘Closed’, ‘Archived’. default: Open,Acknowledged,Closed</p>
   </li>
   <li>
     <p><strong>sort</strong>=<code>:order</code> - one of <code>updated_at</code>, <code>rating</code>, default: <code>created_at</code>.</p>
@@ -81,7 +101,7 @@
 </ul><h3 id="examples">Examples</h3>
 
 <pre class="terminal">
-$ curl -i https://seeclickfix.com/api/v2/issues?page=1&amp;per_page=5
+$ curl -i https://seeclickfix.com/api/2/issues?page=1&amp;per_page=5
 </pre>
 
 <p>Returns the last five issues.</p>
@@ -533,7 +553,7 @@ silently dropped otherwise.</em>
   <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2011-04-22T13:33:48Z"</span>
 <span class="p">}</span></code></pre>
 
-<h2 id="edit-an-issue">Edit an issue</h2>
+<h2 id="update-an-issue">Update an issue</h2>
 
 <p>Issue owners and users with push access can edit an issue.</p>
 
@@ -779,7 +799,7 @@ Issue. Send an empty array (<code>[]</code>) to clear all Labels from the Issue.
         </ul>
       </div> <!-- /sidebar-module -->
       <div class="sidebar-module">
-        <p>This website is a <a href="https://github.com/SeeClickFix/scf_api_docs" target="_blank">public GitHub repository</a>. Please help us by forking the project and adding to it.</p>
+        <p>This website is a <a href="https://github.com/SeeClickFix/dev.seeclickfix.com" target="_blank">public GitHub repository</a>. Please help us by forking the project and adding to it.</p>
       </div>
     </div><!-- /sidebar-shell -->
 
