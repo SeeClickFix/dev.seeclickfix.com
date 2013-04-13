@@ -7,34 +7,14 @@ require 'securerandom'
 module SeeClickFix
   module Resources
     module Helpers
-      STATUSES = {
-        200 => '200 OK',
-        201 => '201 Created',
-        202 => '202 Accepted',
-        204 => '204 No Content',
-        205 => '205 Reset Content',
-        301 => '301 Moved Permanently',
-        302 => '302 Found',
-        307 => '307 Temporary Redirect',
-        304 => '304 Not Modified',
-        400 => '400 Bad Request',
-        401 => '401 Unauthorized',
-        403 => '403 Forbidden',
-        404 => '404 Not Found',
-        405 => '405 Method not allowed',
-        409 => '409 Conflict',
-        422 => '422 Unprocessable Entity',
-        500 => '500 Server Error'
-      }
-
       DefaultTimeFormat = "%B %-d, %Y".freeze
 
       def root_url
         Resources.const_get('ROOT_URL')
       end
 
-      def root_v2_url
-        "#{root_url}/v2"
+      def root_version_url
+        "#{root_url}/#{Resources.const_get('VERSION')}"
       end
 
       def post_date(item)
@@ -78,9 +58,37 @@ module SeeClickFix
       end
 
     end
-
+    
     ROOT_URL = "https://seeclickfix.com/api"
     ASSET_URL = "http://seeclickfix.com"
+    VERSION = 2
+    ROOT_VERSION_URL = "#{ROOT_URL}/#{VERSION}"
+    
+
+    STATUSES = {
+      200 => '200 OK',
+      201 => '201 Created',
+      202 => '202 Accepted',
+      204 => '204 No Content',
+      205 => '205 Reset Content',
+      301 => '301 Moved Permanently',
+      302 => '302 Found',
+      307 => '307 Temporary Redirect',
+      304 => '304 Not Modified',
+      400 => '400 Bad Request',
+      401 => '401 Unauthorized',
+      403 => '403 Forbidden',
+      404 => '404 Not Found',
+      405 => '405 Method not allowed',
+      409 => '409 Conflict',
+      422 => '422 Unprocessable Entity',
+      500 => '500 Server Error'
+    }
+
+    INFO = {
+      version: 2.0,
+      base: ''
+    }
 
     USER = {
       "display_name"        => "Jeffb",
@@ -104,17 +112,17 @@ module SeeClickFix
       :status => "Accepted"
     }
 
-        ISSUE_COMMENT = {
-                "id"         => 1,
-                      "comment"       => "Me too",
-                            "commenter"       => USER,
-                                  "media" => {
-                  "video_url"     => "http://www.youtube.com/watch?v=dQw4w9WgXcQ",
-                          "image_full" =>   "#{ASSET_URL}/files/comment_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg",
-                                  "image_square_100x100" => "#{ASSET_URL}/files/comment_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg"
-                                        },
-                                                "created_at" => "2011-04-14T16:00:49Z"
-                                            }
+    ISSUE_COMMENT = {
+      "id"         => 1,
+      "comment"       => "Me too",
+      "commenter"       => USER,
+      "media" => {
+        "video_url"     => "http://www.youtube.com/watch?v=dQw4w9WgXcQ",
+        "image_full" =>   "#{ASSET_URL}/files/comment_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg",
+        "image_square_100x100" => "#{ASSET_URL}/files/comment_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg"
+      },
+      "created_at" => "2011-04-14T16:00:49Z"
+    }
     VOTE = {}
 
     ISSUE = {

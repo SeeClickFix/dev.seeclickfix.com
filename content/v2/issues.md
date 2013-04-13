@@ -11,7 +11,16 @@ title: Issues | SeeClickFix API
 
 List multiple issues.
 
-    GET /issues
+    GET <%= root_version_url %>/issues
+
+### Defaults
+
+* **within** - Not limited by geography.
+* **status** - Open, Acknowledged, or Closed. Excludes Archived.
+* **page** - 1
+* **per_page** - 20
+* **sort** - created_at
+* **date** - No date limits.
 
 ### Required Parameters
 
@@ -19,13 +28,18 @@ None
 
 ### Optional Parameters
 
-* **bounds**=`:sw_lat,:sw_lng|:ne_lat,:ne_lng` - Limit results to the defined bounding box.
+* **within**=`area` - Limit results to the defined area. Areas can be specified using one of the following formats: 
+
+        1. Bounding box `:sw_lat,:sw_lng|:ne_lat,:ne_lng` 
+        2. Place `url_name` 
+        3. Latitude, Longitude, Zoom `:latitude|:longitude|:zoom` 
+        4. Address and Zoom `746 Chapel St. New Haven, CT|14`.
 
 * **page**=`:page_number` - number of the page to return, default: 1
 
 * **per_page**=`:per_page` - number of issues returned per page, default: 20
 
-* **state**=`:state1,:state2` - one of 'Open', 'Acknowledged', 'Closed', 'Archived'. default: Open,Acknowledged,Closed
+* **status**=`:state1,:state2` - one of 'Open', 'Acknowledged', 'Closed', 'Archived'. default: Open,Acknowledged,Closed
 
 * **sort**=`:order` - one of `updated_at`, `rating`, default: `created_at`.
 
@@ -39,7 +53,7 @@ None
 ### Examples
 
 <pre class="terminal">
-$ curl -i <%= root_v2_url %>/issues?page=1&per_page=5
+$ curl -i <%= root_version_url %>/issues?page=1&per_page=5
 </pre>
 
 Returns the last five issues.
@@ -110,7 +124,7 @@ silently dropped otherwise._
 'https://api.github.com/repos/user/repo/issues/1' %>
 <%= json :issue %>
 
-## Edit an issue
+## Update an issue
 
 Issue owners and users with push access can edit an issue.
 
