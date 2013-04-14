@@ -13,7 +13,45 @@ Reporting an Issue is a two step process. Step 1 requires querying for a report 
 
     GET /report_form/:latitude,:longitude
 
+### Required Parameters
 
+* **latitude** - The latitude of the issue.
+* **longitude** - The longitude of the issue.
+
+### Response
+
+<%= headers 200 %>
+<%= 
+ json({ 
+   metadata: nil,
+   result: {
+     categories: [{ 
+       organization: 'New Haven',
+       title: 'Pothole',
+       questions: [{
+         question: 'How deep is the hole?',
+         type: 'select',
+         options: [
+           { shallow: 'Shallow' },
+           { deep: 'Deep' }
+         ]
+       }]
+     },{ 
+       organization: 'New Haven',
+       title: 'Street Light Problem',
+       questions: []
+     },{ 
+       organization: nil,
+       title: 'Other',
+       questions: [{
+         question: 'Please Summarize',
+         type: 'text'
+       }]
+     }]
+   },
+   errors: nil
+ })
+%>
 
 ## Create an issue
 
