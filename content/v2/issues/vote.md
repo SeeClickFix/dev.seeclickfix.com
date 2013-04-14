@@ -4,6 +4,8 @@ title: API v2 - Issues - Vote
 
 # Issue Voting
 
+To check wether the current user has voted for an issue see the attribute `current_user_relationship` on the issue show or issue list actions.  
+
 ## Vote for an Issue
 
 Issues can be voted on any authenticated user. Multiple votes by the same user will be ignored.

@@ -2,40 +2,20 @@
 title: API v2 - Issues - Flagging as Inappropriate
 ---
 
-# Issue Flagging
+# Issue Flagging as Inappropriate
 
-## Vote for an Issue
+Marking an issue as inappropriate alerts our moderators of the content. Flagging can happen on issues or comments.
 
-Issues can be voted on any authenticated user.
+## Flagging an Issue
 
-    PUT /issues/<issue_id>/vote
+Issues can be flagged by any authenticated user.
 
-### Request
-
-<%=
-  json({value: 1})
-%>
-
-### Response
-
-<%=
-  json({
-    metadata: nil,
-    result: 'success',
-    errors: nil
-  })
-%>
-
-## Revoke a vote for an Issue
-
-Issues can be voted on any authenticated user.
-
-    PUT /issues/<issue_id>/vote
+    PUT /issues/<issue_id>/flag
 
 ### Request
 
 <%=
-  json({value: -1})
+  json({reason: 'Using profanity.'})
 %>
 
 ### Response
