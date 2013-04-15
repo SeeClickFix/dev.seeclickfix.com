@@ -14,7 +14,7 @@ module SeeClickFix
       end
 
       def root_version_url
-        "#{root_url}/#{Resources.const_get('VERSION')}"
+        "#{root_url}/v#{Resources.const_get('VERSION')}"
       end
 
       def post_date(item)
