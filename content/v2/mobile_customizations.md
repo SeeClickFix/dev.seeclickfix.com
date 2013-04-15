@@ -6,7 +6,7 @@ title: API v2 - Mobile Customizations
 
 Our mobile applications are customized by partnering cities at specific locations. Use this resource to query for the style changes.
 
-    GET /mobile_customizations/:point
+    GET <%= root_version_url %>/mobile_customizations/:point
 
 ### Required Parameters
 

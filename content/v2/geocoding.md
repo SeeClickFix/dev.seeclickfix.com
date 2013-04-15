@@ -7,7 +7,7 @@ title: API v2 - Geocoding
 
 ## Geocode
 
-    GET /geocode/:point
+    GET <%= root_version_url %>/geocode/:point
 
 ### Required parameters
 
