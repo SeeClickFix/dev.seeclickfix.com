@@ -6,6 +6,9 @@ title: API v2 - Places
 
 Places are administrative areas such as neighborhoods, cities, counties etc.. They can be used to define <a href="/#geography">geographical boundaries</a> and therefore content within those boundaries.
 
+* TOC
+{:toc}
+
 ## List Places
 
     GET /places

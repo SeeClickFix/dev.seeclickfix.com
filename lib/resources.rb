@@ -123,6 +123,11 @@ module SeeClickFix
       },
       "created_at" => "2011-04-14T16:00:49Z"
     }
+
+    MOBILE_CUSTOMIZATION = {}
+
+    GEOCODE = {}
+
     VOTE = {}
 
     PLACE = {
