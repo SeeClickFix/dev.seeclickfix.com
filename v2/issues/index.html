@@ -40,43 +40,15 @@
   <li><a href="#create-an-issue">Create an Issue</a></li>
 </ul><h2 id="list-issues">List issues</h2>
 
-<p>List multiple issues.</p>
-
 <pre><code>GET https://seeclickfix.com/api/2/issues
 </code></pre>
-
-<h3 id="defaults">Defaults</h3>
-
-<ul>
-<li>
-<strong>within</strong> - Not limited by geography.</li>
-  <li>
-<strong>status</strong> - Open, Acknowledged, or Closed. Excludes Archived.</li>
-  <li>
-<strong>page</strong> - 1</li>
-  <li>
-<strong>per_page</strong> - 20</li>
-  <li>
-<strong>sort</strong> - created_at</li>
-  <li>
-<strong>date</strong> - No date limits.</li>
-</ul><h3 id="required-parameters">Required Parameters</h3>
-
-<p>None</p>
 
 <h3 id="optional-parameters">Optional Parameters</h3>
 
 <ul>
 <li>
-    <p><strong>within</strong>=<code>area</code> - Limit results to the specified area. Areas can be one of the following formats: </p>
-
-    <ol>
-<li>Bounding box <code>:sw_lat,:sw_lng|:ne_lat,:ne_lng</code> </li>
-      <li>Place <code>url_name</code> (see the Place resource for more information)</li>
-      <li>Latitude, Longitude, Zoom <code>:latitude|:longitude|:zoom</code> </li>
-      <li>Address and Zoom <code>746 Chapel St. New Haven, CT|14</code>.</li>
-    </ol>
-</li>
+    <p><strong>area</strong>=<code>:geography</code> - Limit results to the specified area. See <a href="/#geography">how to specify a geography</a> for syntax help. </p>
+  </li>
   <li>
     <p><strong>page</strong>=<code>:page_number</code> - number of the page to return, default: 1</p>
   </li>
@@ -87,18 +59,22 @@
     <p><strong>status</strong>=<code>:status1,:status2</code> - one of ‘Open’, ‘Acknowledged’, ‘Closed’, ‘Archived’. default: Open,Acknowledged,Closed</p>
   </li>
   <li>
-    <p><strong>sort</strong>=<code>:order</code> - one of <code>updated_at</code>, <code>created_at</code>, or <code>rating</code>.</p>
+    <p><strong>sort</strong>=<code>:order</code> - one of ‘updated_at’, ‘created_at’, ‘distance’ or ‘rating’. default: created_at.</p>
   </li>
   <li>
-    <p><strong>sort_direction</strong>=<code>:direction</code> - “asc” or “desc” default: <code>desc</code>.</p>
+    <p><strong>sort_direction</strong>=<code>:direction</code> - “asc” or “desc” default: ‘desc’.</p>
   </li>
   <li>
-    <p><strong>after</strong>=<code>:time</code> - :time can be either a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ OR an integer representing minutes since current time.</p>
+    <p><strong>after</strong>=<code>:time</code> - can be either a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ OR an integer representing minutes since current time.</p>
   </li>
   <li>
-    <p><strong>before</strong>=<code>:time</code> - :time can be either a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ OR an integer representing minutes since current time.</p>
+    <p><strong>before</strong>=<code>:time</code> - can be either a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ OR an integer representing minutes since current time.</p>
   </li>
-</ul><h3 id="examples">Examples</h3>
+</ul><h3 id="notes">Notes</h3>
+
+<p>For performance reasons, results larger than 30 will be abbreviated.</p>
+
+<h3 id="examples">Examples</h3>
 
 <pre class="terminal">
 $ curl -i https://seeclickfix.com/api/2/issues?page=1&amp;per_page=5
@@ -377,13 +353,9 @@ $ curl -i https://seeclickfix.com/api/2/issues?page=1&amp;per_page=5
   <span class="s2">"errors"</span><span class="o">:</span> <span class="kc">null</span>
 <span class="p">}</span></code></pre>
 
-<h3 id="required-parameters-1">Required Parameters</h3>
-
-<p>None</p>
-
 <h2 id="create-an-issue">Create an Issue</h2>
 
-<p>See the <a href="/v2/issues/report_form/">report form</a> resource.</p>
+<p>See the <a href="/v2/issues/report_form/">reporting an issue</a>.</p>
       </div>
 
     <div id="js-sidebar" class="sidebar-shell">
