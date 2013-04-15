@@ -11,7 +11,7 @@ Places are administrative areas such as neighborhoods, cities, counties etc.. Th
 
 ## List Places
 
-    GET /places
+    GET <%= root_version_url %>/places
 
 Returns a list of places closest to `point`.
 
@@ -40,7 +40,7 @@ Returns the 20 closest places.
 
 ## Show Place
 
-    GET /places/:id
+    GET <%= root_version_url %>/places/:id
 
 Returns a single place by `:id`.
 

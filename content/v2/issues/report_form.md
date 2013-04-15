@@ -11,53 +11,37 @@ Reporting an Issue is a two step process. Step 1 requires querying for a report 
 
 ## Report form
 
-    GET /report_form/:latitude,:longitude
+    GET <%= root_version_url %>/report_form/:point
 
 ### Required Parameters
 
-* **latitude** - The latitude of the issue.
-* **longitude** - The longitude of the issue.
+* `:point` - See <a href="/#geography">how to specify a geography</a> for syntax help.
+
+### Examples
+
+<pre class="terminal">
+$ curl -i <%= root_version_url %>/report_form/New+Haven,+CT
+</pre>
+
+Returns a list of service requests and their follow up questions for a particular location. TODO this is different from our current API. I don't think this would work for remote APIs like DC.
 
 ### Response
 
 <%= headers 200 %>
 <%= 
- json({ 
-   metadata: nil,
-   result: {
-     categories: [{ 
-       organization: 'New Haven',
-       title: 'Pothole',
-       questions: [{
-         question: 'How deep is the hole?',
-         type: 'select',
-         options: [
-           { shallow: 'Shallow' },
-           { deep: 'Deep' }
-         ]
-       }]
-     },{ 
-       organization: 'New Haven',
-       title: 'Street Light Problem',
-       questions: []
-     },{ 
-       organization: nil,
-       title: 'Other',
-       questions: [{
-         question: 'Please Summarize',
-         type: 'text'
-       }]
-     }]
-   },
-   errors: nil
- })
+ json(:report_form) do |h| 
+   { metadata: nil,
+     result: h,
+     errors: nil
+   }
+ end
 %>
 
 ## Create an issue
 
 Issues can be created by any authenticated user.
 
-    POST /issues
+    POST <%= root_version_url %>/issues
 
 ### Required Parameters
 

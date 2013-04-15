@@ -138,6 +138,32 @@ module SeeClickFix
       county: 'New Haven'
     }
 
+    REPORT_FORM = {
+       categories: [{ 
+         organization: 'New Haven',
+         title: 'Pothole',
+         questions: [{
+           question: 'How deep is the hole?',
+           type: 'select',
+           options: [
+             { shallow: 'Shallow' },
+             { deep: 'Deep' }
+           ]
+         }]
+       },{ 
+         organization: 'New Haven',
+         title: 'Street Light Problem',
+         questions: []
+       },{ 
+         organization: nil,
+         title: 'Other',
+         questions: [{
+           question: 'Please Summarize',
+           type: 'text'
+         }]
+       }]
+     }
+
     ISSUE = {
       "id"         => 1,
       "remote_integration" => INTEGRATION_ISSUE,
