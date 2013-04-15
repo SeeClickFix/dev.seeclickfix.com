@@ -125,6 +125,14 @@ module SeeClickFix
     }
     VOTE = {}
 
+    PLACE = {
+      id: '1',
+      state: 'CT',
+      name: 'New Haven',
+      url_name: 'new-haven',
+      county: 'New Haven'
+    }
+
     ISSUE = {
       "id"         => 1,
       "remote_integration" => INTEGRATION_ISSUE,
