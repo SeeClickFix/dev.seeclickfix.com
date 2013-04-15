@@ -56,6 +56,7 @@ you have any problems or requests please contact
   <li><a href="#user-agent-required">User Agent Required</a></li>
   <li><a href="#conditional-requests">Conditional requests</a></li>
   <li><a href="#json-p-callbacks">JSON-P Callbacks</a></li>
+  <li><a href="#geography">Geography</a></li>
   <li><a href="#locales">Locales</a></li>
   <li><a href="#data-license">Data License</a></li>
 </ul><h2 id="testing">Testing</h2>
@@ -90,18 +91,18 @@ $ curl -i https://seeclickfix.com/api/v2/info
 
 <p>The <code>metadata</code> attribute can contain metadata for the consumer about the
 result, for example pagination information, api limits, or query
-information. Metadata can be nil.</p>
+information. Metadata can be null.</p>
 
 <p>The <code>result</code> attribute contains the result of the action. Each action will return
 either a result object or collection, but not one or the other
 conditionally. (i.e. if you’re listing issues and there’s only one
 result the result will be an array with one element). If there’s an
-error with the request the result can be nil.</p>
+error with the request the result can be null.</p>
 
 <p>The <code>errors</code> attribute will always be an array of human readable server
 side errors regarding the request. Not all errors are fatal to the
 request, so be sure to check the HTTP response code. Errors may be
-translated depending on the given locale. If there are no errors this attribute will be nil.</p>
+translated depending on the given locale. If there are no errors this attribute will be null.</p>
 
 <h2 id="parameters">Parameters</h2>
 
@@ -149,8 +150,8 @@ $ curl https://api.seeclickfix.com/issues?page=2&amp;per_page=10
     <pre class="headers"><code>Status: 400 Bad Request</code></pre>
 
     <pre><code> {
-   "metadata": nil,
-   "result": nil,
+   "metadata": null,
+   "result": null,
    "errors": [ 
      { "request": "Unable to parse JSON" }
    ]
@@ -164,8 +165,8 @@ response.</p>
     <pre class="headers"><code>Status: 422 Unprocessable Entity</code></pre>
 
     <pre><code> {
-   "metadata": nil,
-   "result": nil,
+   "metadata": null,
+   "result": null,
    "errors": [ 
      { 
        "message": "Summary missing.",
@@ -349,7 +350,26 @@ through as an array of <code>[url, options]</code> tuples.</p>
   <span class="p">]</span>
 <span class="p">}</span></code></pre>
 
-<h2 id="locales">Locales</h2>
+<h2 id="geography">Geography</h2>
+
+<p>At various endpoints SeeClickFix recognizes geography either by a <code>point</code> or <code>area</code> attribute. </p>
+
+<p><code>point</code> attributes can be submitted in one of two forms:</p>
+
+<ol>
+<li><code>point=:latitude|:longitude</code></li>
+  <li><code>point=:address</code></li>
+</ol><p>If the submitted value has a pipe, it will be evaluated as a point. Otherwise, we will geocode the address and use the resulting latitude/longitude as a point.</p>
+
+<p><code>area</code> attributes can be submitted in the following forms:</p>
+
+<ol>
+<li><code>area=pointzoom|:latitude,:longitude,:zoom</code></li>
+  <li><code>area=addresszoom|:address,:zoom</code></li>
+  <li><code>area=place|:url_name</code></li>
+  <li><code>area=boundingbox|:sw_lat,:sw_lng,:ne_lat,:ne_lng</code></li>
+  <li><code>area=watcharea|:watch_area_token</code></li>
+</ol><h2 id="locales">Locales</h2>
 
 <p>All attributes are consistent between locales. Errors may be translated based on the given locale. Objects created will record the locale they were created in and notices based on these objects will be delivered with the proper locale. i.e. if an issue is created with the “es” locale, all email to the creator will be delivered with Spanish translations.</p>
 
@@ -378,10 +398,11 @@ through as an array of <code>[url, options]</code> tuples.</p>
           <li class="js-topic">
             <h3><a href="#" class="js-expand-btn collapsed">&nbsp;</a><a href="/v2/issues/">Issues</a></h3>
             <ul class="js-guides">
+              <li><a href="/v2/issues/report_form/">Reporting an Issue</a></li>
+              <li><a href="/v2/issues/comments/">Comments</a></li>
               <li><a href="/v2/issues/changing_status/">Changing Status</a></li>
               <li><a href="/v2/issues/vote/">Vote</a></li>
               <li><a href="/v2/issues/follow/">Follow</a></li>
-              <li><a href="/v2/issues/comment/">Comment</a></li>
               <li><a href="/v2/issues/flagging/">Flagging Content</a></li>
             </ul>
           </li>
@@ -389,16 +410,9 @@ through as an array of <code>[url, options]</code> tuples.</p>
           <li class="js-topic">
             <h3><a href="#" class="js-expand-btn collapsed">&nbsp;</a><a href="/v2/users/">Users</a></h3>
             <ul class="js-guides">
-              <li><a href="/v2/users/login/">Login</a></li>
-              <li><a href="/v2/users/logout/">Logout</a></li>
-              <li><a href="/v2/users/register/">Register</a></li>
               <li><a href="/v2/users/activity/">Activity</a></li>
               <li><a href="/v2/users/emails/">Emails</a></li>
             </ul>
-          </li>
-
-          <li class="js-topic">
-            <h3><a href="#" class="js-expand-btn collapsed">&nbsp;</a><a href="/v2/skins/">Skins</a></h3>
           </li>
           
           <li class="js-topic">
@@ -430,6 +444,11 @@ through as an array of <code>[url, options]</code> tuples.</p>
           <li class="js-topic">
             <h3><a href="#" class="js-expand-btn collapsed">&nbsp;</a><a href="/v2/geocoding/">Geocoding</a></h3>
           </li>
+
+          <li class="js-topic">
+            <h3><a href="#" class="js-expand-btn collapsed">&nbsp;</a><a href="/v2/mobile_customizations/">Mobile Customizations</a></h3>
+          </li>
+          
         </ul>
       </div> <!-- /sidebar-module -->
       <div class="sidebar-module">

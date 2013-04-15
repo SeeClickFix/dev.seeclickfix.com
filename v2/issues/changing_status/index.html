@@ -33,6 +33,73 @@
     <div id="wrapper">
       <div class="content">
     <h1 id="changing-the-status-of-issues">Changing the status of issues</h1>
+
+<p>Any authenticated user can change the status of an issue from Open to Closed and Closed to Open. Only government employees can change the status from Open to Acknowledged and Acknowledged to Closed. Issues are Archived after being Closed for 7 days. The status can not change for Archived issues. </p>
+
+<h2 id="changing-the-status-of-an-issue">Changing the status of an Issue</h2>
+
+<p>The status of an issue is similar to adding a comment on an issue. </p>
+
+<pre><code>POST /issues/&lt;issue_id&gt;/status
+</code></pre>
+
+<h3 id="required-parameters">Required Parameters</h3>
+
+<ul>
+<li>
+<strong>new_status</strong>=<code>:status</code> - The new status of an issue.</li>
+  <li>
+<strong>comment</strong>=<code>:comment</code> - A comment is required when changing the status.</li>
+</ul><h3 id="optional-parameters">Optional Parameters</h3>
+
+<ul>
+<li>
+<strong>image</strong> - An image of the problem. Limited to 20Mb.</li>
+  <li>
+<strong>video</strong> - A video of the problem. Limited to 20Mb.</li>
+  <li>
+<strong>youtube_url</strong> - A link to a youtube video showing the problem.</li>
+</ul><h3 id="request">Request</h3>
+
+<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"comment"</span><span class="o">:</span> <span class="s2">"The problem is getting larger."</span><span class="p">,</span>
+  <span class="s2">"new_status"</span><span class="o">:</span> <span class="s2">"Closed"</span>
+<span class="p">}</span></code></pre>
+
+<h3 id="response">Response</h3>
+
+<pre class="headers"><code>Status: 201 Created</code></pre>
+
+<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"metadata"</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">"moderated"</span><span class="o">:</span> <span class="kc">false</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="s2">"result"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="s2">"errors"</span><span class="o">:</span> <span class="kc">null</span>
+<span class="p">}</span></code></pre>
+
+<h2 id="listing-comments-on-an-issue">Listing Comments on an Issue</h2>
+
+<p>Votes can be revoked by any authenticated user. This removes the user’s vote. It does not vote down an issue. </p>
+
+<pre><code>GET /issues/&lt;issue_id&gt;/comments
+</code></pre>
+
+<h3 id="request-1">Request</h3>
+
+<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"value"</span><span class="o">:</span> <span class="o">-</span><span class="mi">1</span>
+<span class="p">}</span></code></pre>
+
+<h3 id="response-1">Response</h3>
+
+<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"metadata"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="s2">"result"</span><span class="o">:</span> <span class="s2">"success"</span><span class="p">,</span>
+  <span class="s2">"errors"</span><span class="o">:</span> <span class="kc">null</span>
+<span class="p">}</span></code></pre>
       </div>
 
     <div id="js-sidebar" class="sidebar-shell">
@@ -51,10 +118,11 @@
           <li class="js-topic">
             <h3><a href="#" class="js-expand-btn collapsed">&nbsp;</a><a href="/v2/issues/">Issues</a></h3>
             <ul class="js-guides">
+              <li><a href="/v2/issues/report_form/">Reporting an Issue</a></li>
+              <li><a href="/v2/issues/comments/">Comments</a></li>
               <li><a href="/v2/issues/changing_status/">Changing Status</a></li>
               <li><a href="/v2/issues/vote/">Vote</a></li>
               <li><a href="/v2/issues/follow/">Follow</a></li>
-              <li><a href="/v2/issues/comment/">Comment</a></li>
               <li><a href="/v2/issues/flagging/">Flagging Content</a></li>
             </ul>
           </li>
@@ -62,16 +130,9 @@
           <li class="js-topic">
             <h3><a href="#" class="js-expand-btn collapsed">&nbsp;</a><a href="/v2/users/">Users</a></h3>
             <ul class="js-guides">
-              <li><a href="/v2/users/login/">Login</a></li>
-              <li><a href="/v2/users/logout/">Logout</a></li>
-              <li><a href="/v2/users/register/">Register</a></li>
               <li><a href="/v2/users/activity/">Activity</a></li>
               <li><a href="/v2/users/emails/">Emails</a></li>
             </ul>
-          </li>
-
-          <li class="js-topic">
-            <h3><a href="#" class="js-expand-btn collapsed">&nbsp;</a><a href="/v2/skins/">Skins</a></h3>
           </li>
           
           <li class="js-topic">
@@ -103,6 +164,11 @@
           <li class="js-topic">
             <h3><a href="#" class="js-expand-btn collapsed">&nbsp;</a><a href="/v2/geocoding/">Geocoding</a></h3>
           </li>
+
+          <li class="js-topic">
+            <h3><a href="#" class="js-expand-btn collapsed">&nbsp;</a><a href="/v2/mobile_customizations/">Mobile Customizations</a></h3>
+          </li>
+          
         </ul>
       </div> <!-- /sidebar-module -->
       <div class="sidebar-module">

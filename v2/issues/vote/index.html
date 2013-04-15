@@ -32,7 +32,51 @@
 
     <div id="wrapper">
       <div class="content">
-    <h1 id="vote-on-an-issue">Vote on an Issue</h1>
+    <h1 id="issue-voting">Issue Voting</h1>
+
+<p>To check wether the current user has voted for an issue see the attribute <code>current_user_relationship</code> on the issue show or issue list actions.  </p>
+
+<h2 id="vote-for-an-issue">Vote for an Issue</h2>
+
+<p>Issues can be voted on any authenticated user. Multiple votes by the same user will be ignored.</p>
+
+<pre><code>PUT /issues/&lt;issue_id&gt;/vote
+</code></pre>
+
+<h3 id="request">Request</h3>
+
+<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"value"</span><span class="o">:</span> <span class="mi">1</span>
+<span class="p">}</span></code></pre>
+
+<h3 id="response">Response</h3>
+
+<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"metadata"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="s2">"result"</span><span class="o">:</span> <span class="s2">"success"</span><span class="p">,</span>
+  <span class="s2">"errors"</span><span class="o">:</span> <span class="kc">null</span>
+<span class="p">}</span></code></pre>
+
+<h2 id="revoke-a-vote-for-an-issue">Revoke a vote for an Issue</h2>
+
+<p>Votes can be revoked by any authenticated user. This removes the user’s vote. It does not vote down an issue. </p>
+
+<pre><code>PUT /issues/&lt;issue_id&gt;/vote
+</code></pre>
+
+<h3 id="request-1">Request</h3>
+
+<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"value"</span><span class="o">:</span> <span class="o">-</span><span class="mi">1</span>
+<span class="p">}</span></code></pre>
+
+<h3 id="response-1">Response</h3>
+
+<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"metadata"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="s2">"result"</span><span class="o">:</span> <span class="s2">"success"</span><span class="p">,</span>
+  <span class="s2">"errors"</span><span class="o">:</span> <span class="kc">null</span>
+<span class="p">}</span></code></pre>
       </div>
 
     <div id="js-sidebar" class="sidebar-shell">
@@ -51,10 +95,11 @@
           <li class="js-topic">
             <h3><a href="#" class="js-expand-btn collapsed">&nbsp;</a><a href="/v2/issues/">Issues</a></h3>
             <ul class="js-guides">
+              <li><a href="/v2/issues/report_form/">Reporting an Issue</a></li>
+              <li><a href="/v2/issues/comments/">Comments</a></li>
               <li><a href="/v2/issues/changing_status/">Changing Status</a></li>
               <li><a href="/v2/issues/vote/">Vote</a></li>
               <li><a href="/v2/issues/follow/">Follow</a></li>
-              <li><a href="/v2/issues/comment/">Comment</a></li>
               <li><a href="/v2/issues/flagging/">Flagging Content</a></li>
             </ul>
           </li>
@@ -62,16 +107,9 @@
           <li class="js-topic">
             <h3><a href="#" class="js-expand-btn collapsed">&nbsp;</a><a href="/v2/users/">Users</a></h3>
             <ul class="js-guides">
-              <li><a href="/v2/users/login/">Login</a></li>
-              <li><a href="/v2/users/logout/">Logout</a></li>
-              <li><a href="/v2/users/register/">Register</a></li>
               <li><a href="/v2/users/activity/">Activity</a></li>
               <li><a href="/v2/users/emails/">Emails</a></li>
             </ul>
-          </li>
-
-          <li class="js-topic">
-            <h3><a href="#" class="js-expand-btn collapsed">&nbsp;</a><a href="/v2/skins/">Skins</a></h3>
           </li>
           
           <li class="js-topic">
@@ -103,6 +141,11 @@
           <li class="js-topic">
             <h3><a href="#" class="js-expand-btn collapsed">&nbsp;</a><a href="/v2/geocoding/">Geocoding</a></h3>
           </li>
+
+          <li class="js-topic">
+            <h3><a href="#" class="js-expand-btn collapsed">&nbsp;</a><a href="/v2/mobile_customizations/">Mobile Customizations</a></h3>
+          </li>
+          
         </ul>
       </div> <!-- /sidebar-module -->
       <div class="sidebar-module">

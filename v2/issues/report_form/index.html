@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>API v2 - Places</title>
+  <title>API v2 - Issues - Report Form</title>
   <link rel="alternate" type="application/atom+xml" title="API Changes" href="/changes.atom" />
   <link href="/css/reset.css" rel="stylesheet" type="text/css" />
   <link href="/css/960.css" rel="stylesheet" type="text/css" />
@@ -32,70 +32,125 @@
 
     <div id="wrapper">
       <div class="content">
-    <h1 id="places">Places</h1>
+    <h1 id="reporting-an-issue">Reporting an Issue</h1>
 
-<p>Places are administrative areas such as neighborhoods, cities, counties etc.. They can be used to define <a href="/#geography">geographical boundaries</a> and therefore content within those boundaries.</p>
+<p>Reporting an Issue is a two step process. Step 1 requires querying for a report form by latitude and longitude. Step 2 is to create an issue.</p>
 
-<h2 id="list-places">List Places</h2>
+<ul id="markdown-toc">
+<li><a href="#report-form">Report form</a></li>
+  <li><a href="#create-an-issue">Create an issue</a></li>
+</ul><h2 id="report-form">Report form</h2>
 
-<pre><code>GET /places
+<pre><code>GET /report_form/:latitude,:longitude
 </code></pre>
-
-<p>Returns a list of places closest to <code>point</code>.</p>
 
 <h3 id="required-parameters">Required Parameters</h3>
 
 <ul>
 <li>
-<strong>point</strong>=<code>:point</code> - See <a href="/#geography">how to specify a geography</a> for syntax help.</li>
-</ul><h3 id="examples">Examples</h3>
-
-<pre class="terminal">
-$ curl -i https://seeclickfix.com/api/2/places?point=New+Haven,+CT
-</pre>
-
-<p>Returns the 20 closest places.</p>
-
-<pre class="headers"><code>Status: 200 OK</code></pre>
-
-<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
-  <span class="s2">"metadata"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-  <span class="s2">"result"</span><span class="o">:</span> <span class="p">[</span>
-    <span class="p">{</span>
-      <span class="s2">"id"</span><span class="o">:</span> <span class="s2">"1"</span><span class="p">,</span>
-      <span class="s2">"state"</span><span class="o">:</span> <span class="s2">"CT"</span><span class="p">,</span>
-      <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"New Haven"</span><span class="p">,</span>
-      <span class="s2">"url_name"</span><span class="o">:</span> <span class="s2">"new-haven"</span><span class="p">,</span>
-      <span class="s2">"county"</span><span class="o">:</span> <span class="s2">"New Haven"</span>
-    <span class="p">}</span>
-  <span class="p">],</span>
-  <span class="s2">"errors"</span><span class="o">:</span> <span class="kc">null</span>
-<span class="p">}</span></code></pre>
-
-<h2 id="show-place">Show Place</h2>
-
-<pre><code>GET /places/:id
-</code></pre>
-
-<p>Returns a single place by <code>:id</code>.</p>
-
-<h3 id="examples-1">Examples</h3>
-
-<pre class="terminal">
-$ curl -i https://seeclickfix.com/api/2/places/1
-</pre>
+<strong>latitude</strong> - The latitude of the issue.</li>
+  <li>
+<strong>longitude</strong> - The longitude of the issue.</li>
+</ul><h3 id="response">Response</h3>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
   <span class="s2">"metadata"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
   <span class="s2">"result"</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">"id"</span><span class="o">:</span> <span class="s2">"1"</span><span class="p">,</span>
-    <span class="s2">"state"</span><span class="o">:</span> <span class="s2">"CT"</span><span class="p">,</span>
-    <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"New Haven"</span><span class="p">,</span>
-    <span class="s2">"url_name"</span><span class="o">:</span> <span class="s2">"new-haven"</span><span class="p">,</span>
-    <span class="s2">"county"</span><span class="o">:</span> <span class="s2">"New Haven"</span>
+    <span class="s2">"categories"</span><span class="o">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="s2">"organization"</span><span class="o">:</span> <span class="s2">"New Haven"</span><span class="p">,</span>
+        <span class="s2">"title"</span><span class="o">:</span> <span class="s2">"Pothole"</span><span class="p">,</span>
+        <span class="s2">"questions"</span><span class="o">:</span> <span class="p">[</span>
+          <span class="p">{</span>
+            <span class="s2">"question"</span><span class="o">:</span> <span class="s2">"How deep is the hole?"</span><span class="p">,</span>
+            <span class="s2">"type"</span><span class="o">:</span> <span class="s2">"select"</span><span class="p">,</span>
+            <span class="s2">"options"</span><span class="o">:</span> <span class="p">[</span>
+              <span class="p">{</span>
+                <span class="s2">"shallow"</span><span class="o">:</span> <span class="s2">"Shallow"</span>
+              <span class="p">},</span>
+              <span class="p">{</span>
+                <span class="s2">"deep"</span><span class="o">:</span> <span class="s2">"Deep"</span>
+              <span class="p">}</span>
+            <span class="p">]</span>
+          <span class="p">}</span>
+        <span class="p">]</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="s2">"organization"</span><span class="o">:</span> <span class="s2">"New Haven"</span><span class="p">,</span>
+        <span class="s2">"title"</span><span class="o">:</span> <span class="s2">"Street Light Problem"</span><span class="p">,</span>
+        <span class="s2">"questions"</span><span class="o">:</span> <span class="p">[</span>
+
+        <span class="p">]</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="s2">"organization"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="s2">"title"</span><span class="o">:</span> <span class="s2">"Other"</span><span class="p">,</span>
+        <span class="s2">"questions"</span><span class="o">:</span> <span class="p">[</span>
+          <span class="p">{</span>
+            <span class="s2">"question"</span><span class="o">:</span> <span class="s2">"Please Summarize"</span><span class="p">,</span>
+            <span class="s2">"type"</span><span class="o">:</span> <span class="s2">"text"</span>
+          <span class="p">}</span>
+        <span class="p">]</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
   <span class="p">},</span>
+  <span class="s2">"errors"</span><span class="o">:</span> <span class="kc">null</span>
+<span class="p">}</span></code></pre>
+
+<h2 id="create-an-issue">Create an issue</h2>
+
+<p>Issues can be created by any authenticated user.</p>
+
+<pre><code>POST /issues
+</code></pre>
+
+<h3 id="required-parameters-1">Required Parameters</h3>
+
+<ul>
+<li>
+<strong>summary</strong> - A user written summary of the issue.</li>
+  <li>
+<strong>address</strong> - A written description of the location of the issue.</li>
+  <li>
+<strong>latitude</strong> - The latitude of the issue.</li>
+  <li>
+<strong>longitude</strong> - The longitude of the issue.</li>
+</ul><h3 id="optional-parameters">Optional Parameters</h3>
+
+<ul>
+<li>
+<strong>description</strong> - A user written description of the issue. </li>
+  <li>
+<strong>anonymize_reporter</strong> - Wether or not to protect the identification of the reporter. Default is false. A value of ‘1’ will evaluate to true.</li>
+  <li>
+<strong>image</strong> - An image of the problem. Limited to 20Mb.</li>
+  <li>
+<strong>video</strong> - A video of the problem. Limited to 20Mb.</li>
+  <li>
+<strong>youtube_url</strong> - A link to a youtube video showing the problem.</li>
+</ul><h3 id="example-request">Example request</h3>
+
+<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"summary"</span><span class="o">:</span> <span class="s2">"Big Pothole"</span><span class="p">,</span>
+  <span class="s2">"description"</span><span class="o">:</span> <span class="s2">"Please fix it"</span><span class="p">,</span>
+  <span class="s2">"latitude"</span><span class="o">:</span> <span class="mf">42.7265</span><span class="p">,</span>
+  <span class="s2">"longitude"</span><span class="o">:</span> <span class="o">-</span><span class="mf">72.567</span><span class="p">,</span>
+  <span class="s2">"address"</span><span class="o">:</span> <span class="s2">"123 State St. New Haven, CT"</span>
+<span class="p">}</span></code></pre>
+
+<h3 id="response-1">Response</h3>
+
+<pre class="headers"><code>Status: 201 Created</code></pre>
+
+<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"metadata"</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">"moderated"</span><span class="o">:</span> <span class="kc">false</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="s2">"result"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
   <span class="s2">"errors"</span><span class="o">:</span> <span class="kc">null</span>
 <span class="p">}</span></code></pre>
       </div>
