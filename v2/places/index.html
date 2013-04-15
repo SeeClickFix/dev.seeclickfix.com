@@ -41,7 +41,7 @@
   <li><a href="#show-place">Show Place</a></li>
 </ul><h2 id="list-places">List Places</h2>
 
-<pre><code>GET https://seeclickfix.com/api/2/places
+<pre><code>GET https://seeclickfix.com/api/v2/places
 </code></pre>
 
 <p>Returns a list of places closest to <code>point</code>.</p>
@@ -54,7 +54,7 @@
 </ul><h3 id="examples">Examples</h3>
 
 <pre class="terminal">
-$ curl -i https://seeclickfix.com/api/2/places?point=New+Haven,+CT
+$ curl -i https://seeclickfix.com/api/v2/places?point=New+Haven,+CT
 </pre>
 
 <p>Returns the 20 closest places.</p>
@@ -77,7 +77,7 @@ $ curl -i https://seeclickfix.com/api/2/places?point=New+Haven,+CT
 
 <h2 id="show-place">Show Place</h2>
 
-<pre><code>GET https://seeclickfix.com/api/2/places/:id
+<pre><code>GET https://seeclickfix.com/api/v2/places/:id
 </code></pre>
 
 <p>Returns a single place by <code>:id</code>.</p>
@@ -85,7 +85,7 @@ $ curl -i https://seeclickfix.com/api/2/places?point=New+Haven,+CT
 <h3 id="examples-1">Examples</h3>
 
 <pre class="terminal">
-$ curl -i https://seeclickfix.com/api/2/places/1
+$ curl -i https://seeclickfix.com/api/v2/places/1
 </pre>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
