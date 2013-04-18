@@ -10,10 +10,14 @@ title: API v2 - Request Type Questions - Changing Status
 ## List Questions
 
     GET <%= root_version_url %>/request_types/:id
-    
+
+### Get the questions for a request_type
+
 <pre class="terminal">
 $ curl -i <%= root_version_url %>/request_types/99
 </pre>
+
+### Response
 
 <%= headers 200 %>
 

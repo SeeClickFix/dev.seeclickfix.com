@@ -19,17 +19,25 @@ title: Request Types | SeeClickFix API
 
 * `ids` - Comma seperated list of plus_watch_area ids that will be returned in addition to any request types that exist at the specified location.
 
+### Get availavle Request Types at a location
+
 <pre class="terminal">
 $ curl -i <%= root_version_url %>/request_types?point=New+Haven,+CT
 </pre>
+
+### Response
 
 <%= headers 200 %>
 
 <%= json(:enhacned_watch_areas) %>
 
+### Get availavle Request Types at a location in addition to those of a known id
+
 <pre class="terminal">
 $ curl -i <%= root_version_url %>/request_types?point=Boston,+Ma&ids=201
 </pre>
+
+### Response
 
 <%= headers 200 %>
 
