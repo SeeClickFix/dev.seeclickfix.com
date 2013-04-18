@@ -199,6 +199,125 @@ module SeeClickFix
       "updated_at" => "2011-04-22T13:33:48Z"
     }
 
+    SCF_REQUEST_TYPE0 = {
+      id: 121,
+      url: "#{ROOT_URL}/v2/request_types/121",
+      title: "Abandoned Auto",
+      additional_questions_count: 0
+    }
+    SCF_REQUEST_TYPE1 = {
+      id: 122,
+      url: "#{ROOT_URL}/v2/request_types/122",
+      title: "Graffitit",
+      additional_questions_count: 2
+    }
+
+    SCF_ZONE = {
+      id: 200,
+      title: "City of SeeClickFix",
+      request_types: [
+        SCF_REQUEST_TYPE0,
+        SCF_REQUEST_TYPE1
+      ]
+    }
+
+    NHV_REQUEST_TYPE0 = {
+      id: 12,
+      url: "#{ROOT_VERSION_URL}/request_types/12",
+      title: "Abandoned Auto",
+      additional_questions_count: 0
+    }
+    NHV_REQUEST_TYPE1 = {
+      id: 11,
+      url: "#{ROOT_VERSION_URL}/request_types/11",
+      title: "Graffitit",
+      additional_questions_count: 2
+    }
+
+    NEW_HAVEN_ZONE = {
+      id: 201,
+      title: "City of New Haven",
+      request_types: [
+        NHV_REQUEST_TYPE0,
+        NHV_REQUEST_TYPE1
+      ]
+    }
+
+    ENHACNED_WATCH_AREAS = [
+      NEW_HAVEN_ZONE
+    ]
+    
+
+    ENHACNED_WATCH_AREAS_WITH_IDS = [
+      SCF_ZONE,
+      NEW_HAVEN_ZONE
+    ]
+
+    REQUEST_TYPE_WITH_QUESTION = {
+      id: 99,
+      title: "Lack of Caffeination",
+      questions: [
+        {
+          id: 142,
+          primary_key: 142,
+          question: "Do you drink coffee?",
+          question_type: "select",
+          required_response: true,
+          select_values: [
+            {
+              key: "Y",
+              name: "Yes"
+            },
+            {
+              key: "N",
+              name: "No"
+            }
+          ]
+        },
+        {
+          id: 39,
+          primary_key: 39,
+          question: "If not why?",
+          question_type: "text",
+          required_response: false,
+          select_values: []
+        },
+        {
+          id: 535,
+          primary_key: 535,
+          question: "Where do you normally buy coffee?",
+          question_type: "text",
+          required_response: false,
+          select_values: [
+            {
+              key: "Dunkin Donuts",
+              name: "Dunkin Donuts"
+            },
+            {
+              key: "Starbucks",
+              name: "Starbucks"
+            },
+            {
+              key: "Local Coffee Shops",
+              name: "Local Coffee Shops"
+            },
+            {
+              key: "Truck Stops",
+              name: "Truck Stops"
+            },
+            {
+              key: "Seattle's Best",
+              name: "Seattle's Best"
+            },
+            {
+              key: "Other",
+              name: "Other"
+            }
+          ]
+        }
+      ]
+    }
+
   end
 end
 
