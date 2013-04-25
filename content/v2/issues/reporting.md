@@ -11,7 +11,7 @@ Reporting an Issue is a two step process. Step 1 requires querying for a report 
 
 ## Report form
 
-    GET <%= root_version_url %>/report_form/:point
+    GET <%= root_version_url %>/new?:point
 
 ### Required Parameters
 
@@ -20,7 +20,7 @@ Reporting an Issue is a two step process. Step 1 requires querying for a report 
 ### Examples
 
 <pre class="terminal">
-$ curl -i <%= root_version_url %>/report_form/New+Haven,+CT
+$ curl -i <%= root_version_url %>/new?address=New+Haven,+CT
 </pre>
 
 Returns a list of service requests and their follow up questions for a particular location. TODO this is different from our current API. I don't think this would work for remote APIs like DC.
