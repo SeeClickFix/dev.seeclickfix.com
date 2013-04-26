@@ -29,6 +29,10 @@ module SeeClickFix
         css_class = (status == 204 || status == 404) ? 'headers no-response' : 'headers'
         lines = ["Status: #{STATUSES[status]}"]
 
+        head.each do |key, value|
+          lines << "#{key}: #{value}"
+        end
+
         #lines << "X-RateLimit-Limit: 5000"
 
         %(<pre class="#{css_class}"><code>#{lines * "\n"}</code></pre>\n)
