@@ -28,14 +28,50 @@ Returns a list of service requests and their follow up questions for a particula
 ### Response
 
 <%= headers 200 %>
-<%= 
- json(:report_form) do |h| 
-   { metadata: nil,
-     result: h,
-     errors: nil
-   }
- end
-%>
+<%= json(:new_issue) %>
+
+## Details about a Request Type
+
+<pre class="terminal">
+$ curl -i <%= root_version_url %>/request_type/122
+</pre>
+
+### Response
+
+<%= headers 200 %>
+<%= json(:request_type_122) %>
+
+We will always provide an "Other" category, in the event one is not supplied by th city we will provide one
+
+<pre class="terminal">
+$ curl -i <%= root_version_url %>/request_type/other
+</pre>
+
+### Response
+
+<%= headers 200 %>
+<%= json(:request_type_other) %>
+
+## Question Types
+
+* **text** - Short form text answer.
+* **textarea** - Long form text answer.
+* **select** - One value from supplied list.
+* **multivaluelist** - One or more values from the supplied list. Submitted as an array.
+* **number** - requires a numerical validation.
+* **datetime** - ISO 8601 timestamp.
+* **boolean** - Only `true`/`false` are acceptable answers
+* **hidden** - field hidden from user.
+* **note** - No response expected, display as a note to the user.
+
+## Select Values
+
+For **select** amd **multivaluelist** the use should we return a display value (`name`) and a key value (`key`).
+
+## Request Type & Questions for authenticated users
+
+Some request types & questions are only for specific authenticated users.
+
 
 ## Create an issue
 
@@ -45,39 +81,52 @@ Issues can be created by any authenticated user.
 
 ### Required Parameters
 
-* **summary** - A user written summary of the issue.
 * **address** - A written description of the location of the issue.
 * **latitude** - The latitude of the issue.
 * **longitude** - The longitude of the issue.
-
+* **questions** - Answers to questions
+* **request_type_id** - the id of your chosen Request Type
 
 ### Optional Parameters
 
-* **description** - A user written description of the issue. 
-* **anonymize_reporter** - Wether or not to protect the identification of the reporter. Default is false. A value of '1' will evaluate to true.
+* **anonymize_reporter** - Wether or not to protect the identification of the reporter. Default is false.  will evaluate to true.
 * **image** - An image of the problem. Limited to 20Mb.
 * **video** - A video of the problem. Limited to 20Mb.
 * **youtube_url** - A link to a youtube video showing the problem.
 
 ### Example request
 
-<%= 
- json({ 
-   summary: 'Big Pothole',
-   description: 'Please fix it',
+<%=
+ json({
    latitude: 42.7265,
    longitude: -72.567,
-   address: '123 State St. New Haven, CT'
+   address: '123 State St. New Haven, CT',
+   response_type_id: 122,
+   questions: {
+     "142" => "SHALLOW",
+     "summary" => 'Big Pothole',
+     "description" => 'Please fix it'
+   }
  })
 %>
 
 ### Response
 
-<%= headers 201 %>
-<%= 
- json({ 
-   metadata: [{moderated: false}],
-   result: nil,
-   errors: nil
+<%= headers 201, { Location: "http://seeclickfix.com/issues/987654321" } %>
+<%=
+ json({
+   metadata: {moderated: false}
+ })
+%>
+
+### In the event of validation errors
+
+<%= headers 422 %>
+<%=
+ json({
+   errors: [
+     "An Address is required",
+     "Question: 'Depth of pothole?' is required"
+   ]
  })
 %>

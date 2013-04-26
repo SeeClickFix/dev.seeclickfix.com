@@ -142,31 +142,137 @@ module SeeClickFix
       county: 'New Haven'
     }
 
-    REPORT_FORM = {
-       categories: [{ 
-         organization: 'New Haven',
-         title: 'Pothole',
-         questions: [{
-           question: 'How deep is the hole?',
-           type: 'select',
-           options: [
-             { shallow: 'Shallow' },
-             { deep: 'Deep' }
-           ]
-         }]
-       },{ 
-         organization: 'New Haven',
-         title: 'Street Light Problem',
-         questions: []
-       },{ 
-         organization: nil,
-         title: 'Other',
-         questions: [{
-           question: 'Please Summarize',
-           type: 'text'
-         }]
-       }]
-     }
+    NEW_ISSUE = {
+      categories: [{
+        organization: "City of SeeClickFix",
+        title: "Abandoned Auto",
+        url: "#{ROOT_URL}/v2/request_types/121"
+      },
+      {
+        organization: "City of New Haven",
+        title: "Pothole",
+        url: "#{ROOT_URL}/v2/request_types/122"
+      },
+      {
+        organization: nil,
+        title: 'Other',
+        url: "#{ROOT_URL}/v2/request_types/other"
+      }]
+    }
+
+    REQUEST_TYPE_121 = {
+      id: 121,
+      organization: "City of SeeClickFix",
+      title: "Abandoned Auto",
+      questions: [
+        {
+          primary_key: "142",
+          question: "Type of vehicle?",
+          question_type: "select",
+          required_response: true,
+          select_values: [
+            {
+              key: "CAR",
+              name: "Car"
+            },
+            {
+              key: "TRUCK",
+              name: "Truck"
+            }
+          ]
+        },
+        {
+          primary_key: "summary",
+          question: "Issue Title",
+          question_type: "text",
+          required_response: true
+        },
+        {
+          primary_key: "description",
+          question: "Description",
+          question_type: "textarea",
+          required_response: false
+        },
+        {
+          primary_key: "issue_image",
+          question: "Issue Image",
+          question_type: "file",
+          required_response: false
+        }
+      ]
+    }
+
+    REQUEST_TYPE_122 = {
+      id: 122,
+      organization: "City of New Haven",
+      title: "Pothole",
+      questions: [
+        {
+          primary_key: "142",
+          question: "Depth of pothole?",
+          question_type: "select",
+          required_response: true,
+          select_values: [
+            {
+              key: "BUMPY",
+              name: "Bumpy Surface"
+            },
+            {
+              key: "SHALLOW",
+              name: "Shallow Hole"
+            },
+            {
+              key: "DEEP",
+              name: "Deep Hole"
+            }
+          ]
+        },
+        {
+          primary_key: "summary",
+          question: "Issue Title",
+          question_type: "text",
+          required_response: true
+        },
+        {
+          primary_key: "description",
+          question: "Description",
+          question_type: "textarea",
+          required_response: false
+        },
+        {
+          primary_key: "issue_image",
+          question: "Issue Image",
+          question_type: "file",
+          required_response: false
+        }
+      ]
+    }
+
+    REQUEST_TYPE_OTHER = {
+      id: nil,
+      organization: nil,
+      title: 'Other',
+      questions: [
+        {
+          primary_key: "summary",
+          question: "Issue Title",
+          question_type: "text",
+          required_response: true
+        },
+        {
+          primary_key: "description",
+          question: "Description",
+          question_type: "textarea",
+          required_response: false
+        },
+        {
+          primary_key: "issue_image",
+          question: "Issue Image",
+          question_type: "file",
+          required_response: false
+        }
+      ]
+    }
 
     ISSUE = {
       "id"         => 1,
