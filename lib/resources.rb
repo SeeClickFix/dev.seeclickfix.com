@@ -29,6 +29,10 @@ module SeeClickFix
         css_class = (status == 204 || status == 404) ? 'headers no-response' : 'headers'
         lines = ["Status: #{STATUSES[status]}"]
 
+        head.each do |key, value|
+          lines << "#{key}: #{value}"
+        end
+
         #lines << "X-RateLimit-Limit: 5000"
 
         %(<pre class="#{css_class}"><code>#{lines * "\n"}</code></pre>\n)
@@ -138,31 +142,209 @@ module SeeClickFix
       county: 'New Haven'
     }
 
-    REPORT_FORM = {
-       categories: [{ 
-         organization: 'New Haven',
-         title: 'Pothole',
-         questions: [{
-           question: 'How deep is the hole?',
-           type: 'select',
-           options: [
-             { shallow: 'Shallow' },
-             { deep: 'Deep' }
-           ]
-         }]
-       },{ 
-         organization: 'New Haven',
-         title: 'Street Light Problem',
-         questions: []
-       },{ 
-         organization: nil,
-         title: 'Other',
-         questions: [{
-           question: 'Please Summarize',
-           type: 'text'
-         }]
-       }]
-     }
+    NEW_ISSUE = {
+      categories: [{
+        organization: "City of SeeClickFix",
+        title: "Abandoned Auto",
+        url: "#{ROOT_URL}/v2/request_types/121"
+      },
+      {
+        organization: "City of SeeClickFix",
+        title: "Graffiti",
+        url: "#{ROOT_URL}/v2/request_types/657"
+      },
+      {
+        organization: "City of New Haven",
+        title: "Pothole",
+        url: "#{ROOT_URL}/v2/request_types/122"
+      },
+      {
+        organization: nil,
+        title: 'Other',
+        url: "#{ROOT_URL}/v2/request_types/other"
+      }]
+    }
+
+    REQUEST_TYPE_121 = {
+      id: 121,
+      organization: "City of SeeClickFix",
+      title: "Abandoned Auto",
+      questions: [
+        {
+          primary_key: "142",
+          question: "Type of vehicle?",
+          question_type: "select",
+          response_required: true,
+          select_values: [
+            {
+              key: "CAR",
+              name: "Car"
+            },
+            {
+              key: "TRUCK",
+              name: "Truck"
+            }
+          ]
+        },
+        {
+          primary_key: "summary",
+          question: "Issue Title",
+          question_type: "text",
+          response_required: true
+        },
+        {
+          primary_key: "description",
+          question: "Description",
+          question_type: "textarea",
+          response_required: false
+        },
+        {
+          primary_key: "issue_image",
+          question: "Issue Image",
+          question_type: "file",
+          response_required: false
+        }
+      ]
+    }
+
+    REQUEST_TYPE_657 = {
+      id: 657,
+      organization: "City of SeeClickFix",
+      title: "Graffiti",
+      questions: [
+        {
+          primary_key: "400",
+          question: "Graffiti is on a surface of:",
+          question_type: "multivaluelist",
+          response_required: true,
+          select_values: [
+            { key: "Brick",        value: "Brick" },
+            { key: "PaintedBrick", value: "Painted Brick" },
+            { key: "Wood",         value: "Wood" },
+            { key: "PaintedWood",  value: "Painted Wood" },
+            { key: "Metal",        value: "Metal" },
+            { key: "Sandstone",    value: "Sandstone or rock" },
+            { key: "Pavers",       value: "Pavers" },
+            { key: "Concrete",     value: "Concrete" },
+            { key: "Tarmac",       value: "Tarmac" },
+            { key: "Tile",         value: "Tiles" },
+            { key: "Plastic",      value: "Plastic perspex" },
+            { key: "Glass",        value: "Glass" },
+            { key: "Other",        value: "Other" }
+          ]
+        },
+        {
+          primary_key: "401",
+          question: "Material Used to apply graffiti",
+          question_type: "multivaluelist",
+          response_required: true,
+          select_values: [
+            { key: "Paint",    value: "Paint" },
+            { key: "Pen",      value: "Pen" },
+            { key: "Texta",    value: "Texta" },
+            { key: "Whiteout", value: "White out" },
+            { key: "Crayon",   value: "Crayon" },
+            { key: "Other",    value: "Other" }
+          ]
+        },
+        {
+          primary_key: "offensive",
+          question: "Is the graffiti offensive?",
+          question_type: "boolean",
+          response_required: true
+        },
+        {
+          primary_key: "summary",
+          question: "Issue Title",
+          question_type: "text",
+          response_required: true
+        },
+        {
+          primary_key: "description",
+          question: "Description",
+          question_type: "textarea",
+          response_required: false
+        },
+        {
+          primary_key: "issue_image",
+          question: "Issue Image",
+          question_type: "file",
+          response_required: false
+        }
+      ]
+    }
+
+    REQUEST_TYPE_122 = {
+      id: 122,
+      organization: "City of New Haven",
+      title: "Pothole",
+      questions: [
+        {
+          primary_key: "142",
+          question: "Depth of pothole?",
+          question_type: "select",
+          response_required: true,
+          select_values: [
+            {
+              key: "BUMPY",
+              name: "Bumpy Surface"
+            },
+            {
+              key: "SHALLOW",
+              name: "Shallow Hole"
+            },
+            {
+              key: "DEEP",
+              name: "Deep Hole"
+            }
+          ]
+        },
+        {
+          primary_key: "summary",
+          question: "Issue Title",
+          question_type: "text",
+          response_required: true
+        },
+        {
+          primary_key: "description",
+          question: "Description",
+          question_type: "textarea",
+          response_required: false
+        },
+        {
+          primary_key: "issue_image",
+          question: "Issue Image",
+          question_type: "file",
+          response_required: false
+        }
+      ]
+    }
+
+    REQUEST_TYPE_OTHER = {
+      id: nil,
+      organization: nil,
+      title: 'Other',
+      questions: [
+        {
+          primary_key: "summary",
+          question: "Issue Title",
+          question_type: "text",
+          response_required: true
+        },
+        {
+          primary_key: "description",
+          question: "Description",
+          question_type: "textarea",
+          response_required: false
+        },
+        {
+          primary_key: "issue_image",
+          question: "Issue Image",
+          question_type: "file",
+          response_required: false
+        }
+      ]
+    }
 
     ISSUE = {
       "id"         => 1,
