@@ -169,7 +169,7 @@ module SeeClickFix
           primary_key: "142",
           question: "Type of vehicle?",
           question_type: "select",
-          required_response: true,
+          response_required: true,
           select_values: [
             {
               key: "CAR",
@@ -185,19 +185,19 @@ module SeeClickFix
           primary_key: "summary",
           question: "Issue Title",
           question_type: "text",
-          required_response: true
+          response_required: true
         },
         {
           primary_key: "description",
           question: "Description",
           question_type: "textarea",
-          required_response: false
+          response_required: false
         },
         {
           primary_key: "issue_image",
           question: "Issue Image",
           question_type: "file",
-          required_response: false
+          response_required: false
         }
       ]
     }
@@ -211,7 +211,7 @@ module SeeClickFix
           primary_key: "142",
           question: "Depth of pothole?",
           question_type: "select",
-          required_response: true,
+          response_required: true,
           select_values: [
             {
               key: "BUMPY",
@@ -231,19 +231,19 @@ module SeeClickFix
           primary_key: "summary",
           question: "Issue Title",
           question_type: "text",
-          required_response: true
+          response_required: true
         },
         {
           primary_key: "description",
           question: "Description",
           question_type: "textarea",
-          required_response: false
+          response_required: false
         },
         {
           primary_key: "issue_image",
           question: "Issue Image",
           question_type: "file",
-          required_response: false
+          response_required: false
         }
       ]
     }
@@ -257,19 +257,19 @@ module SeeClickFix
           primary_key: "summary",
           question: "Issue Title",
           question_type: "text",
-          required_response: true
+          response_required: true
         },
         {
           primary_key: "description",
           question: "Description",
           question_type: "textarea",
-          required_response: false
+          response_required: false
         },
         {
           primary_key: "issue_image",
           question: "Issue Image",
           question_type: "file",
-          required_response: false
+          response_required: false
         }
       ]
     }
