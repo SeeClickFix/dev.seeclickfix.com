@@ -4,7 +4,7 @@ title: API v2 - Issues - Report Form
 
 # Reporting an Issue
 
-Reporting an Issue is a two step process. Step 1 requires querying for a report form by latitude and longitude. Step 2 is to create an issue.
+Reporting an Issue is a three step process. Step 1 requires querying for a report form by location. Step 2 is querying the fields for the request type. Step 3 is to create an issue.
 
 * TOC
 {:toc}
