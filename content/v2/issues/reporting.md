@@ -23,7 +23,7 @@ Reporting an Issue is a three step process. Step 1 requires querying for a repor
 $ curl -i <%= root_version_url %>/issues/new?address=New+Haven,+CT
 </pre>
 
-Returns a list of service requests and their follow up questions for a particular location. TODO this is different from our current API. I don't think this would work for remote APIs like DC.
+Return a list of service request for the given location.
 
 ### Response
 
@@ -41,7 +41,7 @@ $ curl -i <%= root_version_url %>/request_type/122
 <%= headers 200 %>
 <%= json(:request_type_122) %>
 
-We will always provide an "Other" category, in the event one is not supplied by th city we will provide one
+We will always provide an "Other" category. In the event one is not supplied by the city we will provide one.
 
 <pre class="terminal">
 $ curl -i <%= root_version_url %>/request_type/other
@@ -84,7 +84,7 @@ Issues can be created by any authenticated user.
 * **address** - A written description of the location of the issue.
 * **latitude** - The latitude of the issue.
 * **longitude** - The longitude of the issue.
-* **questions** - Answers to questions
+* **questions** - Answers to questions, if any questions are required.
 * **request_type_id** - the id of your chosen Request Type
 
 ### Optional Parameters
