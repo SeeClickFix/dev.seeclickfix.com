@@ -248,6 +248,12 @@ module SeeClickFix
           ]
         },
         {
+          primary_key: "offensive",
+          question: "Is the graffiti offensive?",
+          question_type: "boolean",
+          response_required: true
+        },
+        {
           primary_key: "summary",
           question: "Issue Title",
           question_type: "text",

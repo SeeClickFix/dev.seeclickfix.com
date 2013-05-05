@@ -41,6 +41,8 @@ $ curl -i <%= root_version_url %>/request_type/122
 <%= headers 200 %>
 <%= json(:request_type_122) %>
 
+### Details of another Request Type
+
 <pre class="terminal">
 $ curl -i <%= root_version_url %>/request_type/657
 </pre>
@@ -139,6 +141,7 @@ Issues can be created by any authenticated user.
    answers: {
      "400" => ["Brick", "PaintedBrick", "Wood"],
      "401" => ["Other"],
+     "offensive" => false,
      "summary" => "Graffiti on a brick wall"
    }
  })
