@@ -84,7 +84,7 @@ Issues can be created by any authenticated user.
 * **address** - A written description of the location of the issue.
 * **latitude** - The latitude of the issue.
 * **longitude** - The longitude of the issue.
-* **questions** - Answers to questions, if any questions are required.
+* **answers** - Answers to questions, if any questions are required.
 * **request_type_id** - the id of your chosen Request Type
 
 ### Optional Parameters
@@ -102,7 +102,7 @@ Issues can be created by any authenticated user.
    longitude: -72.567,
    address: '123 State St. New Haven, CT',
    response_type_id: 122,
-   questions: {
+   answers: {
      "142" => "SHALLOW",
      "summary" => 'Big Pothole',
      "description" => 'Please fix it'
