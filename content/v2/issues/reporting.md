@@ -41,6 +41,15 @@ $ curl -i <%= root_version_url %>/request_type/122
 <%= headers 200 %>
 <%= json(:request_type_122) %>
 
+<pre class="terminal">
+$ curl -i <%= root_version_url %>/request_type/657
+</pre>
+
+### Response
+
+<%= headers 200 %>
+<%= json(:request_type_657) %>
+
 We will always provide an "Other" category. In the event one is not supplied by the city we will provide one.
 
 <pre class="terminal">
@@ -106,6 +115,31 @@ Issues can be created by any authenticated user.
      "142" => "SHALLOW",
      "summary" => 'Big Pothole',
      "description" => 'Please fix it'
+   }
+ })
+%>
+
+### Response
+
+<%= headers 201, { Location: "http://seeclickfix.com/issues/987654321" } %>
+<%=
+ json({
+   metadata: {moderated: false}
+ })
+%>
+
+### Example request #2
+
+<%=
+ json({
+   latitude: 42.7265,
+   longitude: -72.567,
+   address: '123 State St. New Haven, CT',
+   response_type_id: 657,
+   answers: {
+     "400" => ["Brick", "PaintedBrick", "Wood"],
+     "401" => ["Other"],
+     "summary" => "Graffiti on a brick wall"
    }
  })
 %>
