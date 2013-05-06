@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="Content-Language" content="en-us" />
+  <meta http-equiv="imagetoolbar" content="false" />
+  <meta name="MSSmartTagsPreventParsing" content="true" />
+  <title>API v2 - Issues - Report Form</title>
+  <link rel="alternate" type="application/atom+xml" title="API Changes" href="/changes.atom" />
+  <link href="/css/reset.css" rel="stylesheet" type="text/css" />
+  <link href="/css/960.css" rel="stylesheet" type="text/css" />
+  <link href="/css/uv_active4d.css" rel="stylesheet" type="text/css" />
+  <link href="/shared/css/documentation.css" media="screen" rel="stylesheet" type="text/css">
+  <link href="/shared/css/pygments.css" media="screen" rel="stylesheet" type="text/css">
+  <script src="/shared/js/jquery.js" type="text/javascript"></script>
+  <script src="/shared/js/documentation.js" type="text/javascript"></script>
+</head>
+<body class="api">
+    <div id="header-wrapper">
+      <div id="header">
+        <div>
+          <a class="logo" href="/"><img src="http://seeclickfix.com/assets/logo.png" alt="SeeClickFix API" /></a>
+          <ul class="nav">
+            <li><a href="/">v2 (current)</a></li>
+            <li><a href="http://help.seeclickfix.com/kb/api/api-overview" target="_blank">v1 (deprecated)</a></li>
+            <li><a href="http://seeclickfix.com" target="_blank">SeeClickFix.com</a></li>
+            <li><a href="http://seeclickfix.com/contact_us" target="_blank">Support</a></li>
+          </ul>
+        </div>
+      </div><!-- #header -->
+    </div><!-- #header-wrapper -->
+
+    <div id="wrapper">
+      <div class="content">
+    <h1 id="reporting-an-issue">Reporting an Issue</h1>
+
+<p>Reporting an Issue is a three step process. Step 1 requires querying for a report form by location. Step 2 is querying the fields for the request type. Step 3 is to create an issue.</p>
+
+<ul id="markdown-toc">
+<li><a href="#report-form">Report form</a></li>
+  <li><a href="#details-about-a-request-type">Details about a Request Type</a></li>
+  <li><a href="#question-types">Question Types</a></li>
+  <li><a href="#select-values">Select Values</a></li>
+  <li><a href="#request-type--questions-for-authenticated-users">Request Type &amp; Questions for authenticated users</a></li>
+  <li><a href="#create-an-issue">Create an issue</a></li>
+</ul><h2 id="report-form">Report form</h2>
+
+<pre><code>GET https://seeclickfix.com/api/v2/issues/new?:point
+</code></pre>
+
+<h3 id="required-parameters">Required Parameters</h3>
+
+<ul>
+<li>
+<code>:point</code> - See <a href="/#geography">how to specify a geography</a> for syntax help.</li>
+</ul><h3 id="examples">Examples</h3>
+
+<pre class="terminal">
+$ curl -i https://seeclickfix.com/api/v2/issues/new?address=New+Haven,+CT
+</pre>
+
+<p>Return a list of service request for the given location.</p>
+
+<h3 id="response">Response</h3>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"categories"</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">"organization"</span><span class="o">:</span> <span class="s2">"City of SeeClickFix"</span><span class="p">,</span>
+      <span class="s2">"title"</span><span class="o">:</span> <span class="s2">"Abandoned Auto"</span><span class="p">,</span>
+      <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"https://seeclickfix.com/api/v2/request_types/121"</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">"organization"</span><span class="o">:</span> <span class="s2">"City of SeeClickFix"</span><span class="p">,</span>
+      <span class="s2">"title"</span><span class="o">:</span> <span class="s2">"Graffiti"</span><span class="p">,</span>
+      <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"https://seeclickfix.com/api/v2/request_types/657"</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">"organization"</span><span class="o">:</span> <span class="s2">"City of New Haven"</span><span class="p">,</span>
+      <span class="s2">"title"</span><span class="o">:</span> <span class="s2">"Pothole"</span><span class="p">,</span>
+      <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"https://seeclickfix.com/api/v2/request_types/122"</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">"organization"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">"title"</span><span class="o">:</span> <span class="s2">"Other"</span><span class="p">,</span>
+      <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"https://seeclickfix.com/api/v2/request_types/other"</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span></code></pre>
+
+<h2 id="details-about-a-request-type">Details about a Request Type</h2>
+
+<pre class="terminal">
+$ curl -i https://seeclickfix.com/api/v2/request_type/122
+</pre>
+
+<h3 id="response-1">Response</h3>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"id"</span><span class="o">:</span> <span class="mi">122</span><span class="p">,</span>
+  <span class="s2">"organization"</span><span class="o">:</span> <span class="s2">"City of New Haven"</span><span class="p">,</span>
+  <span class="s2">"title"</span><span class="o">:</span> <span class="s2">"Pothole"</span><span class="p">,</span>
+  <span class="s2">"questions"</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">"primary_key"</span><span class="o">:</span> <span class="s2">"142"</span><span class="p">,</span>
+      <span class="s2">"question"</span><span class="o">:</span> <span class="s2">"Depth of pothole?"</span><span class="p">,</span>
+      <span class="s2">"question_type"</span><span class="o">:</span> <span class="s2">"select"</span><span class="p">,</span>
+      <span class="s2">"response_required"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="s2">"select_values"</span><span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="s2">"key"</span><span class="o">:</span> <span class="s2">"BUMPY"</span><span class="p">,</span>
+          <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"Bumpy Surface"</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="s2">"key"</span><span class="o">:</span> <span class="s2">"SHALLOW"</span><span class="p">,</span>
+          <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"Shallow Hole"</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="s2">"key"</span><span class="o">:</span> <span class="s2">"DEEP"</span><span class="p">,</span>
+          <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"Deep Hole"</span>
+        <span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">"primary_key"</span><span class="o">:</span> <span class="s2">"summary"</span><span class="p">,</span>
+      <span class="s2">"question"</span><span class="o">:</span> <span class="s2">"Issue Title"</span><span class="p">,</span>
+      <span class="s2">"question_type"</span><span class="o">:</span> <span class="s2">"text"</span><span class="p">,</span>
+      <span class="s2">"response_required"</span><span class="o">:</span> <span class="kc">true</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">"primary_key"</span><span class="o">:</span> <span class="s2">"description"</span><span class="p">,</span>
+      <span class="s2">"question"</span><span class="o">:</span> <span class="s2">"Description"</span><span class="p">,</span>
+      <span class="s2">"question_type"</span><span class="o">:</span> <span class="s2">"textarea"</span><span class="p">,</span>
+      <span class="s2">"response_required"</span><span class="o">:</span> <span class="kc">false</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">"primary_key"</span><span class="o">:</span> <span class="s2">"issue_image"</span><span class="p">,</span>
+      <span class="s2">"question"</span><span class="o">:</span> <span class="s2">"Issue Image"</span><span class="p">,</span>
+      <span class="s2">"question_type"</span><span class="o">:</span> <span class="s2">"file"</span><span class="p">,</span>
+      <span class="s2">"response_required"</span><span class="o">:</span> <span class="kc">false</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span></code></pre>
+
+<h3 id="details-of-another-request-type">Details of another Request Type</h3>
+
+<pre class="terminal">
+$ curl -i https://seeclickfix.com/api/v2/request_type/657
+</pre>
+
+<h3 id="response-2">Response</h3>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"id"</span><span class="o">:</span> <span class="mi">657</span><span class="p">,</span>
+  <span class="s2">"organization"</span><span class="o">:</span> <span class="s2">"City of SeeClickFix"</span><span class="p">,</span>
+  <span class="s2">"title"</span><span class="o">:</span> <span class="s2">"Graffiti"</span><span class="p">,</span>
+  <span class="s2">"questions"</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">"primary_key"</span><span class="o">:</span> <span class="s2">"400"</span><span class="p">,</span>
+      <span class="s2">"question"</span><span class="o">:</span> <span class="s2">"Graffiti is on a surface of:"</span><span class="p">,</span>
+      <span class="s2">"question_type"</span><span class="o">:</span> <span class="s2">"multivaluelist"</span><span class="p">,</span>
+      <span class="s2">"response_required"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="s2">"select_values"</span><span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="s2">"key"</span><span class="o">:</span> <span class="s2">"Brick"</span><span class="p">,</span>
+          <span class="s2">"value"</span><span class="o">:</span> <span class="s2">"Brick"</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="s2">"key"</span><span class="o">:</span> <span class="s2">"PaintedBrick"</span><span class="p">,</span>
+          <span class="s2">"value"</span><span class="o">:</span> <span class="s2">"Painted Brick"</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="s2">"key"</span><span class="o">:</span> <span class="s2">"Wood"</span><span class="p">,</span>
+          <span class="s2">"value"</span><span class="o">:</span> <span class="s2">"Wood"</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="s2">"key"</span><span class="o">:</span> <span class="s2">"PaintedWood"</span><span class="p">,</span>
+          <span class="s2">"value"</span><span class="o">:</span> <span class="s2">"Painted Wood"</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="s2">"key"</span><span class="o">:</span> <span class="s2">"Metal"</span><span class="p">,</span>
+          <span class="s2">"value"</span><span class="o">:</span> <span class="s2">"Metal"</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="s2">"key"</span><span class="o">:</span> <span class="s2">"Sandstone"</span><span class="p">,</span>
+          <span class="s2">"value"</span><span class="o">:</span> <span class="s2">"Sandstone or rock"</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="s2">"key"</span><span class="o">:</span> <span class="s2">"Pavers"</span><span class="p">,</span>
+          <span class="s2">"value"</span><span class="o">:</span> <span class="s2">"Pavers"</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="s2">"key"</span><span class="o">:</span> <span class="s2">"Concrete"</span><span class="p">,</span>
+          <span class="s2">"value"</span><span class="o">:</span> <span class="s2">"Concrete"</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="s2">"key"</span><span class="o">:</span> <span class="s2">"Tarmac"</span><span class="p">,</span>
+          <span class="s2">"value"</span><span class="o">:</span> <span class="s2">"Tarmac"</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="s2">"key"</span><span class="o">:</span> <span class="s2">"Tile"</span><span class="p">,</span>
+          <span class="s2">"value"</span><span class="o">:</span> <span class="s2">"Tiles"</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="s2">"key"</span><span class="o">:</span> <span class="s2">"Plastic"</span><span class="p">,</span>
+          <span class="s2">"value"</span><span class="o">:</span> <span class="s2">"Plastic perspex"</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="s2">"key"</span><span class="o">:</span> <span class="s2">"Glass"</span><span class="p">,</span>
+          <span class="s2">"value"</span><span class="o">:</span> <span class="s2">"Glass"</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="s2">"key"</span><span class="o">:</span> <span class="s2">"Other"</span><span class="p">,</span>
+          <span class="s2">"value"</span><span class="o">:</span> <span class="s2">"Other"</span>
+        <span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">"primary_key"</span><span class="o">:</span> <span class="s2">"401"</span><span class="p">,</span>
+      <span class="s2">"question"</span><span class="o">:</span> <span class="s2">"Material Used to apply graffiti"</span><span class="p">,</span>
+      <span class="s2">"question_type"</span><span class="o">:</span> <span class="s2">"multivaluelist"</span><span class="p">,</span>
+      <span class="s2">"response_required"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="s2">"select_values"</span><span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="s2">"key"</span><span class="o">:</span> <span class="s2">"Paint"</span><span class="p">,</span>
+          <span class="s2">"value"</span><span class="o">:</span> <span class="s2">"Paint"</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="s2">"key"</span><span class="o">:</span> <span class="s2">"Pen"</span><span class="p">,</span>
+          <span class="s2">"value"</span><span class="o">:</span> <span class="s2">"Pen"</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="s2">"key"</span><span class="o">:</span> <span class="s2">"Texta"</span><span class="p">,</span>
+          <span class="s2">"value"</span><span class="o">:</span> <span class="s2">"Texta"</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="s2">"key"</span><span class="o">:</span> <span class="s2">"Whiteout"</span><span class="p">,</span>
+          <span class="s2">"value"</span><span class="o">:</span> <span class="s2">"White out"</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="s2">"key"</span><span class="o">:</span> <span class="s2">"Crayon"</span><span class="p">,</span>
+          <span class="s2">"value"</span><span class="o">:</span> <span class="s2">"Crayon"</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="s2">"key"</span><span class="o">:</span> <span class="s2">"Other"</span><span class="p">,</span>
+          <span class="s2">"value"</span><span class="o">:</span> <span class="s2">"Other"</span>
+        <span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">"primary_key"</span><span class="o">:</span> <span class="s2">"offensive"</span><span class="p">,</span>
+      <span class="s2">"question"</span><span class="o">:</span> <span class="s2">"Is the graffiti offensive?"</span><span class="p">,</span>
+      <span class="s2">"question_type"</span><span class="o">:</span> <span class="s2">"boolean"</span><span class="p">,</span>
+      <span class="s2">"response_required"</span><span class="o">:</span> <span class="kc">true</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">"primary_key"</span><span class="o">:</span> <span class="s2">"summary"</span><span class="p">,</span>
+      <span class="s2">"question"</span><span class="o">:</span> <span class="s2">"Issue Title"</span><span class="p">,</span>
+      <span class="s2">"question_type"</span><span class="o">:</span> <span class="s2">"text"</span><span class="p">,</span>
+      <span class="s2">"response_required"</span><span class="o">:</span> <span class="kc">true</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">"primary_key"</span><span class="o">:</span> <span class="s2">"description"</span><span class="p">,</span>
+      <span class="s2">"question"</span><span class="o">:</span> <span class="s2">"Description"</span><span class="p">,</span>
+      <span class="s2">"question_type"</span><span class="o">:</span> <span class="s2">"textarea"</span><span class="p">,</span>
+      <span class="s2">"response_required"</span><span class="o">:</span> <span class="kc">false</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">"primary_key"</span><span class="o">:</span> <span class="s2">"issue_image"</span><span class="p">,</span>
+      <span class="s2">"question"</span><span class="o">:</span> <span class="s2">"Issue Image"</span><span class="p">,</span>
+      <span class="s2">"question_type"</span><span class="o">:</span> <span class="s2">"file"</span><span class="p">,</span>
+      <span class="s2">"response_required"</span><span class="o">:</span> <span class="kc">false</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span></code></pre>
+
+<p>We will always provide an “Other” category. In the event one is not supplied by the city we will provide one.</p>
+
+<pre class="terminal">
+$ curl -i https://seeclickfix.com/api/v2/request_type/other
+</pre>
+
+<h3 id="response-3">Response</h3>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"id"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="s2">"organization"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="s2">"title"</span><span class="o">:</span> <span class="s2">"Other"</span><span class="p">,</span>
+  <span class="s2">"questions"</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">"primary_key"</span><span class="o">:</span> <span class="s2">"summary"</span><span class="p">,</span>
+      <span class="s2">"question"</span><span class="o">:</span> <span class="s2">"Issue Title"</span><span class="p">,</span>
+      <span class="s2">"question_type"</span><span class="o">:</span> <span class="s2">"text"</span><span class="p">,</span>
+      <span class="s2">"response_required"</span><span class="o">:</span> <span class="kc">true</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">"primary_key"</span><span class="o">:</span> <span class="s2">"description"</span><span class="p">,</span>
+      <span class="s2">"question"</span><span class="o">:</span> <span class="s2">"Description"</span><span class="p">,</span>
+      <span class="s2">"question_type"</span><span class="o">:</span> <span class="s2">"textarea"</span><span class="p">,</span>
+      <span class="s2">"response_required"</span><span class="o">:</span> <span class="kc">false</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">"primary_key"</span><span class="o">:</span> <span class="s2">"issue_image"</span><span class="p">,</span>
+      <span class="s2">"question"</span><span class="o">:</span> <span class="s2">"Issue Image"</span><span class="p">,</span>
+      <span class="s2">"question_type"</span><span class="o">:</span> <span class="s2">"file"</span><span class="p">,</span>
+      <span class="s2">"response_required"</span><span class="o">:</span> <span class="kc">false</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span></code></pre>
+
+<h2 id="question-types">Question Types</h2>
+
+<ul>
+<li>
+<strong>text</strong> - Short form text answer.</li>
+  <li>
+<strong>textarea</strong> - Long form text answer.</li>
+  <li>
+<strong>select</strong> - One value from supplied list.</li>
+  <li>
+<strong>multivaluelist</strong> - One or more values from the supplied list. Submitted as an array.</li>
+  <li>
+<strong>number</strong> - requires a numerical validation.</li>
+  <li>
+<strong>datetime</strong> - ISO 8601 timestamp.</li>
+  <li>
+<strong>boolean</strong> - Only <code>true</code>/<code>false</code> are acceptable answers</li>
+  <li>
+<strong>hidden</strong> - field hidden from user.</li>
+  <li>
+<strong>note</strong> - No response expected, display as a note to the user.</li>
+</ul><h2 id="select-values">Select Values</h2>
+
+<p>For <strong>select</strong> amd <strong>multivaluelist</strong> the use should we return a display value (<code>name</code>) and a key value (<code>key</code>).</p>
+
+<h2 id="request-type--questions-for-authenticated-users">Request Type &amp; Questions for authenticated users</h2>
+
+<p>Some request types &amp; questions are only for specific authenticated users.</p>
+
+<h2 id="create-an-issue">Create an issue</h2>
+
+<p>Issues can be created by any authenticated user.</p>
+
+<pre><code>POST https://seeclickfix.com/api/v2/issues
+</code></pre>
+
+<h3 id="required-parameters-1">Required Parameters</h3>
+
+<ul>
+<li>
+<strong>address</strong> - A written description of the location of the issue.</li>
+  <li>
+<strong>latitude</strong> - The latitude of the issue.</li>
+  <li>
+<strong>longitude</strong> - The longitude of the issue.</li>
+  <li>
+<strong>answers</strong> - Answers to questions, if any questions are required.</li>
+  <li>
+<strong>request_type_id</strong> - the id of your chosen Request Type</li>
+</ul><h3 id="optional-parameters">Optional Parameters</h3>
+
+<ul>
+<li>
+<strong>anonymize_reporter</strong> - Wether or not to protect the identification of the reporter. Default is false.  will evaluate to true.</li>
+  <li>
+<strong>image</strong> - An image of the problem. Limited to 20Mb.</li>
+  <li>
+<strong>video</strong> - A video of the problem. Limited to 20Mb.</li>
+  <li>
+<strong>youtube_url</strong> - A link to a youtube video showing the problem.</li>
+</ul><h3 id="example-request">Example request</h3>
+
+<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"latitude"</span><span class="o">:</span> <span class="mf">42.7265</span><span class="p">,</span>
+  <span class="s2">"longitude"</span><span class="o">:</span> <span class="o">-</span><span class="mf">72.567</span><span class="p">,</span>
+  <span class="s2">"address"</span><span class="o">:</span> <span class="s2">"123 State St. New Haven, CT"</span><span class="p">,</span>
+  <span class="s2">"response_type_id"</span><span class="o">:</span> <span class="mi">122</span><span class="p">,</span>
+  <span class="s2">"answers"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"142"</span><span class="o">:</span> <span class="s2">"SHALLOW"</span><span class="p">,</span>
+    <span class="s2">"summary"</span><span class="o">:</span> <span class="s2">"Big Pothole"</span><span class="p">,</span>
+    <span class="s2">"description"</span><span class="o">:</span> <span class="s2">"Please fix it"</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre>
+
+<h3 id="response-4">Response</h3>
+
+<pre class="headers"><code>Status: 201 Created
+Location: http://seeclickfix.com/issues/987654321</code></pre>
+
+<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"metadata"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"moderated"</span><span class="o">:</span> <span class="kc">false</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre>
+
+<h3 id="example-request-2">Example request #2</h3>
+
+<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"latitude"</span><span class="o">:</span> <span class="mf">42.7265</span><span class="p">,</span>
+  <span class="s2">"longitude"</span><span class="o">:</span> <span class="o">-</span><span class="mf">72.567</span><span class="p">,</span>
+  <span class="s2">"address"</span><span class="o">:</span> <span class="s2">"123 State St. New Haven, CT"</span><span class="p">,</span>
+  <span class="s2">"response_type_id"</span><span class="o">:</span> <span class="mi">657</span><span class="p">,</span>
+  <span class="s2">"answers"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"400"</span><span class="o">:</span> <span class="p">[</span>
+      <span class="s2">"Brick"</span><span class="p">,</span>
+      <span class="s2">"PaintedBrick"</span><span class="p">,</span>
+      <span class="s2">"Wood"</span>
+    <span class="p">],</span>
+    <span class="s2">"401"</span><span class="o">:</span> <span class="p">[</span>
+      <span class="s2">"Other"</span>
+    <span class="p">],</span>
+    <span class="s2">"offensive"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="s2">"summary"</span><span class="o">:</span> <span class="s2">"Graffiti on a brick wall"</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre>
+
+<h3 id="response-5">Response</h3>
+
+<pre class="headers"><code>Status: 201 Created
+Location: http://seeclickfix.com/issues/987654321</code></pre>
+
+<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"metadata"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"moderated"</span><span class="o">:</span> <span class="kc">false</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre>
+
+<h3 id="in-the-event-of-validation-errors">In the event of validation errors</h3>
+
+<pre class="headers"><code>Status: 422 Unprocessable Entity</code></pre>
+
+<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"errors"</span><span class="o">:</span> <span class="p">[</span>
+    <span class="s2">"An Address is required"</span><span class="p">,</span>
+    <span class="s2">"Question: 'Depth of pothole?' is required"</span>
+  <span class="p">]</span>
+<span class="p">}</span></code></pre>
+      </div>
+
+    <div id="js-sidebar" class="sidebar-shell">
+      <div class="js-toggle-list sidebar-module expandable">
+        <ul>
+
+          <li class="js-topic">
+            <h3><a href="#" class="js-expand-btn collapsed">&nbsp;</a><a href="/v2/">Overview</a></h3>
+              <ul class="js-guides">
+                <li><a href="/v2/overview/authentication/">Authentication</a></li>
+                <li><a href="/v2/overview/libraries/">Libraries</a></li>
+                <li><a href="/v2/overview/about/">Reading this Document</a></li>
+            </ul>
+          </li>
+
+          <li class="js-topic">
+            <h3><a href="#" class="js-expand-btn collapsed">&nbsp;</a><a href="/v2/issues/">Issues</a></h3>
+            <ul class="js-guides">
+              <li><a href="/v2/issues/reporting/">Reporting an Issue</a></li>
+              <li><a href="/v2/issues/comments/">Comments</a></li>
+              <li><a href="/v2/issues/changing_status/">Changing Status</a></li>
+              <li><a href="/v2/issues/vote/">Vote</a></li>
+              <li><a href="/v2/issues/follow/">Follow</a></li>
+              <li><a href="/v2/issues/flagging/">Flagging Content</a></li>
+            </ul>
+          </li>
+
+          <li class="js-topic">
+            <h3><a href="#" class="js-expand-btn collapsed">&nbsp;</a><a href="/v2/users/">Users</a></h3>
+            <ul class="js-guides">
+              <li><a href="/v2/users/activity/">Activity</a></li>
+              <li><a href="/v2/users/emails/">Emails</a></li>
+            </ul>
+          </li>
+          
+          <li class="js-topic">
+            <h3><a href="#" class="js-expand-btn collapsed">&nbsp;</a><a href="/v2/places/">Places</a></h3>
+          </li>
+          
+<!--           <li class="js-topic">
+            <h3><a href="#" class="js-expand-btn collapsed">&nbsp;</a><a href="/v2/watch_areas/">Watch Areas</a></h3>
+          </li> -->
+          
+<!--           <li class="js-topic">
+            <h3><a href="#" class="js-expand-btn collapsed">&nbsp;</a><a href="/v2/questions/">Questions</a></h3>
+            <ul class="js-guides">
+              <li><a href="/v2/questions/answers/">Answers</a></li>
+            </ul>
+          </li> -->
+          
+<!--           <li class="js-topic">
+            <h3><a href="#" class="js-expand-btn collapsed">&nbsp;</a><a href="/v2/search/">Search</a></h3>
+          </li> -->
+
+          <li class="js-topic">
+            <h3><a href="#" class="js-expand-btn collapsed">&nbsp;</a><a href="/v2/geocoding/">Geocoding</a></h3>
+          </li>
+
+          <li class="js-topic">
+            <h3><a href="#" class="js-expand-btn collapsed">&nbsp;</a><a href="/v2/mobile_customizations/">Mobile Customizations</a></h3>
+          </li>
+
+        </ul>
+      </div> <!-- /sidebar-module -->
+      <div class="sidebar-module">
+        <p>This website is a <a href="https://github.com/SeeClickFix/dev.seeclickfix.com" target="_blank">public GitHub repository</a>. Please help us by forking the project and adding to it.</p>
+      </div>
+    </div><!-- /sidebar-shell -->
+
+    </div><!-- #wrapper -->
+
+    <div id="footer" >
+      <div class="lower_footer">
+        <div class="footer_inner clearfix">
+            <div id="legal">
+              <p>&copy; <span id="year">year</span> SeeClickFix All rights reserved.</p>
+            </div><!-- /#legal or /#legal_ie-->
+        </div><!-- /.site -->
+      </div><!-- /.lower_footer -->
+    </div><!-- /#footer -->
+</body>
+</html>
