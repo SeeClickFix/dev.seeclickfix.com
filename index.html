@@ -352,23 +352,21 @@ through as an array of <code>[url, options]</code> tuples.</p>
 
 <h2 id="geography">Geography</h2>
 
-<p>At various endpoints SeeClickFix recognizes geography either by a <code>point</code> or <code>area</code> attribute. </p>
+<p>At various endpoints SeeClickFix recognizes geography either by a <code>point</code> or <code>area</code> attribute. If multiple points/areas are specified, they will be evaulated in the listed order of precedence.</p>
 
 <p><code>point</code> attributes can be submitted in one of two forms:</p>
 
 <ol>
-<li><code>point=:latitude|:longitude</code></li>
-  <li><code>point=:address</code></li>
-</ol><p>If the submitted value has a pipe, it will be evaluated as a point. Otherwise, we will geocode the address and use the resulting latitude/longitude as a point.</p>
-
-<p><code>area</code> attributes can be submitted in the following forms:</p>
+<li><code>ll=:latitude|:longitude</code></li>
+  <li><code>address=:address</code></li>
+</ol><p><code>area</code> attributes can be submitted in the following forms:</p>
 
 <ol>
-<li><code>area=pointzoom|:latitude,:longitude,:zoom</code></li>
-  <li><code>area=addresszoom|:address,:zoom</code></li>
-  <li><code>area=place|:url_name</code></li>
-  <li><code>area=boundingbox|:sw_lat,:sw_lng,:ne_lat,:ne_lng</code></li>
-  <li><code>area=watcharea|:watch_area_token</code></li>
+<li><code>llzoom=:latitude,:longitude,:zoom</code></li>
+  <li><code>addresszoom=:address,:zoom</code></li>
+  <li><code>place_url=:url_name</code></li>
+  <li><code>bounds=:sw_lat,:sw_lng,:ne_lat,:ne_lng</code></li>
+  <li><code>watch_area_token=:watch_area_token</code></li>
 </ol><h2 id="locales">Locales</h2>
 
 <p>All attributes are consistent between locales. Errors may be translated based on the given locale. Objects created will record the locale they were created in and notices based on these objects will be delivered with the proper locale. i.e. if an issue is created with the “es” locale, all email to the creator will be delivered with Spanish translations.</p>
