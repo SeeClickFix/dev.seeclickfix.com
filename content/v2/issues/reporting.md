@@ -113,10 +113,10 @@ Issues can be created by any authenticated user.
 
 <%=
  json({
-   latitude: 42.7265,
-   longitude: -72.567,
+   lat: 42.7265,
+   lng: -72.567,
    address: '123 State St. New Haven, CT',
-   response_type_id: 122,
+   request_type_id: 122,
    answers: {
      "142" => "SHALLOW",
      "summary" => 'Big Pothole',
@@ -138,10 +138,10 @@ Issues can be created by any authenticated user.
 
 <%=
  json({
-   latitude: 42.7265,
-   longitude: -72.567,
+   lat: 42.7265,
+   lng: -72.567,
    address: '123 State St. New Haven, CT',
-   response_type_id: 657,
+   request_type_id: 657,
    answers: {
      "400" => ["Brick", "PaintedBrick", "Wood"],
      "401" => ["Other"],
