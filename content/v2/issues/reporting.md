@@ -17,6 +17,10 @@ Reporting an Issue is a three step process. Step 1 requires querying for a repor
 
 * `:point` - See <a href="/#geography">how to specify a geography</a> for syntax help.
 
+### Optional Parameters
+
+* `:zone_ids` - Comma seperated list(`1,2,3`) of zone ids. The request types for these zones will always be returned unless the zone restricts this behavor.
+
 ### Examples
 
 <pre class="terminal">
