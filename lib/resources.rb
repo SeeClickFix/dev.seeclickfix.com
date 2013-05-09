@@ -132,7 +132,20 @@ module SeeClickFix
 
     GEOCODE = {}
 
-    VOTE = {}
+    VOTE = {
+      created_at: "2011-04-24T13:33:48Z",
+      voter: USER
+    }
+
+    QUESTION0 = {
+      question: "How deep is the pothole?",
+      answer: "Shallow"
+    }
+
+    QUESTION1 = {
+      question: "Is it hazardous?",
+      answer: "No"
+    }
 
     PLACE = {
       id: '1',
@@ -355,6 +368,7 @@ module SeeClickFix
       "status"      => "Open",
       "summary"      => "Pothole",
       "description"       => "Please fix my neighborhood.",
+      "questions" => [QUESTION0, QUESTION1],
       "reporter"       => USER,
       "assignee"   => USER,
       "comment_count"   => 5,
