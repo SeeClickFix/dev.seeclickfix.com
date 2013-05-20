@@ -52,6 +52,7 @@ you have any problems or requests please contact
   <li><a href="#errors">Errors</a></li>
   <li><a href="#http-redirects">HTTP Redirects</a></li>
   <li><a href="#http-verbs">HTTP Verbs</a></li>
+  <li><a href="#authentication">Authentication</a></li>
   <li><a href="#hypermedia">Hypermedia</a></li>
   <li><a href="#user-agent-required">User Agent Required</a></li>
   <li><a href="#conditional-requests">Conditional requests</a></li>
@@ -233,7 +234,37 @@ POST requests.</dd>
 with no <code>body</code> attribute, be sure to set the <code>Content-Length</code> header to zero.</dd>
   <dt>DELETE</dt>
   <dd>Used for deleting resources.</dd>
-</dl><h2 id="hypermedia">Hypermedia</h2>
+</dl><h2 id="authentication">Authentication</h2>
+
+<p>Endpoints that require authentication will return a HTTP 403 or 404. Some
+non-authenticated endpoits will return additional information to authenticated
+users so we advise that all api access be authenitcated.</p>
+
+<h3 id="basic-authentication">Basic Authentication</h3>
+
+<p>For individual access we allow http basic auth.</p>
+
+<pre class="terminal">
+$ curl -u "emailaddress@example.com:password-would-go-here" https://seeclickfix.com/api/v2/issues/new?address=New+Haven,+CT
+</pre>
+
+<h3 id="oauth2-token">OAuth2 Token</h3>
+
+<h3 id="oauth2-token-sent-in-a-header">OAuth2 Token (sent in a header)</h3>
+
+<pre class="terminal">
+$ curl -H "Authorization: token OAUTH-TOKEN" https://seeclickfix.com/api/v2/issues/new?address=New+Haven,+CT
+</pre>
+
+<h3 id="oauth2-token-sent-as-a-parameter">OAuth2 Token (sent as a parameter)</h3>
+
+<pre class="terminal">
+curl https://seeclickfix.com/api/v2/issues/new?address=New+Haven,+CT&amp;access_token=OAUTH-TOKEN
+</pre>
+
+<p>Read more about <a href="http://oauth.net/2/">OAuth2</a> and available libraries. To obtain an OAuth2 app_id and secret please email us at <a href="mailto:team@seeclickfix.com">team@seeclickfix.com</a>.</p>
+
+<h2 id="hypermedia">Hypermedia</h2>
 
 <p>All resources may have one or more <code>*_url</code> properties linking to other
 resources.  These are meant to provide explicit URLs so that proper API clients
