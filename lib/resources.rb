@@ -104,6 +104,9 @@ module SeeClickFix
       "comments_count" => 62,
       "closed_issue_count" => 27,
       "following_issue_count" => 10,
+      "permissions" => {
+        "can_acknowledge" => false
+      },
       "avatar" => {
         "square_100x100" => "#{ASSET_URL}/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg",
         "full" => "#{ASSET_URL}/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg"
