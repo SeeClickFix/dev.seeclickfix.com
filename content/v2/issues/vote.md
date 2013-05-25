@@ -18,17 +18,14 @@ No values are required in the body of the request.
 
 ### Response
 
-<%=
-  json({
-    vote: 1
-  })
-%>
+<%= headers 201 %>
+<%= json(vote: 1) %>
 
 Returns the new value of the vote for the current_user on the specified issue.
 
 ## Revoke a vote for an Issue
 
-Votes can be revoked by any authenticated user only if the user has voted for the issue. It does not vote down an issue. 
+Votes can be revoked by an authenticated user if the user has voted for the issue. One can not downvote an issue. 
 
     DELETE /issues/<issue_id>/vote
 
@@ -38,8 +35,5 @@ No values are required in the body of the request.
 
 ### Response
 
-<%=
-  json({
-    vote: 0
-  })
-%>
+<%= headers 204 %>
+<%= json(vote: 0) %>
