@@ -13,7 +13,7 @@ title: Issues | SeeClickFix API
 
 ### Optional Parameters
 
-* **area**=`:geography` - Limit results to the specified area. See <a href="/#geography">how to specify a geography</a> for syntax help. 
+* one or more area geographies - Limit results to a specified area. See <a href="/#geography">how to specify a geography</a> for syntax help. 
 
 * **page**=`:page_number` - number of the page to return, default: 1
 
@@ -23,11 +23,11 @@ title: Issues | SeeClickFix API
 
 * **sort**=`:order` - one of 'updated_at', 'created_at', 'distance' or 'rating'. default: created_at.
 
-* **sort_direction**=`:direction` - "asc" or "desc" default: 'desc'.
+* **after**=`:time` - must be a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
 
-* **after**=`:time` - can be either a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ OR an integer representing minutes since current time.
+* **before**=`:time` - must be a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
 
-* **before**=`:time` - can be either a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ OR an integer representing minutes since current time.
+* **search**=`:search` - limit results by search terms.
 
 ### Notes
 
@@ -41,11 +41,11 @@ $ curl -i <%= root_version_url %>/issues?page=1&per_page=5
 
 Returns the last five issues.
 
-<%= headers 200, :pagination => true %>
+<%= headers 200 %>
 
 <%= 
   json(:issue) do |h| 
-    { metadata: nil,
+    { metadata: SeeClickFix::Resources::PAGINATION_METADATA,
       result: [h],
       errors: nil
     }
@@ -56,18 +56,23 @@ Returns the last five issues.
 
     GET /issues/:id
 
+Returns a single issue by id.
+
+### Example
+
+<pre class="terminal">
+$ curl -i <%= root_version_url %>/issues/1
+</pre>
+
 ### Response
 
 <%= headers 200 %>
 <%= 
   json(:issue) do |h| 
-    { metadata: nil,
-      result: h,
-      errors: nil
-    }
+    h
   end 
 %>
 
 ## Create an Issue
 
-See the <a href="/v2/issues/report_form/">reporting an issue</a>.
+See the <a href="/v2/issues/reporting/">reporting an issue</a>.
