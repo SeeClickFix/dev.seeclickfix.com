@@ -35,12 +35,12 @@ $ curl -i <%= root_version_url %>/places?address=New+Haven,+CT
 
 Returns the 20 closest places.
 
-<%= headers 200, :pagination => true %>
+<%= headers 200 %>
 
 <%= 
   json(:place) do |h| 
-    { metadata: nil,
-      result: [h],
+    { metadata: SeeClickFix::Resources::PAGINATION_METADATA,
+      places: [h],
       errors: nil
     }
   end 

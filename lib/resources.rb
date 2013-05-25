@@ -128,6 +128,13 @@ module SeeClickFix
       "created_at" => "2011-04-14T16:00:49Z"
     }
 
+    PAGINATION_METADATA = { 
+      page:          2, 
+      page_size:     20, 
+      next_page:     'null', 
+      previous_page: 1
+    }
+
     MOBILE_CUSTOMIZATION = {}
 
     GEOCODE = {}
