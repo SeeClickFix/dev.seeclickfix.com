@@ -8,44 +8,38 @@ To check wether the current user has voted for an issue see the attribute `curre
 
 ## Vote for an Issue
 
-Issues can be voted on any authenticated user. Multiple votes by the same user will be ignored.
+Issues can be voted for by any authenticated user. Multiple votes by the same user will be ignored.
 
-    PUT /issues/<issue_id>/vote
+    POST /issues/<issue_id>/vote
 
 ### Request
 
-<%=
-  json({value: 1})
-%>
+No values are required in the body of the request.
 
 ### Response
 
 <%=
   json({
-    metadata: nil,
-    result: 'success',
-    errors: nil
+    vote: 1
   })
 %>
 
+Returns the new value of the vote for the current_user on the specified issue.
+
 ## Revoke a vote for an Issue
 
-Votes can be revoked by any authenticated user. This removes the user's vote. It does not vote down an issue. 
+Votes can be revoked by any authenticated user only if the user has voted for the issue. It does not vote down an issue. 
 
-    PUT /issues/<issue_id>/vote
+    DELETE /issues/<issue_id>/vote
 
 ### Request
 
-<%=
-  json({value: -1})
-%>
+No values are required in the body of the request.
 
 ### Response
 
 <%=
   json({
-    metadata: nil,
-    result: 'success',
-    errors: nil
+    vote: 0
   })
 %>
