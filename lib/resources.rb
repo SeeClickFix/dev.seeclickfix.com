@@ -94,6 +94,12 @@ module SeeClickFix
       base: ''
     }
 
+    EMAIL = {
+      id: 1,
+      confirmed: false,
+      email: 'foo@bar.com'
+    }
+
     USER = {
       "display_name"        => "Jeffb",
       "id"           => 1,
