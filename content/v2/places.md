@@ -17,12 +17,20 @@ Returns a list of places closest to `point`.
 
 ### Required Parameters
 
-* **point**=`:point` - See <a href="/#geography">how to specify a geography</a> for syntax help.
+* Point - See <a href="/#geography">how to specify a geography</a> for the latitude and longitude or address syntax.
+
+### Optional Parameters
+
+* Pagination - See <a href="/#pagination">how to specify pagination</a>
+
+### Order
+
+The sort order is by distance from Point.
 
 ### Examples
 
 <pre class="terminal">
-$ curl -i <%= root_version_url %>/places?point=New+Haven,+CT
+$ curl -i <%= root_version_url %>/places?address=New+Haven,+CT
 </pre>
 
 Returns the 20 closest places.
@@ -50,15 +58,12 @@ Returns a single place by `:id`.
 $ curl -i <%= root_version_url %>/places/1
 </pre>
 
-
-
 <%= headers 200 %>
 
-<%= 
-  json(:place) do |h| 
-    { metadata: nil,
-      result: h,
-      errors: nil
-    }
-  end 
-%>
+<%= json(:place) %>
+
+### Errors
+
+Returns error code 404 if no results are found.
+
+<%= headers 404 %>
