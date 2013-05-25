@@ -7,45 +7,7 @@ title: API v2 - Users
 * TOC
 {:toc}
 
-## Register
-
-    POST <%= root_version_url %>/users
-
-Registers a new user
-
-### Required Parameters
-
-* name - Name displayed on site. Must be between 3 and 40 characters long.
-* email - Can't be blank.
-* password - Must be between 4 and 40 characters long.
-* password_confirmation - Must be equal to password above.
-* accept_terms - Must be set to 'true'. Confirms user has read <http://seeclickfix.com/registration/new> 
-
-### Optional Parameters
-
-* place_url_name - The `url_name` attribute of a place object, which represents the home of the user.
-* uploaded_data - The image of the user.
-
-### Examples
-
-<pre class="terminal">
-$ curl -i <%= root_version_url %>/users
-</pre>
-
-<%= headers 201 %>
-
-<%= json(:user) %>
-
-### Errors
-
-Returns error code 422 if unable to create user.
-
-<%= headers 422 %>
-<%= json(errors: {
-	login: "can't be blank."
-}) %>
-
-## Current User
+## Show Current User
 
     GET <%= root_version_url %>/users/me
 
@@ -67,7 +29,7 @@ If the user is not logged in.
 <%= headers 200 %>
 <%= json(id: nil) %>
 
-## Show User
+## Show User by Id
 
     GET <%= root_version_url %>/users/:id
 
@@ -125,6 +87,44 @@ Returns the 20 closest users.
     }
   end 
 %>
+
+## Register
+
+    POST <%= root_version_url %>/users
+
+Registers a new user
+
+### Required Parameters
+
+* name - Name displayed on site. Must be between 3 and 40 characters long.
+* email - Can't be blank.
+* password - Must be between 4 and 40 characters long.
+* password_confirmation - Must be equal to password above.
+* accept_terms - Must be set to 'true'. Confirms user has read <http://seeclickfix.com/registration/new> 
+
+### Optional Parameters
+
+* place_url_name - The `url_name` attribute of a place object, which represents the home of the user.
+* uploaded_data - The image of the user.
+
+### Examples
+
+<pre class="terminal">
+$ curl -i <%= root_version_url %>/users
+</pre>
+
+<%= headers 201 %>
+
+<%= json(:user) %>
+
+### Errors
+
+Returns error code 422 if unable to create user.
+
+<%= headers 422 %>
+<%= json(errors: {
+  login: "can't be blank."
+}) %>
 
 ## Update User Settings
 
