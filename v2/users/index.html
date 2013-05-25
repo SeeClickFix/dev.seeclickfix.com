@@ -19,7 +19,7 @@
     <div id="header-wrapper">
       <div id="header">
         <div>
-          <a class="logo" href="/"><img src="http://seeclickfix.com/assets/logo.png" alt="SeeClickFix API" /></a>
+          <a class="logo" href="/"><img src="/images/logo.png" alt="SeeClickFix API" /></a>
           <ul class="nav">
             <li><a href="/">v2 (current)</a></li>
             <li><a href="http://help.seeclickfix.com/kb/api/api-overview" target="_blank">v1 (deprecated)</a></li>
@@ -35,14 +35,272 @@
     <h1 id="users">Users</h1>
 
 <ul id="markdown-toc">
-<li><a href="#login">Login</a></li>
-  <li><a href="#logout">Logout</a></li>
+<li><a href="#show-current-user">Show Current User</a></li>
+  <li><a href="#show-user-by-id">Show User by Id</a></li>
+  <li><a href="#list-users">List Users</a></li>
   <li><a href="#register">Register</a></li>
-</ul><h2 id="login">Login</h2>
+  <li><a href="#update-user-settings">Update User Settings</a></li>
+</ul><h2 id="show-current-user">Show Current User</h2>
 
-<h2 id="logout">Logout</h2>
+<pre><code>GET https://seeclickfix.com/api/v2/users/me
+</code></pre>
+
+<p>Returns the currently logged in user.</p>
+
+<h3 id="examples">Examples</h3>
+
+<pre class="terminal">
+$ curl -i https://seeclickfix.com/api/v2/users/me
+</pre>
+
+<p>If the user is logged in.</p>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"display_name"</span><span class="o">:</span> <span class="s2">"Jeffb"</span><span class="p">,</span>
+  <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="s2">"civic_points"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
+  <span class="s2">"witty_title"</span><span class="o">:</span> <span class="s2">"Street Smart"</span><span class="p">,</span>
+  <span class="s2">"voted_issue_count"</span><span class="o">:</span> <span class="mi">31</span><span class="p">,</span>
+  <span class="s2">"reported_issue_count"</span><span class="o">:</span> <span class="mi">25</span><span class="p">,</span>
+  <span class="s2">"comments_count"</span><span class="o">:</span> <span class="mi">62</span><span class="p">,</span>
+  <span class="s2">"closed_issue_count"</span><span class="o">:</span> <span class="mi">27</span><span class="p">,</span>
+  <span class="s2">"following_issue_count"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
+  <span class="s2">"permissions"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"can_acknowledge"</span><span class="o">:</span> <span class="kc">false</span>
+  <span class="p">},</span>
+  <span class="s2">"avatar"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"square_100x100"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg"</span><span class="p">,</span>
+    <span class="s2">"full"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg"</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre>
+
+<p>If the user is not logged in.</p>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"id"</span><span class="o">:</span> <span class="kc">null</span>
+<span class="p">}</span></code></pre>
+
+<h2 id="show-user-by-id">Show User by Id</h2>
+
+<pre><code>GET https://seeclickfix.com/api/v2/users/:id
+</code></pre>
+
+<p>Returns a single user by <code>:id</code>.</p>
+
+<h3 id="examples-1">Examples</h3>
+
+<pre class="terminal">
+$ curl -i https://seeclickfix.com/api/v2/users/1
+</pre>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"display_name"</span><span class="o">:</span> <span class="s2">"Jeffb"</span><span class="p">,</span>
+  <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="s2">"civic_points"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
+  <span class="s2">"witty_title"</span><span class="o">:</span> <span class="s2">"Street Smart"</span><span class="p">,</span>
+  <span class="s2">"voted_issue_count"</span><span class="o">:</span> <span class="mi">31</span><span class="p">,</span>
+  <span class="s2">"reported_issue_count"</span><span class="o">:</span> <span class="mi">25</span><span class="p">,</span>
+  <span class="s2">"comments_count"</span><span class="o">:</span> <span class="mi">62</span><span class="p">,</span>
+  <span class="s2">"closed_issue_count"</span><span class="o">:</span> <span class="mi">27</span><span class="p">,</span>
+  <span class="s2">"following_issue_count"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
+  <span class="s2">"permissions"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"can_acknowledge"</span><span class="o">:</span> <span class="kc">false</span>
+  <span class="p">},</span>
+  <span class="s2">"avatar"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"square_100x100"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg"</span><span class="p">,</span>
+    <span class="s2">"full"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg"</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre>
+
+<h3 id="errors">Errors</h3>
+
+<p>Returns error code 404 if no results are found.</p>
+
+<pre class="headers no-response"><code>Status: 404 Not Found</code></pre>
+
+<h2 id="list-users">List Users</h2>
+
+<pre><code>GET https://seeclickfix.com/api/v2/users
+</code></pre>
+
+<p>Returns a list of users closest to <code>point</code>.</p>
+
+<h3 id="required-parameters">Required Parameters</h3>
+
+<ul>
+<li>Point - See <a href="/#geography">how to specify a geography</a> for the latitude and longitude or address syntax.</li>
+</ul><h3 id="optional-parameters">Optional Parameters</h3>
+
+<ul>
+<li>Pagination - See <a href="/#pagination">how to specify pagination</a>
+</li>
+</ul><h3 id="order">Order</h3>
+
+<p>The sort order is by distance from Point.</p>
+
+<h3 id="examples-2">Examples</h3>
+
+<pre class="terminal">
+$ curl -i https://seeclickfix.com/api/v2/users?address=New+Haven,+CT
+</pre>
+
+<p>Returns the 20 closest users.</p>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"metadata"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"page"</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">"page_size"</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span>
+    <span class="s2">"next_page"</span><span class="o">:</span> <span class="s2">"null"</span><span class="p">,</span>
+    <span class="s2">"previous_page"</span><span class="o">:</span> <span class="mi">1</span>
+  <span class="p">},</span>
+  <span class="s2">"places"</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">"display_name"</span><span class="o">:</span> <span class="s2">"Jeffb"</span><span class="p">,</span>
+      <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="s2">"civic_points"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
+      <span class="s2">"witty_title"</span><span class="o">:</span> <span class="s2">"Street Smart"</span><span class="p">,</span>
+      <span class="s2">"voted_issue_count"</span><span class="o">:</span> <span class="mi">31</span><span class="p">,</span>
+      <span class="s2">"reported_issue_count"</span><span class="o">:</span> <span class="mi">25</span><span class="p">,</span>
+      <span class="s2">"comments_count"</span><span class="o">:</span> <span class="mi">62</span><span class="p">,</span>
+      <span class="s2">"closed_issue_count"</span><span class="o">:</span> <span class="mi">27</span><span class="p">,</span>
+      <span class="s2">"following_issue_count"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
+      <span class="s2">"permissions"</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">"can_acknowledge"</span><span class="o">:</span> <span class="kc">false</span>
+      <span class="p">},</span>
+      <span class="s2">"avatar"</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">"square_100x100"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg"</span><span class="p">,</span>
+        <span class="s2">"full"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg"</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="s2">"errors"</span><span class="o">:</span> <span class="kc">null</span>
+<span class="p">}</span></code></pre>
 
 <h2 id="register">Register</h2>
+
+<pre><code>POST https://seeclickfix.com/api/v2/users
+</code></pre>
+
+<p>Registers a new user</p>
+
+<h3 id="required-parameters-1">Required Parameters</h3>
+
+<ul>
+<li>name - Name displayed on site. Must be between 3 and 40 characters long.</li>
+  <li>email - Can’t be blank.</li>
+  <li>password - Must be between 4 and 40 characters long.</li>
+  <li>password_confirmation - Must be equal to password above.</li>
+  <li>accept_terms - Must be set to ‘true’. Confirms user has read <a href="http://seeclickfix.com/registration/new">http://seeclickfix.com/registration/new</a> </li>
+</ul><h3 id="optional-parameters-1">Optional Parameters</h3>
+
+<ul>
+<li>place_url_name - The <code>url_name</code> attribute of a place object, which represents the home of the user.</li>
+  <li>uploaded_data - The image of the user.</li>
+</ul><h3 id="examples-3">Examples</h3>
+
+<pre class="terminal">
+$ curl -i https://seeclickfix.com/api/v2/users
+</pre>
+
+<pre class="headers"><code>Status: 201 Created</code></pre>
+
+<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"display_name"</span><span class="o">:</span> <span class="s2">"Jeffb"</span><span class="p">,</span>
+  <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="s2">"civic_points"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
+  <span class="s2">"witty_title"</span><span class="o">:</span> <span class="s2">"Street Smart"</span><span class="p">,</span>
+  <span class="s2">"voted_issue_count"</span><span class="o">:</span> <span class="mi">31</span><span class="p">,</span>
+  <span class="s2">"reported_issue_count"</span><span class="o">:</span> <span class="mi">25</span><span class="p">,</span>
+  <span class="s2">"comments_count"</span><span class="o">:</span> <span class="mi">62</span><span class="p">,</span>
+  <span class="s2">"closed_issue_count"</span><span class="o">:</span> <span class="mi">27</span><span class="p">,</span>
+  <span class="s2">"following_issue_count"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
+  <span class="s2">"permissions"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"can_acknowledge"</span><span class="o">:</span> <span class="kc">false</span>
+  <span class="p">},</span>
+  <span class="s2">"avatar"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"square_100x100"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg"</span><span class="p">,</span>
+    <span class="s2">"full"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg"</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre>
+
+<h3 id="errors-1">Errors</h3>
+
+<p>Returns error code 422 if unable to create user.</p>
+
+<pre class="headers"><code>Status: 422 Unprocessable Entity</code></pre>
+
+<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"errors"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"login"</span><span class="o">:</span> <span class="s2">"can't be blank."</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre>
+
+<h2 id="update-user-settings">Update User Settings</h2>
+
+<pre><code>PUT https://seeclickfix.com/api/v2/users/:id
+</code></pre>
+
+<p>Updates the settings for the user with the specified id.</p>
+
+<h3 id="required-parameters-2">Required Parameters</h3>
+
+<ul>
+<li>name - Name displayed on site. Must be between 3 and 40 characters long.</li>
+  <li>email - Can’t be blank.</li>
+  <li>password - Must be between 4 and 40 characters long.</li>
+  <li>password_confirmation - Must be equal to password above.</li>
+  <li>accept_terms - Must be set to ‘true’. Confirms user has read <a href="http://seeclickfix.com/registration/new">http://seeclickfix.com/registration/new</a> </li>
+</ul><h3 id="optional-parameters-2">Optional Parameters</h3>
+
+<ul>
+<li>place_url_name - The <code>url_name</code> attribute of a place object, which represents the home of the user.</li>
+  <li>uploaded_data - The image of the user.</li>
+</ul><h3 id="examples-4">Examples</h3>
+
+<pre class="terminal">
+$ curl -i https://seeclickfix.com/api/v2/users/1
+</pre>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"display_name"</span><span class="o">:</span> <span class="s2">"Jeffb"</span><span class="p">,</span>
+  <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="s2">"civic_points"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
+  <span class="s2">"witty_title"</span><span class="o">:</span> <span class="s2">"Street Smart"</span><span class="p">,</span>
+  <span class="s2">"voted_issue_count"</span><span class="o">:</span> <span class="mi">31</span><span class="p">,</span>
+  <span class="s2">"reported_issue_count"</span><span class="o">:</span> <span class="mi">25</span><span class="p">,</span>
+  <span class="s2">"comments_count"</span><span class="o">:</span> <span class="mi">62</span><span class="p">,</span>
+  <span class="s2">"closed_issue_count"</span><span class="o">:</span> <span class="mi">27</span><span class="p">,</span>
+  <span class="s2">"following_issue_count"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
+  <span class="s2">"permissions"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"can_acknowledge"</span><span class="o">:</span> <span class="kc">false</span>
+  <span class="p">},</span>
+  <span class="s2">"avatar"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"square_100x100"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg"</span><span class="p">,</span>
+    <span class="s2">"full"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg"</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre>
+
+<h3 id="errors-2">Errors</h3>
+
+<p>Returns error code 422 if unable to update the user.</p>
+
+<pre class="headers"><code>Status: 422 Unprocessable Entity</code></pre>
+
+<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"errors"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"login"</span><span class="o">:</span> <span class="s2">"can't be blank."</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre>
       </div>
 
     <div id="js-sidebar" class="sidebar-shell">
@@ -73,33 +331,21 @@
           <li class="js-topic">
             <h3><a href="#" class="js-expand-btn collapsed">&nbsp;</a><a href="/v2/users/">Users</a></h3>
             <ul class="js-guides">
-              <li><a href="/v2/users/activity/">Activity</a></li>
               <li><a href="/v2/users/emails/">Emails</a></li>
             </ul>
           </li>
-          
+
           <li class="js-topic">
             <h3><a href="#" class="js-expand-btn collapsed">&nbsp;</a><a href="/v2/places/">Places</a></h3>
           </li>
-          
-<!--           <li class="js-topic">
-            <h3><a href="#" class="js-expand-btn collapsed">&nbsp;</a><a href="/v2/watch_areas/">Watch Areas</a></h3>
-          </li> -->
-          
+
+
 <!--           <li class="js-topic">
             <h3><a href="#" class="js-expand-btn collapsed">&nbsp;</a><a href="/v2/questions/">Questions</a></h3>
             <ul class="js-guides">
               <li><a href="/v2/questions/answers/">Answers</a></li>
             </ul>
           </li> -->
-          
-<!--           <li class="js-topic">
-            <h3><a href="#" class="js-expand-btn collapsed">&nbsp;</a><a href="/v2/search/">Search</a></h3>
-          </li> -->
-
-          <li class="js-topic">
-            <h3><a href="#" class="js-expand-btn collapsed">&nbsp;</a><a href="/v2/geocoding/">Geocoding</a></h3>
-          </li>
 
           <li class="js-topic">
             <h3><a href="#" class="js-expand-btn collapsed">&nbsp;</a><a href="/v2/mobile_customizations/">Mobile Customizations</a></h3>
