@@ -2,19 +2,20 @@
 title: API v2 - Issues - Changing Status
 ---
 
-# Changing the status of issues
+# Changing the status of an issue
 
-Any authenticated user can change the status of an issue from Open to Closed and Closed to Open. Only government employees can change the status from Open to Acknowledged and Acknowledged to Closed. Issues are Archived after being Closed for 7 days. The status can not change for Archived issues. 
+* TOC
+{:toc}
 
-## Changing the status of an Issue
+Any authenticated user can change the status of an issue from Open to Closed and Closed to Open. Only government employees can change the status from Open to Acknowledged and Acknowledged to Closed. To check if the current user has this permission visit the <a href="/v2/users/#show-current-user">current user</a> page. Issues are Archived after being Closed for 7 days. The status can not change for Archived issues. 
 
-The status of an issue is similar to adding a comment on an issue. 
+## Close an Issue
 
-    POST /issues/<issue_id>/status
+Changing the status of an issue is similar to adding a comment on an issue. 
+    POST /issues/<issue_id>/close
 
 ### Required Parameters
 
-* **new_status**=`:status` - The new status of an issue.
 * **comment**=`:comment` - A comment is required when changing the status.
 
 ### Optional Parameters
@@ -23,44 +24,66 @@ The status of an issue is similar to adding a comment on an issue.
 * **video** - A video of the problem. Limited to 20Mb.
 * **youtube_url** - A link to a youtube video showing the problem.
 
-### Request
+### Example
 
-<%=
-  json({
-    comment: 'The problem is getting larger.',
-    new_status: 'Closed'
-  })
-%>
+<pre class="terminal">
+$ curl --data "comment=pools+are+nice" -i <%= root_version_url %>/issues/1/close
+</pre>
 
 ### Response
 
 <%= headers 201 %>
-<%= 
- json({ 
-   metadata: [{moderated: false}],
-   result: nil,
-   errors: nil
- })
-%>
+<%= json(moderated: false, created_at: Time.now) %>
 
-## Listing Comments on an Issue
+## Reopen an Issue
 
-Votes can be revoked by any authenticated user. This removes the user's vote. It does not vote down an issue. 
+Changing the status of an issue is similar to adding a comment on an issue. 
+    POST /issues/<issue_id>/open
 
-    GET /issues/<issue_id>/comments
+### Required Parameters
 
-### Request
+* **comment**=`:comment` - A comment is required when changing the status.
 
-<%=
-  json({value: -1})
-%>
+### Optional Parameters
+
+* **image** - An image of the problem. Limited to 20Mb.
+* **video** - A video of the problem. Limited to 20Mb.
+* **youtube_url** - A link to a youtube video showing the problem.
+
+### Example
+
+<pre class="terminal">
+$ curl --data "comment=pools+are+nice" -i <%= root_version_url %>/issues/1/close
+</pre>
 
 ### Response
 
-<%=
-  json({
-    metadata: nil,
-    result: 'success',
-    errors: nil
-  })
-%>
+<%= headers 201 %>
+<%= json(moderated: false, created_at: Time.now) %>
+
+## Acknowledge an Issue
+
+Changing the status of an issue is similar to adding a comment on an issue. 
+
+    POST /issues/<issue_id>/acknowledge
+
+### Required Parameters
+
+* **comment**=`:comment` - A comment is required when changing the status.
+
+### Optional Parameters
+
+* **image** - An image of the problem. Limited to 20Mb.
+* **video** - A video of the problem. Limited to 20Mb.
+* **youtube_url** - A link to a youtube video showing the problem.
+
+### Example
+
+<pre class="terminal">
+$ curl --data "comment=pools+are+nice" -i <%= root_version_url %>/issues/1/acknowledge
+</pre>
+
+### Response
+
+<%= headers 201 %>
+<%= json(moderated: false, created_at: Time.now) %>
