@@ -8,44 +8,32 @@ To check wether the current user is following an issue see the attribute `curren
 
 ## Follow an Issue
 
-Issues can be followed by any authenticated user.
+Issues can be followed by any authenticated user. After following an issue, the user will receive updates via email. Trying to follow the same issue twice will return an error.
 
-    PUT /issues/<issue_id>/follow
-
-### Request
-
-<%=
-  json({value: 1})
-%>
-
-### Response
-
-<%=
-  json({
-    metadata: nil,
-    result: 'success',
-    errors: nil
-  })
-%>
-
-## Revoke following an Issue
-
-Issues can be unfollowed by any authenticated user.
-
-    PUT /issues/<issue_id>/follow
+    POST /issues/<issue_id>/follow
 
 ### Request
 
-<%=
-  json({value: -1})
-%>
+No values are required in the body of the request.
 
 ### Response
 
-<%=
-  json({
-    metadata: nil,
-    result: 'success',
-    errors: nil
-  })
-%>
+<%= headers 201 %>
+<%= json(follow: 1) %>
+
+Returns 1 if the follow was succesful.
+
+## Stop following an issue
+
+Following an issue can be stopped by an authenticated user if the user is following the issue. 
+
+    DELETE /issues/<issue_id>/follow
+
+### Request
+
+No values are required in the body of the request.
+
+### Response
+
+<%= headers 204 %>
+<%= json(follow: 0) %>
