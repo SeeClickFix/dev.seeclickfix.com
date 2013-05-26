@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Language" content="en-us" />
   <meta http-equiv="imagetoolbar" content="false" />
   <meta name="MSSmartTagsPreventParsing" content="true" />
-  <title>API v2 - Issues - Flagging as Inappropriate</title>
+  <title>API v2 - Issues - Flagging an Issue as Inappropriate</title>
   <link rel="alternate" type="application/atom+xml" title="API Changes" href="/changes.atom" />
   <link href="/css/reset.css" rel="stylesheet" type="text/css" />
   <link href="/css/960.css" rel="stylesheet" type="text/css" />
@@ -32,15 +32,15 @@
 
     <div id="wrapper">
       <div class="content">
-    <h1 id="issue-flagging-as-inappropriate">Issue Flagging as Inappropriate</h1>
+    <h1 id="flagging-an-issue-as-inappropriate">Flagging an issue as Inappropriate</h1>
 
-<p>Marking an issue as inappropriate alerts our moderators of the content. Flagging can happen on issues or comments.</p>
+<p>Marking an issue as inappropriate alerts our moderators of the content. Flagging can happen on issues or comments. Content can not be unflagged until our moderators look at it.</p>
 
 <h2 id="flagging-an-issue">Flagging an Issue</h2>
 
 <p>Issues can be flagged by any authenticated user.</p>
 
-<pre><code>PUT /issues/&lt;issue_id&gt;/flag
+<pre><code>POST /issues/&lt;issue_id&gt;/flag
 </code></pre>
 
 <h3 id="request">Request</h3>
@@ -52,9 +52,26 @@
 <h3 id="response">Response</h3>
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
-  <span class="s2">"metadata"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-  <span class="s2">"result"</span><span class="o">:</span> <span class="s2">"success"</span><span class="p">,</span>
-  <span class="s2">"errors"</span><span class="o">:</span> <span class="kc">null</span>
+  <span class="s2">"flagged"</span><span class="o">:</span> <span class="mi">1</span>
+<span class="p">}</span></code></pre>
+
+<h2 id="flagging-a-comment">Flagging a Comment</h2>
+
+<p>Comments can be flagged by any authenticated user.</p>
+
+<pre><code>POST /comments/&lt;comment_id&gt;/flag
+</code></pre>
+
+<h3 id="request-1">Request</h3>
+
+<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"reason"</span><span class="o">:</span> <span class="s2">"Using profanity."</span>
+<span class="p">}</span></code></pre>
+
+<h3 id="response-1">Response</h3>
+
+<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"flagged"</span><span class="o">:</span> <span class="mi">1</span>
 <span class="p">}</span></code></pre>
       </div>
 
