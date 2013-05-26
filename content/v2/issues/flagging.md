@@ -1,16 +1,16 @@
 ---
-title: API v2 - Issues - Flagging as Inappropriate
+title: API v2 - Issues - Flagging an Issue as Inappropriate
 ---
 
-# Issue Flagging as Inappropriate
+# Flagging an issue as Inappropriate
 
-Marking an issue as inappropriate alerts our moderators of the content. Flagging can happen on issues or comments.
+Marking an issue as inappropriate alerts our moderators of the content. Flagging can happen on issues or comments. Content can not be unflagged until our moderators look at it.
 
 ## Flagging an Issue
 
 Issues can be flagged by any authenticated user.
 
-    PUT /issues/<issue_id>/flag
+    POST /issues/<issue_id>/flag
 
 ### Request
 
@@ -21,9 +21,23 @@ Issues can be flagged by any authenticated user.
 ### Response
 
 <%=
-  json({
-    metadata: nil,
-    result: 'success',
-    errors: nil
-  })
+  json(flagged: 1)
+%>
+
+## Flagging a Comment
+
+Comments can be flagged by any authenticated user.
+
+    POST /comments/<comment_id>/flag
+
+### Request
+
+<%=
+  json({reason: 'Using profanity.'})
+%>
+
+### Response
+
+<%=
+  json(flagged: 1)
 %>
