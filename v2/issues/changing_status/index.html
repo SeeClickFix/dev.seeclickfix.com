@@ -32,23 +32,23 @@
 
     <div id="wrapper">
       <div class="content">
-    <h1 id="changing-the-status-of-issues">Changing the status of issues</h1>
+    <h1 id="changing-the-status-of-an-issue">Changing the status of an issue</h1>
 
-<p>Any authenticated user can change the status of an issue from Open to Closed and Closed to Open. Only government employees can change the status from Open to Acknowledged and Acknowledged to Closed. Issues are Archived after being Closed for 7 days. The status can not change for Archived issues. </p>
+<ul id="markdown-toc">
+<li><a href="#close-an-issue">Close an Issue</a></li>
+  <li><a href="#reopen-an-issue">Reopen an Issue</a></li>
+  <li><a href="#acknowledge-an-issue">Acknowledge an Issue</a></li>
+</ul><p>Any authenticated user can change the status of an issue from Open to Closed and Closed to Open. Only government employees can change the status from Open to Acknowledged and Acknowledged to Closed. To check if the current user has this permission visit the <a href="/v2/users/#show-current-user">current user</a> page. Issues are Archived after being Closed for 7 days. The status can not change for Archived issues. </p>
 
-<h2 id="changing-the-status-of-an-issue">Changing the status of an Issue</h2>
+<h2 id="close-an-issue">Close an Issue</h2>
 
-<p>The status of an issue is similar to adding a comment on an issue. </p>
-
-<pre><code>POST /issues/&lt;issue_id&gt;/status
-</code></pre>
+<p>Changing the status of an issue is similar to adding a comment on an issue. 
+    POST /issues/<issue_id>/close</issue_id></p>
 
 <h3 id="required-parameters">Required Parameters</h3>
 
 <ul>
 <li>
-<strong>new_status</strong>=<code>:status</code> - The new status of an issue.</li>
-  <li>
 <strong>comment</strong>=<code>:comment</code> - A comment is required when changing the status.</li>
 </ul><h3 id="optional-parameters">Optional Parameters</h3>
 
@@ -59,46 +59,89 @@
 <strong>video</strong> - A video of the problem. Limited to 20Mb.</li>
   <li>
 <strong>youtube_url</strong> - A link to a youtube video showing the problem.</li>
-</ul><h3 id="request">Request</h3>
+</ul><h3 id="example">Example</h3>
 
-<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
-  <span class="s2">"comment"</span><span class="o">:</span> <span class="s2">"The problem is getting larger."</span><span class="p">,</span>
-  <span class="s2">"new_status"</span><span class="o">:</span> <span class="s2">"Closed"</span>
-<span class="p">}</span></code></pre>
+<pre class="terminal">
+$ curl --data "comment=pools+are+nice" -i https://seeclickfix.com/api/v2/issues/1/close
+</pre>
 
 <h3 id="response">Response</h3>
 
 <pre class="headers"><code>Status: 201 Created</code></pre>
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
-  <span class="s2">"metadata"</span><span class="o">:</span> <span class="p">[</span>
-    <span class="p">{</span>
-      <span class="s2">"moderated"</span><span class="o">:</span> <span class="kc">false</span>
-    <span class="p">}</span>
-  <span class="p">],</span>
-  <span class="s2">"result"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-  <span class="s2">"errors"</span><span class="o">:</span> <span class="kc">null</span>
+  <span class="s2">"moderated"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2013-05-25 22:35:37 -0700"</span>
 <span class="p">}</span></code></pre>
 
-<h2 id="listing-comments-on-an-issue">Listing Comments on an Issue</h2>
+<h2 id="reopen-an-issue">Reopen an Issue</h2>
 
-<p>Votes can be revoked by any authenticated user. This removes the user’s vote. It does not vote down an issue. </p>
+<p>Changing the status of an issue is similar to adding a comment on an issue. 
+    POST /issues/<issue_id>/open</issue_id></p>
 
-<pre><code>GET /issues/&lt;issue_id&gt;/comments
-</code></pre>
+<h3 id="required-parameters-1">Required Parameters</h3>
 
-<h3 id="request-1">Request</h3>
+<ul>
+<li>
+<strong>comment</strong>=<code>:comment</code> - A comment is required when changing the status.</li>
+</ul><h3 id="optional-parameters-1">Optional Parameters</h3>
 
-<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
-  <span class="s2">"value"</span><span class="o">:</span> <span class="o">-</span><span class="mi">1</span>
-<span class="p">}</span></code></pre>
+<ul>
+<li>
+<strong>image</strong> - An image of the problem. Limited to 20Mb.</li>
+  <li>
+<strong>video</strong> - A video of the problem. Limited to 20Mb.</li>
+  <li>
+<strong>youtube_url</strong> - A link to a youtube video showing the problem.</li>
+</ul><h3 id="example-1">Example</h3>
+
+<pre class="terminal">
+$ curl --data "comment=pools+are+nice" -i https://seeclickfix.com/api/v2/issues/1/close
+</pre>
 
 <h3 id="response-1">Response</h3>
 
+<pre class="headers"><code>Status: 201 Created</code></pre>
+
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
-  <span class="s2">"metadata"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-  <span class="s2">"result"</span><span class="o">:</span> <span class="s2">"success"</span><span class="p">,</span>
-  <span class="s2">"errors"</span><span class="o">:</span> <span class="kc">null</span>
+  <span class="s2">"moderated"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2013-05-25 22:35:37 -0700"</span>
+<span class="p">}</span></code></pre>
+
+<h2 id="acknowledge-an-issue">Acknowledge an Issue</h2>
+
+<p>Changing the status of an issue is similar to adding a comment on an issue. </p>
+
+<pre><code>POST /issues/&lt;issue_id&gt;/acknowledge
+</code></pre>
+
+<h3 id="required-parameters-2">Required Parameters</h3>
+
+<ul>
+<li>
+<strong>comment</strong>=<code>:comment</code> - A comment is required when changing the status.</li>
+</ul><h3 id="optional-parameters-2">Optional Parameters</h3>
+
+<ul>
+<li>
+<strong>image</strong> - An image of the problem. Limited to 20Mb.</li>
+  <li>
+<strong>video</strong> - A video of the problem. Limited to 20Mb.</li>
+  <li>
+<strong>youtube_url</strong> - A link to a youtube video showing the problem.</li>
+</ul><h3 id="example-2">Example</h3>
+
+<pre class="terminal">
+$ curl --data "comment=pools+are+nice" -i https://seeclickfix.com/api/v2/issues/1/acknowledge
+</pre>
+
+<h3 id="response-2">Response</h3>
+
+<pre class="headers"><code>Status: 201 Created</code></pre>
+
+<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"moderated"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2013-05-25 22:35:37 -0700"</span>
 <span class="p">}</span></code></pre>
       </div>
 

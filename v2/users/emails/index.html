@@ -34,13 +34,126 @@
       <div class="content">
     <h1 id="user-emails">User Emails</h1>
 
-<h2 id="list-user-emails">List user emails</h2>
+<ul id="markdown-toc">
+<li><a href="#list-emails">List emails</a></li>
+  <li><a href="#add-an-email">Add an email</a></li>
+  <li><a href="#remove-an-email">Remove an email</a></li>
+</ul><p>API endpoints to allow the user to manage their emails.</p>
+
+<h2 id="list-emails">List emails</h2>
+
+<p>List emails of the currently logged in user.</p>
+
+<pre><code>GET https://seeclickfix.com/api/v2/emails
+</code></pre>
+
+<p>Returns a list of emails.</p>
+
+<h3 id="required-parameters">Required Parameters</h3>
+
+<ul>
+<li>logged in user - The user must be logged in to view their emails.</li>
+</ul><h3 id="optional-parameters">Optional Parameters</h3>
+
+<p>none.</p>
+
+<h3 id="order">Order</h3>
+
+<p>The sort order is alphabetical by email.</p>
+
+<h3 id="examples">Examples</h3>
+
+<pre class="terminal">
+$ curl -i https://seeclickfix.com/api/v2/emails
+</pre>
+
+<p>Returns the current user’s emails</p>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"metadata"</span><span class="o">:</span> <span class="p">{</span>
+
+  <span class="p">},</span>
+  <span class="s2">"emails"</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="s2">"confirmed"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+      <span class="s2">"email"</span><span class="o">:</span> <span class="s2">"foo@bar.com"</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="s2">"errors"</span><span class="o">:</span> <span class="p">{</span>
+
+  <span class="p">}</span>
+<span class="p">}</span></code></pre>
 
 <h2 id="add-an-email">Add an email</h2>
 
-<h2 id="confirm-an-email">Confirm an email</h2>
+<p>Adds an email to the current user.</p>
+
+<pre><code>POST https://seeclickfix.com/api/v2/emails
+</code></pre>
+
+<p>Returns the email just added.</p>
+
+<h3 id="required-parameters-1">Required Parameters</h3>
+
+<ul>
+<li>logged in user - The user must be logged in as the user to add an email to.</li>
+  <li>email - The new email to be added.</li>
+</ul><h3 id="optional-parameters-1">Optional Parameters</h3>
+
+<p>none.</p>
+
+<h3 id="examples-1">Examples</h3>
+
+<pre class="terminal">
+$ curl --data "email=foo@bar.com" -i https://seeclickfix.com/api/v2/emails
+</pre>
+
+<p>Returns the current user’s emails</p>
+
+<pre class="headers"><code>Status: 201 Created</code></pre>
+
+<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="s2">"confirmed"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="s2">"email"</span><span class="o">:</span> <span class="s2">"foo@bar.com"</span>
+<span class="p">}</span></code></pre>
 
 <h2 id="remove-an-email">Remove an email</h2>
+
+<p>Removes an email from the current user.</p>
+
+<pre><code>DELETE https://seeclickfix.com/api/v2/emails/:id
+</code></pre>
+
+<p>Returns the email just removed.</p>
+
+<h3 id="required-parameters-2">Required Parameters</h3>
+
+<ul>
+<li>logged in user - The user must be logged in as the user to add an email to.</li>
+  <li>id - The id of the email to be added.</li>
+</ul><h3 id="optional-parameters-2">Optional Parameters</h3>
+
+<p>none.</p>
+
+<h3 id="examples-2">Examples</h3>
+
+<pre class="terminal">
+$ curl -X DELETE -i https://seeclickfix.com/api/v2/emails/1
+</pre>
+
+<p>Returns the email just deleted.</p>
+
+<pre class="headers no-response"><code>Status: 204 No Content</code></pre>
+
+<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="s2">"confirmed"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="s2">"email"</span><span class="o">:</span> <span class="s2">"foo@bar.com"</span>
+<span class="p">}</span></code></pre>
       </div>
 
     <div id="js-sidebar" class="sidebar-shell">

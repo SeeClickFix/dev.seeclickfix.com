@@ -34,7 +34,10 @@
       <div class="content">
     <h1 id="issue-comments">Issue Comments</h1>
 
-<h2 id="commenting-on-an-issue">Commenting on an Issue</h2>
+<ul id="markdown-toc">
+<li><a href="#commenting-on-an-issue">Commenting on an Issue</a></li>
+  <li><a href="#listing-comments-on-an-issue">Listing Comments on an Issue</a></li>
+</ul><h2 id="commenting-on-an-issue">Commenting on an Issue</h2>
 
 <p>Issues can be commented on any authenticated user.</p>
 
@@ -46,54 +49,93 @@
 <ul>
 <li>
 <strong>comment</strong>=<code>:comment</code> - The user generated comment.</li>
+  <li>
+<strong>logged in</strong> - A user must be logged in to create a comment.</li>
 </ul><h3 id="optional-parameters">Optional Parameters</h3>
 
 <ul>
 <li>
-<strong>image</strong> - An image of the problem. Limited to 20Mb.</li>
+<strong>image</strong> - An image of the problem. Limited to 20Mb. Must be png, jpeg, or gif format.</li>
   <li>
 <strong>video</strong> - A video of the problem. Limited to 20Mb.</li>
   <li>
 <strong>youtube_url</strong> - A link to a youtube video showing the problem.</li>
-</ul><h3 id="request">Request</h3>
+</ul><h3 id="example">Example</h3>
 
-<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
-  <span class="s2">"comment"</span><span class="o">:</span> <span class="s2">"The problem is getting larger."</span>
-<span class="p">}</span></code></pre>
+<pre class="terminal">
+$ curl --data "comment=pools+are+nice" -i https://seeclickfix.com/api/v2/issues/1/comments
+</pre>
 
 <h3 id="response">Response</h3>
 
 <pre class="headers"><code>Status: 201 Created</code></pre>
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
-  <span class="s2">"metadata"</span><span class="o">:</span> <span class="p">[</span>
-    <span class="p">{</span>
-      <span class="s2">"moderated"</span><span class="o">:</span> <span class="kc">false</span>
-    <span class="p">}</span>
-  <span class="p">],</span>
-  <span class="s2">"result"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-  <span class="s2">"errors"</span><span class="o">:</span> <span class="kc">null</span>
+  <span class="s2">"moderated"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2013-05-25 22:35:37 -0700"</span>
 <span class="p">}</span></code></pre>
 
 <h2 id="listing-comments-on-an-issue">Listing Comments on an Issue</h2>
 
-<p>Votes can be revoked by any authenticated user. This removes the user’s vote. It does not vote down an issue. </p>
+<p>Returns a collection of comment on the specified issue.</p>
 
 <pre><code>GET /issues/&lt;issue_id&gt;/comments
 </code></pre>
 
-<h3 id="request-1">Request</h3>
+<h3 id="order">Order</h3>
 
-<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
-  <span class="s2">"value"</span><span class="o">:</span> <span class="o">-</span><span class="mi">1</span>
-<span class="p">}</span></code></pre>
+<p>Ordered by created date.</p>
+
+<h3 id="example-1">Example</h3>
+
+<pre class="terminal">
+$ curl -i https://seeclickfix.com/api/v2/issues/1/comments
+</pre>
 
 <h3 id="response-1">Response</h3>
 
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
-  <span class="s2">"metadata"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-  <span class="s2">"result"</span><span class="o">:</span> <span class="s2">"success"</span><span class="p">,</span>
-  <span class="s2">"errors"</span><span class="o">:</span> <span class="kc">null</span>
+  <span class="s2">"metadata"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"page"</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">"page_size"</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span>
+    <span class="s2">"next_page"</span><span class="o">:</span> <span class="s2">"null"</span><span class="p">,</span>
+    <span class="s2">"previous_page"</span><span class="o">:</span> <span class="mi">1</span>
+  <span class="p">},</span>
+  <span class="s2">"comments"</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="s2">"comment"</span><span class="o">:</span> <span class="s2">"Me too"</span><span class="p">,</span>
+      <span class="s2">"commenter"</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">"display_name"</span><span class="o">:</span> <span class="s2">"Jeffb"</span><span class="p">,</span>
+        <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">"civic_points"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
+        <span class="s2">"witty_title"</span><span class="o">:</span> <span class="s2">"Street Smart"</span><span class="p">,</span>
+        <span class="s2">"voted_issue_count"</span><span class="o">:</span> <span class="mi">31</span><span class="p">,</span>
+        <span class="s2">"reported_issue_count"</span><span class="o">:</span> <span class="mi">25</span><span class="p">,</span>
+        <span class="s2">"comments_count"</span><span class="o">:</span> <span class="mi">62</span><span class="p">,</span>
+        <span class="s2">"closed_issue_count"</span><span class="o">:</span> <span class="mi">27</span><span class="p">,</span>
+        <span class="s2">"following_issue_count"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
+        <span class="s2">"permissions"</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">"can_acknowledge"</span><span class="o">:</span> <span class="kc">false</span>
+        <span class="p">},</span>
+        <span class="s2">"avatar"</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">"square_100x100"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg"</span><span class="p">,</span>
+          <span class="s2">"full"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg"</span>
+        <span class="p">}</span>
+      <span class="p">},</span>
+      <span class="s2">"media"</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">"video_url"</span><span class="o">:</span> <span class="s2">"http://www.youtube.com/watch?v=dQw4w9WgXcQ"</span><span class="p">,</span>
+        <span class="s2">"image_full"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/comment_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg"</span><span class="p">,</span>
+        <span class="s2">"image_square_100x100"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/comment_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg"</span>
+      <span class="p">},</span>
+      <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2011-04-14T16:00:49Z"</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="s2">"errors"</span><span class="o">:</span> <span class="p">{</span>
+
+  <span class="p">}</span>
 <span class="p">}</span></code></pre>
       </div>
 
