@@ -13,7 +13,7 @@ title: API v2 - Users
 
 Returns the currently logged in user.
 
-### Examples
+### Example
 
 <pre class="terminal">
 $ curl -i <%= root_version_url %>/users/me

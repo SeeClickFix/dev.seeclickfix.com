@@ -4,6 +4,9 @@ title: API v2 - Issues - Comments
 
 # Issue Comments
 
+* TOC
+{:toc}
+
 ## Commenting on an Issue
 
 Issues can be commented on any authenticated user.
@@ -13,48 +16,50 @@ Issues can be commented on any authenticated user.
 ### Required Parameters
 
 * **comment**=`:comment` - The user generated comment.
+* **logged in** - A user must be logged in to create a comment.
 
 ### Optional Parameters
 
-* **image** - An image of the problem. Limited to 20Mb.
+* **image** - An image of the problem. Limited to 20Mb. Must be png, jpeg, or gif format.
 * **video** - A video of the problem. Limited to 20Mb.
 * **youtube_url** - A link to a youtube video showing the problem.
 
-### Request
+### Example
 
-<%=
-  json({comment: 'The problem is getting larger.'})
-%>
+<pre class="terminal">
+$ curl --data "comment=pools+are+nice" -i <%= root_version_url %>/issues/1/comments
+</pre>
 
 ### Response
 
 <%= headers 201 %>
-<%= 
- json({ 
-   metadata: [{moderated: false}],
-   result: nil,
-   errors: nil
- })
-%>
+<%= json(moderated: false, created_at: Time.now) %>
 
 ## Listing Comments on an Issue
 
-Votes can be revoked by any authenticated user. This removes the user's vote. It does not vote down an issue. 
+Returns a collection of comment on the specified issue.
 
     GET /issues/<issue_id>/comments
 
-### Request
+### Order
 
-<%=
-  json({value: -1})
-%>
+Ordered by created date.
+
+### Example
+
+<pre class="terminal">
+$ curl -i <%= root_version_url %>/issues/1/comments
+</pre>
+
 
 ### Response
 
+<%= headers 200 %>
 <%=
-  json({
-    metadata: nil,
-    result: 'success',
-    errors: nil
-  })
+  json(:issue_comment) do |comment|
+    { metadata: SeeClickFix::Resources::PAGINATION_METADATA,
+      comments: [comment],
+      errors: {}
+    }
+  end
 %>
