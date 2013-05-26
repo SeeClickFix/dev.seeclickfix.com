@@ -38,44 +38,42 @@
 
 <h2 id="follow-an-issue">Follow an Issue</h2>
 
-<p>Issues can be followed by any authenticated user.</p>
+<p>Issues can be followed by any authenticated user. After following an issue, the user will receive updates via email. Trying to follow the same issue twice will return an error.</p>
 
-<pre><code>PUT /issues/&lt;issue_id&gt;/follow
+<pre><code>POST /issues/&lt;issue_id&gt;/follow
 </code></pre>
 
 <h3 id="request">Request</h3>
 
-<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
-  <span class="s2">"value"</span><span class="o">:</span> <span class="mi">1</span>
-<span class="p">}</span></code></pre>
+<p>No values are required in the body of the request.</p>
 
 <h3 id="response">Response</h3>
 
+<pre class="headers"><code>Status: 201 Created</code></pre>
+
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
-  <span class="s2">"metadata"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-  <span class="s2">"result"</span><span class="o">:</span> <span class="s2">"success"</span><span class="p">,</span>
-  <span class="s2">"errors"</span><span class="o">:</span> <span class="kc">null</span>
+  <span class="s2">"follow"</span><span class="o">:</span> <span class="mi">1</span>
 <span class="p">}</span></code></pre>
 
-<h2 id="revoke-following-an-issue">Revoke following an Issue</h2>
+<p>Returns 1 if the follow was succesful.</p>
 
-<p>Issues can be unfollowed by any authenticated user.</p>
+<h2 id="stop-following-an-issue">Stop following an issue</h2>
 
-<pre><code>PUT /issues/&lt;issue_id&gt;/follow
+<p>Following an issue can be stopped by an authenticated user if the user is following the issue. </p>
+
+<pre><code>DELETE /issues/&lt;issue_id&gt;/follow
 </code></pre>
 
 <h3 id="request-1">Request</h3>
 
-<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
-  <span class="s2">"value"</span><span class="o">:</span> <span class="o">-</span><span class="mi">1</span>
-<span class="p">}</span></code></pre>
+<p>No values are required in the body of the request.</p>
 
 <h3 id="response-1">Response</h3>
 
+<pre class="headers no-response"><code>Status: 204 No Content</code></pre>
+
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
-  <span class="s2">"metadata"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-  <span class="s2">"result"</span><span class="o">:</span> <span class="s2">"success"</span><span class="p">,</span>
-  <span class="s2">"errors"</span><span class="o">:</span> <span class="kc">null</span>
+  <span class="s2">"follow"</span><span class="o">:</span> <span class="mi">0</span>
 <span class="p">}</span></code></pre>
       </div>
 
