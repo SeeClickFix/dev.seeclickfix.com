@@ -108,6 +108,7 @@ Issues can be created by any authenticated user.
 * **image** - An image of the problem. Limited to 20Mb.
 * **video** - A video of the problem. Limited to 20Mb.
 * **youtube_url** - A link to a youtube video showing the problem.
+* **device_id** - A unique identifier for the device creating the comment. This can help us debug problems.
 
 ### Example request
 

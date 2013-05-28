@@ -100,6 +100,37 @@ module SeeClickFix
       email: 'foo@bar.com'
     }
 
+    QUESTION = {
+      id: 1,
+      views: 5,
+      locale: 'en',
+      question: "Is it legal to bike on the sidewalk?",
+      created_at: "2013-05-14T19:49:13-04:00",
+      updated_at: "2013-05-14T19:49:13-04:00"
+    }
+
+    ANSWER = {
+      id: 4,
+      answer: "Pretty sure it's ok to keep chickens",
+      locale: nil,
+      accepted_at: nil,
+      total_votes: 15,
+      question_id: 2,
+      created_at: "2013-05-14T19:49:13-04:00",
+      updated_at: "2013-05-14T19:49:13-04:00",
+      answerer: {
+        id: 10,
+        name: "Mike Helpless",
+        witty_title: "Street Smart",
+        civic_points: 100,
+        avatar: {
+          full: "http://seeclickfix.com/assets/no-avatar-100.png",
+          square_100x100: "http://seeclickfix.com/assets/no-avatar-100.png"
+        }
+      }
+    }
+
+
     USER = {
       "display_name"        => "Jeffb",
       "id"           => 1,
@@ -113,6 +144,17 @@ module SeeClickFix
       "permissions" => {
         "can_acknowledge" => false
       },
+      "avatar" => {
+        "square_100x100" => "#{ASSET_URL}/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg",
+        "full" => "#{ASSET_URL}/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg"
+      }
+    }
+
+    USER_4_PUBLIC = {
+      "display_name"        => "Jeffb",
+      "id"           => 1,
+      "civic_points" => 10,
+      "witty_title" => "Street Smart",
       "avatar" => {
         "square_100x100" => "#{ASSET_URL}/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg",
         "full" => "#{ASSET_URL}/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg"

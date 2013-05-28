@@ -128,9 +128,9 @@ Returns error code 422 if unable to create user.
 
 ## Update User Settings
 
-    PUT <%= root_version_url %>/users/:id
+    PUT <%= root_version_url %>/users/me
 
-Updates the settings for the user with the specified id.
+Updates the settings for the current user. 
 
 ### Required Parameters
 
