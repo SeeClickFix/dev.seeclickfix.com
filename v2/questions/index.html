@@ -33,6 +33,142 @@
     <div id="wrapper">
       <div class="content">
     <h1 id="questions">Questions</h1>
+
+<p>Questions and answers are only available in places where the data_classification is of type “City”.</p>
+
+<ul id="markdown-toc">
+<li><a href="#list-questions">List questions</a></li>
+  <li><a href="#get-a-single-question">Get a single question</a></li>
+  <li><a href="#ask-a-question">Ask a Question</a></li>
+</ul><h2 id="list-questions">List questions</h2>
+
+<pre><code>GET https://seeclickfix.com/api/v2/&lt;place_url_name&gt;/questions
+</code></pre>
+
+<h3 id="optional-parameters">Optional Parameters</h3>
+
+<ul>
+<li>
+    <p><strong>page</strong>=<code>:page_number</code> - number of the page to return, default: 1</p>
+  </li>
+  <li>
+    <p><strong>per_page</strong>=<code>:per_page</code> - number of issues returned per page, default: 20</p>
+  </li>
+  <li>
+    <p><strong>search</strong>=<code>:search</code> - limit results by search terms.</p>
+  </li>
+  <li>
+    <p><strong>subset</strong>=<code>:subset</code> - One of ‘answered’, ‘unanswered’, or blank. A blank subset will return answered and unanswered questions.</p>
+  </li>
+</ul><h3 id="examples">Examples</h3>
+
+<pre class="terminal">
+$ curl -i https://seeclickfix.com/api/v2/new-haven/questions
+</pre>
+
+<p>Returns questions asked within the city of New Haven, CT, where the place_url is ‘new-haven’.</p>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"metadata"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"page"</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">"page_size"</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span>
+    <span class="s2">"next_page"</span><span class="o">:</span> <span class="s2">"null"</span><span class="p">,</span>
+    <span class="s2">"previous_page"</span><span class="o">:</span> <span class="mi">1</span>
+  <span class="p">},</span>
+  <span class="s2">"questions"</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="s2">"views"</span><span class="o">:</span> <span class="mi">5</span><span class="p">,</span>
+      <span class="s2">"locale"</span><span class="o">:</span> <span class="s2">"en"</span><span class="p">,</span>
+      <span class="s2">"question"</span><span class="o">:</span> <span class="s2">"Is it legal to bike on the sidewalk?"</span><span class="p">,</span>
+      <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2013-05-14T19:49:13-04:00"</span><span class="p">,</span>
+      <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2013-05-14T19:49:13-04:00"</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="s2">"errors"</span><span class="o">:</span> <span class="p">{</span>
+
+  <span class="p">}</span>
+<span class="p">}</span></code></pre>
+
+<h2 id="get-a-single-question">Get a single question</h2>
+
+<pre><code>GET /questions/:id
+</code></pre>
+
+<p>Returns a single question by id.</p>
+
+<h3 id="example">Example</h3>
+
+<pre class="terminal">
+$ curl -i https://seeclickfix.com/api/v2/questions/1
+</pre>
+
+<h3 id="response">Response</h3>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="s2">"views"</span><span class="o">:</span> <span class="mi">5</span><span class="p">,</span>
+  <span class="s2">"locale"</span><span class="o">:</span> <span class="s2">"en"</span><span class="p">,</span>
+  <span class="s2">"question"</span><span class="o">:</span> <span class="s2">"Is it legal to bike on the sidewalk?"</span><span class="p">,</span>
+  <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2013-05-14T19:49:13-04:00"</span><span class="p">,</span>
+  <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2013-05-14T19:49:13-04:00"</span>
+<span class="p">}</span></code></pre>
+
+<h3 id="errors">Errors</h3>
+
+<p>If a question with the specified id is not found a response code 404 will be returned.</p>
+
+<pre class="headers no-response"><code>Status: 404 Not Found</code></pre>
+
+<h2 id="ask-a-question">Ask a Question</h2>
+
+<pre><code>POST https://seeclickfix.com/api/v2/:place_url_name/questions
+</code></pre>
+
+<p>Posts a question within city of <code>:place_url_name</code>.</p>
+
+<h3 id="required-parameters">Required Parameters</h3>
+
+<ul>
+<li>question - The question to ask.</li>
+  <li>user - The user must be logged in.</li>
+  <li>place_url_name - The place_url_name is part of the url. </li>
+</ul><h3 id="optional-parameters-1">Optional Parameters</h3>
+
+<ul>
+<li>locale - The locale the question is asked in. Defaults to ‘en’.</li>
+</ul><h3 id="examples-1">Examples</h3>
+
+<pre class="terminal">
+$ curl --data "question=When+are+taxes+due?" -i https://seeclickfix.com/api/v2/new-haven/questions
+</pre>
+
+<pre class="headers"><code>Status: 201 Created</code></pre>
+
+<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="s2">"views"</span><span class="o">:</span> <span class="mi">5</span><span class="p">,</span>
+  <span class="s2">"locale"</span><span class="o">:</span> <span class="s2">"en"</span><span class="p">,</span>
+  <span class="s2">"question"</span><span class="o">:</span> <span class="s2">"Is it legal to bike on the sidewalk?"</span><span class="p">,</span>
+  <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2013-05-14T19:49:13-04:00"</span><span class="p">,</span>
+  <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2013-05-14T19:49:13-04:00"</span>
+<span class="p">}</span></code></pre>
+
+<h3 id="errors-1">Errors</h3>
+
+<p>Returns error code 422 if unable to create user.</p>
+
+<pre class="headers"><code>Status: 422 Unprocessable Entity</code></pre>
+
+<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"errors"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"login"</span><span class="o">:</span> <span class="s2">"can't be blank."</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre>
       </div>
 
     <div id="js-sidebar" class="sidebar-shell">
@@ -72,12 +208,12 @@
           </li>
 
 
-<!--           <li class="js-topic">
+          <li class="js-topic">
             <h3><a href="#" class="js-expand-btn collapsed">&nbsp;</a><a href="/v2/questions/">Questions</a></h3>
             <ul class="js-guides">
               <li><a href="/v2/questions/answers/">Answers</a></li>
             </ul>
-          </li> -->
+          </li>
 
           <li class="js-topic">
             <h3><a href="#" class="js-expand-btn collapsed">&nbsp;</a><a href="/v2/mobile_customizations/">Mobile Customizations</a></h3>

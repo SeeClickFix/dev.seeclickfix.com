@@ -381,6 +381,8 @@ $ curl -i https://seeclickfix.com/api/v2/request_type/other
 <strong>video</strong> - A video of the problem. Limited to 20Mb.</li>
   <li>
 <strong>youtube_url</strong> - A link to a youtube video showing the problem.</li>
+  <li>
+<strong>device_id</strong> - A unique identifier for the device creating the comment. This can help us debug problems.</li>
 </ul><h3 id="example-request">Example request</h3>
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
@@ -487,12 +489,12 @@ Location: http://seeclickfix.com/issues/987654321</code></pre>
           </li>
 
 
-<!--           <li class="js-topic">
+          <li class="js-topic">
             <h3><a href="#" class="js-expand-btn collapsed">&nbsp;</a><a href="/v2/questions/">Questions</a></h3>
             <ul class="js-guides">
               <li><a href="/v2/questions/answers/">Answers</a></li>
             </ul>
-          </li> -->
+          </li>
 
           <li class="js-topic">
             <h3><a href="#" class="js-expand-btn collapsed">&nbsp;</a><a href="/v2/mobile_customizations/">Mobile Customizations</a></h3>
