@@ -9,14 +9,14 @@ title: API v2 - Users
 
 ## Show Current User
 
-    GET <%= root_version_url %>/users/me
+    GET <%= root_version_url %>/profile
 
 Returns the currently logged in user.
 
 ### Example
 
 <pre class="terminal">
-$ curl -i <%= root_version_url %>/users/me
+$ curl -i <%= root_version_url %>/profile
 </pre>
 
 If the user is logged in.
@@ -128,7 +128,7 @@ Returns error code 422 if unable to create user.
 
 ## Update User Settings
 
-    PUT <%= root_version_url %>/users/me
+    PUT <%= root_version_url %>/profile
 
 Updates the settings for the current user. 
 
@@ -148,7 +148,7 @@ Updates the settings for the current user.
 ### Examples
 
 <pre class="terminal">
-$ curl -i <%= root_version_url %>/users/1
+$ curl -i <%= root_version_url %>/profile
 </pre>
 
 <%= headers 200 %>
