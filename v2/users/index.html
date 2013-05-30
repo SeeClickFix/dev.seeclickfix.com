@@ -42,7 +42,7 @@
   <li><a href="#update-user-settings">Update User Settings</a></li>
 </ul><h2 id="show-current-user">Show Current User</h2>
 
-<pre><code>GET https://seeclickfix.com/api/v2/users/me
+<pre><code>GET https://seeclickfix.com/api/v2/profile
 </code></pre>
 
 <p>Returns the currently logged in user.</p>
@@ -50,7 +50,7 @@
 <h3 id="example">Example</h3>
 
 <pre class="terminal">
-$ curl -i https://seeclickfix.com/api/v2/users/me
+$ curl -i https://seeclickfix.com/api/v2/profile
 </pre>
 
 <p>If the user is logged in.</p>
@@ -245,7 +245,7 @@ $ curl -i https://seeclickfix.com/api/v2/users
 
 <h2 id="update-user-settings">Update User Settings</h2>
 
-<pre><code>PUT https://seeclickfix.com/api/v2/users/me
+<pre><code>PUT https://seeclickfix.com/api/v2/profile
 </code></pre>
 
 <p>Updates the settings for the current user. </p>
@@ -266,7 +266,7 @@ $ curl -i https://seeclickfix.com/api/v2/users
 </ul><h3 id="examples-3">Examples</h3>
 
 <pre class="terminal">
-$ curl -i https://seeclickfix.com/api/v2/users/1
+$ curl -i https://seeclickfix.com/api/v2/profile
 </pre>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
