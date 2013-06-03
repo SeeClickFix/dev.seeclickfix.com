@@ -23,6 +23,10 @@ Questions and answers are only available in places where the data_classification
 
 * **subset**=`:subset` - One of 'answered', 'unanswered', or blank. A blank subset will return answered and unanswered questions.
 
+### Order
+
+The default sort order is by popularity.
+
 ### Examples
 
 <pre class="terminal">
