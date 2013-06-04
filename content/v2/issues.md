@@ -21,7 +21,9 @@ title: Issues | SeeClickFix API
 
 * **status**=`:status1,:status2` - one of 'Open', 'Acknowledged', 'Closed', 'Archived'. default: Open,Acknowledged,Closed
 
-* **sort**=`:order` - one of 'updated_at', 'created_at', 'distance' or 'rating'. default: created_at.
+* **sort**=`:order` - one of 'updated_at', 'created_at' or 'rating'. default: created_at.
+
+* **sort_direction**=`:sort_direction` = One of ASC or DESC. Default is DESC. 
 
 * **after**=`:time` - must be a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
 

@@ -12,6 +12,7 @@ Any authenticated user can change the status of an issue from Open to Closed and
 ## Close an Issue
 
 Changing the status of an issue is similar to adding a comment on an issue. 
+
     POST /issues/<issue_id>/close
 
 ### Required Parameters
@@ -38,6 +39,7 @@ $ curl --data "comment=pools+are+nice" -i <%= root_version_url %>/issues/1/close
 ## Reopen an Issue
 
 Changing the status of an issue is similar to adding a comment on an issue. 
+
     POST /issues/<issue_id>/open
 
 ### Required Parameters
