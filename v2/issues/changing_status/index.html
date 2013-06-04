@@ -42,8 +42,10 @@
 
 <h2 id="close-an-issue">Close an Issue</h2>
 
-<p>Changing the status of an issue is similar to adding a comment on an issue. 
-    POST /issues/<issue_id>/close</issue_id></p>
+<p>Changing the status of an issue is similar to adding a comment on an issue. </p>
+
+<pre><code>POST /issues/&lt;issue_id&gt;/close
+</code></pre>
 
 <h3 id="required-parameters">Required Parameters</h3>
 
@@ -71,13 +73,15 @@ $ curl --data "comment=pools+are+nice" -i https://seeclickfix.com/api/v2/issues/
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
   <span class="s2">"moderated"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-  <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2013-05-29 19:45:32 -0700"</span>
+  <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2013-06-03 22:46:54 -0400"</span>
 <span class="p">}</span></code></pre>
 
 <h2 id="reopen-an-issue">Reopen an Issue</h2>
 
-<p>Changing the status of an issue is similar to adding a comment on an issue. 
-    POST /issues/<issue_id>/open</issue_id></p>
+<p>Changing the status of an issue is similar to adding a comment on an issue. </p>
+
+<pre><code>POST /issues/&lt;issue_id&gt;/open
+</code></pre>
 
 <h3 id="required-parameters-1">Required Parameters</h3>
 
@@ -105,7 +109,7 @@ $ curl --data "comment=pools+are+nice" -i https://seeclickfix.com/api/v2/issues/
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
   <span class="s2">"moderated"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-  <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2013-05-29 19:45:32 -0700"</span>
+  <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2013-06-03 22:46:54 -0400"</span>
 <span class="p">}</span></code></pre>
 
 <h2 id="acknowledge-an-issue">Acknowledge an Issue</h2>
@@ -141,7 +145,7 @@ $ curl --data "comment=pools+are+nice" -i https://seeclickfix.com/api/v2/issues/
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
   <span class="s2">"moderated"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-  <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2013-05-29 19:45:32 -0700"</span>
+  <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2013-06-03 22:46:54 -0400"</span>
 <span class="p">}</span></code></pre>
       </div>
 

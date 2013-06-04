@@ -395,12 +395,12 @@ through as an array of <code>[url, options]</code> tuples.</p>
 </ol><p><code>area</code> attributes can be submitted in the following forms:</p>
 
 <ol>
-<li><code>llzoom=:latitude,:longitude,:zoom</code></li>
-  <li><code>addresszoom=:address,:zoom</code></li>
+<li><code>zoomll=:zoom|:latitude|:longitude</code></li>
+  <li><code>addresszoom=:address|:zoom</code></li>
   <li>
 <code>place_url=:url_name</code> - See <a href="/v2/places">the places documentation</a> for more information.</li>
   <li>
-<code>boundingbox=:sw_lat,:sw_lng,:ne_lat,:ne_lng</code> - Defines the bounding box of the area of interest.</li>
+<code>boundingbox=:max_lat|:min_lat|:min_lng|:max_lng</code> - Defines the bounding box of the area of interest.</li>
   <li><code>watch_area_token=:watch_area_token</code></li>
 </ol><h2 id="locales">Locales</h2>
 
