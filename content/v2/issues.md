@@ -19,7 +19,7 @@ title: Issues | SeeClickFix API
 
 * **per_page**=`:per_page` - number of issues returned per page, default: 20
 
-* **status**=`:status1,:status2` - one of 'Open', 'Acknowledged', 'Closed', 'Archived'. default: Open,Acknowledged,Closed
+* **status**=`:status1,:status2` - one of 'open', 'acknowledged', 'closed', 'archived'. default: open,acknowledged,closed
 
 * **sort**=`:order` - one of 'updated_at', 'created_at' or 'rating'. default: created_at.
 
