@@ -13,7 +13,7 @@ title: Issues | SeeClickFix API
 
 ### Optional Parameters
 
-* one or more area geographies - Limit results to a specified area. See <a href="/#geography">how to specify a geography</a> for syntax help. 
+* one or more area geographies - Limit results to a specified area. See <a href="/#geography">how to specify a geography</a> for syntax help.
 
 * **page**=`:page_number` - number of the page to return, default: 1
 
@@ -23,7 +23,7 @@ title: Issues | SeeClickFix API
 
 * **sort**=`:order` - one of 'updated_at', 'created_at' or 'rating'. default: created_at.
 
-* **sort_direction**=`:sort_direction` = One of ASC or DESC. Default is DESC. 
+* **sort_direction**=`:sort_direction` = One of ASC or DESC. Default is DESC.
 
 * **after**=`:time` - must be a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
 
@@ -45,13 +45,13 @@ Returns the last five issues.
 
 <%= headers 200 %>
 
-<%= 
-  json(:issue) do |h| 
+<%=
+  json(:issue) do |h|
     { metadata: SeeClickFix::Resources::PAGINATION_METADATA,
       result: [h],
       errors: nil
     }
-  end 
+  end
 %>
 
 ## Get a single issue
@@ -69,10 +69,10 @@ $ curl -i <%= root_version_url %>/issues/1
 ### Response
 
 <%= headers 200 %>
-<%= 
-  json(:issue) do |h| 
+<%=
+  json(:issue) do |h|
     h
-  end 
+  end
 %>
 
 ## Create an Issue
