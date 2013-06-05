@@ -31,6 +31,8 @@ title: Issues | SeeClickFix API
 
 * **search**=`:search` - limit results by search terms.
 
+* **request_types**:`:request_type_id0,:request_type_id1` - comma delimited [Request Type](/v2/issues/reporting/#details-about-a-request-type) ids.
+
 ### Notes
 
 For performance reasons, results larger than 30 will be abbreviated.
