@@ -33,6 +33,10 @@ title: Issues | SeeClickFix API
 
 * **request_types**:`:request_type_id0,:request_type_id1` - comma delimited [Request Type](/v2/issues/reporting/#details-about-a-request-type) ids.
 
+* **assigned_to_me**=`true` - issues assigned to the current_user. **NOTE** the request **must** be authenticated or this will be ignored.
+
+* **assigned**=`:user_id0,:user_id1` - comma delimited user ids
+
 ### Notes
 
 For performance reasons, results larger than 30 will be abbreviated.
