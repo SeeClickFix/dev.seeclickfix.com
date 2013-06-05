@@ -21,7 +21,7 @@ title: Issues | SeeClickFix API
 
 * **status**=`:status1,:status2` - one of 'open', 'acknowledged', 'closed', 'archived'. default: open,acknowledged,closed
 
-* **sort**=`:order` - one of 'updated_at', 'created_at' or 'rating'. default: created_at.
+* **sort**=`:order` - one of 'updated_at', 'created_at', 'rating', 'distance'. default: created_at.
 
 * **sort_direction**=`:sort_direction` = One of ASC or DESC. Default is DESC.
 
