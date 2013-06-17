@@ -47,7 +47,7 @@
 
 <ul>
 <li>
-    <p>one or more area geographies - Limit results to a specified area. See <a href="/#geography">how to specify a geography</a> for syntax help. </p>
+    <p>one or more area geographies - Limit results to a specified area. See <a href="/#geography">how to specify a geography</a> for syntax help.</p>
   </li>
   <li>
     <p><strong>page</strong>=<code>:page_number</code> - number of the page to return, default: 1</p>
@@ -56,13 +56,13 @@
     <p><strong>per_page</strong>=<code>:per_page</code> - number of issues returned per page, default: 20</p>
   </li>
   <li>
-    <p><strong>status</strong>=<code>:status1,:status2</code> - one of ‘Open’, ‘Acknowledged’, ‘Closed’, ‘Archived’. default: Open,Acknowledged,Closed</p>
+    <p><strong>status</strong>=<code>:status1,:status2</code> - one of ‘open’, ‘acknowledged’, ‘closed’, ‘archived’. default: open,acknowledged,closed</p>
   </li>
   <li>
-    <p><strong>sort</strong>=<code>:order</code> - one of ‘updated_at’, ‘created_at’ or ‘rating’. default: created_at.</p>
+    <p><strong>sort</strong>=<code>:order</code> - one of ‘updated_at’, ‘created_at’, ‘rating’, ‘distance’. default: created_at.</p>
   </li>
   <li>
-    <p><strong>sort_direction</strong>=<code>:sort_direction</code> = One of ASC or DESC. Default is DESC. </p>
+    <p><strong>sort_direction</strong>=<code>:sort_direction</code> = One of ASC or DESC. Default is DESC.</p>
   </li>
   <li>
     <p><strong>after</strong>=<code>:time</code> - must be a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ</p>
@@ -72,6 +72,15 @@
   </li>
   <li>
     <p><strong>search</strong>=<code>:search</code> - limit results by search terms.</p>
+  </li>
+  <li>
+    <p><strong>request_types</strong>:<code>:request_type_id0,:request_type_id1</code> - comma delimited <a href="/v2/issues/reporting/#details-about-a-request-type">Request Type</a> ids.</p>
+  </li>
+  <li>
+    <p><strong>assigned_to_me</strong>=<code>true</code> - issues assigned to the current_user. <strong>NOTE</strong> the request <strong>must</strong> be authenticated or this will be ignored.</p>
+  </li>
+  <li>
+    <p><strong>assigned</strong>=<code>:user_id0,:user_id1</code> - comma delimited user ids</p>
   </li>
 </ul><h3 id="notes">Notes</h3>
 
