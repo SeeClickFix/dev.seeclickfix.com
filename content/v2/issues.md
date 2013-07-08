@@ -54,7 +54,7 @@ Returns the last five issues.
 <%=
   json(:issue) do |h|
     { metadata: SeeClickFix::Resources::PAGINATION_METADATA,
-      result: [h],
+      issues: [h],
       errors: nil
     }
   end
