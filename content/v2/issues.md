@@ -37,6 +37,8 @@ title: Issues | SeeClickFix API
 
 * **assigned**=`:user_id0,:user_id1` - comma delimited user ids
 
+* **details**=`true` - defaults to `false`. Pass `true` to get an extended issue object with comments and user information.
+
 ### Notes
 
 For performance reasons, results larger than 30 will be abbreviated.
@@ -54,7 +56,7 @@ Returns the last five issues.
 <%=
   json(:issue) do |h|
     { metadata: SeeClickFix::Resources::PAGINATION_METADATA,
-      result: [h],
+      issues: [h],
       errors: nil
     }
   end
@@ -69,14 +71,14 @@ Returns a single issue by id.
 ### Example
 
 <pre class="terminal">
-$ curl -i <%= root_version_url %>/issues/1
+$ curl -i <%= root_version_url %>/issues/1?details=true
 </pre>
 
 ### Response
 
 <%= headers 200 %>
 <%=
-  json(:issue) do |h|
+  json(:issue_details) do |h|
     h
   end
 %>
