@@ -82,6 +82,9 @@
   <li>
     <p><strong>assigned</strong>=<code>:user_id0,:user_id1</code> - comma delimited user ids</p>
   </li>
+  <li>
+    <p><strong>details</strong>=<code>true</code> - defaults to <code>false</code>. Pass <code>true</code> to get an extended issue object with comments and user information.</p>
+  </li>
 </ul><h3 id="notes">Notes</h3>
 
 <p>For performance reasons, results larger than 30 will be abbreviated.</p>
@@ -103,188 +106,24 @@ $ curl -i https://seeclickfix.com/api/v2/issues?page=1&amp;per_page=5
     <span class="s2">"next_page"</span><span class="o">:</span> <span class="s2">"null"</span><span class="p">,</span>
     <span class="s2">"previous_page"</span><span class="o">:</span> <span class="mi">1</span>
   <span class="p">},</span>
-  <span class="s2">"result"</span><span class="o">:</span> <span class="p">[</span>
+  <span class="s2">"issues"</span><span class="o">:</span> <span class="p">[</span>
     <span class="p">{</span>
       <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-      <span class="s2">"remote_integration"</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s2">"remote_id"</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
-        <span class="s2">"title"</span><span class="o">:</span> <span class="s2">"City of New Haven"</span><span class="p">,</span>
-        <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"Accepted"</span>
-      <span class="p">},</span>
-      <span class="s2">"api_url"</span><span class="o">:</span> <span class="s2">"https://seeclickfix.com/api/v2/issues/1"</span><span class="p">,</span>
-      <span class="s2">"html_url"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/issues/1-pothole"</span><span class="p">,</span>
-      <span class="s2">"shortened_url"</span><span class="o">:</span> <span class="s2">"http://scf.cm/i/1"</span><span class="p">,</span>
       <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"Open"</span><span class="p">,</span>
       <span class="s2">"summary"</span><span class="o">:</span> <span class="s2">"Pothole"</span><span class="p">,</span>
       <span class="s2">"description"</span><span class="o">:</span> <span class="s2">"Please fix my neighborhood."</span><span class="p">,</span>
-      <span class="s2">"questions"</span><span class="o">:</span> <span class="p">[</span>
-        <span class="p">{</span>
-          <span class="s2">"question"</span><span class="o">:</span> <span class="s2">"How deep is the pothole?"</span><span class="p">,</span>
-          <span class="s2">"answer"</span><span class="o">:</span> <span class="s2">"Shallow"</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-          <span class="s2">"question"</span><span class="o">:</span> <span class="s2">"Is it hazardous?"</span><span class="p">,</span>
-          <span class="s2">"answer"</span><span class="o">:</span> <span class="s2">"No"</span>
-        <span class="p">}</span>
-      <span class="p">],</span>
-      <span class="s2">"reporter"</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s2">"display_name"</span><span class="o">:</span> <span class="s2">"Jeffb"</span><span class="p">,</span>
-        <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-        <span class="s2">"civic_points"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
-        <span class="s2">"witty_title"</span><span class="o">:</span> <span class="s2">"Street Smart"</span><span class="p">,</span>
-        <span class="s2">"voted_issue_count"</span><span class="o">:</span> <span class="mi">31</span><span class="p">,</span>
-        <span class="s2">"reported_issue_count"</span><span class="o">:</span> <span class="mi">25</span><span class="p">,</span>
-        <span class="s2">"comments_count"</span><span class="o">:</span> <span class="mi">62</span><span class="p">,</span>
-        <span class="s2">"closed_issue_count"</span><span class="o">:</span> <span class="mi">27</span><span class="p">,</span>
-        <span class="s2">"following_issue_count"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
-        <span class="s2">"permissions"</span><span class="o">:</span> <span class="p">{</span>
-          <span class="s2">"can_acknowledge"</span><span class="o">:</span> <span class="kc">false</span>
-        <span class="p">},</span>
-        <span class="s2">"avatar"</span><span class="o">:</span> <span class="p">{</span>
-          <span class="s2">"square_100x100"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg"</span><span class="p">,</span>
-          <span class="s2">"full"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg"</span>
-        <span class="p">}</span>
-      <span class="p">},</span>
-      <span class="s2">"assignee"</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s2">"display_name"</span><span class="o">:</span> <span class="s2">"Jeffb"</span><span class="p">,</span>
-        <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-        <span class="s2">"civic_points"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
-        <span class="s2">"witty_title"</span><span class="o">:</span> <span class="s2">"Street Smart"</span><span class="p">,</span>
-        <span class="s2">"voted_issue_count"</span><span class="o">:</span> <span class="mi">31</span><span class="p">,</span>
-        <span class="s2">"reported_issue_count"</span><span class="o">:</span> <span class="mi">25</span><span class="p">,</span>
-        <span class="s2">"comments_count"</span><span class="o">:</span> <span class="mi">62</span><span class="p">,</span>
-        <span class="s2">"closed_issue_count"</span><span class="o">:</span> <span class="mi">27</span><span class="p">,</span>
-        <span class="s2">"following_issue_count"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
-        <span class="s2">"permissions"</span><span class="o">:</span> <span class="p">{</span>
-          <span class="s2">"can_acknowledge"</span><span class="o">:</span> <span class="kc">false</span>
-        <span class="p">},</span>
-        <span class="s2">"avatar"</span><span class="o">:</span> <span class="p">{</span>
-          <span class="s2">"square_100x100"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg"</span><span class="p">,</span>
-          <span class="s2">"full"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg"</span>
-        <span class="p">}</span>
-      <span class="p">},</span>
-      <span class="s2">"comment_count"</span><span class="o">:</span> <span class="mi">5</span><span class="p">,</span>
-      <span class="s2">"comments"</span><span class="o">:</span> <span class="p">[</span>
-        <span class="p">{</span>
-          <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-          <span class="s2">"comment"</span><span class="o">:</span> <span class="s2">"Me too"</span><span class="p">,</span>
-          <span class="s2">"commenter"</span><span class="o">:</span> <span class="p">{</span>
-            <span class="s2">"display_name"</span><span class="o">:</span> <span class="s2">"Jeffb"</span><span class="p">,</span>
-            <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-            <span class="s2">"civic_points"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
-            <span class="s2">"witty_title"</span><span class="o">:</span> <span class="s2">"Street Smart"</span><span class="p">,</span>
-            <span class="s2">"voted_issue_count"</span><span class="o">:</span> <span class="mi">31</span><span class="p">,</span>
-            <span class="s2">"reported_issue_count"</span><span class="o">:</span> <span class="mi">25</span><span class="p">,</span>
-            <span class="s2">"comments_count"</span><span class="o">:</span> <span class="mi">62</span><span class="p">,</span>
-            <span class="s2">"closed_issue_count"</span><span class="o">:</span> <span class="mi">27</span><span class="p">,</span>
-            <span class="s2">"following_issue_count"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
-            <span class="s2">"permissions"</span><span class="o">:</span> <span class="p">{</span>
-              <span class="s2">"can_acknowledge"</span><span class="o">:</span> <span class="kc">false</span>
-            <span class="p">},</span>
-            <span class="s2">"avatar"</span><span class="o">:</span> <span class="p">{</span>
-              <span class="s2">"square_100x100"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg"</span><span class="p">,</span>
-              <span class="s2">"full"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg"</span>
-            <span class="p">}</span>
-          <span class="p">},</span>
-          <span class="s2">"media"</span><span class="o">:</span> <span class="p">{</span>
-            <span class="s2">"video_url"</span><span class="o">:</span> <span class="s2">"http://www.youtube.com/watch?v=dQw4w9WgXcQ"</span><span class="p">,</span>
-            <span class="s2">"image_full"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/comment_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg"</span><span class="p">,</span>
-            <span class="s2">"image_square_100x100"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/comment_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg"</span>
-          <span class="p">},</span>
-          <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2011-04-14T16:00:49Z"</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-          <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-          <span class="s2">"comment"</span><span class="o">:</span> <span class="s2">"Me too"</span><span class="p">,</span>
-          <span class="s2">"commenter"</span><span class="o">:</span> <span class="p">{</span>
-            <span class="s2">"display_name"</span><span class="o">:</span> <span class="s2">"Jeffb"</span><span class="p">,</span>
-            <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-            <span class="s2">"civic_points"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
-            <span class="s2">"witty_title"</span><span class="o">:</span> <span class="s2">"Street Smart"</span><span class="p">,</span>
-            <span class="s2">"voted_issue_count"</span><span class="o">:</span> <span class="mi">31</span><span class="p">,</span>
-            <span class="s2">"reported_issue_count"</span><span class="o">:</span> <span class="mi">25</span><span class="p">,</span>
-            <span class="s2">"comments_count"</span><span class="o">:</span> <span class="mi">62</span><span class="p">,</span>
-            <span class="s2">"closed_issue_count"</span><span class="o">:</span> <span class="mi">27</span><span class="p">,</span>
-            <span class="s2">"following_issue_count"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
-            <span class="s2">"permissions"</span><span class="o">:</span> <span class="p">{</span>
-              <span class="s2">"can_acknowledge"</span><span class="o">:</span> <span class="kc">false</span>
-            <span class="p">},</span>
-            <span class="s2">"avatar"</span><span class="o">:</span> <span class="p">{</span>
-              <span class="s2">"square_100x100"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg"</span><span class="p">,</span>
-              <span class="s2">"full"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg"</span>
-            <span class="p">}</span>
-          <span class="p">},</span>
-          <span class="s2">"media"</span><span class="o">:</span> <span class="p">{</span>
-            <span class="s2">"video_url"</span><span class="o">:</span> <span class="s2">"http://www.youtube.com/watch?v=dQw4w9WgXcQ"</span><span class="p">,</span>
-            <span class="s2">"image_full"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/comment_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg"</span><span class="p">,</span>
-            <span class="s2">"image_square_100x100"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/comment_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg"</span>
-          <span class="p">},</span>
-          <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2011-04-14T16:00:49Z"</span>
-        <span class="p">}</span>
-      <span class="p">],</span>
-      <span class="s2">"vote_count"</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
-      <span class="s2">"votes"</span><span class="o">:</span> <span class="p">[</span>
-        <span class="p">{</span>
-          <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2011-04-24T13:33:48Z"</span><span class="p">,</span>
-          <span class="s2">"voter"</span><span class="o">:</span> <span class="p">{</span>
-            <span class="s2">"display_name"</span><span class="o">:</span> <span class="s2">"Jeffb"</span><span class="p">,</span>
-            <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-            <span class="s2">"civic_points"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
-            <span class="s2">"witty_title"</span><span class="o">:</span> <span class="s2">"Street Smart"</span><span class="p">,</span>
-            <span class="s2">"voted_issue_count"</span><span class="o">:</span> <span class="mi">31</span><span class="p">,</span>
-            <span class="s2">"reported_issue_count"</span><span class="o">:</span> <span class="mi">25</span><span class="p">,</span>
-            <span class="s2">"comments_count"</span><span class="o">:</span> <span class="mi">62</span><span class="p">,</span>
-            <span class="s2">"closed_issue_count"</span><span class="o">:</span> <span class="mi">27</span><span class="p">,</span>
-            <span class="s2">"following_issue_count"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
-            <span class="s2">"permissions"</span><span class="o">:</span> <span class="p">{</span>
-              <span class="s2">"can_acknowledge"</span><span class="o">:</span> <span class="kc">false</span>
-            <span class="p">},</span>
-            <span class="s2">"avatar"</span><span class="o">:</span> <span class="p">{</span>
-              <span class="s2">"square_100x100"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg"</span><span class="p">,</span>
-              <span class="s2">"full"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg"</span>
-            <span class="p">}</span>
-          <span class="p">}</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-          <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2011-04-24T13:33:48Z"</span><span class="p">,</span>
-          <span class="s2">"voter"</span><span class="o">:</span> <span class="p">{</span>
-            <span class="s2">"display_name"</span><span class="o">:</span> <span class="s2">"Jeffb"</span><span class="p">,</span>
-            <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-            <span class="s2">"civic_points"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
-            <span class="s2">"witty_title"</span><span class="o">:</span> <span class="s2">"Street Smart"</span><span class="p">,</span>
-            <span class="s2">"voted_issue_count"</span><span class="o">:</span> <span class="mi">31</span><span class="p">,</span>
-            <span class="s2">"reported_issue_count"</span><span class="o">:</span> <span class="mi">25</span><span class="p">,</span>
-            <span class="s2">"comments_count"</span><span class="o">:</span> <span class="mi">62</span><span class="p">,</span>
-            <span class="s2">"closed_issue_count"</span><span class="o">:</span> <span class="mi">27</span><span class="p">,</span>
-            <span class="s2">"following_issue_count"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
-            <span class="s2">"permissions"</span><span class="o">:</span> <span class="p">{</span>
-              <span class="s2">"can_acknowledge"</span><span class="o">:</span> <span class="kc">false</span>
-            <span class="p">},</span>
-            <span class="s2">"avatar"</span><span class="o">:</span> <span class="p">{</span>
-              <span class="s2">"square_100x100"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg"</span><span class="p">,</span>
-              <span class="s2">"full"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg"</span>
-            <span class="p">}</span>
-          <span class="p">}</span>
-        <span class="p">}</span>
-      <span class="p">],</span>
-      <span class="s2">"closed_at"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-      <span class="s2">"acknowledged_at"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">"rating"</span><span class="o">:</span> <span class="s2">"5"</span><span class="p">,</span>
       <span class="s2">"lat"</span><span class="o">:</span> <span class="mf">42.30293</span><span class="p">,</span>
       <span class="s2">"lng"</span><span class="o">:</span> <span class="o">-</span><span class="mf">72.234234234</span><span class="p">,</span>
-      <span class="s2">"current_user_relationship"</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s2">"following"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-        <span class="s2">"voted"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-        <span class="s2">"reporter"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-        <span class="s2">"assignee"</span><span class="o">:</span> <span class="kc">false</span>
-      <span class="p">},</span>
       <span class="s2">"address"</span><span class="o">:</span> <span class="s2">"123 State St. New Haven, CT"</span><span class="p">,</span>
-      <span class="s2">"media"</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s2">"video_url"</span><span class="o">:</span> <span class="s2">"http://www.youtube.com/watch?v=dQw4w9WgXcQ"</span><span class="p">,</span>
-        <span class="s2">"image_full"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/comment_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg"</span><span class="p">,</span>
-        <span class="s2">"image_square_100x100"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/comment_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg"</span>
-      <span class="p">},</span>
       <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2011-04-22T13:33:48Z"</span><span class="p">,</span>
-      <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2011-04-22T13:33:48Z"</span>
+      <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2011-04-22T13:33:48Z"</span><span class="p">,</span>
+      <span class="s2">"acknowledged_at"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">"closed_at"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="s2">"shortened_url"</span><span class="o">:</span> <span class="s2">"http://scf.cm/i/1"</span><span class="p">,</span>
+      <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"https://seeclickfix.com/api/v2/issues/1"</span><span class="p">,</span>
+      <span class="s2">"comments_url"</span><span class="o">:</span> <span class="s2">"https://seeclickfix.com/api/v2/issues/1/comments"</span><span class="p">,</span>
+      <span class="s2">"html_url"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/issues/1-pothole"</span>
     <span class="p">}</span>
   <span class="p">],</span>
   <span class="s2">"errors"</span><span class="o">:</span> <span class="kc">null</span>
@@ -300,7 +139,7 @@ $ curl -i https://seeclickfix.com/api/v2/issues?page=1&amp;per_page=5
 <h3 id="example">Example</h3>
 
 <pre class="terminal">
-$ curl -i https://seeclickfix.com/api/v2/issues/1
+$ curl -i https://seeclickfix.com/api/v2/issues/1?details=true
 </pre>
 
 <h3 id="response">Response</h3>
@@ -314,6 +153,7 @@ $ curl -i https://seeclickfix.com/api/v2/issues/1
     <span class="s2">"title"</span><span class="o">:</span> <span class="s2">"City of New Haven"</span><span class="p">,</span>
     <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"Accepted"</span>
   <span class="p">},</span>
+  <span class="s2">"rating"</span><span class="o">:</span> <span class="s2">"5"</span><span class="p">,</span>
   <span class="s2">"api_url"</span><span class="o">:</span> <span class="s2">"https://seeclickfix.com/api/v2/issues/1"</span><span class="p">,</span>
   <span class="s2">"html_url"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/issues/1-pothole"</span><span class="p">,</span>
   <span class="s2">"shortened_url"</span><span class="o">:</span> <span class="s2">"http://scf.cm/i/1"</span><span class="p">,</span>
