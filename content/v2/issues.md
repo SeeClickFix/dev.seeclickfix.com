@@ -37,6 +37,8 @@ title: Issues | SeeClickFix API
 
 * **assigned**=`:user_id0,:user_id1` - comma delimited user ids
 
+* **details**=`true` - defaults to `false`. Pass `true` to get an extended issue object with comments and user information.
+
 ### Notes
 
 For performance reasons, results larger than 30 will be abbreviated.
