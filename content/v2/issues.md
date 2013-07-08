@@ -71,14 +71,14 @@ Returns a single issue by id.
 ### Example
 
 <pre class="terminal">
-$ curl -i <%= root_version_url %>/issues/1
+$ curl -i <%= root_version_url %>/issues/1?details=true
 </pre>
 
 ### Response
 
 <%= headers 200 %>
 <%=
-  json(:issue) do |h|
+  json(:issue_details) do |h|
     h
   end
 %>
