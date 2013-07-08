@@ -419,7 +419,27 @@ module SeeClickFix
 
     ISSUE = {
       "id"         => 1,
+      "status"      => "Open",
+      "summary"      => "Pothole",
+      "description"       => "Please fix my neighborhood.",
+      "rating"       => "5",
+      "lat" => 42.30293,
+      "lng" => -72.234234234,
+      "address" => "123 State St. New Haven, CT",
+      "created_at" => "2011-04-22T13:33:48Z",
+      "updated_at" => "2011-04-22T13:33:48Z",
+      "acknowledged_at"  => nil,
+      "closed_at"  => nil,
+      "shortened_url"   => "http://scf.cm/i/1",
+      "url"        => "#{ROOT_URL}/v2/issues/1",
+      "comments_url"   => "#{ROOT_URL}/v2/issues/1/comments",
+      "html_url"   => "http://seeclickfix.com/issues/1-pothole"
+    }
+
+    ISSUE_DETAILS = {
+      "id"         => 1,
       "remote_integration" => INTEGRATION_ISSUE,
+      "rating"       => "5",
       "api_url"        => "#{ROOT_URL}/v2/issues/1",
       "html_url"   => "http://seeclickfix.com/issues/1-pothole",
       "shortened_url"   => "http://scf.cm/i/1",
