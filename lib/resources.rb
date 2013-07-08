@@ -439,6 +439,7 @@ module SeeClickFix
     ISSUE_DETAILS = {
       "id"         => 1,
       "remote_integration" => INTEGRATION_ISSUE,
+      "rating"       => "5",
       "api_url"        => "#{ROOT_URL}/v2/issues/1",
       "html_url"   => "http://seeclickfix.com/issues/1-pothole",
       "shortened_url"   => "http://scf.cm/i/1",
