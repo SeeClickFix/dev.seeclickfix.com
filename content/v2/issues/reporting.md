@@ -56,7 +56,7 @@ $ curl -i <%= root_version_url %>/request_type/657
 <%= headers 200 %>
 <%= json(:request_type_657) %>
 
-We will always provide an "Other" category. In the event one is not supplied by the city we will provide one.
+We will always provide an "Other" request_type. In the event one is not supplied by the city we will provide one.
 
 <pre class="terminal">
 $ curl -i <%= root_version_url %>/request_type/other

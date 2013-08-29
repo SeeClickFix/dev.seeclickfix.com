@@ -214,7 +214,7 @@ module SeeClickFix
     }
 
     NEW_ISSUE = {
-      categories: [{
+      request_types: [{
         organization: "City of SeeClickFix",
         title: "Abandoned Auto",
         url: "#{ROOT_URL}/v2/request_types/121"
