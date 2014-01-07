@@ -172,3 +172,10 @@ Issues can be created by any authenticated user.
    ]
  })
 %>
+
+### If for any reason we decide to hold the report in moderation
+
+We will finish processing the request at a later date.
+
+<%= headers 202 %>
+<%= json({ metadata: { moderated: true } }) %>
