@@ -64,3 +64,11 @@ $ curl -i <%= root_version_url %>/issues/1/comments
     }
   end
 %>
+
+### If for any reason we decide to hold the comment in moderation
+
+We will finish processing the request at a later date.
+
+<%= headers 202 %>
+<%= json({ metadata: { moderated: true } }) %>
+
