@@ -36,4 +36,7 @@ No values are required in the body of the request.
 ### Response
 
 <%= headers 204 %>
-<%= json(vote: 0) %>
+<pre class="highlight"><code>
+BODY INTENTIONALLY BLANK
+</code></pre>
+
