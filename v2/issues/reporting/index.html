@@ -37,13 +37,15 @@
 <p>Reporting an Issue is a three step process. Step 1 requires querying for a report form by location. Step 2 is querying the fields for the request type. Step 3 is to create an issue.</p>
 
 <ul id="markdown-toc">
-<li><a href="#report-form">Report form</a></li>
+  <li><a href="#report-form">Report form</a></li>
   <li><a href="#details-about-a-request-type">Details about a Request Type</a></li>
   <li><a href="#question-types">Question Types</a></li>
   <li><a href="#select-values">Select Values</a></li>
   <li><a href="#request-type--questions-for-authenticated-users">Request Type &amp; Questions for authenticated users</a></li>
   <li><a href="#create-an-issue">Create an issue</a></li>
-</ul><h2 id="report-form">Report form</h2>
+</ul>
+
+<h2 id="report-form">Report form</h2>
 
 <pre><code>GET https://seeclickfix.com/api/v2/issues/new?:point
 </code></pre>
@@ -51,14 +53,18 @@
 <h3 id="required-parameters">Required Parameters</h3>
 
 <ul>
-<li>
+  <li>
 <code>:point</code> - See <a href="/#geography">how to specify a geography</a> for syntax help.</li>
-</ul><h3 id="optional-parameters">Optional Parameters</h3>
+</ul>
+
+<h3 id="optional-parameters">Optional Parameters</h3>
 
 <ul>
-<li>
+  <li>
 <code>:zone_ids</code> - Comma seperated list(<code>1,2,3</code>) of zone ids. The request types for these zones will always be returned unless the zone restricts this behavor.</li>
-</ul><h3 id="examples">Examples</h3>
+</ul>
+
+<h3 id="examples">Examples</h3>
 
 <pre class="terminal">
 $ curl -i https://seeclickfix.com/api/v2/issues/new?address=New+Haven,+CT
@@ -324,7 +330,7 @@ $ curl -i https://seeclickfix.com/api/v2/request_type/other
 <h2 id="question-types">Question Types</h2>
 
 <ul>
-<li>
+  <li>
 <strong>text</strong> - Short form text answer.</li>
   <li>
 <strong>textarea</strong> - Long form text answer.</li>
@@ -342,7 +348,9 @@ $ curl -i https://seeclickfix.com/api/v2/request_type/other
 <strong>hidden</strong> - field hidden from user.</li>
   <li>
 <strong>note</strong> - No response expected, display as a note to the user.</li>
-</ul><h2 id="select-values">Select Values</h2>
+</ul>
+
+<h2 id="select-values">Select Values</h2>
 
 <p>For <strong>select</strong> amd <strong>multivaluelist</strong> the use should we return a display value (<code>name</code>) and a key value (<code>key</code>).</p>
 
@@ -360,7 +368,7 @@ $ curl -i https://seeclickfix.com/api/v2/request_type/other
 <h3 id="required-parameters-1">Required Parameters</h3>
 
 <ul>
-<li>
+  <li>
 <strong>address</strong> - A written description of the location of the issue.</li>
   <li>
 <strong>latitude</strong> - The latitude of the issue.</li>
@@ -370,10 +378,12 @@ $ curl -i https://seeclickfix.com/api/v2/request_type/other
 <strong>answers</strong> - Answers to questions, if any questions are required.</li>
   <li>
 <strong>request_type_id</strong> - the id of your chosen Request Type</li>
-</ul><h3 id="optional-parameters-1">Optional Parameters</h3>
+</ul>
+
+<h3 id="optional-parameters-1">Optional Parameters</h3>
 
 <ul>
-<li>
+  <li>
 <strong>anonymize_reporter</strong> - Wether or not to protect the identification of the reporter. Default is false.  will evaluate to true.</li>
   <li>
 <strong>image</strong> - An image of the problem. Limited to 20Mb.</li>
@@ -383,7 +393,9 @@ $ curl -i https://seeclickfix.com/api/v2/request_type/other
 <strong>youtube_url</strong> - A link to a youtube video showing the problem.</li>
   <li>
 <strong>device_id</strong> - A unique identifier for the device creating the comment. This can help us debug problems.</li>
-</ul><h3 id="example-request">Example request</h3>
+</ul>
+
+<h3 id="example-request">Example request</h3>
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
   <span class="s2">"lat"</span><span class="o">:</span> <span class="mf">42.7265</span><span class="p">,</span>
@@ -450,6 +462,19 @@ Location: http://seeclickfix.com/issues/987654321</code></pre>
     <span class="s2">"Question: 'Depth of pothole?' is required"</span>
   <span class="p">]</span>
 <span class="p">}</span></code></pre>
+
+<h3 id="if-for-any-reason-we-decide-to-hold-the-report-in-moderation">If for any reason we decide to hold the report in moderation</h3>
+
+<p>We will finish processing the request at a later date.</p>
+
+<pre class="headers"><code>Status: 202 Accepted</code></pre>
+
+<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"metadata"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"moderated"</span><span class="o">:</span> <span class="kc">true</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre>
+
       </div>
 
     <div id="js-sidebar" class="sidebar-shell">

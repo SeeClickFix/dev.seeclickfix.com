@@ -35,9 +35,11 @@
     <h1 id="issue-comments">Issue Comments</h1>
 
 <ul id="markdown-toc">
-<li><a href="#commenting-on-an-issue">Commenting on an Issue</a></li>
+  <li><a href="#commenting-on-an-issue">Commenting on an Issue</a></li>
   <li><a href="#listing-comments-on-an-issue">Listing Comments on an Issue</a></li>
-</ul><h2 id="commenting-on-an-issue">Commenting on an Issue</h2>
+</ul>
+
+<h2 id="commenting-on-an-issue">Commenting on an Issue</h2>
 
 <p>Issues can be commented on any authenticated user.</p>
 
@@ -47,14 +49,16 @@
 <h3 id="required-parameters">Required Parameters</h3>
 
 <ul>
-<li>
+  <li>
 <strong>comment</strong>=<code>:comment</code> - The user generated comment.</li>
   <li>
 <strong>logged in</strong> - A user must be logged in to create a comment.</li>
-</ul><h3 id="optional-parameters">Optional Parameters</h3>
+</ul>
+
+<h3 id="optional-parameters">Optional Parameters</h3>
 
 <ul>
-<li>
+  <li>
 <strong>image</strong> - An image of the problem. Limited to 20Mb. Must be png, jpeg, or gif format.</li>
   <li>
 <strong>video</strong> - A video of the problem. Limited to 20Mb.</li>
@@ -62,7 +66,9 @@
 <strong>youtube_url</strong> - A link to a youtube video showing the problem.</li>
   <li>
 <strong>device_id</strong> - A unique identifier for the device creating the comment. This can help us debug problems.</li>
-</ul><h3 id="example">Example</h3>
+</ul>
+
+<h3 id="example">Example</h3>
 
 <pre class="terminal">
 $ curl --data "comment=pools+are+nice" -i https://seeclickfix.com/api/v2/issues/1/comments
@@ -74,7 +80,7 @@ $ curl --data "comment=pools+are+nice" -i https://seeclickfix.com/api/v2/issues/
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
   <span class="s2">"moderated"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-  <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2013-08-29 16:34:16 -0400"</span>
+  <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2014-01-07 19:59:12 -0500"</span>
 <span class="p">}</span></code></pre>
 
 <h2 id="listing-comments-on-an-issue">Listing Comments on an Issue</h2>
@@ -139,6 +145,19 @@ $ curl -i https://seeclickfix.com/api/v2/issues/1/comments
 
   <span class="p">}</span>
 <span class="p">}</span></code></pre>
+
+<h3 id="if-for-any-reason-we-decide-to-hold-the-comment-in-moderation">If for any reason we decide to hold the comment in moderation</h3>
+
+<p>We will finish processing the request at a later date.</p>
+
+<pre class="headers"><code>Status: 202 Accepted</code></pre>
+
+<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"metadata"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"moderated"</span><span class="o">:</span> <span class="kc">true</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre>
+
       </div>
 
     <div id="js-sidebar" class="sidebar-shell">

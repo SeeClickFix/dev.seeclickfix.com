@@ -37,9 +37,11 @@
 <p>Answers are user submitted responses to questions.</p>
 
 <ul id="markdown-toc">
-<li><a href="#list-answers-to-a-question">List answers to a question.</a></li>
+  <li><a href="#list-answers-to-a-question">List answers to a question.</a></li>
   <li><a href="#answer-a-question">Answer a Question</a></li>
-</ul><h2 id="list-answers-to-a-question">List answers to a question.</h2>
+</ul>
+
+<h2 id="list-answers-to-a-question">List answers to a question.</h2>
 
 <pre><code>GET https://seeclickfix.com/api/v2/questions/&lt;question_id&gt;/answers
 </code></pre>
@@ -102,13 +104,17 @@ $ curl -i https://seeclickfix.com/api/v2/questions/1/answers
 <h3 id="required-parameters">Required Parameters</h3>
 
 <ul>
-<li>answer - The answer to be posted.</li>
+  <li>answer - The answer to be posted.</li>
   <li>user - The user must be logged in.</li>
-</ul><h3 id="optional-parameters-1">Optional Parameters</h3>
+</ul>
+
+<h3 id="optional-parameters-1">Optional Parameters</h3>
 
 <ul>
-<li>locale - The locale the answer is submitted in. Defaults to ‘en’.</li>
-</ul><h3 id="examples-1">Examples</h3>
+  <li>locale - The locale the answer is submitted in. Defaults to ‘en’.</li>
+</ul>
+
+<h3 id="examples-1">Examples</h3>
 
 <pre class="terminal">
 $ curl --data "answer=Taxes+are+due+Jan.+1st." -i https://seeclickfix.com/api/v2/questions/1/answers
@@ -148,6 +154,7 @@ $ curl --data "answer=Taxes+are+due+Jan.+1st." -i https://seeclickfix.com/api/v2
     <span class="s2">"login"</span><span class="o">:</span> <span class="s2">"can't be blank."</span>
   <span class="p">}</span>
 <span class="p">}</span></code></pre>
+
       </div>
 
     <div id="js-sidebar" class="sidebar-shell">

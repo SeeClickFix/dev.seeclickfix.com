@@ -37,9 +37,11 @@
 <p>Places are administrative areas such as neighborhoods, cities, counties etc.. They can be used to define <a href="/#geography">geographical boundaries</a> and therefore content within those boundaries.</p>
 
 <ul id="markdown-toc">
-<li><a href="#list-places">List Places</a></li>
+  <li><a href="#list-places">List Places</a></li>
   <li><a href="#show-place">Show Place</a></li>
-</ul><h2 id="list-places">List Places</h2>
+</ul>
+
+<h2 id="list-places">List Places</h2>
 
 <pre><code>GET https://seeclickfix.com/api/v2/places
 </code></pre>
@@ -49,13 +51,17 @@
 <h3 id="required-parameters">Required Parameters</h3>
 
 <ul>
-<li>Point - See <a href="/#geography">how to specify a geography</a> for the latitude and longitude or address syntax.</li>
-</ul><h3 id="optional-parameters">Optional Parameters</h3>
+  <li>Point - See <a href="/#geography">how to specify a geography</a> for the latitude and longitude or address syntax.</li>
+</ul>
+
+<h3 id="optional-parameters">Optional Parameters</h3>
 
 <ul>
-<li>Pagination - See <a href="/#pagination">how to specify pagination</a>
+  <li>Pagination - See <a href="/#pagination">how to specify pagination</a>
 </li>
-</ul><h3 id="order">Order</h3>
+</ul>
+
+<h3 id="order">Order</h3>
 
 <p>The sort order is by distance from Point.</p>
 
@@ -116,6 +122,7 @@ $ curl -i https://seeclickfix.com/api/v2/places/1
 <p>Returns error code 404 if no results are found.</p>
 
 <pre class="headers no-response"><code>Status: 404 Not Found</code></pre>
+
       </div>
 
     <div id="js-sidebar" class="sidebar-shell">

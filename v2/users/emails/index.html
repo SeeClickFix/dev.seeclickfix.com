@@ -35,10 +35,12 @@
     <h1 id="user-emails">User Emails</h1>
 
 <ul id="markdown-toc">
-<li><a href="#list-emails">List emails</a></li>
+  <li><a href="#list-emails">List emails</a></li>
   <li><a href="#add-an-email">Add an email</a></li>
   <li><a href="#remove-an-email">Remove an email</a></li>
-</ul><p>API endpoints to allow the user to manage their emails.</p>
+</ul>
+
+<p>API endpoints to allow the user to manage their emails.</p>
 
 <h2 id="list-emails">List emails</h2>
 
@@ -52,8 +54,10 @@
 <h3 id="required-parameters">Required Parameters</h3>
 
 <ul>
-<li>logged in user - The user must be logged in to view their emails.</li>
-</ul><h3 id="optional-parameters">Optional Parameters</h3>
+  <li>logged in user - The user must be logged in to view their emails.</li>
+</ul>
+
+<h3 id="optional-parameters">Optional Parameters</h3>
 
 <p>none.</p>
 
@@ -99,9 +103,11 @@ $ curl -i https://seeclickfix.com/api/v2/emails
 <h3 id="required-parameters-1">Required Parameters</h3>
 
 <ul>
-<li>logged in user - The user must be logged in as the user to add an email to.</li>
+  <li>logged in user - The user must be logged in as the user to add an email to.</li>
   <li>email - The new email to be added.</li>
-</ul><h3 id="optional-parameters-1">Optional Parameters</h3>
+</ul>
+
+<h3 id="optional-parameters-1">Optional Parameters</h3>
 
 <p>none.</p>
 
@@ -133,9 +139,11 @@ $ curl --data "email=foo@bar.com" -i https://seeclickfix.com/api/v2/emails
 <h3 id="required-parameters-2">Required Parameters</h3>
 
 <ul>
-<li>logged in user - The user must be logged in as the user to add an email to.</li>
+  <li>logged in user - The user must be logged in as the user to add an email to.</li>
   <li>id - The id of the email to be added.</li>
-</ul><h3 id="optional-parameters-2">Optional Parameters</h3>
+</ul>
+
+<h3 id="optional-parameters-2">Optional Parameters</h3>
 
 <p>none.</p>
 
@@ -154,6 +162,7 @@ $ curl -X DELETE -i https://seeclickfix.com/api/v2/emails/1
   <span class="s2">"confirmed"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
   <span class="s2">"email"</span><span class="o">:</span> <span class="s2">"foo@bar.com"</span>
 <span class="p">}</span></code></pre>
+
       </div>
 
     <div id="js-sidebar" class="sidebar-shell">

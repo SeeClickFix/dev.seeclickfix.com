@@ -37,10 +37,12 @@
 <p>Questions and answers are only available in places where the data_classification is of type “City”.</p>
 
 <ul id="markdown-toc">
-<li><a href="#list-questions">List questions</a></li>
+  <li><a href="#list-questions">List questions</a></li>
   <li><a href="#get-a-single-question">Get a single question</a></li>
   <li><a href="#ask-a-question">Ask a Question</a></li>
-</ul><h2 id="list-questions">List questions</h2>
+</ul>
+
+<h2 id="list-questions">List questions</h2>
 
 <pre><code>GET https://seeclickfix.com/api/v2/&lt;place_url_name&gt;/questions
 </code></pre>
@@ -48,7 +50,7 @@
 <h3 id="optional-parameters">Optional Parameters</h3>
 
 <ul>
-<li>
+  <li>
     <p><strong>page</strong>=<code>:page_number</code> - number of the page to return, default: 1</p>
   </li>
   <li>
@@ -60,7 +62,9 @@
   <li>
     <p><strong>subset</strong>=<code>:subset</code> - One of ‘answered’, ‘unanswered’, or blank. A blank subset will return answered and unanswered questions.</p>
   </li>
-</ul><h3 id="order">Order</h3>
+</ul>
+
+<h3 id="order">Order</h3>
 
 <p>The default sort order is by popularity.</p>
 
@@ -138,14 +142,18 @@ $ curl -i https://seeclickfix.com/api/v2/questions/1
 <h3 id="required-parameters">Required Parameters</h3>
 
 <ul>
-<li>question - The question to ask.</li>
+  <li>question - The question to ask.</li>
   <li>user - The user must be logged in.</li>
   <li>place_url_name - The place_url_name is part of the url. </li>
-</ul><h3 id="optional-parameters-1">Optional Parameters</h3>
+</ul>
+
+<h3 id="optional-parameters-1">Optional Parameters</h3>
 
 <ul>
-<li>locale - The locale the question is asked in. Defaults to ‘en’.</li>
-</ul><h3 id="examples-1">Examples</h3>
+  <li>locale - The locale the question is asked in. Defaults to ‘en’.</li>
+</ul>
+
+<h3 id="examples-1">Examples</h3>
 
 <pre class="terminal">
 $ curl --data "question=When+are+taxes+due?" -i https://seeclickfix.com/api/v2/new-haven/questions
@@ -173,6 +181,7 @@ $ curl --data "question=When+are+taxes+due?" -i https://seeclickfix.com/api/v2/n
     <span class="s2">"login"</span><span class="o">:</span> <span class="s2">"can't be blank."</span>
   <span class="p">}</span>
 <span class="p">}</span></code></pre>
+
       </div>
 
     <div id="js-sidebar" class="sidebar-shell">

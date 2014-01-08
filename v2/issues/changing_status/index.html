@@ -35,10 +35,12 @@
     <h1 id="changing-the-status-of-an-issue">Changing the status of an issue</h1>
 
 <ul id="markdown-toc">
-<li><a href="#close-an-issue">Close an Issue</a></li>
+  <li><a href="#close-an-issue">Close an Issue</a></li>
   <li><a href="#reopen-an-issue">Reopen an Issue</a></li>
   <li><a href="#acknowledge-an-issue">Acknowledge an Issue</a></li>
-</ul><p>Any authenticated user can change the status of an issue from Open to Closed and Closed to Open. Only government employees can change the status from Open to Acknowledged and Acknowledged to Closed. To check if the current user has this permission visit the <a href="/v2/users/#show-current-user">current user</a> page. Issues are Archived after being Closed for 7 days. The status can not change for Archived issues. </p>
+</ul>
+
+<p>Any authenticated user can change the status of an issue from Open to Closed and Closed to Open. Only government employees can change the status from Open to Acknowledged and Acknowledged to Closed. To check if the current user has this permission visit the <a href="/v2/users/#show-current-user">current user</a> page. Issues are Archived after being Closed for 7 days. The status can not change for Archived issues. </p>
 
 <h2 id="close-an-issue">Close an Issue</h2>
 
@@ -50,18 +52,22 @@
 <h3 id="required-parameters">Required Parameters</h3>
 
 <ul>
-<li>
+  <li>
 <strong>comment</strong>=<code>:comment</code> - A comment is required when changing the status.</li>
-</ul><h3 id="optional-parameters">Optional Parameters</h3>
+</ul>
+
+<h3 id="optional-parameters">Optional Parameters</h3>
 
 <ul>
-<li>
+  <li>
 <strong>image</strong> - An image of the problem. Limited to 20Mb.</li>
   <li>
 <strong>video</strong> - A video of the problem. Limited to 20Mb.</li>
   <li>
 <strong>youtube_url</strong> - A link to a youtube video showing the problem.</li>
-</ul><h3 id="example">Example</h3>
+</ul>
+
+<h3 id="example">Example</h3>
 
 <pre class="terminal">
 $ curl --data "comment=pools+are+nice" -i https://seeclickfix.com/api/v2/issues/1/close
@@ -73,7 +79,7 @@ $ curl --data "comment=pools+are+nice" -i https://seeclickfix.com/api/v2/issues/
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
   <span class="s2">"moderated"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-  <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2013-08-29 16:34:16 -0400"</span>
+  <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2014-01-07 19:59:12 -0500"</span>
 <span class="p">}</span></code></pre>
 
 <h2 id="reopen-an-issue">Reopen an Issue</h2>
@@ -86,18 +92,22 @@ $ curl --data "comment=pools+are+nice" -i https://seeclickfix.com/api/v2/issues/
 <h3 id="required-parameters-1">Required Parameters</h3>
 
 <ul>
-<li>
+  <li>
 <strong>comment</strong>=<code>:comment</code> - A comment is required when changing the status.</li>
-</ul><h3 id="optional-parameters-1">Optional Parameters</h3>
+</ul>
+
+<h3 id="optional-parameters-1">Optional Parameters</h3>
 
 <ul>
-<li>
+  <li>
 <strong>image</strong> - An image of the problem. Limited to 20Mb.</li>
   <li>
 <strong>video</strong> - A video of the problem. Limited to 20Mb.</li>
   <li>
 <strong>youtube_url</strong> - A link to a youtube video showing the problem.</li>
-</ul><h3 id="example-1">Example</h3>
+</ul>
+
+<h3 id="example-1">Example</h3>
 
 <pre class="terminal">
 $ curl --data "comment=pools+are+nice" -i https://seeclickfix.com/api/v2/issues/1/close
@@ -109,7 +119,7 @@ $ curl --data "comment=pools+are+nice" -i https://seeclickfix.com/api/v2/issues/
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
   <span class="s2">"moderated"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-  <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2013-08-29 16:34:16 -0400"</span>
+  <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2014-01-07 19:59:12 -0500"</span>
 <span class="p">}</span></code></pre>
 
 <h2 id="acknowledge-an-issue">Acknowledge an Issue</h2>
@@ -122,18 +132,22 @@ $ curl --data "comment=pools+are+nice" -i https://seeclickfix.com/api/v2/issues/
 <h3 id="required-parameters-2">Required Parameters</h3>
 
 <ul>
-<li>
+  <li>
 <strong>comment</strong>=<code>:comment</code> - A comment is required when changing the status.</li>
-</ul><h3 id="optional-parameters-2">Optional Parameters</h3>
+</ul>
+
+<h3 id="optional-parameters-2">Optional Parameters</h3>
 
 <ul>
-<li>
+  <li>
 <strong>image</strong> - An image of the problem. Limited to 20Mb.</li>
   <li>
 <strong>video</strong> - A video of the problem. Limited to 20Mb.</li>
   <li>
 <strong>youtube_url</strong> - A link to a youtube video showing the problem.</li>
-</ul><h3 id="example-2">Example</h3>
+</ul>
+
+<h3 id="example-2">Example</h3>
 
 <pre class="terminal">
 $ curl --data "comment=pools+are+nice" -i https://seeclickfix.com/api/v2/issues/1/acknowledge
@@ -145,8 +159,9 @@ $ curl --data "comment=pools+are+nice" -i https://seeclickfix.com/api/v2/issues/
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
   <span class="s2">"moderated"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-  <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2013-08-29 16:34:16 -0400"</span>
+  <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2014-01-07 19:59:12 -0500"</span>
 <span class="p">}</span></code></pre>
+
       </div>
 
     <div id="js-sidebar" class="sidebar-shell">

@@ -35,10 +35,12 @@
     <h1 id="issues">Issues</h1>
 
 <ul id="markdown-toc">
-<li><a href="#list-issues">List issues</a></li>
+  <li><a href="#list-issues">List issues</a></li>
   <li><a href="#get-a-single-issue">Get a single issue</a></li>
   <li><a href="#create-an-issue">Create an Issue</a></li>
-</ul><h2 id="list-issues">List issues</h2>
+</ul>
+
+<h2 id="list-issues">List issues</h2>
 
 <pre><code>GET https://seeclickfix.com/api/v2/issues
 </code></pre>
@@ -46,7 +48,7 @@
 <h3 id="optional-parameters">Optional Parameters</h3>
 
 <ul>
-<li>
+  <li>
     <p>one or more area geographies - Limit results to a specified area. See <a href="/#geography">how to specify a geography</a> for syntax help.</p>
   </li>
   <li>
@@ -85,7 +87,9 @@
   <li>
     <p><strong>details</strong>=<code>true</code> - defaults to <code>false</code>. Pass <code>true</code> to get an extended issue object with comments and user information.</p>
   </li>
-</ul><h3 id="notes">Notes</h3>
+</ul>
+
+<h3 id="notes">Notes</h3>
 
 <p>For performance reasons, results larger than 30 will be abbreviated.</p>
 
@@ -333,6 +337,7 @@ $ curl -i https://seeclickfix.com/api/v2/issues/1?details=true
 <h2 id="create-an-issue">Create an Issue</h2>
 
 <p>See the <a href="/v2/issues/reporting/">reporting an issue</a>.</p>
+
       </div>
 
     <div id="js-sidebar" class="sidebar-shell">

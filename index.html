@@ -41,7 +41,7 @@ you have any problems or requests please contact
 <p>SeeClickFix provides an open311 compatible API at <a href="http://seeclickfix.com/open311">http://seeclickfix.com/open311</a>.</p>
 
 <ul id="markdown-toc">
-<li><a href="#testing">Testing</a></li>
+  <li><a href="#testing">Testing</a></li>
   <li><a href="#url-format">URL Format</a></li>
   <li><a href="#data-format">Data Format</a></li>
   <li><a href="#responses">Responses</a></li>
@@ -49,22 +49,22 @@ you have any problems or requests please contact
   <li><a href="#pagination">Pagination</a></li>
   <li><a href="#blank-fields">Blank Fields</a></li>
   <li><a href="#time-formats">Time Formats</a></li>
-  <li><a href="#errors">Errors</a></li>
+  <li><a href="#error-responses">Error Responses</a></li>
   <li><a href="#http-redirects">HTTP Redirects</a></li>
   <li><a href="#http-verbs">HTTP Verbs</a></li>
-  <li><a href="#authentication">Authentication</a></li>
-  <li><a href="#hypermedia">Hypermedia</a></li>
   <li><a href="#user-agent-required">User Agent Required</a></li>
   <li><a href="#conditional-requests">Conditional requests</a></li>
   <li><a href="#json-p-callbacks">JSON-P Callbacks</a></li>
   <li><a href="#geography">Geography</a></li>
   <li><a href="#locales">Locales</a></li>
   <li><a href="#data-license">Data License</a></li>
-</ul><h2 id="testing">Testing</h2>
+</ul>
 
-<p>Testing can be done on the <code>test.seeclickfix.com</code> subdomain. This 
-subdomain has data replicated from production. SSL (https) is not 
-available on test.seeclickfix.com. </p>
+<h2 id="testing">Testing</h2>
+
+<p>Testing can be done on the <code>test.seeclickfix.com</code> subdomain. This
+subdomain has data replicated from production. SSL (https) is
+available on test.seeclickfix.com.</p>
 
 <h2 id="url-format">URL Format</h2>
 
@@ -77,54 +77,37 @@ available on test.seeclickfix.com. </p>
 
 <p>All data is sent and received as JSON.</p>
 
-<pre class="terminal">
-$ curl -i https://seeclickfix.com/api/v2/info
-</pre>
-
-<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
-  <span class="s2">"version"</span><span class="o">:</span> <span class="mf">2.0</span><span class="p">,</span>
-  <span class="s2">"base"</span><span class="o">:</span> <span class="s2">""</span>
-<span class="p">}</span></code></pre>
-
 <h2 id="responses">Responses</h2>
 
-<p>All responses will return a single object with three guaranteed attributes: <code>metadata</code>, <code>result</code>, and <code>errors</code>.</p>
+<p>Responses follow one of two patterns: <code>singular</code> and <code>collection</code>.</p>
 
-<p>The <code>metadata</code> attribute can contain metadata for the consumer about the
+<p><code>singular</code> responses return a single items, such as a user ID #145.</p>
+
+<p><code>collection</code> responses return a collection of items. Collection
+responses have two guaranteed attributes <code>metadata</code> and <code>result</code>.
+The <code>metadata</code> attribute can contain metadata for the consumer about the
 result, for example pagination information, api limits, or query
-information. Metadata can be null.</p>
-
-<p>The <code>result</code> attribute contains the result of the action. Each action will return
-either a result object or collection, but not one or the other
-conditionally. (i.e. if you’re listing issues and there’s only one
-result the result will be an array with one element). If there’s an
-error with the request the result can be null.</p>
-
-<p>The <code>errors</code> attribute will always be an array of human readable server
-side errors regarding the request. Not all errors are fatal to the
-request, so be sure to check the HTTP response code. Errors may be
-translated depending on the given locale. If there are no errors this attribute will be null.</p>
+information. Metadata can be null. The <code>result</code> attribute contains 
+the result of the action.</p>
 
 <h2 id="parameters">Parameters</h2>
 
 <p>Many API methods take optional parameters. Optional parameters will be identified as optional in the documentation.</p>
 
-<p>For POST requests, parameters not included in the URL should be encoded as JSON with a Content-Type of ‘application/x-www-form-urlencoded’:</p>
-
-<pre class="terminal">
-$ curl -i -u username -d '{"scopes":["public_repo"]}' https://api.github.com/authorizations
-</pre>
+<p>For POST requests, parameters not included in the URL should be encoded
+in the body with a Content-Type of ‘application/x-www-form-urlencoded’.
+Optionally we accept JSON in the body with a Content-Type of ‘application/json’:</p>
 
 <h2 id="pagination">Pagination</h2>
 
 <p>Requests that return multiple items will be paginated to 20 items by
-default unless otherwise noted. You can specify further pages with the
+default unless otherwise noted. You can specify further pages using the
 <code>?page</code> parameter. You can also set a custom page size up to 100 with
 the <code>?per_page</code> parameter. If you’d like to read more than 100 items
 you’ll need to construct and query the pages programatically.</p>
 
 <pre class="terminal">
-$ curl https://api.seeclickfix.com/issues?page=2&amp;per_page=10
+$ curl https://seeclickfix.com/api/v2/issues?page=2&amp;per_page=10
 </pre>
 
 <h2 id="blank-fields">Blank Fields</h2>
@@ -138,25 +121,19 @@ $ curl https://api.seeclickfix.com/issues?page=2&amp;per_page=10
 <pre><code>YYYY-MM-DDTHH:MM:SSZ
 </code></pre>
 
-<h2 id="errors">Errors</h2>
+<h2 id="error-responses">Error Responses</h2>
 
-<h3 id="client-errors">Client Errors</h3>
+<h3 id="errors">Errors</h3>
 
 <p>There are two possible types of client errors:</p>
 
 <ol>
-<li>
+  <li>
     <p>Sending invalid JSON will result in a <code>400 Bad Request</code> response.</p>
 
     <pre class="headers"><code>Status: 400 Bad Request</code></pre>
 
-    <pre><code> {
-   "metadata": null,
-   "result": null,
-   "errors": [ 
-     { "request": "Unable to parse JSON" }
-   ]
- }
+    <pre><code> { "request": "Unable to parse JSON" }
 </code></pre>
   </li>
   <li>
@@ -166,30 +143,12 @@ response.</p>
     <pre class="headers"><code>Status: 422 Unprocessable Entity</code></pre>
 
     <pre><code> {
-   "metadata": null,
-   "result": null,
-   "errors": [ 
-     { 
-       "message": "Summary missing.",
-       "resource": "Issue",
-       "field": "summary",
-       "code": "missing_field"
-     }
-   ]
+       "email": "Can't be blank.",
+       "base": "You have not voted on this issue."
  }
 </code></pre>
   </li>
-</ol><p>These are the possible validation error codes:</p>
-
-<dl>
-<dt>missing</dt>
-  <dd>This means a resource does not exist.</dd>
-  <dt>missing_field</dt>
-  <dd>This means a required field on a resource has not been set.</dd>
-  <dt>invalid</dt>
-  <dd>This means the formatting of a field is invalid.  The documentation
-for that resource should be able to give you more specific information.</dd>
-</dl><p>If resources have custom validation errors, they will be documented with the resource.</p>
+</ol>
 
 <h3 id="server-errors">Server Errors</h3>
 
@@ -217,60 +176,15 @@ for that resource should be able to give you more specific information.</dd>
 action.</p>
 
 <dl>
-<dt>HEAD</dt>
-  <dd>Can be issued against any resource to get just the HTTP header info.</dd>
   <dt>GET</dt>
   <dd>Used for retrieving resources.</dd>
   <dt>POST</dt>
   <dd>Used for creating resources.</dd>
-  <dt>PATCH</dt>
-  <dd>Used for updating resources with partial JSON data.  For instance, an
-Issue resource has <code>title</code> and <code>body</code> attributes.  A PATCH request may
-accept one or more of the attributes to update the resource.  PATCH is a
-relatively new and uncommon HTTP verb, so resource endpoints also accept
-POST requests.</dd>
   <dt>PUT</dt>
-  <dd>Used for replacing resources or collections. For PUT requests
-with no <code>body</code> attribute, be sure to set the <code>Content-Length</code> header to zero.</dd>
+  <dd>Used for updating resources.</dd>
   <dt>DELETE</dt>
   <dd>Used for deleting resources.</dd>
-</dl><h2 id="authentication">Authentication</h2>
-
-<p>Endpoints that require authentication will return a HTTP 403 or 404. Some
-non-authenticated endpoits will return additional information to authenticated
-users so we advise that all api access be authenitcated.</p>
-
-<h3 id="basic-authentication">Basic Authentication</h3>
-
-<p>For individual access we allow http basic auth.</p>
-
-<pre class="terminal">
-$ curl -u "emailaddress@example.com:password-would-go-here" https://seeclickfix.com/api/v2/issues/new?address=New+Haven,+CT
-</pre>
-
-<h3 id="oauth2-token">OAuth2 Token</h3>
-
-<h3 id="oauth2-token-sent-in-a-header">OAuth2 Token (sent in a header)</h3>
-
-<pre class="terminal">
-$ curl -H "Authorization: token OAUTH-TOKEN" https://seeclickfix.com/api/v2/issues/new?address=New+Haven,+CT
-</pre>
-
-<h3 id="oauth2-token-sent-as-a-parameter">OAuth2 Token (sent as a parameter)</h3>
-
-<pre class="terminal">
-curl https://seeclickfix.com/api/v2/issues/new?address=New+Haven,+CT&amp;access_token=OAUTH-TOKEN
-</pre>
-
-<p>Read more about <a href="http://oauth.net/2/">OAuth2</a> and available libraries. To obtain an OAuth2 app_id and secret please email us at <a href="mailto:team@seeclickfix.com">team@seeclickfix.com</a>.</p>
-
-<h2 id="hypermedia">Hypermedia</h2>
-
-<p>All resources may have one or more <code>*_url</code> properties linking to other
-resources.  These are meant to provide explicit URLs so that proper API clients
-don’t need to construct URLs on their own.  It is highly recommended that API
-clients use these.  Doing so will make future upgrades of the API easier for
-developers.  All URLs are expected to be proper [RFC 6570][rfc] URI templates.</p>
+</dl>
 
 <h2 id="user-agent-required">User Agent Required</h2>
 
@@ -284,127 +198,50 @@ you if there are problems.</p>
 <p>Most responses return <code>Last-Modified</code> and <code>ETag</code> headers. You can use the values
 of these headers to make subsequent requests to those resources using the
 <code>If-Modified-Since</code> and <code>If-None-Match</code> headers, respectively. If the resource
-has not changed, the server will return a <code>304 Not Modified</code>. </p>
-
-<pre class="terminal">
-$ curl -i https://api.github.com/user
-HTTP/1.1 200 OK
-Cache-Control: private, max-age=60
-ETag: "644b5b0155e6404a9cc4bd9d8b1ae730"
-Last-Modified: Thu, 05 Jul 2012 15:31:30 GMT
-Status: 200 OK
-Vary: Accept, Authorization, Cookie
-X-RateLimit-Limit: 5000
-X-RateLimit-Remaining: 4996
-
-$ curl -i https://api.github.com/user -H "If-Modified-Since: Thu, 05 Jul 2012 15:31:30 GMT"
-HTTP/1.1 304 Not Modified
-Cache-Control: private, max-age=60
-Last-Modified: Thu, 05 Jul 2012 15:31:30 GMT
-Status: 304 Not Modified
-Vary: Accept, Authorization, Cookie
-X-RateLimit-Limit: 5000
-X-RateLimit-Remaining: 4996
-
-$ curl -i https://api.github.com/user -H 'If-None-Match: "644b5b0155e6404a9cc4bd9d8b1ae730"'
-HTTP/1.1 304 Not Modified
-Cache-Control: private, max-age=60
-ETag: "644b5b0155e6404a9cc4bd9d8b1ae730"
-Last-Modified: Thu, 05 Jul 2012 15:31:30 GMT
-Status: 304 Not Modified
-Vary: Accept, Authorization, Cookie
-X-RateLimit-Limit: 5000
-X-RateLimit-Remaining: 4996
-</pre>
+has not changed, the server will return a <code>304 Not Modified</code>.</p>
 
 <h2 id="json-p-callbacks">JSON-P Callbacks</h2>
 
 <p>You can send a <code>?callback</code> parameter to any GET call to have the results
 wrapped in a JSON function.  This is typically used when browsers want
-to embed GitHub content in web pages by getting around cross domain
+to embed SeeClickFix content in web pages by getting around cross domain
 issues.  The response includes the same data output as the regular API,
 plus the relevant HTTP Header information.</p>
 
-<pre class="terminal">
-$ curl https://api.github.com?callback=foo
-
-foo({
-  "meta": {
-    "status": 200,
-    "X-RateLimit-Limit": "5000",
-    "X-RateLimit-Remaining": "4966",
-    "Link": [ // pagination headers and other links
-      ["https://api.github.com?page=2", {"rel": "next"}]
-    ]
-  },
-  "data": {
-    // the data
-  }
-})
-</pre>
-
-<p>You can write a JavaScript handler to process the callback like this:</p>
-
-<pre class="highlight"><code class="language-javascript"><span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">meta</span> <span class="o">=</span> <span class="nx">response</span><span class="p">.</span><span class="nx">meta</span>
-  <span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">response</span><span class="p">.</span><span class="nx">data</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">meta</span><span class="p">)</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span>
-<span class="p">}</span></code></pre>
-
-<p>All of the headers are the same String value as the HTTP Headers with one
-notable exception: Link.  Link headers are pre-parsed for you and come
-through as an array of <code>[url, options]</code> tuples.</p>
-
-<p>A link that looks like this:</p>
-
-<pre><code>Link: &lt;url1&gt;; rel="next", &lt;url2&gt;; rel="foo"; bar="baz"
-</code></pre>
-
-<p>… will look like this in the Callback output:</p>
-
-<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
-  <span class="s2">"Link"</span><span class="o">:</span> <span class="p">[</span>
-    <span class="p">[</span>
-      <span class="s2">"url1"</span><span class="p">,</span>
-      <span class="p">{</span>
-        <span class="s2">"rel"</span><span class="o">:</span> <span class="s2">"next"</span>
-      <span class="p">}</span>
-    <span class="p">],</span>
-    <span class="p">[</span>
-      <span class="s2">"url2"</span><span class="p">,</span>
-      <span class="p">{</span>
-        <span class="s2">"rel"</span><span class="o">:</span> <span class="s2">"foo"</span><span class="p">,</span>
-        <span class="s2">"bar"</span><span class="o">:</span> <span class="s2">"baz"</span>
-      <span class="p">}</span>
-    <span class="p">]</span>
-  <span class="p">]</span>
-<span class="p">}</span></code></pre>
-
 <h2 id="geography">Geography</h2>
 
-<p>At various endpoints SeeClickFix recognizes geography either by a <code>point</code> or <code>area</code> attribute. If multiple points are specified, they will be evaulated in the listed order of precedence.</p>
+<p>At various endpoints SeeClickFix recognizes geography either by a <code>point</code> 
+or <code>area</code> attribute. If multiple points are specified, they will be 
+evaulated in the listed order of precedence.</p>
 
 <p>Points can be defined in one of two forms:</p>
 
 <ol>
-<li>
+  <li>
 <code>lat=:latitude&amp;lng=:longitude</code> - The latitude and longitude of the point of interest.</li>
   <li>
 <code>address=:address</code> - Geocode the address and use the resulting latitude/longitude as a point.</li>
-</ol><p><code>area</code> attributes can be submitted in the following forms:</p>
+</ol>
+
+<p><code>area</code> attributes can be submitted in the following forms:</p>
 
 <ol>
-<li><code>lat=:latitude&amp;lng=:longitude&amp;zoom=:zoom</code></li>
+  <li><code>lat=:latitude&amp;lng=:longitude&amp;zoom=:zoom</code></li>
   <li><code>address=:address&amp;zoom=:zoom</code></li>
   <li>
 <code>place_url=:url_name</code> - See <a href="/v2/places">the places documentation</a> for more information.</li>
   <li>
 <code>min_lat=:sw_lat&amp;min_lng=:sw_lng&amp;max_lat=:ne_lat&amp;max_lng=:ne_lng</code> - Defines the bounding box of the area of interest.</li>
   <li><code>watch_area_token=:watch_area_token</code></li>
-</ol><h2 id="locales">Locales</h2>
+</ol>
 
-<p>All attributes are consistent between locales. Errors may be translated based on the given locale. Objects created will record the locale they were created in and notices based on these objects will be delivered with the proper locale. i.e. if an issue is created with the “es” locale, all email to the creator will be delivered with Spanish translations.</p>
+<h2 id="locales">Locales</h2>
+
+<p>All attributes are consistent between locales. Errors may be translated 
+based on the given locale. Objects created will record the locale they 
+were created in and notices based on these objects will be delivered with 
+the proper locale. i.e. if an issue is created with the “es” locale, all 
+email to the creator will be delivered with Spanish translations.</p>
 
 <h2 id="data-license">Data License</h2>
 
@@ -413,6 +250,7 @@ through as an array of <code>[url, options]</code> tuples.</p>
 <p>Persons or organizations wishing to reuse large portions (ie., more than occasional queries ) of data are required to contact us first at <a href="mailto:team@seeclickfix.com">team@seeclickfix.com</a>. We are very interested in working with researchers and/or agencies to ensure that this data is put to good use!</p>
 
 <p><a href="http://www.seeclickfix.com/open_data">http://www.seeclickfix.com/open_data</a></p>
+
       </div>
 
     <div id="js-sidebar" class="sidebar-shell">
