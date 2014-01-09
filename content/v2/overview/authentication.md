@@ -33,13 +33,3 @@ $ curl https://api.github.com/?access_token=OAUTH-TOKEN
 Read [more about OAuth2](/v3/oauth/).  Note that OAuth2 tokens can be [acquired
 programmatically](/v3/oauth/#create-a-new-authorization), for applications that
 are not websites.
-
-### OAuth2 Key/Secret
-
-<pre class="terminal">
-$ curl https://api.github.com/users/whatever?client_id=xxxx&client_secret=yyyy
-</pre>
-
-This should only be used in server to server scenarios.  Don't leak your
-OAuth application's client secret to your users.  Read [more about
-unauthenticated rate limiting](#unauthenticated-rate-limited-requests).
