@@ -97,8 +97,8 @@ Issues can be created by any authenticated user.
 ### Required Parameters
 
 * **address** - A written description of the location of the issue.
-* **latitude** - The latitude of the issue.
-* **longitude** - The longitude of the issue.
+* **lat** - The latitude of the issue.
+* **lng** - The longitude of the issue.
 * **answers** - Answers to questions, if any questions are required.
 * **request_type_id** - the id of your chosen Request Type
 
