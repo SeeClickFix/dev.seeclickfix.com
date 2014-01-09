@@ -37,7 +37,7 @@ Return a list of service request for the given location.
 ## Details about a Request Type
 
 <pre class="terminal">
-$ curl -i <%= root_version_url %>/request_type/122
+$ curl -i <%= root_version_url %>/request_types/122
 </pre>
 
 ### Response
@@ -48,7 +48,7 @@ $ curl -i <%= root_version_url %>/request_type/122
 ### Details of another Request Type
 
 <pre class="terminal">
-$ curl -i <%= root_version_url %>/request_type/657
+$ curl -i <%= root_version_url %>/request_types/657
 </pre>
 
 ### Response
@@ -59,7 +59,7 @@ $ curl -i <%= root_version_url %>/request_type/657
 We will always provide an "Other" request_type. In the event one is not supplied by the city we will provide one.
 
 <pre class="terminal">
-$ curl -i <%= root_version_url %>/request_type/other
+$ curl -i <%= root_version_url %>/request_types/other
 </pre>
 
 ### Response
