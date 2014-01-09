@@ -37,7 +37,7 @@ Return a list of service request for the given location.
 ## Details about a Request Type
 
 <pre class="terminal">
-$ curl -i <%= root_version_url %>/request_type/122
+$ curl -i <%= root_version_url %>/request_types/122
 </pre>
 
 ### Response
@@ -48,7 +48,7 @@ $ curl -i <%= root_version_url %>/request_type/122
 ### Details of another Request Type
 
 <pre class="terminal">
-$ curl -i <%= root_version_url %>/request_type/657
+$ curl -i <%= root_version_url %>/request_types/657
 </pre>
 
 ### Response
@@ -59,7 +59,7 @@ $ curl -i <%= root_version_url %>/request_type/657
 We will always provide an "Other" request_type. In the event one is not supplied by the city we will provide one.
 
 <pre class="terminal">
-$ curl -i <%= root_version_url %>/request_type/other
+$ curl -i <%= root_version_url %>/request_types/other
 </pre>
 
 ### Response
@@ -97,18 +97,17 @@ Issues can be created by any authenticated user.
 ### Required Parameters
 
 * **address** - A written description of the location of the issue.
-* **latitude** - The latitude of the issue.
-* **longitude** - The longitude of the issue.
+* **lat** - The latitude of the issue.
+* **lng** - The longitude of the issue.
 * **answers** - Answers to questions, if any questions are required.
 * **request_type_id** - the id of your chosen Request Type
 
 ### Optional Parameters
 
 * **anonymize_reporter** - Wether or not to protect the identification of the reporter. Default is false.  will evaluate to true.
-* **image** - An image of the problem. Limited to 20Mb.
-* **video** - A video of the problem. Limited to 20Mb.
-* **youtube_url** - A link to a youtube video showing the problem.
 * **device_id** - A unique identifier for the device creating the comment. This can help us debug problems.
+* **device_os** - Device OS. This can help us debug problems.
+* **device_name** - Model of device. This can help us debug problems.
 
 ### Example request
 
