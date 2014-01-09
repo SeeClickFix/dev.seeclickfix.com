@@ -30,6 +30,4 @@ $ curl -H "Authorization: token OAUTH-TOKEN" <%= root_version_url %>
 $ curl <%= root_version_url %>/?access_token=OAUTH-TOKEN
 </pre>
 
-Read [more about OAuth2](/v3/oauth/).  Note that OAuth2 tokens can be [acquired
-programmatically](/v3/oauth/#create-a-new-authorization), for applications that
-are not websites.
+We support [Authorization Code Flow](http://tools.ietf.org/html/rfc6749#section-4.1) at `oauth/authorize`
