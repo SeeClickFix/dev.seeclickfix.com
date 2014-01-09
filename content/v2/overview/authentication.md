@@ -15,31 +15,19 @@ Once you have an account login and go to "My Account" > "Preferences". There is 
 ### Basic Authentication
 
 <pre class="terminal">
-$ curl -u "username" https://api.github.com
+$ curl -u "username" <%= root_version_url %>
 </pre>
 
 ### OAuth2 Token (sent in a header)
 
 <pre class="terminal">
-$ curl -H "Authorization: token OAUTH-TOKEN" https://api.github.com
+$ curl -H "Authorization: token OAUTH-TOKEN" <%= root_version_url %>
 </pre>
 
 ### OAuth2 Token (sent as a parameter)
 
 <pre class="terminal">
-$ curl https://api.github.com/?access_token=OAUTH-TOKEN
+$ curl <%= root_version_url %>/?access_token=OAUTH-TOKEN
 </pre>
 
-Read [more about OAuth2](/v3/oauth/).  Note that OAuth2 tokens can be [acquired
-programmatically](/v3/oauth/#create-a-new-authorization), for applications that
-are not websites.
-
-### OAuth2 Key/Secret
-
-<pre class="terminal">
-$ curl https://api.github.com/users/whatever?client_id=xxxx&client_secret=yyyy
-</pre>
-
-This should only be used in server to server scenarios.  Don't leak your
-OAuth application's client secret to your users.  Read [more about
-unauthenticated rate limiting](#unauthenticated-rate-limited-requests).
+We support [Authorization Code Flow](http://tools.ietf.org/html/rfc6749#section-4.1) at `oauth/authorize`
