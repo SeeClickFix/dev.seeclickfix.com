@@ -105,9 +105,6 @@ Issues can be created by any authenticated user.
 ### Optional Parameters
 
 * **anonymize_reporter** - Wether or not to protect the identification of the reporter. Default is false.  will evaluate to true.
-* **image** - An image of the problem. Limited to 20Mb.
-* **video** - A video of the problem. Limited to 20Mb.
-* **youtube_url** - A link to a youtube video showing the problem.
 * **device_id** - A unique identifier for the device creating the comment. This can help us debug problems.
 * **device_os** - A unique identifier for the device creating the comment. This can help us debug problems.
 * **device_name** - A unique identifier for the device creating the comment. This can help us debug problems.
