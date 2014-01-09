@@ -104,7 +104,7 @@ $ curl -i https://seeclickfix.com/api/v2/issues/new?address=New+Haven,+CT
 <h2 id="details-about-a-request-type">Details about a Request Type</h2>
 
 <pre class="terminal">
-$ curl -i https://seeclickfix.com/api/v2/request_type/122
+$ curl -i https://seeclickfix.com/api/v2/request_types/122
 </pre>
 
 <h3 id="response-1">Response</h3>
@@ -160,7 +160,7 @@ $ curl -i https://seeclickfix.com/api/v2/request_type/122
 <h3 id="details-of-another-request-type">Details of another Request Type</h3>
 
 <pre class="terminal">
-$ curl -i https://seeclickfix.com/api/v2/request_type/657
+$ curl -i https://seeclickfix.com/api/v2/request_types/657
 </pre>
 
 <h3 id="response-2">Response</h3>
@@ -294,7 +294,7 @@ $ curl -i https://seeclickfix.com/api/v2/request_type/657
 <p>We will always provide an “Other” request_type. In the event one is not supplied by the city we will provide one.</p>
 
 <pre class="terminal">
-$ curl -i https://seeclickfix.com/api/v2/request_type/other
+$ curl -i https://seeclickfix.com/api/v2/request_types/other
 </pre>
 
 <h3 id="response-3">Response</h3>
@@ -371,9 +371,9 @@ $ curl -i https://seeclickfix.com/api/v2/request_type/other
   <li>
 <strong>address</strong> - A written description of the location of the issue.</li>
   <li>
-<strong>latitude</strong> - The latitude of the issue.</li>
+<strong>lat</strong> - The latitude of the issue.</li>
   <li>
-<strong>longitude</strong> - The longitude of the issue.</li>
+<strong>lng</strong> - The longitude of the issue.</li>
   <li>
 <strong>answers</strong> - Answers to questions, if any questions are required.</li>
   <li>
@@ -386,13 +386,11 @@ $ curl -i https://seeclickfix.com/api/v2/request_type/other
   <li>
 <strong>anonymize_reporter</strong> - Wether or not to protect the identification of the reporter. Default is false.  will evaluate to true.</li>
   <li>
-<strong>image</strong> - An image of the problem. Limited to 20Mb.</li>
-  <li>
-<strong>video</strong> - A video of the problem. Limited to 20Mb.</li>
-  <li>
-<strong>youtube_url</strong> - A link to a youtube video showing the problem.</li>
-  <li>
 <strong>device_id</strong> - A unique identifier for the device creating the comment. This can help us debug problems.</li>
+  <li>
+<strong>device_os</strong> - Device OS. This can help us debug problems.</li>
+  <li>
+<strong>device_name</strong> - Model of device. This can help us debug problems.</li>
 </ul>
 
 <h3 id="example-request">Example request</h3>

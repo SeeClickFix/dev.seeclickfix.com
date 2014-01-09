@@ -45,34 +45,22 @@
 <h3 id="basic-authentication">Basic Authentication</h3>
 
 <pre class="terminal">
-$ curl -u "username" https://api.github.com
+$ curl -u "username" https://seeclickfix.com/api/v2
 </pre>
 
 <h3 id="oauth2-token-sent-in-a-header">OAuth2 Token (sent in a header)</h3>
 
 <pre class="terminal">
-$ curl -H "Authorization: token OAUTH-TOKEN" https://api.github.com
+$ curl -H "Authorization: token OAUTH-TOKEN" https://seeclickfix.com/api/v2
 </pre>
 
 <h3 id="oauth2-token-sent-as-a-parameter">OAuth2 Token (sent as a parameter)</h3>
 
 <pre class="terminal">
-$ curl https://api.github.com/?access_token=OAUTH-TOKEN
+$ curl https://seeclickfix.com/api/v2/?access_token=OAUTH-TOKEN
 </pre>
 
-<p>Read <a href="/v3/oauth/">more about OAuth2</a>.  Note that OAuth2 tokens can be <a href="/v3/oauth/#create-a-new-authorization">acquired
-programmatically</a>, for applications that
-are not websites.</p>
-
-<h3 id="oauth2-keysecret">OAuth2 Key/Secret</h3>
-
-<pre class="terminal">
-$ curl https://api.github.com/users/whatever?client_id=xxxx&amp;client_secret=yyyy
-</pre>
-
-<p>This should only be used in server to server scenarios.  Don’t leak your
-OAuth application’s client secret to your users.  Read <a href="#unauthenticated-rate-limited-requests">more about
-unauthenticated rate limiting</a>.</p>
+<p>We support <a href="http://tools.ietf.org/html/rfc6749#section-4.1">Authorization Code Flow</a> at <code>oauth/authorize</code></p>
 
       </div>
 
