@@ -106,8 +106,8 @@ Issues can be created by any authenticated user.
 
 * **anonymize_reporter** - Wether or not to protect the identification of the reporter. Default is false.  will evaluate to true.
 * **device_id** - A unique identifier for the device creating the comment. This can help us debug problems.
-* **device_os** - A unique identifier for the device creating the comment. This can help us debug problems.
-* **device_name** - A unique identifier for the device creating the comment. This can help us debug problems.
+* **device_os** - Device OS. This can help us debug problems.
+* **device_name** - Model of device. This can help us debug problems.
 
 ### Example request
 
