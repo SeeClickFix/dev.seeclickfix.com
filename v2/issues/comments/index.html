@@ -71,7 +71,10 @@
 <h3 id="example">Example</h3>
 
 <pre class="terminal">
-$ curl --data "comment=pools+are+nice" -i https://seeclickfix.com/api/v2/issues/1/comments
+$ curl -i \
+       --header "Content-Type: application/json" \
+       --data '{"comment": "Pothole getting larger every day"}' \
+       https://seeclickfix.com/api/v2/issues/1/comments
 </pre>
 
 <h3 id="response">Response</h3>
@@ -80,7 +83,29 @@ $ curl --data "comment=pools+are+nice" -i https://seeclickfix.com/api/v2/issues/
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
   <span class="s2">"moderated"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-  <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2014-01-09 11:51:10 -0500"</span>
+  <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2014-01-29 12:08:00 -0500"</span>
+<span class="p">}</span></code></pre>
+
+<h3 id="example-with-media">Example, with media</h3>
+
+<p>If you want to attach a image or video or both to your comment, you must use multipart form data not json. Here is an example including both:</p>
+
+<pre class="terminal">
+$ curl -i \
+       --header "Content-Type: multipart/form-data" \
+       --data "comment=pools+are+nice" \
+       --data "image=@photo.png" \
+       --data "video=@video.mp4" \
+       https://seeclickfix.com/api/v2/issues/1/comments
+</pre>
+
+<h3 id="response-1">Response</h3>
+
+<pre class="headers"><code>Status: 201 Created</code></pre>
+
+<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"moderated"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2014-01-29 12:08:00 -0500"</span>
 <span class="p">}</span></code></pre>
 
 <h2 id="listing-comments-on-an-issue">Listing Comments on an Issue</h2>
@@ -100,7 +125,7 @@ $ curl --data "comment=pools+are+nice" -i https://seeclickfix.com/api/v2/issues/
 $ curl -i https://seeclickfix.com/api/v2/issues/1/comments
 </pre>
 
-<h3 id="response-1">Response</h3>
+<h3 id="response-2">Response</h3>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 

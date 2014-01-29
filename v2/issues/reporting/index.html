@@ -395,17 +395,22 @@ $ curl -i https://seeclickfix.com/api/v2/request_types/other
 
 <h3 id="example-request">Example request</h3>
 
-<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
-  <span class="s2">"lat"</span><span class="o">:</span> <span class="mf">42.7265</span><span class="p">,</span>
-  <span class="s2">"lng"</span><span class="o">:</span> <span class="o">-</span><span class="mf">72.567</span><span class="p">,</span>
-  <span class="s2">"address"</span><span class="o">:</span> <span class="s2">"123 State St. New Haven, CT"</span><span class="p">,</span>
-  <span class="s2">"request_type_id"</span><span class="o">:</span> <span class="mi">122</span><span class="p">,</span>
-  <span class="s2">"answers"</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">"142"</span><span class="o">:</span> <span class="s2">"SHALLOW"</span><span class="p">,</span>
-    <span class="s2">"summary"</span><span class="o">:</span> <span class="s2">"Big Pothole"</span><span class="p">,</span>
-    <span class="s2">"description"</span><span class="o">:</span> <span class="s2">"Please fix it"</span>
-  <span class="p">}</span>
-<span class="p">}</span></code></pre>
+<pre class="terminal">
+  curl -i \
+       --header "Content-Type: application/json" \
+       --data '{
+         "lat": 42.7265,
+         "lng": -72.567,
+         "address": "123 State St. New Haven, CT",
+         "request_type_id": 122,
+         "answers": {
+           "142": "SHALLOW",
+           "summary": "Big Pothole",
+           "description": "Please fix it"
+         }
+       }' \
+       https://seeclickfix.com/api/v2/issues
+</pre>
 
 <h3 id="response-4">Response</h3>
 
@@ -420,26 +425,52 @@ Location: http://seeclickfix.com/issues/987654321</code></pre>
 
 <h3 id="example-request-2">Example request #2</h3>
 
+<pre class="terminal">
+  curl -i \
+       --header "Content-Type: application/json" \
+       --data '{
+          "lat":42.7265,
+          "lng":-72.567,
+          "address": "123 State St. New Haven, CT",
+          "request_type_id": 657,
+          "answers": {
+            "400": ["Brick", "PaintedBrick", "Wood"],
+            "401": ["Other"],
+            "offensive": false,
+            "summary": "Graffiti on a brick wall"
+          }
+        }' \
+       https://seeclickfix.com/api/v2/issues
+</pre>
+
+<h3 id="response-5">Response</h3>
+
+<pre class="headers"><code>Status: 201 Created
+Location: http://seeclickfix.com/issues/987654321</code></pre>
+
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
-  <span class="s2">"lat"</span><span class="o">:</span> <span class="mf">42.7265</span><span class="p">,</span>
-  <span class="s2">"lng"</span><span class="o">:</span> <span class="o">-</span><span class="mf">72.567</span><span class="p">,</span>
-  <span class="s2">"address"</span><span class="o">:</span> <span class="s2">"123 State St. New Haven, CT"</span><span class="p">,</span>
-  <span class="s2">"request_type_id"</span><span class="o">:</span> <span class="mi">657</span><span class="p">,</span>
-  <span class="s2">"answers"</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">"400"</span><span class="o">:</span> <span class="p">[</span>
-      <span class="s2">"Brick"</span><span class="p">,</span>
-      <span class="s2">"PaintedBrick"</span><span class="p">,</span>
-      <span class="s2">"Wood"</span>
-    <span class="p">],</span>
-    <span class="s2">"401"</span><span class="o">:</span> <span class="p">[</span>
-      <span class="s2">"Other"</span>
-    <span class="p">],</span>
-    <span class="s2">"offensive"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-    <span class="s2">"summary"</span><span class="o">:</span> <span class="s2">"Graffiti on a brick wall"</span>
+  <span class="s2">"metadata"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"moderated"</span><span class="o">:</span> <span class="kc">false</span>
   <span class="p">}</span>
 <span class="p">}</span></code></pre>
 
-<h3 id="response-5">Response</h3>
+<h3 id="example-request-3-with-image-media">Example request #3, with image media</h3>
+
+<p>If you want to post an image when creating your issue, you must use multipart form data not json.</p>
+
+<pre class="terminal">
+$ curl -i \
+       --header "Content-Type: multipart/form-data" \
+       --form "lat=42.7265" \
+       --form "lng=-72.567" \
+       --form "address=123 State St. New Haven, CT" \
+       --form "request_type_id=other" \
+       --form "answers[summary]=Found a pothole" \
+       --form "answers[issue_image]=@photo.png" \
+       https://seeclickfix.com/api/v2/issues
+</pre>
+
+<h3 id="response-6">Response</h3>
 
 <pre class="headers"><code>Status: 201 Created
 Location: http://seeclickfix.com/issues/987654321</code></pre>
