@@ -28,7 +28,28 @@ Issues can be commented on any authenticated user.
 ### Example
 
 <pre class="terminal">
-$ curl --data "comment=pools+are+nice" -i <%= root_version_url %>/issues/1/comments
+$ curl -i \
+       --header "Content-Type: application/json" \
+       --data '{"comment": "Pothole getting larger every day"}' \
+       <%= root_version_url %>/issues/1/comments
+</pre>
+
+### Response
+
+<%= headers 201 %>
+<%= json(moderated: false, created_at: Time.now) %>
+
+### Example, with media
+
+If you want to attach a image or video or both to your comment, you must use multipart form data not json. Here is an example including both:
+
+<pre class="terminal">
+$ curl -i \
+       --header "Content-Type: multipart/form-data" \
+       --data "comment=pools+are+nice" \
+       --data "image=@photo.png" \
+       --data "video=@video.mp4" \
+       <%= root_version_url %>/issues/1/comments
 </pre>
 
 ### Response

@@ -111,19 +111,22 @@ Issues can be created by any authenticated user.
 
 ### Example request
 
-<%=
- json({
-   lat: 42.7265,
-   lng: -72.567,
-   address: '123 State St. New Haven, CT',
-   request_type_id: 122,
-   answers: {
-     "142" => "SHALLOW",
-     "summary" => 'Big Pothole',
-     "description" => 'Please fix it'
-   }
- })
-%>
+<pre class="terminal">
+  curl -i \
+       --header "Content-Type: application/json" \
+       --data '{
+         "lat": 42.7265,
+         "lng": -72.567,
+         "address": "123 State St. New Haven, CT",
+         "request_type_id": 122,
+         "answers": {
+           "142": "SHALLOW",
+           "summary": "Big Pothole",
+           "description": "Please fix it"
+         }
+       }' \
+       <%= root_version_url %>/issues
+</pre>
 
 ### Response
 
@@ -136,20 +139,48 @@ Issues can be created by any authenticated user.
 
 ### Example request #2
 
+<pre class="terminal">
+  curl -i \
+       --header "Content-Type: application/json" \
+       --data '{
+          "lat":42.7265,
+          "lng":-72.567,
+          "address": "123 State St. New Haven, CT",
+          "request_type_id": 657,
+          "answers": {
+            "400": ["Brick", "PaintedBrick", "Wood"],
+            "401": ["Other"],
+            "offensive": false,
+            "summary": "Graffiti on a brick wall"
+          }
+        }' \
+       <%= root_version_url %>/issues
+</pre>
+
+### Response
+
+<%= headers 201, { Location: "http://seeclickfix.com/issues/987654321" } %>
 <%=
  json({
-   lat: 42.7265,
-   lng: -72.567,
-   address: '123 State St. New Haven, CT',
-   request_type_id: 657,
-   answers: {
-     "400" => ["Brick", "PaintedBrick", "Wood"],
-     "401" => ["Other"],
-     "offensive" => false,
-     "summary" => "Graffiti on a brick wall"
-   }
+   metadata: {moderated: false}
  })
 %>
+
+### Example request #3, with image media
+
+If you want to post an image when creating your issue, you must use multipart form data not json.
+
+<pre class="terminal">
+$ curl -i \
+       --header "Content-Type: multipart/form-data" \
+       --form "lat=42.7265" \
+       --form "lng=-72.567" \
+       --form "address=123 State St. New Haven, CT" \
+       --form "request_type_id=other" \
+       --form "answers[summary]=Found a pothole" \
+       --form "answers[issue_image]=@photo.png" \
+       <%= root_version_url %>/issues
+</pre>
 
 ### Response
 
