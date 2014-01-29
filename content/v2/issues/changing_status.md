@@ -28,8 +28,25 @@ Changing the status of an issue is similar to adding a comment on an issue.
 ### Example
 
 <pre class="terminal">
-$ curl --data "comment=pools+are+nice" -i <%= root_version_url %>/issues/1/close
+$ curl -i \
+       --header "Content-Type: application/json" \
+       --data '{"comment": "Pothole is gone"}' \
+       <%= root_version_url %>/issues/1/comments
 </pre>
+
+### Example, with media
+
+If you want to attach a image or video or both to your comment, you must use multipart form data not json. Here is an example including both:
+
+<pre class="terminal" id="with_media">
+$ curl -i \
+       --header "Content-Type: multipart/form-data" \
+       --data "comment=Pothole+is+gone" \
+       --data "image=@photo.png" \
+       --data "video=@video.mp4" \
+       <%= root_version_url %>/issues/1/comments
+</pre>
+
 
 ### Response
 
@@ -55,8 +72,13 @@ Changing the status of an issue is similar to adding a comment on an issue.
 ### Example
 
 <pre class="terminal">
-$ curl --data "comment=pools+are+nice" -i <%= root_version_url %>/issues/1/close
+$ curl -i \
+       --header "Content-Type: application/json" \
+       --data '{"comment": "Pothole is back!"}' \
+       <%= root_version_url %>/issues/1/open
 </pre>
+
+Media can be attached the same way as [closing comments](#with_media)
 
 ### Response
 
@@ -82,8 +104,13 @@ Changing the status of an issue is similar to adding a comment on an issue.
 ### Example
 
 <pre class="terminal">
-$ curl --data "comment=pools+are+nice" -i <%= root_version_url %>/issues/1/acknowledge
+$ curl -i \
+       --header "Content-Type: application/json" \
+       --data '{"comment": "We have seen the pothole."}' \
+       <%= root_version_url %>/issues/1/acknowledge
 </pre>
+
+Media can be attached the same way as [closing comments](#with_media)
 
 ### Response
 
