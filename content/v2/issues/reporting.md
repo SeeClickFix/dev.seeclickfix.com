@@ -125,7 +125,7 @@ Issues can be created by any authenticated user.
            "description": "Please fix it"
          }
        }' \
-       http://seeclickfix.com/api/v2/issues
+       <%= root_version_url %>/issues
 </pre>
 
 ### Response
@@ -154,7 +154,7 @@ Issues can be created by any authenticated user.
             "summary": "Graffiti on a brick wall"
           }
         }' \
-       http://seeclickfix.com/api/v2/issues
+       <%= root_version_url %>/issues
 </pre>
 
 ### Response
@@ -179,7 +179,7 @@ $ curl -i \
        --form "request_type_id=other" \
        --form "answers[summary]=Found a pothole" \
        --form "answers[issue_image]=@photo.png" \
-       http://seeclickfix.com/api/v2/issues
+       <%= root_version_url %>/issues
 </pre>
 
 ### Response
