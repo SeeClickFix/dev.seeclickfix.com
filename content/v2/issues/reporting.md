@@ -111,19 +111,22 @@ Issues can be created by any authenticated user.
 
 ### Example request
 
-<%=
- json({
-   lat: 42.7265,
-   lng: -72.567,
-   address: '123 State St. New Haven, CT',
-   request_type_id: 122,
-   answers: {
-     "142" => "SHALLOW",
-     "summary" => 'Big Pothole',
-     "description" => 'Please fix it'
-   }
- })
-%>
+<pre class="terminal">
+  curl --request POST \
+       --header "Content-Type: application/json" \
+       --data '{
+         "lat": 42.7265,
+         "lng": -72.567,
+         "address": "123 State St. New Haven, CT",
+         "request_type_id": 122,
+         "answers": {
+           "142": "SHALLOW",
+           "summary": "Big Pothole",
+           "description": "Please fix it"
+         }
+       }' \
+       http://seeclickfix.com/api/v2/issues
+</pre>
 
 ### Response
 
@@ -136,20 +139,23 @@ Issues can be created by any authenticated user.
 
 ### Example request #2
 
-<%=
- json({
-   lat: 42.7265,
-   lng: -72.567,
-   address: '123 State St. New Haven, CT',
-   request_type_id: 657,
-   answers: {
-     "400" => ["Brick", "PaintedBrick", "Wood"],
-     "401" => ["Other"],
-     "offensive" => false,
-     "summary" => "Graffiti on a brick wall"
-   }
- })
-%>
+<pre class="terminal">
+  curl --request POST \
+       --header "Content-Type: application/json" \
+       --data '{
+          "lat":42.7265,
+          "lng":-72.567,
+          "address": "123 State St. New Haven, CT",
+          "request_type_id": 657,
+          "answers": {
+            "400": ["Brick", "PaintedBrick", "Wood"],
+            "401": ["Other"],
+            "offensive": false,
+            "summary": "Graffiti on a brick wall"
+          }
+        }' \
+       http://seeclickfix.com/api/v2/issues
+</pre>
 
 ### Response
 
