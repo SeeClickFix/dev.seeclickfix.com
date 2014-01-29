@@ -112,7 +112,7 @@ Issues can be created by any authenticated user.
 ### Example request
 
 <pre class="terminal">
-  curl --request POST \
+  curl -i \
        --header "Content-Type: application/json" \
        --data '{
          "lat": 42.7265,
@@ -140,7 +140,7 @@ Issues can be created by any authenticated user.
 ### Example request #2
 
 <pre class="terminal">
-  curl --request POST \
+  curl -i \
        --header "Content-Type: application/json" \
        --data '{
           "lat":42.7265,
@@ -171,7 +171,7 @@ Issues can be created by any authenticated user.
 If you want to post an image when creating your issue, you must use multipart form data not json.
 
 <pre class="terminal">
-$ curl --request POST \
+$ curl -i \
        --header "Content-Type: multipart/form-data" \
        --form "lat=42.7265" \
        --form "lng=-72.567" \
