@@ -160,6 +160,31 @@ Issues can be created by any authenticated user.
  })
 %>
 
+### Example request #3, with image media
+
+If you want to post an image when creating your issue, you must use multipart form data not json.
+
+<pre class="terminal">
+$ curl --request POST \
+       --header "Content-Type: multipart/form-data" \
+       --form "lat=42.7265" \
+       --form "lng=-72.567" \
+       --form "address=123 State St. New Haven, CT" \
+       --form "request_type_id=other" \
+       --form "answers[summary]=Found a pothole" \
+       --form "answers[issue_image]=@photo.png" \
+       http://seeclickfix.com/api/v2/issues
+</pre>
+
+### Response
+
+<%= headers 201, { Location: "http://seeclickfix.com/issues/987654321" } %>
+<%=
+ json({
+   metadata: {moderated: false}
+ })
+%>
+
 ### In the event of validation errors
 
 <%= headers 422 %>
