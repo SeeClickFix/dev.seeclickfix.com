@@ -73,7 +73,7 @@
 $ curl -i \
        --header "Content-Type: application/json" \
        --data '{"comment": "Pothole is gone"}' \
-       https://seeclickfix.com/api/v2/issues/1/comments
+       https://seeclickfix.com/api/v2/issues/1/close
 </pre>
 
 <h3 id="example-with-media">Example, with media</h3>
@@ -86,7 +86,7 @@ $ curl -i \
        --data "comment=Pothole+is+gone" \
        --data "image=@photo.png" \
        --data "video=@video.mp4" \
-       https://seeclickfix.com/api/v2/issues/1/comments
+       https://seeclickfix.com/api/v2/issues/1/close
 </pre>
 
 <h3 id="response">Response</h3>
@@ -95,7 +95,7 @@ $ curl -i \
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
   <span class="s2">"moderated"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-  <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2014-01-29 12:08:00 -0500"</span>
+  <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2014-02-03 14:26:07 -0500"</span>
 <span class="p">}</span></code></pre>
 
 <h2 id="reopen-an-issue">Reopen an Issue</h2>
@@ -140,7 +140,7 @@ $ curl -i \
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
   <span class="s2">"moderated"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-  <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2014-01-29 12:08:00 -0500"</span>
+  <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2014-02-03 14:26:07 -0500"</span>
 <span class="p">}</span></code></pre>
 
 <h2 id="acknowledge-an-issue">Acknowledge an Issue</h2>
@@ -185,7 +185,7 @@ $ curl -i \
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
   <span class="s2">"moderated"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-  <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2014-01-29 12:08:00 -0500"</span>
+  <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2014-02-03 14:26:07 -0500"</span>
 <span class="p">}</span></code></pre>
 
       </div>
