@@ -31,7 +31,7 @@ Changing the status of an issue is similar to adding a comment on an issue.
 $ curl -i \
        --header "Content-Type: application/json" \
        --data '{"comment": "Pothole is gone"}' \
-       <%= root_version_url %>/issues/1/comments
+       <%= root_version_url %>/issues/1/close
 </pre>
 
 ### Example, with media
@@ -44,7 +44,7 @@ $ curl -i \
        --data "comment=Pothole+is+gone" \
        --data "image=@photo.png" \
        --data "video=@video.mp4" \
-       <%= root_version_url %>/issues/1/comments
+       <%= root_version_url %>/issues/1/close
 </pre>
 
 
