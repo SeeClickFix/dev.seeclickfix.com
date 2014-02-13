@@ -161,6 +161,13 @@ module SeeClickFix
       }
     }
 
+    ORGANIZATION = {
+      "id" => 3,
+      "name" => "City of New Haven",
+      "skus" => [ "r311" ],
+      "url" => "#{ASSET_URL}/api/v2/organizations/3"
+    }
+
     INTEGRATION_ISSUE = {
       "remote_id" => 2,
       :title => "City of New Haven",
