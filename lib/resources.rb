@@ -102,7 +102,6 @@ module SeeClickFix
 
     QUESTION = {
       id: 1,
-      views: 5,
       locale: 'en',
       question: "Is it legal to bike on the sidewalk?",
       created_at: "2013-05-14T19:49:13-04:00",
