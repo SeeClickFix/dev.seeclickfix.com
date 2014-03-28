@@ -100,6 +100,16 @@ module SeeClickFix
       email: 'foo@bar.com'
     }
 
+    NO_AVATAR = {
+      full: "http://seeclickfix.com/assets/no-avatar-100.png",
+      square_100x100: "http://seeclickfix.com/assets/no-avatar-100.png"
+    }
+
+    AVATAR = {
+      "square_100x100" => "#{ASSET_URL}/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg",
+      "full" => "#{ASSET_URL}/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg"
+    }
+
     QUESTION = {
       id: 1,
       locale: 'en',
@@ -122,13 +132,9 @@ module SeeClickFix
         name: "Mike Helpless",
         witty_title: "Street Smart",
         civic_points: 100,
-        avatar: {
-          full: "http://seeclickfix.com/assets/no-avatar-100.png",
-          square_100x100: "http://seeclickfix.com/assets/no-avatar-100.png"
-        }
+        avatar: NO_AVATAR
       }
     }
-
 
     USER = {
       "display_name"        => "Jeffb",
@@ -143,10 +149,7 @@ module SeeClickFix
       "permissions" => {
         "can_acknowledge" => false
       },
-      "avatar" => {
-        "square_100x100" => "#{ASSET_URL}/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg",
-        "full" => "#{ASSET_URL}/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg"
-      }
+      "avatar" => AVATAR
     }
 
     USER_4_PUBLIC = {
@@ -154,10 +157,7 @@ module SeeClickFix
       "id"           => 1,
       "civic_points" => 10,
       "witty_title" => "Street Smart",
-      "avatar" => {
-        "square_100x100" => "#{ASSET_URL}/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg",
-        "full" => "#{ASSET_URL}/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg"
-      }
+      "avatar" => AVATAR
     }
 
     INTEGRATION_ISSUE = {
