@@ -434,7 +434,8 @@ module SeeClickFix
       "shortened_url"   => "http://scf.cm/i/1",
       "url"        => "#{ROOT_URL}/v2/issues/1",
       "comments_url"   => "#{ROOT_URL}/v2/issues/1/comments",
-      "html_url"   => "http://seeclickfix.com/issues/1-pothole"
+      "html_url"   => "http://seeclickfix.com/issues/1-pothole",
+      "media" => MEDIA
     }
 
     ISSUE_DETAILS = {
