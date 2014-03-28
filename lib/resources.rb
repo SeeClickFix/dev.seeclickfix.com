@@ -100,6 +100,12 @@ module SeeClickFix
       email: 'foo@bar.com'
     }
 
+    MEDIA = {
+      "video_url"     => "http://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "image_full" =>   "#{ASSET_URL}/files/comment_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg",
+      "image_square_100x100" => "#{ASSET_URL}/files/comment_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg"
+    }
+
     NO_AVATAR = {
       full: "http://seeclickfix.com/assets/no-avatar-100.png",
       square_100x100: "http://seeclickfix.com/assets/no-avatar-100.png"
@@ -170,11 +176,7 @@ module SeeClickFix
       "id"         => 1,
       "comment"       => "Me too",
       "commenter"       => USER,
-      "media" => {
-        "video_url"     => "http://www.youtube.com/watch?v=dQw4w9WgXcQ",
-        "image_full" =>   "#{ASSET_URL}/files/comment_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg",
-        "image_square_100x100" => "#{ASSET_URL}/files/comment_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg"
-      },
+      "media" => MEDIA,
       "created_at" => "2011-04-14T16:00:49Z"
     }
 
@@ -463,11 +465,7 @@ module SeeClickFix
         :assignee => false
       },
       "address" => "123 State St. New Haven, CT",
-      "media" => {
-          "video_url"     => "http://www.youtube.com/watch?v=dQw4w9WgXcQ",
-          "image_full" =>   "#{ASSET_URL}/files/comment_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg",
-          "image_square_100x100" => "#{ASSET_URL}/files/comment_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg"
-      },
+      "media" => MEDIA,
       "created_at" => "2011-04-22T13:33:48Z",
       "updated_at" => "2011-04-22T13:33:48Z"
     }
