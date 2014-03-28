@@ -431,6 +431,7 @@ module SeeClickFix
       "updated_at" => "2011-04-22T13:33:48Z",
       "acknowledged_at"  => nil,
       "closed_at"  => nil,
+      "reporter"       => USER_4_PUBLIC,
       "shortened_url"   => "http://scf.cm/i/1",
       "url"        => "#{ROOT_URL}/v2/issues/1",
       "comments_url"   => "#{ROOT_URL}/v2/issues/1/comments",
