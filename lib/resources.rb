@@ -100,6 +100,22 @@ module SeeClickFix
       email: 'foo@bar.com'
     }
 
+    MEDIA = {
+      "video_url"     => "http://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "image_full" =>   "#{ASSET_URL}/files/comment_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg",
+      "image_square_100x100" => "#{ASSET_URL}/files/comment_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg"
+    }
+
+    NO_AVATAR = {
+      full: "http://seeclickfix.com/assets/no-avatar-100.png",
+      square_100x100: "http://seeclickfix.com/assets/no-avatar-100.png"
+    }
+
+    AVATAR = {
+      "square_100x100" => "#{ASSET_URL}/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg",
+      "full" => "#{ASSET_URL}/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg"
+    }
+
     QUESTION = {
       id: 1,
       locale: 'en',
@@ -122,13 +138,9 @@ module SeeClickFix
         name: "Mike Helpless",
         witty_title: "Street Smart",
         civic_points: 100,
-        avatar: {
-          full: "http://seeclickfix.com/assets/no-avatar-100.png",
-          square_100x100: "http://seeclickfix.com/assets/no-avatar-100.png"
-        }
+        avatar: NO_AVATAR
       }
     }
-
 
     USER = {
       "display_name"        => "Jeffb",
@@ -143,10 +155,7 @@ module SeeClickFix
       "permissions" => {
         "can_acknowledge" => false
       },
-      "avatar" => {
-        "square_100x100" => "#{ASSET_URL}/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg",
-        "full" => "#{ASSET_URL}/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg"
-      }
+      "avatar" => AVATAR
     }
 
     USER_4_PUBLIC = {
@@ -154,10 +163,7 @@ module SeeClickFix
       "id"           => 1,
       "civic_points" => 10,
       "witty_title" => "Street Smart",
-      "avatar" => {
-        "square_100x100" => "#{ASSET_URL}/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg",
-        "full" => "#{ASSET_URL}/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg"
-      }
+      "avatar" => AVATAR
     }
 
     INTEGRATION_ISSUE = {
@@ -170,11 +176,7 @@ module SeeClickFix
       "id"         => 1,
       "comment"       => "Me too",
       "commenter"       => USER,
-      "media" => {
-        "video_url"     => "http://www.youtube.com/watch?v=dQw4w9WgXcQ",
-        "image_full" =>   "#{ASSET_URL}/files/comment_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg",
-        "image_square_100x100" => "#{ASSET_URL}/files/comment_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg"
-      },
+      "media" => MEDIA,
       "created_at" => "2011-04-14T16:00:49Z"
     }
 
@@ -429,10 +431,12 @@ module SeeClickFix
       "updated_at" => "2011-04-22T13:33:48Z",
       "acknowledged_at"  => nil,
       "closed_at"  => nil,
+      "reporter"       => USER_4_PUBLIC,
       "shortened_url"   => "http://scf.cm/i/1",
       "url"        => "#{ROOT_URL}/v2/issues/1",
       "comments_url"   => "#{ROOT_URL}/v2/issues/1/comments",
-      "html_url"   => "http://seeclickfix.com/issues/1-pothole"
+      "html_url"   => "http://seeclickfix.com/issues/1-pothole",
+      "media" => MEDIA
     }
 
     ISSUE_DETAILS = {
@@ -463,11 +467,7 @@ module SeeClickFix
         :assignee => false
       },
       "address" => "123 State St. New Haven, CT",
-      "media" => {
-          "video_url"     => "http://www.youtube.com/watch?v=dQw4w9WgXcQ",
-          "image_full" =>   "#{ASSET_URL}/files/comment_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg",
-          "image_square_100x100" => "#{ASSET_URL}/files/comment_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg"
-      },
+      "media" => MEDIA,
       "created_at" => "2011-04-22T13:33:48Z",
       "updated_at" => "2011-04-22T13:33:48Z"
     }
