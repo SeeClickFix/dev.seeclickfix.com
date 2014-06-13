@@ -52,7 +52,6 @@ $ curl -i <%= root_version_url %>/issues?page=1&per_page=5
 Returns the last five issues.
 
 <%= headers 200 %>
-
 <%=
   json(:issue) do |h|
     { metadata: SeeClickFix::Resources::PAGINATION_METADATA,
