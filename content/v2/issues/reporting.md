@@ -126,12 +126,8 @@ Issues can be created by any authenticated user.
 
 ### Response
 
-<%= headers 201, { Location: "http://seeclickfix.com/issues/987654321" } %>
-<%=
- json({
-   metadata: {moderated: false}
- })
-%>
+<%= headers 201, { Location: "http://seeclickfix.com/issues/1" } %>
+<%= json(:issue_no_media) %>
 
 ### Example request #2
 
@@ -155,12 +151,8 @@ Issues can be created by any authenticated user.
 
 ### Response
 
-<%= headers 201, { Location: "http://seeclickfix.com/issues/987654321" } %>
-<%=
- json({
-   metadata: {moderated: false}
- })
-%>
+<%= headers 201, { Location: "http://seeclickfix.com/issues/1" } %>
+<%= json(:issue_no_media) %>
 
 ### Example request #3, with image media
 
@@ -180,12 +172,8 @@ $ curl -i \
 
 ### Response
 
-<%= headers 201, { Location: "http://seeclickfix.com/issues/987654321" } %>
-<%=
- json({
-   metadata: {moderated: false}
- })
-%>
+<%= headers 201, { Location: "http://seeclickfix.com/issues/1" } %>
+<%= json(:issue) %>
 
 ### In the event of validation errors
 
