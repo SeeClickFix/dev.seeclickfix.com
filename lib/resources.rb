@@ -106,6 +106,12 @@ module SeeClickFix
       "image_square_100x100" => "#{ASSET_URL}/files/comment_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg"
     }
 
+    NO_MEDIA = {
+      "video_url"            => nil,
+      "image_full"           => nil,
+      "image_square_100x100" => nil
+    }
+
     NO_AVATAR = {
       full: "http://seeclickfix.com/assets/no-avatar-100.png",
       square_100x100: "http://seeclickfix.com/assets/no-avatar-100.png"
@@ -418,7 +424,7 @@ module SeeClickFix
       ]
     }
 
-    ISSUE = {
+    ISSUE_COMMON = {
       "id"         => 1,
       "status"      => "Open",
       "summary"      => "Pothole",
@@ -442,9 +448,16 @@ module SeeClickFix
       "shortened_url"   => "http://scf.cm/i/1",
       "url"        => "#{ROOT_URL}/v2/issues/1",
       "comments_url"   => "#{ROOT_URL}/v2/issues/1/comments",
-      "html_url"   => "http://seeclickfix.com/issues/1-pothole",
-      "media" => MEDIA
+      "html_url"   => "http://seeclickfix.com/issues/1-pothole"
     }
+
+    ISSUE = ISSUE_COMMON.merge({
+      "media" => MEDIA
+    })
+
+    ISSUE_NO_MEDIA = ISSUE_COMMON.merge({
+      "media" => NO_MEDIA
+    })
 
     ISSUE_DETAILS = {
       "id"         => 1,
