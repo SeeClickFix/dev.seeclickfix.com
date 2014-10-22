@@ -426,6 +426,13 @@ module SeeClickFix
       "rating"       => "5",
       "lat" => 42.30293,
       "lng" => -72.234234234,
+      "point" => {
+        "type" => "Point",
+        "coordinates" => [
+          -72.234234234,
+          42.30293
+        ]
+      },
       "address" => "123 State St. New Haven, CT",
       "created_at" => "2011-04-22T13:33:48Z",
       "updated_at" => "2011-04-22T13:33:48Z",
@@ -460,6 +467,13 @@ module SeeClickFix
       "acknowledged_at"  => nil,
       "lat" => 42.30293,
       "lng" => -72.234234234,
+      "point" => {
+        "type" => "Point",
+        "coordinates" => [
+          -72.234234234,
+          42.30293
+        ]
+      },
       "current_user_relationship" => {
         :following => false,
         :voted => true,
