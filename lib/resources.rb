@@ -116,48 +116,20 @@ module SeeClickFix
       "square_100x100" => "#{ASSET_URL}/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg"
     }
 
-    QUESTION = {
-      asker: USER_4_PUBLIC
-      created_at: "2013-05-14T19:49:13-04:00", 
-      id: 1,
-      locale: 'en',
-      question: "Is it legal to bike on the sidewalk?",
-      updated_at: "2013-05-14T19:49:13-04:00"
-    }
-
-    ANSWER = {
-      accepted_at: nil,    
-      answer: "Pretty sure it's ok to keep chickens",
-      answerer: {
-        avatar: NO_AVATAR
-        civic_points: 100,
-        id: 10,
-        name: "Mike Helpless",
-        role: "Verified Official",
-        witty_title: "Street Smart",
-      }
-      created_at: "2013-05-14T19:49:13-04:00",
-      id: 4,
-      locale: nil,
-      question_id: 2,
-      total_votes: 15,
-      updated_at: "2013-05-14T19:49:13-04:00",
-    }
-
     USER = {
       "avatar" => AVATAR,
       "civic_points" => 10,
       "closed_issue_count" => 27,
       "comments_count" => 62,
-      "created_at": => "2011-03-22T17:04:31-04:00",
+      "created_at" => "2011-03-22T17:04:31-04:00",
       "following_issue_count" => 10,
       "id"           => 1,
-      "name": => "captainkickstand",
+      "name" => "captainkickstand",
       "permissions" => {
         "can_acknowledge" => false
       },
       "reported_issue_count" => 25,
-      "updated_at": => "2014-03-10T07:28:35-04:00", 
+      "updated_at" => "2014-03-10T07:28:35-04:00", 
       "voted_issue_count" => 31,
       "witty_title" => "Street Smart"
     }
@@ -169,6 +141,34 @@ module SeeClickFix
       "name"         => "Jeffb",
       "role"         => "Verified Official",
       "witty_title"  => "Street Smart",
+    }
+  
+    QUESTION = {
+      asker: USER_4_PUBLIC,
+      created_at: "2013-05-14T19:49:13-04:00", 
+      id: 1,
+      locale: 'en',
+      question: "Is it legal to bike on the sidewalk?",
+      updated_at: "2013-05-14T19:49:13-04:00"
+    }
+
+    ANSWER = {
+      accepted_at: nil,    
+      answer: "Pretty sure it's ok to keep chickens",
+      answerer: {
+        avatar: NO_AVATAR,
+        civic_points: 100,
+        id: 10,
+        name: "Mike Helpless",
+        role: "Verified Official",
+        witty_title: "Street Smart",
+      },
+      created_at: "2013-05-14T19:49:13-04:00",
+      id: 4,
+      locale: nil,
+      question_id: 2,
+      total_votes: 15,
+      updated_at: "2013-05-14T19:49:13-04:00",
     }
 
     INTEGRATION_ISSUE = {

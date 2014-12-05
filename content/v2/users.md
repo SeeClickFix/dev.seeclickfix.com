@@ -82,7 +82,7 @@ Returns the 20 closest users.
 <%= 
   json(:user) do |h| 
     { errors: {},
-      metadata: pagination: SeeClickFix::Resources::PAGINATION_METADATA,
+      metadata: SeeClickFix::Resources::PAGINATION_METADATA,
       users: [h]
     }
   end 
