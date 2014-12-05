@@ -10,7 +10,7 @@ SeeClickFix uses key based authentication. You can obtain or change your key in 
 
 To obtain a key you must have a SeeClickFix account. You may register for a free account here: https://seeclickfix.com/register
 
-Once you have an account login and go to "My Account" > "Preferences". There is an "API Keys" section on the lefthand side of the page. Once you generate a key its ready to use. Please remember that use of the API falls under our Open Data Policy (http://seeclickfix.com/open_data) and Terms of Use (http://seeclickfix.com/terms_of_use).
+Once you have an account login and go to "My Account" > "Preferences". There is an "API Keys" section on the lefthand side of the page. Once you generate a key it is ready to use. Please remember that use of the API falls under our Open Data Policy (http://seeclickfix.com/open_data) and Terms of Use (http://seeclickfix.com/terms_of_use).
 
 ### Basic Authentication
 

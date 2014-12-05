@@ -79,9 +79,9 @@ $ curl -i <%= root_version_url %>/issues/1/comments
 <%= headers 200 %>
 <%=
   json(:issue_comment) do |comment|
-    { metadata: SeeClickFix::Resources::PAGINATION_METADATA,
-      comments: [comment],
-      errors: {}
+    { comments: [comment],
+      errors: {},
+      metadata: {}
     }
   end
 %>

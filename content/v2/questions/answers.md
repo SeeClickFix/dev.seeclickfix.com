@@ -28,9 +28,9 @@ Returns all answers to question id 1.
 <%= headers 200 %>
 <%= 
   json(:answer) do |h| 
-    { metadata: SeeClickFix::Resources::PAGINATION_METADATA,
-      answers: [h],
-      errors: {}
+    { answers: [h],
+      errors: {},
+      metadata: {}
     }
   end 
 %>
