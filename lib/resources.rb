@@ -108,10 +108,10 @@ module SeeClickFix
     }
 
     NO_MEDIA = {
-      "video_url"            => nil,
       "image_full"           => nil,
       "image_square_100x100" => nil,
-      "reprsentative_image_url" => "#{ASSET_URL}/files/default_image.png"
+      "representative_image_url" => "#{ASSET_URL}/files/default_image.png",
+      "video_url"            => nil
     }
 
     NO_AVATAR = {
