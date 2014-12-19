@@ -101,63 +101,63 @@ module SeeClickFix
     }
 
     MEDIA = {
-      "image_full" =>   "#{ASSET_URL}/files/comment_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg",
-      "image_square_100x100" => "#{ASSET_URL}/files/comment_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg",
-      "representative_image_url" => "#{ASSET_URL}/files/comment_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg",
-      "video_url"     => "http://www.youtube.com/watch?v=dQw4w9WgXcQ"
+      image_full: '#{ASSET_URL}/files/comment_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg',
+      image_square_100x100: '#{ASSET_URL}/files/comment_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg',
+      representative_image_url: '#{ASSET_URL}/files/comment_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg',
+      video_url: 'http://www.youtube.com/watch?v=dQw4w9WgXcQ'
     }
 
     NO_MEDIA = {
-      "image_full"           => nil,
-      "image_square_100x100" => nil,
-      "representative_image_url" => "#{ASSET_URL}/files/default_image.png",
-      "video_url"            => nil
+      image_full: nil,
+      image_square_100x100: nil,
+      representative_image_url: '#{ASSET_URL}/files/default_image.png',
+      video_url: nil
     }
 
     NO_AVATAR = {
-      full: "http://seeclickfix.com/assets/no-avatar-100.png",
-      square_100x100: "http://seeclickfix.com/assets/no-avatar-100.png"
+      full: 'http://seeclickfix.com/assets/no-avatar-100.png',
+      square_100x100: 'http://seeclickfix.com/assets/no-avatar-100.png'
     }
 
     AVATAR = {
-      "full" => "#{ASSET_URL}/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg",
-      "square_100x100" => "#{ASSET_URL}/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg"
+      full: '#{ASSET_URL}/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg',
+      square_100x100: '#{ASSET_URL}/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg'
     }
 
     USER = {
-      "avatar" => AVATAR,
-      "civic_points" => 10,
-      "closed_issue_count" => 27,
-      "comments_count" => 62,
-      "created_at" => "2011-03-22T17:04:31-04:00",
-      "following_issue_count" => 10,
-      "id"           => 1,
-      "name" => "captainkickstand",
-      "permissions" => {
-        "can_acknowledge" => false
+      avatar: AVATAR,
+      civic_points: 10,
+      closed_issue_count: 27,
+      comments_count: 62,
+      created_at: '2011-03-22T17:04:31-04:00',
+      following_issue_count: 10,
+      id: 1,
+      name: 'captainkickstand',
+      permissions: {
+        can_acknowledge: false
       },
-      "reported_issue_count" => 25,
-      "updated_at" => "2014-03-10T07:28:35-04:00", 
-      "voted_issue_count" => 31,
-      "witty_title" => "Street Smart"
+      reported_issue_count: 25,
+      updated_at: '2014-03-10T07:28:35-04:00', 
+      voted_issue_count: 31,
+      witty_title: 'Street Smart'
     }
 
     USER_4_PUBLIC = {
-      "avatar" => AVATAR,
-      "civic_points" => 10,
-      "id"           => 1,
-      "name"         => "Jeffb",
-      "role"         => "Verified Official",
-      "witty_title"  => "Street Smart",
+      avatar: AVATAR,
+      civic_points: 10,
+      id: 1,
+      name: 'Jeffb',
+      role: 'Verified Official',
+      witty_title: 'Street Smart'
     }
   
     QUESTION = {
       asker: USER_4_PUBLIC,
-      created_at: "2013-05-14T19:49:13-04:00", 
+      created_at: '2013-05-14T19:49:13-04:00', 
       id: 1,
       locale: 'en',
       question: "Is it legal to bike on the sidewalk?",
-      updated_at: "2013-05-14T19:49:13-04:00"
+      updated_at: '2013-05-14T19:49:13-04:00'
     }
 
     ANSWER = {
@@ -180,22 +180,22 @@ module SeeClickFix
     }
 
     INTEGRATION_ISSUE = {
-      "remote_id" => 2,
+      remote_id: 2,
       :title => "City of New Haven",
       :status => "Accepted"
     }
 
     ISSUE_COMMENT = {
-      "comment"       => "Me too",
-      "commenter"       => USER_4_PUBLIC,
-      "created_at" => "2011-04-14T16:00:49Z",
-      "issue" => {
-        "rating" => '18',
-        "status" => "Archived"
+      comment: "Me too",
+      commenter: USER_4_PUBLIC,
+      created_at: "2011-04-14T16:00:49Z",
+      issue: {
+        rating: 18,
+        status: "Archived"
       },
-      "media" => MEDIA,
-      "moderated" => 'null',
-      "updated_at" => "2011-04-14T16:00:49Z"
+      media: MEDIA,
+      moderated: "null",
+      updated_at: "2011-04-14T16:00:49Z"
     }
 
     PAGINATION_METADATA = {
@@ -444,79 +444,79 @@ module SeeClickFix
     }
 
     ISSUE_COMMON = {
-      "id"         => 1,
-      "status"      => "Open",
-      "summary"      => "Pothole",
-      "description"       => "Please fix my neighborhood.",
-      "rating"       => "5",
-      "lat" => 42.30293,
-      "lng" => -72.234234234,
-      "point" => {
-        "type" => "Point",
-        "coordinates" => [
+      id: 1,
+      status: "Open",
+      summary: "Pothole",
+      description: "Please fix my neighborhood.",
+      rating: 5,
+      lat: 42.30293,
+      lng: -72.234234234,
+      point: {
+        type: "Point",
+        coordinates: [
           -72.234234234,
           42.30293
         ]
       },
-      "address" => "123 State St. New Haven, CT",
-      "created_at" => "2011-04-22T13:33:48Z",
-      "updated_at" => "2011-04-22T13:33:48Z",
-      "acknowledged_at"  => nil,
-      "closed_at"  => nil,
-      "reporter"       => USER_4_PUBLIC,
-      "shortened_url"   => "http://scf.cm/i/1",
-      "url"        => "#{ROOT_URL}/v2/issues/1",
-      "comments_url"   => "#{ROOT_URL}/v2/issues/1/comments",
-      "html_url"   => "http://seeclickfix.com/issues/1-pothole"
+      address: "123 State St. New Haven, CT",
+      created_at: "2011-04-22T13:33:48Z",
+      updated_at: "2011-04-22T13:33:48Z",
+      acknowledged_at: nil,
+      closed_at: nil,
+      reporter: USER_4_PUBLIC,
+      shortened_url: "http://scf.cm/i/1",
+      url: "#{ROOT_URL}/v2/issues/1",
+      comments_url: "#{ROOT_URL}/v2/issues/1/comments",
+      html_url: "http://seeclickfix.com/issues/1-pothole"
     }
 
     ISSUE = ISSUE_COMMON.merge({
-      "media" => MEDIA
+      media: MEDIA
     })
 
     ISSUE_NO_MEDIA = ISSUE_COMMON.merge({
-      "media" => NO_MEDIA
+      media: NO_MEDIA
     })
 
     ISSUE_DETAILS = {
-      "acknowledged_at" => nil, 
-      "address" => "123 State St. New Haven, CT", 
-      "assignee"   => USER_4_PUBLIC,
-      "closed_at"  => nil, 
-      "comment_url" => "https://seeclickfix.com/api/v2/issues/1/comments", 
-      "comments"  => [ISSUE_COMMENT, ISSUE_COMMENT],
-      "comment_count"   => 2,
-      "created_at" => "2008-03-25T12:32:41-04:00", 
-      "current_user_relationship" => {
+      acknowledged_at: nil, 
+      address: "123 State St. New Haven, CT", 
+      assignee: USER_4_PUBLIC,
+      closed_at: nil, 
+      comment_url: "https://seeclickfix.com/api/v2/issues/1/comments", 
+      comments: [ISSUE_COMMENT, ISSUE_COMMENT],
+      comment_count: 2,
+      created_at: "2008-03-25T12:32:41-04:00", 
+      current_user_relationship:{
         :assignee => false,
         :following => false,
         :reporter => false,
         :voted => true
       },
-      "description"       => "Please fix my neighborhood.",
-      "html_url"   => "http://seeclickfix.com/issues/1-pothole",
-      "id"         => 1,
-      "lat" => 42.30293,
-      "lng" => -72.234234234,
-       "media" => MEDIA,
-      "point" => {
-        "coordinates" => [
+      description: "Please fix my neighborhood.",
+      html_url: "http://seeclickfix.com/issues/1-pothole",
+      id: 1,
+      lat: 42.30293,
+      lng: -72.234234234,
+      media: MEDIA,
+      point: {
+        coordinates: [
           -72.234234234,
           42.30293
         ],
-        "type" => "Point",
+        type: "Point",
       },
-      "questions" => [QUESTION0, QUESTION1],
-      "rating"       => "5",
-      "remote_integration" => INTEGRATION_ISSUE,
-      "reporter"       => USER_4_PUBLIC,
-      "shortened_url"   => "http://scf.cm/i/1",
-      "status"      => "Open",
-      "summary"      => "Pothole",
-      "updated_at" => "2011-04-22T13:33:48Z",
-      "url"        => "#{ROOT_URL}/v2/issues/1",     
-      "vote_count"   => 2,
-      "votes"        => [VOTE, VOTE],
+      questions: [QUESTION0, QUESTION1],
+      rating: 5,
+      remote_integration: INTEGRATION_ISSUE,
+      reporter: USER_4_PUBLIC,
+      shortened_url: "http://scf.cm/i/1",
+      status: "Open",
+      summary: "Pothole",
+      updated_at: "2011-04-22T13:33:48Z",
+      url: "#{ROOT_URL}/v2/issues/1",     
+      vote_count: 2,
+      votes: [VOTE, VOTE],
     }
 
   end
