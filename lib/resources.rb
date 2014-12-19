@@ -107,6 +107,13 @@ module SeeClickFix
       "video_url"     => "http://www.youtube.com/watch?v=dQw4w9WgXcQ"
     }
 
+    NO_MEDIA = {
+      "video_url"            => nil,
+      "image_full"           => nil,
+      "image_square_100x100" => nil,
+      "reprsentative_image_url" => "#{ASSET_URL}/files/default_image.png"
+    }
+
     NO_AVATAR = {
       full: "http://seeclickfix.com/assets/no-avatar-100.png",
       square_100x100: "http://seeclickfix.com/assets/no-avatar-100.png"
@@ -436,7 +443,7 @@ module SeeClickFix
       title: 'Post to Neighbors'
     }
 
-    ISSUE = {
+    ISSUE_COMMON = {
       "id"         => 1,
       "status"      => "Open",
       "summary"      => "Pothole",
@@ -460,9 +467,16 @@ module SeeClickFix
       "shortened_url"   => "http://scf.cm/i/1",
       "url"        => "#{ROOT_URL}/v2/issues/1",
       "comments_url"   => "#{ROOT_URL}/v2/issues/1/comments",
-      "html_url"   => "http://seeclickfix.com/issues/1-pothole",
-      "media" => MEDIA
+      "html_url"   => "http://seeclickfix.com/issues/1-pothole"
     }
+
+    ISSUE = ISSUE_COMMON.merge({
+      "media" => MEDIA
+    })
+
+    ISSUE_NO_MEDIA = ISSUE_COMMON.merge({
+      "media" => NO_MEDIA
+    })
 
     ISSUE_DETAILS = {
       "acknowledged_at" => nil, 

@@ -76,11 +76,7 @@ $ curl -i <%= root_version_url %>/issues/1?details=true
 ### Response
 
 <%= headers 200 %>
-<%=
-  json(:issue_details) do |h|
-    h
-  end
-%>
+<%= json(:issue_details) %>
 
 ## Create an Issue
 
