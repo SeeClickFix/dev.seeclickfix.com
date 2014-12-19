@@ -77,22 +77,30 @@ $ curl -i https://seeclickfix.com/api/v2/places?address=New+Haven,+CT
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"errors"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
   <span class="s2">"metadata"</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">"page"</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
-    <span class="s2">"page_size"</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span>
-    <span class="s2">"next_page"</span><span class="o">:</span> <span class="s2">"null"</span><span class="p">,</span>
-    <span class="s2">"previous_page"</span><span class="o">:</span> <span class="mi">1</span>
+    <span class="s2">"pagination"</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">"next_page"</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+      <span class="s2">"next_page_url"</span><span class="o">:</span> <span class="s2">"https://seeclickfix.com/api/api/v2/&lt;ENDPOINT&gt;?page=2"</span><span class="p">,</span>
+      <span class="s2">"page"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="s2">"pages"</span><span class="o">:</span> <span class="mi">40457</span><span class="p">,</span>
+      <span class="s2">"per_page"</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span>
+      <span class="s2">"previous_page"</span><span class="o">:</span> <span class="s2">"null"</span><span class="p">,</span>
+      <span class="s2">"previous_page_url"</span><span class="o">:</span> <span class="s2">"null"</span>
+    <span class="p">}</span>
   <span class="p">},</span>
   <span class="s2">"places"</span><span class="o">:</span> <span class="p">[</span>
     <span class="p">{</span>
+      <span class="s2">"county"</span><span class="o">:</span> <span class="s2">"null"</span><span class="p">,</span>
+      <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2009-09-20T20:11:30-04:00"</span><span class="p">,</span>
+      <span class="s2">"data_classification"</span><span class="o">:</span> <span class="s2">"City"</span><span class="p">,</span>
       <span class="s2">"id"</span><span class="o">:</span> <span class="s2">"1"</span><span class="p">,</span>
-      <span class="s2">"state"</span><span class="o">:</span> <span class="s2">"CT"</span><span class="p">,</span>
-      <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"New Haven"</span><span class="p">,</span>
-      <span class="s2">"url_name"</span><span class="o">:</span> <span class="s2">"new-haven"</span><span class="p">,</span>
-      <span class="s2">"county"</span><span class="o">:</span> <span class="s2">"New Haven"</span>
+      <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"Sand Rock"</span><span class="p">,</span>
+      <span class="s2">"state"</span><span class="o">:</span> <span class="s2">"AL"</span><span class="p">,</span>
+      <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2012-11-11T16:57:55-05:00"</span><span class="p">,</span>
+      <span class="s2">"url_name"</span><span class="o">:</span> <span class="s2">"sand-rock"</span>
     <span class="p">}</span>
-  <span class="p">],</span>
-  <span class="s2">"errors"</span><span class="o">:</span> <span class="kc">null</span>
+  <span class="p">]</span>
 <span class="p">}</span></code></pre>
 
 <h2 id="show-place">Show Place</h2>
@@ -111,11 +119,14 @@ $ curl -i https://seeclickfix.com/api/v2/places/1
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"county"</span><span class="o">:</span> <span class="s2">"null"</span><span class="p">,</span>
+  <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2009-09-20T20:11:30-04:00"</span><span class="p">,</span>
+  <span class="s2">"data_classification"</span><span class="o">:</span> <span class="s2">"City"</span><span class="p">,</span>
   <span class="s2">"id"</span><span class="o">:</span> <span class="s2">"1"</span><span class="p">,</span>
-  <span class="s2">"state"</span><span class="o">:</span> <span class="s2">"CT"</span><span class="p">,</span>
-  <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"New Haven"</span><span class="p">,</span>
-  <span class="s2">"url_name"</span><span class="o">:</span> <span class="s2">"new-haven"</span><span class="p">,</span>
-  <span class="s2">"county"</span><span class="o">:</span> <span class="s2">"New Haven"</span>
+  <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"Sand Rock"</span><span class="p">,</span>
+  <span class="s2">"state"</span><span class="o">:</span> <span class="s2">"AL"</span><span class="p">,</span>
+  <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2012-11-11T16:57:55-05:00"</span><span class="p">,</span>
+  <span class="s2">"url_name"</span><span class="o">:</span> <span class="s2">"sand-rock"</span>
 <span class="p">}</span></code></pre>
 
 <h3 id="errors">Errors</h3>

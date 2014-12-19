@@ -42,7 +42,7 @@
 
 <h2 id="commenting-on-an-issue">Commenting on an Issue</h2>
 
-<p>Issues can be commented on any authenticated user.</p>
+<p>Issues can be commented on by any authenticated user.</p>
 
 <pre><code>POST /issues/&lt;issue_id&gt;/comments
 </code></pre>
@@ -84,7 +84,7 @@ $ curl -i \
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
   <span class="s2">"moderated"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-  <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2014-11-17 09:30:31 -0500"</span>
+  <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2014-12-19 10:42:25 -0500"</span>
 <span class="p">}</span></code></pre>
 
 <h3 id="example-with-media">Example, with media</h3>
@@ -106,7 +106,7 @@ $ curl -i \
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
   <span class="s2">"moderated"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-  <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2014-11-17 09:30:31 -0500"</span>
+  <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2014-12-19 10:42:25 -0500"</span>
 <span class="p">}</span></code></pre>
 
 <h2 id="listing-comments-on-an-issue">Listing Comments on an Issue</h2>
@@ -131,45 +131,35 @@ $ curl -i https://seeclickfix.com/api/v2/issues/1/comments
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
-  <span class="s2">"metadata"</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">"page"</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
-    <span class="s2">"page_size"</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span>
-    <span class="s2">"next_page"</span><span class="o">:</span> <span class="s2">"null"</span><span class="p">,</span>
-    <span class="s2">"previous_page"</span><span class="o">:</span> <span class="mi">1</span>
-  <span class="p">},</span>
   <span class="s2">"comments"</span><span class="o">:</span> <span class="p">[</span>
     <span class="p">{</span>
-      <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
       <span class="s2">"comment"</span><span class="o">:</span> <span class="s2">"Me too"</span><span class="p">,</span>
       <span class="s2">"commenter"</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s2">"display_name"</span><span class="o">:</span> <span class="s2">"Jeffb"</span><span class="p">,</span>
-        <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-        <span class="s2">"civic_points"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
-        <span class="s2">"witty_title"</span><span class="o">:</span> <span class="s2">"Street Smart"</span><span class="p">,</span>
-        <span class="s2">"voted_issue_count"</span><span class="o">:</span> <span class="mi">31</span><span class="p">,</span>
-        <span class="s2">"reported_issue_count"</span><span class="o">:</span> <span class="mi">25</span><span class="p">,</span>
-        <span class="s2">"comments_count"</span><span class="o">:</span> <span class="mi">62</span><span class="p">,</span>
-        <span class="s2">"closed_issue_count"</span><span class="o">:</span> <span class="mi">27</span><span class="p">,</span>
-        <span class="s2">"following_issue_count"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
-        <span class="s2">"permissions"</span><span class="o">:</span> <span class="p">{</span>
-          <span class="s2">"can_acknowledge"</span><span class="o">:</span> <span class="kc">false</span>
-        <span class="p">},</span>
         <span class="s2">"avatar"</span><span class="o">:</span> <span class="p">{</span>
-          <span class="s2">"square_100x100"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg"</span><span class="p">,</span>
-          <span class="s2">"full"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg"</span>
-        <span class="p">}</span>
+          <span class="s2">"full"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg"</span><span class="p">,</span>
+          <span class="s2">"square_100x100"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg"</span>
+        <span class="p">},</span>
+        <span class="s2">"civic_points"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
+        <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"Jeffb"</span><span class="p">,</span>
+        <span class="s2">"role"</span><span class="o">:</span> <span class="s2">"Verified Official"</span><span class="p">,</span>
+        <span class="s2">"witty_title"</span><span class="o">:</span> <span class="s2">"Street Smart"</span>
+      <span class="p">},</span>
+      <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2011-04-14T16:00:49Z"</span><span class="p">,</span>
+      <span class="s2">"issue"</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">"rating"</span><span class="o">:</span> <span class="s2">"18"</span><span class="p">,</span>
+        <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"Archived"</span>
       <span class="p">},</span>
       <span class="s2">"media"</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s2">"video_url"</span><span class="o">:</span> <span class="s2">"http://www.youtube.com/watch?v=dQw4w9WgXcQ"</span><span class="p">,</span>
         <span class="s2">"image_full"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/comment_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg"</span><span class="p">,</span>
-        <span class="s2">"image_square_100x100"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/comment_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg"</span>
+        <span class="s2">"image_square_100x100"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/comment_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg"</span><span class="p">,</span>
+        <span class="s2">"representative_image_url"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/comment_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg"</span><span class="p">,</span>
+        <span class="s2">"video_url"</span><span class="o">:</span> <span class="s2">"http://www.youtube.com/watch?v=dQw4w9WgXcQ"</span>
       <span class="p">},</span>
-      <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2011-04-14T16:00:49Z"</span>
+      <span class="s2">"moderated"</span><span class="o">:</span> <span class="s2">"null"</span><span class="p">,</span>
+      <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2011-04-14T16:00:49Z"</span>
     <span class="p">}</span>
-  <span class="p">],</span>
-  <span class="s2">"errors"</span><span class="o">:</span> <span class="p">{</span>
-
-  <span class="p">}</span>
+  <span class="p">]</span>
 <span class="p">}</span></code></pre>
 
 <h3 id="if-for-any-reason-we-decide-to-hold-the-comment-in-moderation">If for any reason we decide to hold the comment in moderation</h3>

@@ -80,24 +80,40 @@ $ curl -i https://seeclickfix.com/api/v2/new-haven/questions
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"errors"</span><span class="o">:</span> <span class="p">{</span>
+
+  <span class="p">},</span>
   <span class="s2">"metadata"</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">"page"</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
-    <span class="s2">"page_size"</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span>
-    <span class="s2">"next_page"</span><span class="o">:</span> <span class="s2">"null"</span><span class="p">,</span>
-    <span class="s2">"previous_page"</span><span class="o">:</span> <span class="mi">1</span>
+    <span class="s2">"pagination"</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">"next_page"</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+      <span class="s2">"next_page_url"</span><span class="o">:</span> <span class="s2">"https://seeclickfix.com/api/api/v2/&lt;ENDPOINT&gt;?page=2"</span><span class="p">,</span>
+      <span class="s2">"page"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="s2">"pages"</span><span class="o">:</span> <span class="mi">40457</span><span class="p">,</span>
+      <span class="s2">"per_page"</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span>
+      <span class="s2">"previous_page"</span><span class="o">:</span> <span class="s2">"null"</span><span class="p">,</span>
+      <span class="s2">"previous_page_url"</span><span class="o">:</span> <span class="s2">"null"</span>
+    <span class="p">}</span>
   <span class="p">},</span>
   <span class="s2">"questions"</span><span class="o">:</span> <span class="p">[</span>
     <span class="p">{</span>
+      <span class="s2">"asker"</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">"avatar"</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">"full"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg"</span><span class="p">,</span>
+          <span class="s2">"square_100x100"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg"</span>
+        <span class="p">},</span>
+        <span class="s2">"civic_points"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
+        <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"Jeffb"</span><span class="p">,</span>
+        <span class="s2">"role"</span><span class="o">:</span> <span class="s2">"Verified Official"</span><span class="p">,</span>
+        <span class="s2">"witty_title"</span><span class="o">:</span> <span class="s2">"Street Smart"</span>
+      <span class="p">},</span>
+      <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2013-05-14T19:49:13-04:00"</span><span class="p">,</span>
       <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
       <span class="s2">"locale"</span><span class="o">:</span> <span class="s2">"en"</span><span class="p">,</span>
       <span class="s2">"question"</span><span class="o">:</span> <span class="s2">"Is it legal to bike on the sidewalk?"</span><span class="p">,</span>
-      <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2013-05-14T19:49:13-04:00"</span><span class="p">,</span>
       <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2013-05-14T19:49:13-04:00"</span>
     <span class="p">}</span>
-  <span class="p">],</span>
-  <span class="s2">"errors"</span><span class="o">:</span> <span class="p">{</span>
-
-  <span class="p">}</span>
+  <span class="p">]</span>
 <span class="p">}</span></code></pre>
 
 <h2 id="get-a-single-question">Get a single question</h2>
@@ -118,10 +134,21 @@ $ curl -i https://seeclickfix.com/api/v2/questions/1
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"asker"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"avatar"</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">"full"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg"</span><span class="p">,</span>
+      <span class="s2">"square_100x100"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg"</span>
+    <span class="p">},</span>
+    <span class="s2">"civic_points"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
+    <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"Jeffb"</span><span class="p">,</span>
+    <span class="s2">"role"</span><span class="o">:</span> <span class="s2">"Verified Official"</span><span class="p">,</span>
+    <span class="s2">"witty_title"</span><span class="o">:</span> <span class="s2">"Street Smart"</span>
+  <span class="p">},</span>
+  <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2013-05-14T19:49:13-04:00"</span><span class="p">,</span>
   <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
   <span class="s2">"locale"</span><span class="o">:</span> <span class="s2">"en"</span><span class="p">,</span>
   <span class="s2">"question"</span><span class="o">:</span> <span class="s2">"Is it legal to bike on the sidewalk?"</span><span class="p">,</span>
-  <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2013-05-14T19:49:13-04:00"</span><span class="p">,</span>
   <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2013-05-14T19:49:13-04:00"</span>
 <span class="p">}</span></code></pre>
 
@@ -161,10 +188,21 @@ $ curl --data "question=When+are+taxes+due?" -i https://seeclickfix.com/api/v2/n
 <pre class="headers"><code>Status: 201 Created</code></pre>
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"asker"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"avatar"</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">"full"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg"</span><span class="p">,</span>
+      <span class="s2">"square_100x100"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg"</span>
+    <span class="p">},</span>
+    <span class="s2">"civic_points"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
+    <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"Jeffb"</span><span class="p">,</span>
+    <span class="s2">"role"</span><span class="o">:</span> <span class="s2">"Verified Official"</span><span class="p">,</span>
+    <span class="s2">"witty_title"</span><span class="o">:</span> <span class="s2">"Street Smart"</span>
+  <span class="p">},</span>
+  <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2013-05-14T19:49:13-04:00"</span><span class="p">,</span>
   <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
   <span class="s2">"locale"</span><span class="o">:</span> <span class="s2">"en"</span><span class="p">,</span>
   <span class="s2">"question"</span><span class="o">:</span> <span class="s2">"Is it legal to bike on the sidewalk?"</span><span class="p">,</span>
-  <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2013-05-14T19:49:13-04:00"</span><span class="p">,</span>
   <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2013-05-14T19:49:13-04:00"</span>
 <span class="p">}</span></code></pre>
 
