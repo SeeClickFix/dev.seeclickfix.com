@@ -103,6 +103,7 @@ module SeeClickFix
     MEDIA = {
       "image_full" =>   "#{ASSET_URL}/files/comment_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg",
       "image_square_100x100" => "#{ASSET_URL}/files/comment_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg",
+      "representative_image_url" => "#{ASSET_URL}/files/comment_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg",
       "video_url"     => "http://www.youtube.com/watch?v=dQw4w9WgXcQ"
     }
 
