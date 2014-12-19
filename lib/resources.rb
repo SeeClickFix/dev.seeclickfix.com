@@ -201,7 +201,7 @@ module SeeClickFix
     PAGINATION_METADATA = {
       pagination: {   
         next_page:          2, 
-        next_page_url:      "#{ROOT_URL}/api/v2/<ENDPOINT>?page=2", 
+        next_page_url:      "#{ROOT_URL}/api/v2/&lt;ENDPOINT&gt;?page=2",
         page:               1, 
         pages:              40457, 
         per_page:           20, 
