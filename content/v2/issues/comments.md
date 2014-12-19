@@ -9,7 +9,7 @@ title: API v2 - Issues - Comments
 
 ## Commenting on an Issue
 
-Issues can be commented on any authenticated user.
+Issues can be commented on by any authenticated user.
 
     POST /issues/<issue_id>/comments
 
@@ -79,10 +79,7 @@ $ curl -i <%= root_version_url %>/issues/1/comments
 <%= headers 200 %>
 <%=
   json(:issue_comment) do |comment|
-    { comments: [comment],
-      errors: {},
-      metadata: {}
-    }
+    { comments: [comment] }
   end
 %>
 

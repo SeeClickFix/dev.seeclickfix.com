@@ -101,9 +101,9 @@ module SeeClickFix
     }
 
     MEDIA = {
-      "video_url"     => "http://www.youtube.com/watch?v=dQw4w9WgXcQ",
       "image_full" =>   "#{ASSET_URL}/files/comment_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg",
-      "image_square_100x100" => "#{ASSET_URL}/files/comment_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg"
+      "image_square_100x100" => "#{ASSET_URL}/files/comment_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg",
+      "video_url"     => "http://www.youtube.com/watch?v=dQw4w9WgXcQ"
     }
 
     NO_AVATAR = {
@@ -168,7 +168,7 @@ module SeeClickFix
       locale: nil,
       question_id: 2,
       total_votes: 15,
-      updated_at: "2013-05-14T19:49:13-04:00",
+      updated_at: "2013-05-14T19:49:13-04:00"
     }
 
     INTEGRATION_ISSUE = {
@@ -178,21 +178,28 @@ module SeeClickFix
     }
 
     ISSUE_COMMENT = {
-      "id"         => 1,
       "comment"       => "Me too",
-      "commenter"       => USER,
+      "commenter"       => USER_4_PUBLIC,
+      "created_at" => "2011-04-14T16:00:49Z",
+      "issue" => {
+        "rating" => '18',
+        "status" => "Archived"
+      },
       "media" => MEDIA,
-      "created_at" => "2011-04-14T16:00:49Z"
+      "moderated" => 'null',
+      "updated_at" => "2011-04-14T16:00:49Z"
     }
 
-    PAGINATION_METADATA = { 
-      next_page:          2, 
-      next_page_url:      "https://seeclickfix.com/api/v2/users?&address=New+Haven%2C+CT&page=2", 
-      page:               1, 
-      pages:              40457, 
-      per_page:           20, 
-      previous_page:     'null', 
-      previous_page_url: 'null'
+    PAGINATION_METADATA = {
+      pagination: {   
+        next_page:          2, 
+        next_page_url:      "https://seeclickfix.com/api/v2/users?&address=New+Haven%2C+CT&page=2", 
+        page:               1, 
+        pages:              40457, 
+        per_page:           20, 
+        previous_page:     'null', 
+        previous_page_url: 'null'
+      }
     }
 
     MOBILE_CUSTOMIZATION = {}
@@ -200,8 +207,7 @@ module SeeClickFix
     GEOCODE = {}
 
     VOTE = {
-      created_at: "2011-04-24T13:33:48Z",
-      voter: USER
+      created_at: "2011-04-24T13:33:48Z"
     }
 
     QUESTION0 = {
@@ -458,43 +464,44 @@ module SeeClickFix
     }
 
     ISSUE_DETAILS = {
-      "id"         => 1,
-      "remote_integration" => INTEGRATION_ISSUE,
-      "rating"       => "5",
-      "api_url"        => "#{ROOT_URL}/v2/issues/1",
-      "html_url"   => "http://seeclickfix.com/issues/1-pothole",
-      "shortened_url"   => "http://scf.cm/i/1",
-      "status"      => "Open",
-      "summary"      => "Pothole",
-      "description"       => "Please fix my neighborhood.",
-      "questions" => [QUESTION0, QUESTION1],
-      "reporter"       => USER,
-      "assignee"   => USER,
-      "comment_count"   => 5,
+      "acknowledged_at" => nil, 
+      "address" => "123 State St. New Haven, CT", 
+      "assignee"   => USER_4_PUBLIC,
+      "closed_at"  => nil, 
+      "comment_url" => "https://seeclickfix.com/api/v2/issues/1/comments", 
       "comments"  => [ISSUE_COMMENT, ISSUE_COMMENT],
-      "vote_count"   => 2,
-      "votes"        => [VOTE, VOTE],
-      "closed_at"  => nil,
-      "acknowledged_at"  => nil,
+      "comment_count"   => 2,
+      "created_at" => "2008-03-25T12:32:41-04:00", 
+      "current_user_relationship" => {
+        :assignee => false,
+        :following => false,
+        :reporter => false,
+        :voted => true
+      },
+      "description"       => "Please fix my neighborhood.",
+      "html_url"   => "http://seeclickfix.com/issues/1-pothole",
+      "id"         => 1,
       "lat" => 42.30293,
       "lng" => -72.234234234,
+       "media" => MEDIA,
       "point" => {
-        "type" => "Point",
         "coordinates" => [
           -72.234234234,
           42.30293
-        ]
+        ],
+        "type" => "Point",
       },
-      "current_user_relationship" => {
-        :following => false,
-        :voted => true,
-        :reporter => false,
-        :assignee => false
-      },
-      "address" => "123 State St. New Haven, CT",
-      "media" => MEDIA,
-      "created_at" => "2011-04-22T13:33:48Z",
-      "updated_at" => "2011-04-22T13:33:48Z"
+      "questions" => [QUESTION0, QUESTION1],
+      "rating"       => "5",
+      "remote_integration" => INTEGRATION_ISSUE,
+      "reporter"       => USER_4_PUBLIC,
+      "shortened_url"   => "http://scf.cm/i/1",
+      "status"      => "Open",
+      "summary"      => "Pothole",
+      "updated_at" => "2011-04-22T13:33:48Z",
+      "url"        => "#{ROOT_URL}/v2/issues/1",     
+      "vote_count"   => 2,
+      "votes"        => [VOTE, VOTE],
     }
 
   end
