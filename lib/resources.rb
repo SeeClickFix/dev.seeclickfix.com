@@ -101,9 +101,10 @@ module SeeClickFix
     }
 
     MEDIA = {
-      "video_url"     => "http://www.youtube.com/watch?v=dQw4w9WgXcQ",
       "image_full" =>   "#{ASSET_URL}/files/comment_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg",
-      "image_square_100x100" => "#{ASSET_URL}/files/comment_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg"
+      "image_square_100x100" => "#{ASSET_URL}/files/comment_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg",
+      "representative_image_url" => "#{ASSET_URL}/files/comment_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg",
+      "video_url"     => "http://www.youtube.com/watch?v=dQw4w9WgXcQ"
     }
 
     NO_AVATAR = {
@@ -112,58 +113,63 @@ module SeeClickFix
     }
 
     AVATAR = {
-      "square_100x100" => "#{ASSET_URL}/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg",
-      "full" => "#{ASSET_URL}/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg"
+      "full" => "#{ASSET_URL}/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg",
+      "square_100x100" => "#{ASSET_URL}/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg"
     }
 
+    USER = {
+      "avatar" => AVATAR,
+      "civic_points" => 10,
+      "closed_issue_count" => 27,
+      "comments_count" => 62,
+      "created_at" => "2011-03-22T17:04:31-04:00",
+      "following_issue_count" => 10,
+      "id"           => 1,
+      "name" => "captainkickstand",
+      "permissions" => {
+        "can_acknowledge" => false
+      },
+      "reported_issue_count" => 25,
+      "updated_at" => "2014-03-10T07:28:35-04:00", 
+      "voted_issue_count" => 31,
+      "witty_title" => "Street Smart"
+    }
+
+    USER_4_PUBLIC = {
+      "avatar" => AVATAR,
+      "civic_points" => 10,
+      "id"           => 1,
+      "name"         => "Jeffb",
+      "role"         => "Verified Official",
+      "witty_title"  => "Street Smart",
+    }
+  
     QUESTION = {
+      asker: USER_4_PUBLIC,
+      created_at: "2013-05-14T19:49:13-04:00", 
       id: 1,
       locale: 'en',
       question: "Is it legal to bike on the sidewalk?",
-      created_at: "2013-05-14T19:49:13-04:00",
       updated_at: "2013-05-14T19:49:13-04:00"
     }
 
     ANSWER = {
-      id: 4,
+      accepted_at: nil,    
       answer: "Pretty sure it's ok to keep chickens",
-      locale: nil,
-      accepted_at: nil,
-      total_votes: 15,
-      question_id: 2,
-      created_at: "2013-05-14T19:49:13-04:00",
-      updated_at: "2013-05-14T19:49:13-04:00",
       answerer: {
+        avatar: NO_AVATAR,
+        civic_points: 100,
         id: 10,
         name: "Mike Helpless",
+        role: "Verified Official",
         witty_title: "Street Smart",
-        civic_points: 100,
-        avatar: NO_AVATAR
-      }
-    }
-
-    USER = {
-      "display_name"        => "Jeffb",
-      "id"           => 1,
-      "civic_points" => 10,
-      "witty_title" => "Street Smart",
-      "voted_issue_count" => 31,
-      "reported_issue_count" => 25,
-      "comments_count" => 62,
-      "closed_issue_count" => 27,
-      "following_issue_count" => 10,
-      "permissions" => {
-        "can_acknowledge" => false
       },
-      "avatar" => AVATAR
-    }
-
-    USER_4_PUBLIC = {
-      "display_name"        => "Jeffb",
-      "id"           => 1,
-      "civic_points" => 10,
-      "witty_title" => "Street Smart",
-      "avatar" => AVATAR
+      created_at: "2013-05-14T19:49:13-04:00",
+      id: 4,
+      locale: nil,
+      question_id: 2,
+      total_votes: 15,
+      updated_at: "2013-05-14T19:49:13-04:00"
     }
 
     INTEGRATION_ISSUE = {
@@ -173,18 +179,28 @@ module SeeClickFix
     }
 
     ISSUE_COMMENT = {
-      "id"         => 1,
       "comment"       => "Me too",
-      "commenter"       => USER,
+      "commenter"       => USER_4_PUBLIC,
+      "created_at" => "2011-04-14T16:00:49Z",
+      "issue" => {
+        "rating" => '18',
+        "status" => "Archived"
+      },
       "media" => MEDIA,
-      "created_at" => "2011-04-14T16:00:49Z"
+      "moderated" => 'null',
+      "updated_at" => "2011-04-14T16:00:49Z"
     }
 
-    PAGINATION_METADATA = { 
-      page:          2, 
-      page_size:     20, 
-      next_page:     'null', 
-      previous_page: 1
+    PAGINATION_METADATA = {
+      pagination: {   
+        next_page:          2, 
+        next_page_url:      "#{ROOT_URL}/api/v2/<ENDPOINT>?page=2", 
+        page:               1, 
+        pages:              40457, 
+        per_page:           20, 
+        previous_page:     'null', 
+        previous_page_url: 'null'
+      }
     }
 
     MOBILE_CUSTOMIZATION = {}
@@ -192,8 +208,7 @@ module SeeClickFix
     GEOCODE = {}
 
     VOTE = {
-      created_at: "2011-04-24T13:33:48Z",
-      voter: USER
+      created_at: "2011-04-24T13:33:48Z"
     }
 
     QUESTION0 = {
@@ -207,11 +222,14 @@ module SeeClickFix
     }
 
     PLACE = {
-      id: '1',
-      state: 'CT',
-      name: 'New Haven',
-      url_name: 'new-haven',
-      county: 'New Haven'
+      county: 'null', 
+      created_at: '2009-09-20T20:11:30-04:00', 
+      data_classification: 'City', 
+      id: '1', 
+      name: 'Sand Rock', 
+      state: 'AL', 
+      updated_at: '2012-11-11T16:57:55-05:00', 
+      url_name: 'sand-rock'
     }
 
     NEW_ISSUE = {
@@ -282,7 +300,6 @@ module SeeClickFix
     REQUEST_TYPE_657 = {
       id: 657,
       organization: "City of SeeClickFix",
-      title: "Graffiti",
       questions: [
         {
           primary_key: "400",
@@ -290,19 +307,19 @@ module SeeClickFix
           question_type: "multivaluelist",
           response_required: true,
           select_values: [
-            { key: "Brick",        value: "Brick" },
-            { key: "PaintedBrick", value: "Painted Brick" },
-            { key: "Wood",         value: "Wood" },
-            { key: "PaintedWood",  value: "Painted Wood" },
-            { key: "Metal",        value: "Metal" },
-            { key: "Sandstone",    value: "Sandstone or rock" },
-            { key: "Pavers",       value: "Pavers" },
-            { key: "Concrete",     value: "Concrete" },
-            { key: "Tarmac",       value: "Tarmac" },
-            { key: "Tile",         value: "Tiles" },
-            { key: "Plastic",      value: "Plastic perspex" },
-            { key: "Glass",        value: "Glass" },
-            { key: "Other",        value: "Other" }
+            { key: "Brick",        name: "Brick" },
+            { key: "PaintedBrick", name: "Painted Brick" },
+            { key: "Wood",         name: "Wood" },
+            { key: "PaintedWood",  name: "Painted Wood" },
+            { key: "Metal",        name: "Metal" },
+            { key: "Sandstone",    name: "Sandstone or rock" },
+            { key: "Pavers",       name: "Pavers" },
+            { key: "Concrete",     name: "Concrete" },
+            { key: "Tarmac",       name: "Tarmac" },
+            { key: "Tile",         name: "Tiles" },
+            { key: "Plastic",      name: "Plastic perspex" },
+            { key: "Glass",        name: "Glass" },
+            { key: "Other",        name: "Other" }
           ]
         },
         {
@@ -311,12 +328,12 @@ module SeeClickFix
           question_type: "multivaluelist",
           response_required: true,
           select_values: [
-            { key: "Paint",    value: "Paint" },
-            { key: "Pen",      value: "Pen" },
-            { key: "Texta",    value: "Texta" },
-            { key: "Whiteout", value: "White out" },
-            { key: "Crayon",   value: "Crayon" },
-            { key: "Other",    value: "Other" }
+            { key: "Paint",    name: "Paint" },
+            { key: "Pen",      name: "Pen" },
+            { key: "Texta",    name: "Texta" },
+            { key: "Whiteout", name: "White out" },
+            { key: "Crayon",   name: "Crayon" },
+            { key: "Other",    name: "Other" }
           ]
         },
         {
@@ -343,13 +360,13 @@ module SeeClickFix
           question_type: "file",
           response_required: false
         }
-      ]
+      ],
+      title: "Graffiti",
     }
 
     REQUEST_TYPE_122 = {
       id: 122,
       organization: "City of New Haven",
-      title: "Pothole",
       questions: [
         {
           primary_key: "142",
@@ -389,13 +406,13 @@ module SeeClickFix
           question_type: "file",
           response_required: false
         }
-      ]
+      ], 
+      title: "Pothole"
     }
 
     REQUEST_TYPE_OTHER = {
       id: nil,
-      organization: nil,
-      title: 'Other',
+      organization: 'Community',
       questions: [
         {
           primary_key: "summary",
@@ -415,7 +432,8 @@ module SeeClickFix
           question_type: "file",
           response_required: false
         }
-      ]
+      ], 
+      title: 'Post to Neighbors'
     }
 
     ISSUE = {
@@ -447,43 +465,44 @@ module SeeClickFix
     }
 
     ISSUE_DETAILS = {
-      "id"         => 1,
-      "remote_integration" => INTEGRATION_ISSUE,
-      "rating"       => "5",
-      "api_url"        => "#{ROOT_URL}/v2/issues/1",
-      "html_url"   => "http://seeclickfix.com/issues/1-pothole",
-      "shortened_url"   => "http://scf.cm/i/1",
-      "status"      => "Open",
-      "summary"      => "Pothole",
-      "description"       => "Please fix my neighborhood.",
-      "questions" => [QUESTION0, QUESTION1],
-      "reporter"       => USER,
-      "assignee"   => USER,
-      "comment_count"   => 5,
+      "acknowledged_at" => nil, 
+      "address" => "123 State St. New Haven, CT", 
+      "assignee"   => USER_4_PUBLIC,
+      "closed_at"  => nil, 
+      "comment_url" => "https://seeclickfix.com/api/v2/issues/1/comments", 
       "comments"  => [ISSUE_COMMENT, ISSUE_COMMENT],
-      "vote_count"   => 2,
-      "votes"        => [VOTE, VOTE],
-      "closed_at"  => nil,
-      "acknowledged_at"  => nil,
+      "comment_count"   => 2,
+      "created_at" => "2008-03-25T12:32:41-04:00", 
+      "current_user_relationship" => {
+        :assignee => false,
+        :following => false,
+        :reporter => false,
+        :voted => true
+      },
+      "description"       => "Please fix my neighborhood.",
+      "html_url"   => "http://seeclickfix.com/issues/1-pothole",
+      "id"         => 1,
       "lat" => 42.30293,
       "lng" => -72.234234234,
+       "media" => MEDIA,
       "point" => {
-        "type" => "Point",
         "coordinates" => [
           -72.234234234,
           42.30293
-        ]
+        ],
+        "type" => "Point",
       },
-      "current_user_relationship" => {
-        :following => false,
-        :voted => true,
-        :reporter => false,
-        :assignee => false
-      },
-      "address" => "123 State St. New Haven, CT",
-      "media" => MEDIA,
-      "created_at" => "2011-04-22T13:33:48Z",
-      "updated_at" => "2011-04-22T13:33:48Z"
+      "questions" => [QUESTION0, QUESTION1],
+      "rating"       => "5",
+      "remote_integration" => INTEGRATION_ISSUE,
+      "reporter"       => USER_4_PUBLIC,
+      "shortened_url"   => "http://scf.cm/i/1",
+      "status"      => "Open",
+      "summary"      => "Pothole",
+      "updated_at" => "2011-04-22T13:33:48Z",
+      "url"        => "#{ROOT_URL}/v2/issues/1",     
+      "vote_count"   => 2,
+      "votes"        => [VOTE, VOTE],
     }
 
   end

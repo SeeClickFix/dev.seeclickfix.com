@@ -54,9 +54,9 @@ Returns the last five issues.
 <%= headers 200 %>
 <%=
   json(:issue) do |h|
-    { metadata: SeeClickFix::Resources::PAGINATION_METADATA,
-      issues: [h],
-      errors: nil
+    { errors: nil,
+      metadata: SeeClickFix::Resources::PAGINATION_METADATA,
+      issues: [h]
     }
   end
 %>

@@ -38,9 +38,9 @@ Returns questions asked within the city of New Haven, CT, where the place_url is
 <%= headers 200 %>
 <%= 
   json(:question) do |h| 
-    { metadata: SeeClickFix::Resources::PAGINATION_METADATA,
+    { errors: {},
+      metadata: SeeClickFix::Resources::PAGINATION_METADATA,
       questions: [h],
-      errors: {}
     }
   end 
 %>

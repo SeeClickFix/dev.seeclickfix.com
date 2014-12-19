@@ -39,9 +39,9 @@ Returns the 20 closest places.
 
 <%= 
   json(:place) do |h| 
-    { metadata: SeeClickFix::Resources::PAGINATION_METADATA,
-      places: [h],
-      errors: nil
+    { errors: nil,
+      metadata: SeeClickFix::Resources::PAGINATION_METADATA,
+      places: [h]
     }
   end 
 %>
