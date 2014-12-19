@@ -103,13 +103,15 @@ module SeeClickFix
     MEDIA = {
       "video_url"     => "http://www.youtube.com/watch?v=dQw4w9WgXcQ",
       "image_full" =>   "#{ASSET_URL}/files/comment_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg",
-      "image_square_100x100" => "#{ASSET_URL}/files/comment_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg"
+      "image_square_100x100" => "#{ASSET_URL}/files/comment_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg",
+      "reprsentative_image_url" => "#{ASSET_URL}/files/comment_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg"
     }
 
     NO_MEDIA = {
       "video_url"            => nil,
       "image_full"           => nil,
-      "image_square_100x100" => nil
+      "image_square_100x100" => nil,
+      "reprsentative_image_url" => "#{ASSET_URL}/files/default_image.png"
     }
 
     NO_AVATAR = {
