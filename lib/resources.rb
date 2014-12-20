@@ -101,27 +101,27 @@ module SeeClickFix
     }
 
     MEDIA = {
-      image_full: '#{ASSET_URL}/files/comment_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg',
-      image_square_100x100: '#{ASSET_URL}/files/comment_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg',
-      representative_image_url: '#{ASSET_URL}/files/comment_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg',
-      video_url: 'http://www.youtube.com/watch?v=dQw4w9WgXcQ'
+      image_full: "#{ASSET_URL}/files/comment_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg",
+      image_square_100x100: "#{ASSET_URL}/files/comment_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg",
+      representative_image_url: "#{ASSET_URL}/files/comment_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg",
+      video_url: "http://www.youtube.com/watch?v=dQw4w9WgXcQ"
     }
 
     NO_MEDIA = {
       image_full: nil,
       image_square_100x100: nil,
-      representative_image_url: '#{ASSET_URL}/files/default_image.png',
+      representative_image_url: "#{ASSET_URL}/files/default_image.png",
       video_url: nil
     }
 
     NO_AVATAR = {
-      full: 'http://seeclickfix.com/assets/no-avatar-100.png',
-      square_100x100: 'http://seeclickfix.com/assets/no-avatar-100.png'
+      full: "http://seeclickfix.com/assets/no-avatar-100.png",
+      square_100x100: "http://seeclickfix.com/assets/no-avatar-100.png"
     }
 
     AVATAR = {
-      full: '#{ASSET_URL}/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg',
-      square_100x100: '#{ASSET_URL}/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg'
+      full: "#{ASSET_URL}/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg",
+      square_100x100: "#{ASSET_URL}/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg"
     }
 
     USER = {
@@ -129,35 +129,35 @@ module SeeClickFix
       civic_points: 10,
       closed_issue_count: 27,
       comments_count: 62,
-      created_at: '2011-03-22T17:04:31-04:00',
+      created_at: "2011-03-22T17:04:31-04:00",
       following_issue_count: 10,
       id: 1,
-      name: 'captainkickstand',
+      name: "captainkickstand",
       permissions: {
         can_acknowledge: false
       },
       reported_issue_count: 25,
-      updated_at: '2014-03-10T07:28:35-04:00', 
+      updated_at: "2014-03-10T07:28:35-04:00", 
       voted_issue_count: 31,
-      witty_title: 'Street Smart'
+      witty_title: "Street Smart"
     }
 
     USER_4_PUBLIC = {
       avatar: AVATAR,
       civic_points: 10,
       id: 1,
-      name: 'Jeffb',
-      role: 'Verified Official',
-      witty_title: 'Street Smart'
+      name: "Jeffb",
+      role: "Verified Official",
+      witty_title: "Street Smart"
     }
   
     QUESTION = {
       asker: USER_4_PUBLIC,
-      created_at: '2013-05-14T19:49:13-04:00', 
+      created_at: "2013-05-14T19:49:13-04:00", 
       id: 1,
-      locale: 'en',
+      locale: "en",
       question: "Is it legal to bike on the sidewalk?",
-      updated_at: '2013-05-14T19:49:13-04:00'
+      updated_at: "2013-05-14T19:49:13-04:00"
     }
 
     ANSWER = {
@@ -205,8 +205,8 @@ module SeeClickFix
         page:               1, 
         pages:              40457, 
         per_page:           20, 
-        previous_page:     'null', 
-        previous_page_url: 'null'
+        previous_page:     "null", 
+        previous_page_url: "null"
       }
     }
 
@@ -229,14 +229,14 @@ module SeeClickFix
     }
 
     PLACE = {
-      county: 'null', 
-      created_at: '2009-09-20T20:11:30-04:00', 
-      data_classification: 'City', 
-      id: '1', 
-      name: 'Sand Rock', 
-      state: 'AL', 
-      updated_at: '2012-11-11T16:57:55-05:00', 
-      url_name: 'sand-rock'
+      county: "null", 
+      created_at: "2009-09-20T20:11:30-04:00", 
+      data_classification: "City", 
+      id: 1, 
+      name: "Sand Rock", 
+      state: "AL", 
+      updated_at: "2012-11-11T16:57:55-05:00", 
+      url_name: "sand-rock"
     }
 
     NEW_ISSUE = {
@@ -257,7 +257,7 @@ module SeeClickFix
       },
       {
         organization: nil,
-        title: 'Other',
+        title: "Other",
         url: "#{ROOT_URL}/v2/request_types/other"
       }]
     }
@@ -419,7 +419,7 @@ module SeeClickFix
 
     REQUEST_TYPE_OTHER = {
       id: nil,
-      organization: 'Community',
+      organization: "Community",
       questions: [
         {
           primary_key: "summary",
