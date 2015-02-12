@@ -556,6 +556,92 @@ module SeeClickFix
       "votes"        => [VOTE, VOTE],
     }
 
+    ISSUE_CLOSED = {
+      "moderated" => false,
+      "comment" => "Pothole is gone",
+      "created_at" => "2015-02-11T21:14:16-05:00",
+      "updated_at" => "2015-02-11T21:14:16-05:00",
+      "commenter" => USER_4_PUBLIC,
+      "issue" => {
+        "status" => "Closed",
+        "rating" => 2
+      },
+      "media" => {
+        "video_url" => 'null',
+        "image_full" => 'null',
+        "image_square_100x100" => 'null'
+      }
+    }
+
+    ISSUE_OPENED = {
+      "moderated" => false,
+      "comment" => "Pothole is back!",
+      "created_at" => "2015-02-12T10:24:52-05:00",
+      "updated_at" => "2015-02-12T10:24:52-05:00",
+      "commenter" => USER_4_PUBLIC,
+      "issue" => {
+          "status" => "Open",
+          "rating" => 2
+      },
+      "media" => {
+          "video_url" => "null",
+          "image_full" => "null",
+          "image_square_100x100" => "null"
+      }
+    }
+  
+    ISSUE_ACKNOWLEDGED = {
+      "moderated" => false,
+      "comment" => "a closing comment",
+      "created_at" => "2015-02-12T10:26:59-05:00",
+      "updated_at" => "2015-02-12T10:26:59-05:00",
+      "commenter" => USER_4_PUBLIC,
+      "issue" => {
+          "status" => "Acknowledged",
+          "rating" => 2
+      },
+      "media" => {
+          "video_url" => "null",
+          "image_full" => "null",
+          "image_square_100x100" => "null"
+      }
+    }
+
+    ISSUE_ADD_COMMENT = {
+      "moderated" => false,
+      "created_at" => "2015-02-12T10:32:30-05:00",
+      "updated_at" => "2015-02-12T10:32:30-05:00",
+      "comment" => "Pothole getting larger every day",
+      "body" => "Pothole getting larger every day",
+      "commenter" => USER_4_PUBLIC,
+      "issue" => {
+        "status" => "Acknowledged",
+        "rating" => 2
+      },
+      "media" => {
+        "video_url" => "null",
+        "image_full" => "null",
+        "image_square_100x100" => "null"
+      }
+    }
+
+    ISSUE_ADD_COMMENT_MEDIA = {
+      "moderated" => false,
+      "comment" => "pools are nice",
+      "body" => "pools are nice",
+      "created_at" => "2015-02-12T10:32:30-05:00",
+      "updated_at" => "2015-02-12T10:32:30-05:00",
+      "commenter" => USER_4_PUBLIC,
+      "issue" => {
+        "status" => "Acknowledged",
+        "rating" => 2
+      },
+      "media" => {
+        "video_url" => "null",
+        "image_full" => "#{ASSET_URL}/files/comment_images/0005/2789/sports.jpeg",
+        "image_square_100x100" => "#{ASSET_URL}/files/comment_images/0005/2789/sports.jpeg"
+      }
+    }
   end
 end
 
