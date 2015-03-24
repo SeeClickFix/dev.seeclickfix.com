@@ -236,14 +236,26 @@ module SeeClickFix
     }
 
     PLACE = {
-      county: 'null',
-      created_at: '2009-09-20T20:11:30-04:00',
-      data_classification: 'City',
-      id: '1',
-      name: 'Sand Rock',
-      state: 'AL',
-      updated_at: '2012-11-11T16:57:55-05:00',
-      url_name: 'sand-rock'
+      id: 3039,
+      name: "New Haven",
+      url_name: "new-haven",
+      county: "New Haven",
+      state: "CT",
+      center: {
+        type: "Point",
+        coordinates: [
+          -72.92415951148533,
+          41.31037258994274
+        ]
+      },
+      place_type: "City",
+      avatar: {
+        full: "#{ASSET_URL}/files/place/place_avatar/3039/IMG_6892_1_.JPG",
+        square: "#{ASSET_URL}/files/place/place_avatar/3039/IMG_6892_1__square.JPG"
+      },
+      url: "#{ROOT_URL}/v2/places/3039",
+      html_url: "#{ASSET_URL}/new-haven",
+      html_report_url: "#{ASSET_URL}/new-haven/report"
     }
 
     NEW_ISSUE = {
