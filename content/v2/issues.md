@@ -35,7 +35,9 @@ title: Issues | SeeClickFix API
 
 * **assigned_to_me**=`true` - issues assigned to the current_user. **NOTE** the request **must** be authenticated or this will be ignored.
 
-* **assigned**=`:user_id0,:user_id1` - comma delimited user ids
+* **assigned**=`:user_id0,:user_id1` - comma delimited user ids, 
+
+* **assigned**=`:user_id0,unassigned` - use the string "unassigned" to select unassigned issues
 
 * **details**=`true` - defaults to `false`. Pass `true` to get an extended issue object with comments and user information.
 
