@@ -62,12 +62,12 @@ module SeeClickFix
       end
 
     end
-    
+
     ROOT_URL = "https://seeclickfix.com/api"
     ASSET_URL = "http://seeclickfix.com"
     VERSION = 2
     ROOT_VERSION_URL = "#{ROOT_URL}/#{VERSION}"
-    
+
 
     STATUSES = {
       200 => '200 OK',
@@ -143,7 +143,7 @@ module SeeClickFix
         "can_acknowledge" => false
       },
       "reported_issue_count" => 25,
-      "updated_at" => "2014-03-10T07:28:35-04:00", 
+      "updated_at" => "2014-03-10T07:28:35-04:00",
       "voted_issue_count" => 31,
       "witty_title" => "Street Smart"
     }
@@ -156,10 +156,10 @@ module SeeClickFix
       "role"         => "Verified Official",
       "witty_title"  => "Street Smart",
     }
-  
+
     QUESTION = {
       asker: USER_4_PUBLIC,
-      created_at: "2013-05-14T19:49:13-04:00", 
+      created_at: "2013-05-14T19:49:13-04:00",
       id: 1,
       locale: 'en',
       question: "Is it legal to bike on the sidewalk?",
@@ -167,7 +167,7 @@ module SeeClickFix
     }
 
     ANSWER = {
-      accepted_at: nil,    
+      accepted_at: nil,
       answer: "Pretty sure it's ok to keep chickens",
       answerer: {
         avatar: NO_AVATAR,
@@ -206,13 +206,13 @@ module SeeClickFix
                                   }
 
     PAGINATION_METADATA = {
-      pagination: {   
-        next_page:          2, 
+      pagination: {
+        next_page:          2,
         next_page_url:      "#{ROOT_URL}/api/v2/&lt;ENDPOINT&gt;?page=2",
-        page:               1, 
-        pages:              40457, 
-        per_page:           20, 
-        previous_page:     'null', 
+        page:               1,
+        pages:              40457,
+        per_page:           20,
+        previous_page:     'null',
         previous_page_url: 'null'
       }
     }
@@ -236,13 +236,13 @@ module SeeClickFix
     }
 
     PLACE = {
-      county: 'null', 
-      created_at: '2009-09-20T20:11:30-04:00', 
-      data_classification: 'City', 
-      id: '1', 
-      name: 'Sand Rock', 
-      state: 'AL', 
-      updated_at: '2012-11-11T16:57:55-05:00', 
+      county: 'null',
+      created_at: '2009-09-20T20:11:30-04:00',
+      data_classification: 'City',
+      id: '1',
+      name: 'Sand Rock',
+      state: 'AL',
+      updated_at: '2012-11-11T16:57:55-05:00',
       url_name: 'sand-rock'
     }
 
@@ -420,7 +420,7 @@ module SeeClickFix
           question_type: "file",
           response_required: false
         }
-      ], 
+      ],
       title: "Pothole"
     }
 
@@ -446,7 +446,7 @@ module SeeClickFix
           question_type: "file",
           response_required: false
         }
-      ], 
+      ],
       title: 'Post to Neighbors'
     }
 
@@ -487,14 +487,14 @@ module SeeClickFix
     })
 
     ISSUE_DETAILS = {
-      "acknowledged_at" => nil, 
-      "address" => "123 State St. New Haven, CT", 
+      "acknowledged_at" => nil,
+      "address" => "123 State St. New Haven, CT",
       "assignee"   => USER_4_PUBLIC,
-      "closed_at"  => nil, 
-      "comment_url" => "https://seeclickfix.com/api/v2/issues/1/comments", 
+      "closed_at"  => nil,
+      "comment_url" => "https://seeclickfix.com/api/v2/issues/1/comments",
       "comments"  => [COMMENT, COMMENT],
       "comment_count"   => 2,
-      "created_at" => "2008-03-25T12:32:41-04:00", 
+      "created_at" => "2008-03-25T12:32:41-04:00",
       "current_user_relationship" => {
         :assignee => false,
         :following => false,
@@ -522,7 +522,7 @@ module SeeClickFix
       "status"      => "Open",
       "summary"      => "Pothole",
       "updated_at" => "2011-04-22T13:33:48Z",
-      "url"        => "#{ROOT_URL}/v2/issues/1",     
+      "url"        => "#{ROOT_URL}/v2/issues/1",
       "vote_count"   => 2,
       "votes"        => [VOTE, VOTE],
     }
