@@ -114,6 +114,12 @@ module SeeClickFix
       "video_url"            => nil
     }
 
+    COMMENT_MEDIA = {
+      "image_full" =>   "#{ASSET_URL}/files/comment_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg",
+      "image_square_100x100" => "#{ASSET_URL}/files/comment_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg",
+      "video_url"     => "http://www.youtube.com/watch?v=dQw4w9WgXcQ"
+    }
+
     NO_AVATAR = {
       full: "http://seeclickfix.com/assets/no-avatar-100.png",
       square_100x100: "http://seeclickfix.com/assets/no-avatar-100.png"
@@ -185,18 +191,18 @@ module SeeClickFix
       :status => "Accepted"
     }
 
-    ISSUE_COMMENT = {
+    COMMENT = {
       "comment"       => "Me too",
       "commenter"       => USER_4_PUBLIC,
       "created_at" => "2011-04-14T16:00:49Z",
-      "issue" => {
-        "rating" => '18',
-        "status" => "Archived"
-      },
-      "media" => MEDIA,
-      "moderated" => 'null',
+      "media" => COMMENT_MEDIA,
       "updated_at" => "2011-04-14T16:00:49Z"
     }
+
+    ISSUE_COMMENT = COMMENT.merge "issue" => {
+                                    "rating" => '18',
+                                    "status" => "Archived"
+                                  }
 
     PAGINATION_METADATA = {
       pagination: {   
@@ -484,7 +490,7 @@ module SeeClickFix
       "assignee"   => USER_4_PUBLIC,
       "closed_at"  => nil, 
       "comment_url" => "https://seeclickfix.com/api/v2/issues/1/comments", 
-      "comments"  => [ISSUE_COMMENT, ISSUE_COMMENT],
+      "comments"  => [COMMENT, COMMENT],
       "comment_count"   => 2,
       "created_at" => "2008-03-25T12:32:41-04:00", 
       "current_user_relationship" => {
