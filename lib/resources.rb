@@ -194,8 +194,9 @@ module SeeClickFix
     COMMENT = {
       "comment"       => "Me too",
       "commenter"       => USER_4_PUBLIC,
-      "created_at" => "2011-04-14T16:00:49Z",
       "media" => COMMENT_MEDIA,
+      "flag_url" => "#{ROOT_URL}/api/v2/comments/12345/flag",
+      "created_at" => "2011-04-14T16:00:49Z",
       "updated_at" => "2011-04-14T16:00:49Z"
     }
 
@@ -473,6 +474,7 @@ module SeeClickFix
       "shortened_url"   => "http://scf.cm/i/1",
       "url"        => "#{ROOT_URL}/v2/issues/1",
       "comments_url"   => "#{ROOT_URL}/v2/issues/1/comments",
+      "flag_url"   => "#{ROOT_URL}/v2/issues/1/flag",
       "html_url"   => "http://seeclickfix.com/issues/1-pothole"
     }
 
