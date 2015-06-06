@@ -25,6 +25,7 @@
             <li><a href="http://help.seeclickfix.com/kb/api/api-overview" target="_blank">v1 (deprecated)</a></li>
             <li><a href="http://seeclickfix.com" target="_blank">SeeClickFix.com</a></li>
             <li><a href="http://seeclickfix.com/contact_us" target="_blank">Support</a></li>
+            <li><script async defer src="https://seeclickfix-api-slack.herokuapp.com/slackin.js"></script></li>
           </ul>
         </div>
       </div><!-- #header -->
@@ -83,7 +84,10 @@
     <p><strong>assigned_to_me</strong>=<code>true</code> - issues assigned to the current_user. <strong>NOTE</strong> the request <strong>must</strong> be authenticated or this will be ignored.</p>
   </li>
   <li>
-    <p><strong>assigned</strong>=<code>:user_id0,:user_id1</code> - comma delimited user ids</p>
+    <p><strong>assigned</strong>=<code>:user_id0,:user_id1</code> - comma delimited user ids, </p>
+  </li>
+  <li>
+    <p><strong>assigned</strong>=<code>:user_id0,unassigned</code> - use the string “unassigned” to select unassigned issues</p>
   </li>
   <li>
     <p><strong>details</strong>=<code>true</code> - defaults to <code>false</code>. Pass <code>true</code> to get an extended issue object with comments and user information.</p>
@@ -152,6 +156,7 @@ $ curl -i https://seeclickfix.com/api/v2/issues?page=1&amp;per_page=5
       <span class="s2">"shortened_url"</span><span class="o">:</span> <span class="s2">"http://scf.cm/i/1"</span><span class="p">,</span>
       <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"https://seeclickfix.com/api/v2/issues/1"</span><span class="p">,</span>
       <span class="s2">"comments_url"</span><span class="o">:</span> <span class="s2">"https://seeclickfix.com/api/v2/issues/1/comments"</span><span class="p">,</span>
+      <span class="s2">"flag_url"</span><span class="o">:</span> <span class="s2">"https://seeclickfix.com/api/v2/issues/1/flag"</span><span class="p">,</span>
       <span class="s2">"html_url"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/issues/1-pothole"</span><span class="p">,</span>
       <span class="s2">"media"</span><span class="o">:</span> <span class="p">{</span>
         <span class="s2">"image_full"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/comment_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg"</span><span class="p">,</span>
@@ -210,18 +215,13 @@ $ curl -i https://seeclickfix.com/api/v2/issues/1?details=true
         <span class="s2">"role"</span><span class="o">:</span> <span class="s2">"Verified Official"</span><span class="p">,</span>
         <span class="s2">"witty_title"</span><span class="o">:</span> <span class="s2">"Street Smart"</span>
       <span class="p">},</span>
-      <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2011-04-14T16:00:49Z"</span><span class="p">,</span>
-      <span class="s2">"issue"</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s2">"rating"</span><span class="o">:</span> <span class="s2">"18"</span><span class="p">,</span>
-        <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"Archived"</span>
-      <span class="p">},</span>
       <span class="s2">"media"</span><span class="o">:</span> <span class="p">{</span>
         <span class="s2">"image_full"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/comment_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg"</span><span class="p">,</span>
         <span class="s2">"image_square_100x100"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/comment_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg"</span><span class="p">,</span>
-        <span class="s2">"representative_image_url"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/comment_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg"</span><span class="p">,</span>
         <span class="s2">"video_url"</span><span class="o">:</span> <span class="s2">"http://www.youtube.com/watch?v=dQw4w9WgXcQ"</span>
       <span class="p">},</span>
-      <span class="s2">"moderated"</span><span class="o">:</span> <span class="s2">"null"</span><span class="p">,</span>
+      <span class="s2">"flag_url"</span><span class="o">:</span> <span class="s2">"https://seeclickfix.com/api/api/v2/comments/12345/flag"</span><span class="p">,</span>
+      <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2011-04-14T16:00:49Z"</span><span class="p">,</span>
       <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2011-04-14T16:00:49Z"</span>
     <span class="p">},</span>
     <span class="p">{</span>
@@ -237,18 +237,13 @@ $ curl -i https://seeclickfix.com/api/v2/issues/1?details=true
         <span class="s2">"role"</span><span class="o">:</span> <span class="s2">"Verified Official"</span><span class="p">,</span>
         <span class="s2">"witty_title"</span><span class="o">:</span> <span class="s2">"Street Smart"</span>
       <span class="p">},</span>
-      <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2011-04-14T16:00:49Z"</span><span class="p">,</span>
-      <span class="s2">"issue"</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s2">"rating"</span><span class="o">:</span> <span class="s2">"18"</span><span class="p">,</span>
-        <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"Archived"</span>
-      <span class="p">},</span>
       <span class="s2">"media"</span><span class="o">:</span> <span class="p">{</span>
         <span class="s2">"image_full"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/comment_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg"</span><span class="p">,</span>
         <span class="s2">"image_square_100x100"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/comment_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg"</span><span class="p">,</span>
-        <span class="s2">"representative_image_url"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/comment_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg"</span><span class="p">,</span>
         <span class="s2">"video_url"</span><span class="o">:</span> <span class="s2">"http://www.youtube.com/watch?v=dQw4w9WgXcQ"</span>
       <span class="p">},</span>
-      <span class="s2">"moderated"</span><span class="o">:</span> <span class="s2">"null"</span><span class="p">,</span>
+      <span class="s2">"flag_url"</span><span class="o">:</span> <span class="s2">"https://seeclickfix.com/api/api/v2/comments/12345/flag"</span><span class="p">,</span>
+      <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2011-04-14T16:00:49Z"</span><span class="p">,</span>
       <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2011-04-14T16:00:49Z"</span>
     <span class="p">}</span>
   <span class="p">],</span>
@@ -376,6 +371,13 @@ $ curl -i https://seeclickfix.com/api/v2/issues/1?details=true
       <div class="sidebar-module">
         <p>This website is a <a href="https://github.com/SeeClickFix/dev.seeclickfix.com" target="_blank">public GitHub repository</a>. Please help us by forking the project and adding to it.</p>
       </div>
+
+      <div class="sidebar-module">
+        <!-- SCF API Slack badge -->
+        <p>Developers, looking to share ideas or ask questions about the SCF API? Join the Slack channel!<br/><br/>
+        <script async defer src="https://seeclickfix-api-slack.herokuapp.com/slackin.js?large"></script></p>
+      </div>
+
     </div><!-- /sidebar-shell -->
 
     </div><!-- #wrapper -->

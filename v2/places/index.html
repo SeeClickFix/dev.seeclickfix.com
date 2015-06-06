@@ -25,6 +25,7 @@
             <li><a href="http://help.seeclickfix.com/kb/api/api-overview" target="_blank">v1 (deprecated)</a></li>
             <li><a href="http://seeclickfix.com" target="_blank">SeeClickFix.com</a></li>
             <li><a href="http://seeclickfix.com/contact_us" target="_blank">Support</a></li>
+            <li><script async defer src="https://seeclickfix-api-slack.herokuapp.com/slackin.js"></script></li>
           </ul>
         </div>
       </div><!-- #header -->
@@ -91,14 +92,26 @@ $ curl -i https://seeclickfix.com/api/v2/places?address=New+Haven,+CT
   <span class="p">},</span>
   <span class="s2">"places"</span><span class="o">:</span> <span class="p">[</span>
     <span class="p">{</span>
-      <span class="s2">"county"</span><span class="o">:</span> <span class="s2">"null"</span><span class="p">,</span>
-      <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2009-09-20T20:11:30-04:00"</span><span class="p">,</span>
-      <span class="s2">"data_classification"</span><span class="o">:</span> <span class="s2">"City"</span><span class="p">,</span>
-      <span class="s2">"id"</span><span class="o">:</span> <span class="s2">"1"</span><span class="p">,</span>
-      <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"Sand Rock"</span><span class="p">,</span>
-      <span class="s2">"state"</span><span class="o">:</span> <span class="s2">"AL"</span><span class="p">,</span>
-      <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2012-11-11T16:57:55-05:00"</span><span class="p">,</span>
-      <span class="s2">"url_name"</span><span class="o">:</span> <span class="s2">"sand-rock"</span>
+      <span class="s2">"id"</span><span class="o">:</span> <span class="mi">3039</span><span class="p">,</span>
+      <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"New Haven"</span><span class="p">,</span>
+      <span class="s2">"url_name"</span><span class="o">:</span> <span class="s2">"new-haven"</span><span class="p">,</span>
+      <span class="s2">"county"</span><span class="o">:</span> <span class="s2">"New Haven"</span><span class="p">,</span>
+      <span class="s2">"state"</span><span class="o">:</span> <span class="s2">"CT"</span><span class="p">,</span>
+      <span class="s2">"center"</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">"type"</span><span class="o">:</span> <span class="s2">"Point"</span><span class="p">,</span>
+        <span class="s2">"coordinates"</span><span class="o">:</span> <span class="p">[</span>
+          <span class="o">-</span><span class="mf">72.92415951148533</span><span class="p">,</span>
+          <span class="mf">41.31037258994274</span>
+        <span class="p">]</span>
+      <span class="p">},</span>
+      <span class="s2">"place_type"</span><span class="o">:</span> <span class="s2">"City"</span><span class="p">,</span>
+      <span class="s2">"avatar"</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">"full"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/place/place_avatar/3039/IMG_6892_1_.JPG"</span><span class="p">,</span>
+        <span class="s2">"square"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/place/place_avatar/3039/IMG_6892_1__square.JPG"</span>
+      <span class="p">},</span>
+      <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"https://seeclickfix.com/api/v2/places/3039"</span><span class="p">,</span>
+      <span class="s2">"html_url"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/new-haven"</span><span class="p">,</span>
+      <span class="s2">"html_report_url"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/new-haven/report"</span>
     <span class="p">}</span>
   <span class="p">]</span>
 <span class="p">}</span></code></pre>
@@ -119,14 +132,26 @@ $ curl -i https://seeclickfix.com/api/v2/places/1
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
-  <span class="s2">"county"</span><span class="o">:</span> <span class="s2">"null"</span><span class="p">,</span>
-  <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2009-09-20T20:11:30-04:00"</span><span class="p">,</span>
-  <span class="s2">"data_classification"</span><span class="o">:</span> <span class="s2">"City"</span><span class="p">,</span>
-  <span class="s2">"id"</span><span class="o">:</span> <span class="s2">"1"</span><span class="p">,</span>
-  <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"Sand Rock"</span><span class="p">,</span>
-  <span class="s2">"state"</span><span class="o">:</span> <span class="s2">"AL"</span><span class="p">,</span>
-  <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2012-11-11T16:57:55-05:00"</span><span class="p">,</span>
-  <span class="s2">"url_name"</span><span class="o">:</span> <span class="s2">"sand-rock"</span>
+  <span class="s2">"id"</span><span class="o">:</span> <span class="mi">3039</span><span class="p">,</span>
+  <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"New Haven"</span><span class="p">,</span>
+  <span class="s2">"url_name"</span><span class="o">:</span> <span class="s2">"new-haven"</span><span class="p">,</span>
+  <span class="s2">"county"</span><span class="o">:</span> <span class="s2">"New Haven"</span><span class="p">,</span>
+  <span class="s2">"state"</span><span class="o">:</span> <span class="s2">"CT"</span><span class="p">,</span>
+  <span class="s2">"center"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"type"</span><span class="o">:</span> <span class="s2">"Point"</span><span class="p">,</span>
+    <span class="s2">"coordinates"</span><span class="o">:</span> <span class="p">[</span>
+      <span class="o">-</span><span class="mf">72.92415951148533</span><span class="p">,</span>
+      <span class="mf">41.31037258994274</span>
+    <span class="p">]</span>
+  <span class="p">},</span>
+  <span class="s2">"place_type"</span><span class="o">:</span> <span class="s2">"City"</span><span class="p">,</span>
+  <span class="s2">"avatar"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"full"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/place/place_avatar/3039/IMG_6892_1_.JPG"</span><span class="p">,</span>
+    <span class="s2">"square"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/place/place_avatar/3039/IMG_6892_1__square.JPG"</span>
+  <span class="p">},</span>
+  <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"https://seeclickfix.com/api/v2/places/3039"</span><span class="p">,</span>
+  <span class="s2">"html_url"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/new-haven"</span><span class="p">,</span>
+  <span class="s2">"html_report_url"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/new-haven/report"</span>
 <span class="p">}</span></code></pre>
 
 <h3 id="errors">Errors</h3>
@@ -186,6 +211,13 @@ $ curl -i https://seeclickfix.com/api/v2/places/1
       <div class="sidebar-module">
         <p>This website is a <a href="https://github.com/SeeClickFix/dev.seeclickfix.com" target="_blank">public GitHub repository</a>. Please help us by forking the project and adding to it.</p>
       </div>
+
+      <div class="sidebar-module">
+        <!-- SCF API Slack badge -->
+        <p>Developers, looking to share ideas or ask questions about the SCF API? Join the Slack channel!<br/><br/>
+        <script async defer src="https://seeclickfix-api-slack.herokuapp.com/slackin.js?large"></script></p>
+      </div>
+
     </div><!-- /sidebar-shell -->
 
     </div><!-- #wrapper -->
