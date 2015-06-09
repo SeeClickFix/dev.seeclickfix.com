@@ -23,7 +23,9 @@ Reporting an Issue is a three step process. Step 1 requires querying for a repor
 $ curl -i <%= root_version_url %>/issues/new?address=New+Haven,+CT
 </pre>
 
-Return a list of service request for the given location.
+Return a list of request types for the given location.
+Each request type has an explicit organization which can be used to group the request types.
+A null organization represents a community request type that isn't associated with any particular organization.
 
 ### Response
 
