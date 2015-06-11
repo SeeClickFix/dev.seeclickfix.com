@@ -528,7 +528,7 @@ module SeeClickFix
       },
       "questions" => [QUESTION0, QUESTION1],
       "rating"       => "5",
-      "remote_integration" => INTEGRATION_ISSUE,
+      "integrations" => INTEGRATION_ISSUE,
       "reporter"       => USER_4_PUBLIC,
       "shortened_url"   => "http://scf.cm/i/1",
       "status"      => "Open",
