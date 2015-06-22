@@ -36,33 +36,13 @@
     
 <h1 id="authentication">Authentication</h1>
 
-<p>SeeClickFix uses key based authentication. You can obtain or change your key in your personal preferences page. This key should remain secret and should only be used over SSL for security. Unless noted otherwise, read-only requests do not require a key. Write requests require a key.</p>
-
-<h3 id="getting-a-key">Getting a Key</h3>
-
-<p>To obtain a key you must have a SeeClickFix account. You may register for a free account here: https://seeclickfix.com/register</p>
-
-<p>Once you have an account login and go to “My Account” &gt; “Preferences”. There is an “API Keys” section on the lefthand side of the page. Once you generate a key it is ready to use. Please remember that use of the API falls under our Open Data Policy (http://seeclickfix.com/open_data) and Terms of Use (http://seeclickfix.com/terms_of_use).</p>
+<p>SeeClickFix currently supports HTTP Basic Authentication for access to API v2. </p>
 
 <h3 id="basic-authentication">Basic Authentication</h3>
 
 <pre class="terminal">
-$ curl -u "username" https://seeclickfix.com/api/v2
+$ curl -u "email@example.com:password" https://seeclickfix.com/api/v2/profile
 </pre>
-
-<h3 id="oauth2-token-sent-in-a-header">OAuth2 Token (sent in a header)</h3>
-
-<pre class="terminal">
-$ curl -H "Authorization: token OAUTH-TOKEN" https://seeclickfix.com/api/v2
-</pre>
-
-<h3 id="oauth2-token-sent-as-a-parameter">OAuth2 Token (sent as a parameter)</h3>
-
-<pre class="terminal">
-$ curl https://seeclickfix.com/api/v2/?access_token=OAUTH-TOKEN
-</pre>
-
-<p>We support <a href="http://tools.ietf.org/html/rfc6749#section-4.1">Authorization Code Flow</a> at <code>oauth/authorize</code></p>
 
       </div>
 

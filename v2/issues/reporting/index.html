@@ -65,7 +65,9 @@
 $ curl -i https://seeclickfix.com/api/v2/issues/new?address=New+Haven,+CT
 </pre>
 
-<p>Return a list of service request for the given location.</p>
+<p>Return a list of request types for the given location.
+Each request type has an explicit organization which can be used to group the request types.
+A null organization represents a community request type that isn’t associated with any particular organization.</p>
 
 <h3 id="response">Response</h3>
 
