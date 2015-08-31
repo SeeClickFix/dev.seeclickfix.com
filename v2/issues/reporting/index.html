@@ -43,6 +43,7 @@
   <li><a href="#details-about-a-request-type">Details about a Request Type</a></li>
   <li><a href="#question-types">Question Types</a></li>
   <li><a href="#select-values">Select Values</a></li>
+  <li><a href="#request-type-answer-privacy">Request Type Answer Privacy</a></li>
   <li><a href="#request-type--questions-for-authenticated-users">Request Type &amp; Questions for authenticated users</a></li>
   <li><a href="#create-an-issue">Create an issue</a></li>
 </ul>
@@ -116,6 +117,7 @@ $ curl -i https://seeclickfix.com/api/v2/request_types/122
       <span class="s2">"primary_key"</span><span class="o">:</span> <span class="s2">"142"</span><span class="p">,</span>
       <span class="s2">"question"</span><span class="o">:</span> <span class="s2">"Depth of pothole?"</span><span class="p">,</span>
       <span class="s2">"question_type"</span><span class="o">:</span> <span class="s2">"select"</span><span class="p">,</span>
+      <span class="s2">"answer_kept_private"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
       <span class="s2">"response_required"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
       <span class="s2">"select_values"</span><span class="o">:</span> <span class="p">[</span>
         <span class="p">{</span>
@@ -136,18 +138,21 @@ $ curl -i https://seeclickfix.com/api/v2/request_types/122
       <span class="s2">"primary_key"</span><span class="o">:</span> <span class="s2">"summary"</span><span class="p">,</span>
       <span class="s2">"question"</span><span class="o">:</span> <span class="s2">"Issue Title"</span><span class="p">,</span>
       <span class="s2">"question_type"</span><span class="o">:</span> <span class="s2">"text"</span><span class="p">,</span>
+      <span class="s2">"answer_kept_private"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
       <span class="s2">"response_required"</span><span class="o">:</span> <span class="kc">true</span>
     <span class="p">},</span>
     <span class="p">{</span>
       <span class="s2">"primary_key"</span><span class="o">:</span> <span class="s2">"description"</span><span class="p">,</span>
       <span class="s2">"question"</span><span class="o">:</span> <span class="s2">"Description"</span><span class="p">,</span>
       <span class="s2">"question_type"</span><span class="o">:</span> <span class="s2">"textarea"</span><span class="p">,</span>
+      <span class="s2">"answer_kept_private"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
       <span class="s2">"response_required"</span><span class="o">:</span> <span class="kc">false</span>
     <span class="p">},</span>
     <span class="p">{</span>
       <span class="s2">"primary_key"</span><span class="o">:</span> <span class="s2">"issue_image"</span><span class="p">,</span>
       <span class="s2">"question"</span><span class="o">:</span> <span class="s2">"Issue Image"</span><span class="p">,</span>
       <span class="s2">"question_type"</span><span class="o">:</span> <span class="s2">"file"</span><span class="p">,</span>
+      <span class="s2">"answer_kept_private"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
       <span class="s2">"response_required"</span><span class="o">:</span> <span class="kc">false</span>
     <span class="p">}</span>
   <span class="p">],</span>
@@ -172,6 +177,7 @@ $ curl -i https://seeclickfix.com/api/v2/request_types/657
       <span class="s2">"primary_key"</span><span class="o">:</span> <span class="s2">"400"</span><span class="p">,</span>
       <span class="s2">"question"</span><span class="o">:</span> <span class="s2">"Graffiti is on a surface of:"</span><span class="p">,</span>
       <span class="s2">"question_type"</span><span class="o">:</span> <span class="s2">"multivaluelist"</span><span class="p">,</span>
+      <span class="s2">"answer_kept_private"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
       <span class="s2">"response_required"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
       <span class="s2">"select_values"</span><span class="o">:</span> <span class="p">[</span>
         <span class="p">{</span>
@@ -232,6 +238,7 @@ $ curl -i https://seeclickfix.com/api/v2/request_types/657
       <span class="s2">"primary_key"</span><span class="o">:</span> <span class="s2">"401"</span><span class="p">,</span>
       <span class="s2">"question"</span><span class="o">:</span> <span class="s2">"Material Used to apply graffiti"</span><span class="p">,</span>
       <span class="s2">"question_type"</span><span class="o">:</span> <span class="s2">"multivaluelist"</span><span class="p">,</span>
+      <span class="s2">"answer_kept_private"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
       <span class="s2">"response_required"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
       <span class="s2">"select_values"</span><span class="o">:</span> <span class="p">[</span>
         <span class="p">{</span>
@@ -264,24 +271,28 @@ $ curl -i https://seeclickfix.com/api/v2/request_types/657
       <span class="s2">"primary_key"</span><span class="o">:</span> <span class="s2">"offensive"</span><span class="p">,</span>
       <span class="s2">"question"</span><span class="o">:</span> <span class="s2">"Is the graffiti offensive?"</span><span class="p">,</span>
       <span class="s2">"question_type"</span><span class="o">:</span> <span class="s2">"boolean"</span><span class="p">,</span>
+      <span class="s2">"answer_kept_private"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
       <span class="s2">"response_required"</span><span class="o">:</span> <span class="kc">true</span>
     <span class="p">},</span>
     <span class="p">{</span>
       <span class="s2">"primary_key"</span><span class="o">:</span> <span class="s2">"summary"</span><span class="p">,</span>
       <span class="s2">"question"</span><span class="o">:</span> <span class="s2">"Issue Title"</span><span class="p">,</span>
       <span class="s2">"question_type"</span><span class="o">:</span> <span class="s2">"text"</span><span class="p">,</span>
+      <span class="s2">"answer_kept_private"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
       <span class="s2">"response_required"</span><span class="o">:</span> <span class="kc">true</span>
     <span class="p">},</span>
     <span class="p">{</span>
       <span class="s2">"primary_key"</span><span class="o">:</span> <span class="s2">"description"</span><span class="p">,</span>
       <span class="s2">"question"</span><span class="o">:</span> <span class="s2">"Description"</span><span class="p">,</span>
       <span class="s2">"question_type"</span><span class="o">:</span> <span class="s2">"textarea"</span><span class="p">,</span>
+      <span class="s2">"answer_kept_private"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
       <span class="s2">"response_required"</span><span class="o">:</span> <span class="kc">false</span>
     <span class="p">},</span>
     <span class="p">{</span>
       <span class="s2">"primary_key"</span><span class="o">:</span> <span class="s2">"issue_image"</span><span class="p">,</span>
       <span class="s2">"question"</span><span class="o">:</span> <span class="s2">"Issue Image"</span><span class="p">,</span>
       <span class="s2">"question_type"</span><span class="o">:</span> <span class="s2">"file"</span><span class="p">,</span>
+      <span class="s2">"answer_kept_private"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
       <span class="s2">"response_required"</span><span class="o">:</span> <span class="kc">false</span>
     <span class="p">}</span>
   <span class="p">],</span>
@@ -306,18 +317,21 @@ $ curl -i https://seeclickfix.com/api/v2/request_types/other
       <span class="s2">"primary_key"</span><span class="o">:</span> <span class="s2">"summary"</span><span class="p">,</span>
       <span class="s2">"question"</span><span class="o">:</span> <span class="s2">"Issue Title"</span><span class="p">,</span>
       <span class="s2">"question_type"</span><span class="o">:</span> <span class="s2">"text"</span><span class="p">,</span>
+      <span class="s2">"answer_kept_private"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
       <span class="s2">"response_required"</span><span class="o">:</span> <span class="kc">true</span>
     <span class="p">},</span>
     <span class="p">{</span>
       <span class="s2">"primary_key"</span><span class="o">:</span> <span class="s2">"description"</span><span class="p">,</span>
       <span class="s2">"question"</span><span class="o">:</span> <span class="s2">"Description"</span><span class="p">,</span>
       <span class="s2">"question_type"</span><span class="o">:</span> <span class="s2">"textarea"</span><span class="p">,</span>
+      <span class="s2">"answer_kept_private"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
       <span class="s2">"response_required"</span><span class="o">:</span> <span class="kc">false</span>
     <span class="p">},</span>
     <span class="p">{</span>
       <span class="s2">"primary_key"</span><span class="o">:</span> <span class="s2">"issue_image"</span><span class="p">,</span>
       <span class="s2">"question"</span><span class="o">:</span> <span class="s2">"Issue Image"</span><span class="p">,</span>
       <span class="s2">"question_type"</span><span class="o">:</span> <span class="s2">"file"</span><span class="p">,</span>
+      <span class="s2">"answer_kept_private"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
       <span class="s2">"response_required"</span><span class="o">:</span> <span class="kc">false</span>
     <span class="p">}</span>
   <span class="p">],</span>
@@ -350,6 +364,10 @@ $ curl -i https://seeclickfix.com/api/v2/request_types/other
 <h2 id="select-values">Select Values</h2>
 
 <p>For <strong>select</strong> amd <strong>multivaluelist</strong> the use should we return a display value (<code>name</code>) and a key value (<code>key</code>).</p>
+
+<h2 id="request-type-answer-privacy">Request Type Answer Privacy</h2>
+
+<p>The <strong>answer_kept_private</strong> field indicates whether or not the answer provided for a given request type question will be displayed publicly.</p>
 
 <h2 id="request-type--questions-for-authenticated-users">Request Type &amp; Questions for authenticated users</h2>
 
