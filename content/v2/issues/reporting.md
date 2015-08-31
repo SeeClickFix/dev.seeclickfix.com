@@ -81,6 +81,10 @@ $ curl -i <%= root_version_url %>/request_types/other
 
 For **select** amd **multivaluelist** the use should we return a display value (`name`) and a key value (`key`).
 
+## Request Type Answer Privacy
+
+The **answer_kept_private** field indicates whether or not the answer provided for a given request type question will be displayed publicly.
+
 ## Request Type & Questions for authenticated users
 
 Some request types & questions are only for specific authenticated users.
