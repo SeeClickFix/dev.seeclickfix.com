@@ -290,6 +290,7 @@ module SeeClickFix
           primary_key: "142",
           question: "Type of vehicle?",
           question_type: "select",
+          answer_kept_private: true,
           response_required: true,
           select_values: [
             {
@@ -306,18 +307,21 @@ module SeeClickFix
           primary_key: "summary",
           question: "Issue Title",
           question_type: "text",
+          answer_kept_private: false,
           response_required: true
         },
         {
           primary_key: "description",
           question: "Description",
           question_type: "textarea",
+          answer_kept_private: false,
           response_required: false
         },
         {
           primary_key: "issue_image",
           question: "Issue Image",
           question_type: "file",
+          answer_kept_private: false,
           response_required: false
         }
       ]
@@ -331,6 +335,7 @@ module SeeClickFix
           primary_key: "400",
           question: "Graffiti is on a surface of:",
           question_type: "multivaluelist",
+          answer_kept_private: true,
           response_required: true,
           select_values: [
             { key: "Brick",        name: "Brick" },
@@ -352,6 +357,7 @@ module SeeClickFix
           primary_key: "401",
           question: "Material Used to apply graffiti",
           question_type: "multivaluelist",
+          answer_kept_private: true,
           response_required: true,
           select_values: [
             { key: "Paint",    name: "Paint" },
@@ -366,24 +372,28 @@ module SeeClickFix
           primary_key: "offensive",
           question: "Is the graffiti offensive?",
           question_type: "boolean",
+          answer_kept_private: true,
           response_required: true
         },
         {
           primary_key: "summary",
           question: "Issue Title",
           question_type: "text",
+          answer_kept_private: false,
           response_required: true
         },
         {
           primary_key: "description",
           question: "Description",
           question_type: "textarea",
+          answer_kept_private: false,
           response_required: false
         },
         {
           primary_key: "issue_image",
           question: "Issue Image",
           question_type: "file",
+          answer_kept_private: false,
           response_required: false
         }
       ],
@@ -398,6 +408,7 @@ module SeeClickFix
           primary_key: "142",
           question: "Depth of pothole?",
           question_type: "select",
+          answer_kept_private: false,
           response_required: true,
           select_values: [
             {
@@ -418,18 +429,21 @@ module SeeClickFix
           primary_key: "summary",
           question: "Issue Title",
           question_type: "text",
+          answer_kept_private: false,
           response_required: true
         },
         {
           primary_key: "description",
           question: "Description",
           question_type: "textarea",
+          answer_kept_private: false,
           response_required: false
         },
         {
           primary_key: "issue_image",
           question: "Issue Image",
           question_type: "file",
+          answer_kept_private: false,
           response_required: false
         }
       ],
@@ -444,18 +458,21 @@ module SeeClickFix
           primary_key: "summary",
           question: "Issue Title",
           question_type: "text",
+          answer_kept_private: false,
           response_required: true
         },
         {
           primary_key: "description",
           question: "Description",
           question_type: "textarea",
+          answer_kept_private: false,
           response_required: false
         },
         {
           primary_key: "issue_image",
           question: "Issue Image",
           question_type: "file",
+          answer_kept_private: false,
           response_required: false
         }
       ],
