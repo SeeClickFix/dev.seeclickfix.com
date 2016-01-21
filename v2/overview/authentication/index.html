@@ -56,7 +56,7 @@ and the user’s credentials should not be shared with the client directly.</p>
 
 <p>SeeClickFix supports OAuth2’s “authorization code flow” as documented in <a href="https://tools.ietf.org/html/rfc6749#section-4.1">RFC 6749</a></p>
 
-<p>The <a href="https://tools.ietf.org/html/rfc6749#section-4.1">Doorkeeper documentation</a> provides some easier to read information regarding the sequence of API calls.</p>
+<p>The <a href="https://github.com/doorkeeper-gem/doorkeeper/wiki/authorization-flow">Doorkeeper documentation</a> provides some easier to read information regarding the sequence of API calls.</p>
 
 <p>Before an application (API client) can use OAuth2 with SeeClickFix it must be registered
 with our system. Register your app by sending the following information to
@@ -78,14 +78,34 @@ which application is accessing SeeClickFix services on their behalf.</p>
 <p>With the id and secret, authentication and API access can proceed as follows:</p>
 
 <ol>
-  <li>application triggers browser access to SCF authentication endpoint</li>
-  <li>user enters credentials, browser is redirected to redirect URI with code</li>
-  <li>application uses code to directly request access token from SCF</li>
-  <li>SCF returns access token to application</li>
-  <li>application makes API requests using access token</li>
+  <li>Client Application initiates browser access to SCF authentication endpoint</li>
 </ol>
 
-<p>See <a href="">RFC 6750</a>http://tools.ietf.org/html/rfc6750#section-2.1) for details of how to transmit the access token to the API endpoints.</p>
+<pre class="terminal">
+https://seeclickfix.com/oauth/authorize?client_id=YOUR_CLIENT_ID&amp;redirect_uri=YOUR_REDIRECT_URI&amp;response_type=code
+</pre>
+
+<ol>
+  <li>
+    <p>SCF user enters SCF credentials and on success is redirected to Client Application Redirect URI with code</p>
+  </li>
+  <li>
+    <p>Client Application uses code to request access token from SCF token endpoint. <a href="https://github.com/doorkeeper-gem/doorkeeper/wiki/authorization-flow#requesting-the-access-token">Doorkeeper example</a></p>
+  </li>
+</ol>
+
+<pre class="terminal">
+https://seeclickfix.com/oauth/token?client_id=YOUR_CLIENT_ID&amp;client_secret=YOUR_SECRET&amp;redirect_uri=YOUR_REDIRECT_URI&amp;code=RETURNED_CODE_FROM_STEP_3&amp;grant_type=authorization_code
+</pre>
+
+<ol>
+  <li>
+    <p>SCF returns access token to Client Application</p>
+  </li>
+  <li>
+    <p>Client Application can now make API requests on behalf of the user, by including user’s access token. See <a href="http://tools.ietf.org/html/rfc6750#section-2.1">RFC 6750</a> for options and detail for transmitting the access token to the API endpoints.</p>
+  </li>
+</ol>
 
       </div>
 
