@@ -15,7 +15,7 @@ Issues can be flagged by any authenticated user.
 ### Request
 
 <%=
-  json({reason: 'Using profanity.'})
+  json({message: 'Using profanity.'})
 %>
 
 ### Response
@@ -33,7 +33,7 @@ Comments can be flagged by any authenticated user.
 ### Request
 
 <%=
-  json({reason: 'Using profanity.'})
+  json({message: 'Using profanity.'})
 %>
 
 ### Response
