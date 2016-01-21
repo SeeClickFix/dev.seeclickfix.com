@@ -36,13 +36,56 @@
     
 <h1 id="authentication">Authentication</h1>
 
-<p>SeeClickFix currently supports HTTP Basic Authentication for access to API v2. </p>
+<p>SeeClickFix currently supports the following authentication methods for access to API v2.
+1. HTTP Basic Authentication
+1. OAauth2 Authentication</p>
 
-<h3 id="basic-authentication">Basic Authentication</h3>
+<h3 id="http-basic-authentication">HTTP Basic Authentication</h3>
+
+<p>This method is appropriate when the client has direct access to user credentials (username
+and password).</p>
 
 <pre class="terminal">
 $ curl -u "email@example.com:password" https://seeclickfix.com/api/v2/profile
 </pre>
+
+<h3 id="oauth2-authentication">OAuth2 Authentication</h3>
+
+<p>This method is appropriate when the client application is being used by multiple users
+and the user’s credentials should not be shared with the client directly.</p>
+
+<p>SeeClickFix supports OAuth2’s “authorization code flow” as documented in <a href="https://tools.ietf.org/html/rfc6749#section-4.1">RFC 6749</a></p>
+
+<p>The <a href="https://tools.ietf.org/html/rfc6749#section-4.1">Doorkeeper documentation</a> provides some easier to read information regarding the sequence of API calls.</p>
+
+<p>Before an application (API client) can use OAuth2 with SeeClickFix it must be registered
+with our system. Register your app by sending the following information to
+developer-support@seeclickfix.com:</p>
+
+<ol>
+  <li>Name of Application</li>
+  <li>Organization Name</li>
+  <li>Technical Contact Name, Email, Phone</li>
+  <li>Administrative Contact Name, Email, Phone</li>
+  <li>The callback URI to be used during the authentication phase and token phase</li>
+</ol>
+
+<p>SeeClickFix will register the application and return an application id and secret.
+The name of the application will be presented to users on authorization and
+deauthorization views and so should be selected such that users understand
+which application is accessing SeeClickFix services on their behalf.</p>
+
+<p>With the id and secret, authentication and API access can proceed as follows:</p>
+
+<ol>
+  <li>application triggers browser access to SCF authentication endpoint</li>
+  <li>user enters credentials, browser is redirected to redirect URI with code</li>
+  <li>application uses code to directly request access token from SCF</li>
+  <li>SCF returns access token to application</li>
+  <li>application makes API requests using access token</li>
+</ol>
+
+<p>See <a href="">RFC 6750</a>http://tools.ietf.org/html/rfc6750#section-2.1) for details of how to transmit the access token to the API endpoints.</p>
 
       </div>
 
