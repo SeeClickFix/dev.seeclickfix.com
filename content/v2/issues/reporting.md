@@ -186,10 +186,24 @@ $ curl -i \
 <%= headers 422 %>
 <%=
  json({
-   errors: [
-     "An Address is required",
-     "Question: 'Depth of pothole?' is required"
-   ]
+   errors: {
+     address: [
+       "Address can't be blank"
+     ],
+     lat: [
+       "Lat can't be blank"
+     ],
+     lng: [
+       "Lng can't be blank"
+     ],
+     point: [
+       "Point can't be blank",
+       "Point Issue is not within boundary of associated request type."
+     ],
+     summary: [
+       "Summary can't be blank"
+     ]
+   }
  })
 %>
 
