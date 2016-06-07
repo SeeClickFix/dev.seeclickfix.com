@@ -37,7 +37,7 @@ $ curl -i \
 ### Response
 
 <%= headers 201 %>
-<%= json(moderated: false, created_at: Time.now) %>
+<%= json(:issue_add_comment) %>
 
 ### Example, with media
 
@@ -55,7 +55,7 @@ $ curl -i \
 ### Response
 
 <%= headers 201 %>
-<%= json(moderated: false, created_at: Time.now) %>
+<%= json(:issue_add_comment_media) %>
 
 ## Listing Comments on an Issue
 

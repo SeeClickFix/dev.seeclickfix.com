@@ -34,6 +34,11 @@ $ curl -i \
        <%= root_version_url %>/issues/1/close
 </pre>
 
+### Response
+
+<%= headers 201 %>
+<%= json(:issue_closed) %>
+
 ### Example, with media
 
 If you want to attach a image or video or both to your comment, you must use multipart form data not json. Here is an example including both:
@@ -47,11 +52,6 @@ $ curl -i \
        <%= root_version_url %>/issues/1/close
 </pre>
 
-
-### Response
-
-<%= headers 201 %>
-<%= json(moderated: false, created_at: Time.now) %>
 
 ## Reopen an Issue
 
@@ -83,7 +83,7 @@ Media can be attached the same way as [closing comments](#with_media)
 ### Response
 
 <%= headers 201 %>
-<%= json(moderated: false, created_at: Time.now) %>
+<%= json(:issue_opened) %>
 
 ## Acknowledge an Issue
 
@@ -115,4 +115,4 @@ Media can be attached the same way as [closing comments](#with_media)
 ### Response
 
 <%= headers 201 %>
-<%= json(moderated: false, created_at: Time.now) %>
+<%= json(:issue_acknowledged) %>
