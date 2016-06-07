@@ -22,7 +22,6 @@
           <a class="logo" href="/"><img src="/images/logo.png" alt="SeeClickFix API" /></a>
           <ul class="nav">
             <li><a href="/">v2 (current)</a></li>
-            <li><a href="https://seeclickfix.zendesk.com/hc/en-us/articles/201702867-API-Overview" target="_blank">v1 (deprecated)</a></li>
             <li><a href="http://seeclickfix.com" target="_blank">SeeClickFix.com</a></li>
             <li><a href="http://seeclickfix.com/contact_us" target="_blank">Support</a></li>
             <li><script async defer src="https://seeclickfix-api-slack.herokuapp.com/slackin.js"></script></li>
@@ -615,10 +614,24 @@ Location: http://seeclickfix.com/issues/1</code></pre>
 <pre class="headers"><code>Status: 422 Unprocessable Entity</code></pre>
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
-  <span class="s2">"errors"</span><span class="o">:</span> <span class="p">[</span>
-    <span class="s2">"An Address is required"</span><span class="p">,</span>
-    <span class="s2">"Question: 'Depth of pothole?' is required"</span>
-  <span class="p">]</span>
+  <span class="s2">"errors"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"address"</span><span class="o">:</span> <span class="p">[</span>
+      <span class="s2">"Address can't be blank"</span>
+    <span class="p">],</span>
+    <span class="s2">"lat"</span><span class="o">:</span> <span class="p">[</span>
+      <span class="s2">"Lat can't be blank"</span>
+    <span class="p">],</span>
+    <span class="s2">"lng"</span><span class="o">:</span> <span class="p">[</span>
+      <span class="s2">"Lng can't be blank"</span>
+    <span class="p">],</span>
+    <span class="s2">"point"</span><span class="o">:</span> <span class="p">[</span>
+      <span class="s2">"Point can't be blank"</span><span class="p">,</span>
+      <span class="s2">"Point Issue is not within boundary of associated request type."</span>
+    <span class="p">],</span>
+    <span class="s2">"summary"</span><span class="o">:</span> <span class="p">[</span>
+      <span class="s2">"Summary can't be blank"</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
 <span class="p">}</span></code></pre>
 
 <h3 id="if-for-any-reason-we-decide-to-hold-the-report-in-moderation">If for any reason we decide to hold the report in moderation</h3>

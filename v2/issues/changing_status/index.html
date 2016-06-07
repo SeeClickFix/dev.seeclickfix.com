@@ -22,7 +22,6 @@
           <a class="logo" href="/"><img src="/images/logo.png" alt="SeeClickFix API" /></a>
           <ul class="nav">
             <li><a href="/">v2 (current)</a></li>
-            <li><a href="https://seeclickfix.zendesk.com/hc/en-us/articles/201702867-API-Overview" target="_blank">v1 (deprecated)</a></li>
             <li><a href="http://seeclickfix.com" target="_blank">SeeClickFix.com</a></li>
             <li><a href="http://seeclickfix.com/contact_us" target="_blank">Support</a></li>
             <li><script async defer src="https://seeclickfix-api-slack.herokuapp.com/slackin.js"></script></li>
@@ -78,6 +77,37 @@ $ curl -i \
        https://seeclickfix.com/api/v2/issues/1/close
 </pre>
 
+<h3 id="response">Response</h3>
+
+<pre class="headers"><code>Status: 201 Created</code></pre>
+
+<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"moderated"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="s2">"comment"</span><span class="o">:</span> <span class="s2">"Pothole is gone"</span><span class="p">,</span>
+  <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2015-02-11T21:14:16-05:00"</span><span class="p">,</span>
+  <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2015-02-11T21:14:16-05:00"</span><span class="p">,</span>
+  <span class="s2">"commenter"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"avatar"</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">"full"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg"</span><span class="p">,</span>
+      <span class="s2">"square_100x100"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg"</span>
+    <span class="p">},</span>
+    <span class="s2">"civic_points"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
+    <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"Jeffb"</span><span class="p">,</span>
+    <span class="s2">"role"</span><span class="o">:</span> <span class="s2">"Verified Official"</span><span class="p">,</span>
+    <span class="s2">"witty_title"</span><span class="o">:</span> <span class="s2">"Street Smart"</span>
+  <span class="p">},</span>
+  <span class="s2">"issue"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"Closed"</span><span class="p">,</span>
+    <span class="s2">"rating"</span><span class="o">:</span> <span class="mi">2</span>
+  <span class="p">},</span>
+  <span class="s2">"media"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"video_url"</span><span class="o">:</span> <span class="s2">"null"</span><span class="p">,</span>
+    <span class="s2">"image_full"</span><span class="o">:</span> <span class="s2">"null"</span><span class="p">,</span>
+    <span class="s2">"image_square_100x100"</span><span class="o">:</span> <span class="s2">"null"</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre>
+
 <h3 id="example-with-media">Example, with media</h3>
 
 <p>If you want to attach a image or video or both to your comment, you must use multipart form data not json. Here is an example including both:</p>
@@ -90,15 +120,6 @@ $ curl -i \
        --data "video=@video.mp4" \
        https://seeclickfix.com/api/v2/issues/1/close
 </pre>
-
-<h3 id="response">Response</h3>
-
-<pre class="headers"><code>Status: 201 Created</code></pre>
-
-<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
-  <span class="s2">"moderated"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-  <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2016-01-21 14:22:04 -0500"</span>
-<span class="p">}</span></code></pre>
 
 <h2 id="reopen-an-issue">Reopen an Issue</h2>
 
@@ -142,7 +163,29 @@ $ curl -i \
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
   <span class="s2">"moderated"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-  <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2016-01-21 14:22:04 -0500"</span>
+  <span class="s2">"comment"</span><span class="o">:</span> <span class="s2">"Pothole is back!"</span><span class="p">,</span>
+  <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2015-02-12T10:24:52-05:00"</span><span class="p">,</span>
+  <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2015-02-12T10:24:52-05:00"</span><span class="p">,</span>
+  <span class="s2">"commenter"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"avatar"</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">"full"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg"</span><span class="p">,</span>
+      <span class="s2">"square_100x100"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg"</span>
+    <span class="p">},</span>
+    <span class="s2">"civic_points"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
+    <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"Jeffb"</span><span class="p">,</span>
+    <span class="s2">"role"</span><span class="o">:</span> <span class="s2">"Verified Official"</span><span class="p">,</span>
+    <span class="s2">"witty_title"</span><span class="o">:</span> <span class="s2">"Street Smart"</span>
+  <span class="p">},</span>
+  <span class="s2">"issue"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"Open"</span><span class="p">,</span>
+    <span class="s2">"rating"</span><span class="o">:</span> <span class="mi">2</span>
+  <span class="p">},</span>
+  <span class="s2">"media"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"video_url"</span><span class="o">:</span> <span class="s2">"null"</span><span class="p">,</span>
+    <span class="s2">"image_full"</span><span class="o">:</span> <span class="s2">"null"</span><span class="p">,</span>
+    <span class="s2">"image_square_100x100"</span><span class="o">:</span> <span class="s2">"null"</span>
+  <span class="p">}</span>
 <span class="p">}</span></code></pre>
 
 <h2 id="acknowledge-an-issue">Acknowledge an Issue</h2>
@@ -187,7 +230,29 @@ $ curl -i \
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
   <span class="s2">"moderated"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-  <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2016-01-21 14:22:04 -0500"</span>
+  <span class="s2">"comment"</span><span class="o">:</span> <span class="s2">"a closing comment"</span><span class="p">,</span>
+  <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2015-02-12T10:26:59-05:00"</span><span class="p">,</span>
+  <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2015-02-12T10:26:59-05:00"</span><span class="p">,</span>
+  <span class="s2">"commenter"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"avatar"</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">"full"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg"</span><span class="p">,</span>
+      <span class="s2">"square_100x100"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg"</span>
+    <span class="p">},</span>
+    <span class="s2">"civic_points"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
+    <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"Jeffb"</span><span class="p">,</span>
+    <span class="s2">"role"</span><span class="o">:</span> <span class="s2">"Verified Official"</span><span class="p">,</span>
+    <span class="s2">"witty_title"</span><span class="o">:</span> <span class="s2">"Street Smart"</span>
+  <span class="p">},</span>
+  <span class="s2">"issue"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"Acknowledged"</span><span class="p">,</span>
+    <span class="s2">"rating"</span><span class="o">:</span> <span class="mi">2</span>
+  <span class="p">},</span>
+  <span class="s2">"media"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">"video_url"</span><span class="o">:</span> <span class="s2">"null"</span><span class="p">,</span>
+    <span class="s2">"image_full"</span><span class="o">:</span> <span class="s2">"null"</span><span class="p">,</span>
+    <span class="s2">"image_square_100x100"</span><span class="o">:</span> <span class="s2">"null"</span>
+  <span class="p">}</span>
 <span class="p">}</span></code></pre>
 
       </div>
