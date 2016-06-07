@@ -17,7 +17,7 @@ title: Issues | SeeClickFix API
 
 * **page**=`:page_number` - number of the page to return, default: 1
 
-* **per_page**=`:per_page` - number of issues returned per page, default: 20, maximum: 1000, over 30 will force the details to false.
+* **per_page**=`:per_page` - number of issues returned per page, default: 20, maximum: 100, over 30 will force the details to false.
 
 * **status**=`:status1,:status2` - one of 'open', 'acknowledged', 'closed', 'archived'. default: open,acknowledged,closed
 
