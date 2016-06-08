@@ -74,7 +74,6 @@ $ curl -i <%= root_version_url %>/request_types/other
 * **number** - requires a numerical validation.
 * **datetime** - ISO 8601 timestamp.
 * **boolean** - Only `true`/`false` are acceptable answers
-* **hidden** - field hidden from user.
 * **note** - No response expected, display as a note to the user.
 
 ## Select Values
