@@ -39,7 +39,7 @@ title: Issues | SeeClickFix API
 
 * **assigned**=`:user_id0,unassigned` - use the string "unassigned" to select unassigned issues
 
-* **details**=`true` - defaults to `false`. Pass `true` to get an extended issue object with comments and user information.
+* **details**=`true` - defaults to `false`. Pass `true` to get an extended issue object including comments, user information, and questions and answers.
 
 ### Notes
 
