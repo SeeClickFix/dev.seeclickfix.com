@@ -74,6 +74,12 @@
     <p><strong>before</strong>=<code>:time</code> - must be a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ</p>
   </li>
   <li>
+    <p><strong>updated_at_after</strong>=<code>:time</code> - must be a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ</p>
+  </li>
+  <li>
+    <p><strong>updated_at_before</strong>=<code>:time</code> - must be a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ</p>
+  </li>
+  <li>
     <p><strong>search</strong>=<code>:search</code> - limit results by search terms.</p>
   </li>
   <li>
@@ -83,14 +89,44 @@
     <p><strong>assigned_to_me</strong>=<code>true</code> - issues assigned to the current_user. <strong>NOTE</strong> the request <strong>must</strong> be authenticated or this will be ignored.</p>
   </li>
   <li>
-    <p><strong>assigned</strong>=<code>:user_id0,:user_id1</code> - comma delimited user ids, </p>
+    <p><strong>assigned</strong>=<code>:user_id0,:user_id1</code> - comma delimited user ids,</p>
   </li>
   <li>
     <p><strong>assigned</strong>=<code>:user_id0,unassigned</code> - use the string “unassigned” to select unassigned issues</p>
   </li>
   <li>
-    <p><strong>details</strong>=<code>true</code> - defaults to <code>false</code>. Pass <code>true</code> to get an extended issue object with comments and user information.</p>
+    <p><strong>details</strong>=<code>true</code> - defaults to <code>false</code>. Pass <code>true</code> to get an extended issue object including comments, user information, and questions and answers.</p>
   </li>
+</ul>
+
+<hr>
+
+<h4 id="filter-by-createdat">Filter by <code>created_at</code>
+</h4>
+
+<p>To filter issues by their creation time (<code>created_at</code>) use:</p>
+
+<ul>
+  <li>
+<code>after</code>: only include issues where <code>created_at</code> &gt;= <code>after</code>
+</li>
+  <li>
+<code>before</code>: only include issues where <code>created_at</code> &lt; <code>before</code>
+</li>
+</ul>
+
+<h4 id="filter-by-updatedat">Filter by <code>updated_at</code>
+</h4>
+
+<p>To filter issues by their update time (<code>updated_at</code>) use:</p>
+
+<ul>
+  <li>
+<code>updated_at_after</code>: only include issues where <code>updated_at</code> &gt;= <code>updated_at_after</code>
+</li>
+  <li>
+<code>updated_at_before</code>: only include issues where <code>updated_at</code> &lt; <code>updated_at_before</code>
+</li>
 </ul>
 
 <h3 id="notes">Notes</h3>
