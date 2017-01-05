@@ -29,17 +29,37 @@ title: Issues | SeeClickFix API
 
 * **before**=`:time` - must be a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
 
+* **updated_at_after**=`:time` - must be a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+
+* **updated_at_before**=`:time` - must be a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ
+
 * **search**=`:search` - limit results by search terms.
 
 * **request_types**=`:request_type_id0,:request_type_id1` - comma delimited [Request Type](/v2/issues/reporting/#details-about-a-request-type) ids.
 
 * **assigned_to_me**=`true` - issues assigned to the current_user. **NOTE** the request **must** be authenticated or this will be ignored.
 
-* **assigned**=`:user_id0,:user_id1` - comma delimited user ids, 
+* **assigned**=`:user_id0,:user_id1` - comma delimited user ids,
 
 * **assigned**=`:user_id0,unassigned` - use the string "unassigned" to select unassigned issues
 
 * **details**=`true` - defaults to `false`. Pass `true` to get an extended issue object with comments and user information.
+
+----
+
+#### Filter by `created_at`
+
+To filter issues by their creation time (`created_at`) use:
+
+* `after`: only include issues where `created_at` >= `after`
+* `before`: only include issues where `created_at` < `before`
+
+#### Filter by `updated_at`
+
+To filter issues by their update time (`updated_at`) use:
+
+* `updated_at_after`: only include issues where `updated_at` >= `updated_at_after`
+* `updated_at_before`: only include issues where `updated_at` < `updated_at_before`
 
 ### Notes
 
