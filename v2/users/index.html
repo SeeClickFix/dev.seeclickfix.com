@@ -204,6 +204,17 @@ $ curl -i https://seeclickfix.com/api/v2/users?address=New+Haven,+CT
   <span class="p">]</span>
 <span class="p">}</span></code></pre>
 
+<h3 id="errors-1">Errors</h3>
+
+<p>Returns error code 400 if a point is not specified</p>
+
+<pre class="headers"><code>Status: 400 Bad Request</code></pre>
+
+<pre class="highlight"><code class="language-javascript"><span class="p">{</span>
+  <span class="s2">"message"</span><span class="o">:</span> <span class="s2">"Point missing from request."</span><span class="p">,</span>
+  <span class="s2">"documentation_url"</span><span class="o">:</span> <span class="s2">"http://dev.seeclickfix.com"</span>
+<span class="p">}</span></code></pre>
+
 <h2 id="register">Register</h2>
 
 <pre><code>POST https://seeclickfix.com/api/v2/users
@@ -257,7 +268,7 @@ $ curl -i https://seeclickfix.com/api/v2/users
   <span class="s2">"witty_title"</span><span class="o">:</span> <span class="s2">"Street Smart"</span>
 <span class="p">}</span></code></pre>
 
-<h3 id="errors-1">Errors</h3>
+<h3 id="errors-2">Errors</h3>
 
 <p>Returns error code 422 if unable to create user.</p>
 
@@ -322,7 +333,7 @@ $ curl -i https://seeclickfix.com/api/v2/profile
   <span class="s2">"witty_title"</span><span class="o">:</span> <span class="s2">"Street Smart"</span>
 <span class="p">}</span></code></pre>
 
-<h3 id="errors-2">Errors</h3>
+<h3 id="errors-3">Errors</h3>
 
 <p>Returns error code 422 if unable to update the user.</p>
 

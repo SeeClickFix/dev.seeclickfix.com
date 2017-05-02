@@ -56,7 +56,6 @@ you have any problems or requests please contact
   <li><a href="#http-verbs">HTTP Verbs</a></li>
   <li><a href="#user-agent-required">User Agent Required</a></li>
   <li><a href="#conditional-requests">Conditional requests</a></li>
-  <li><a href="#json-p-callbacks">JSON-P Callbacks</a></li>
   <li><a href="#geography">Geography</a></li>
   <li><a href="#locales">Locales</a></li>
   <li><a href="#data-license">Data License</a></li>
@@ -93,7 +92,7 @@ available on test.seeclickfix.com.</p>
 responses have two guaranteed attributes <code>metadata</code> and <code>result</code>.
 The <code>metadata</code> attribute can contain metadata for the consumer about the
 result, for example pagination information, api limits, or query
-information. Metadata can be null. The <code>result</code> attribute contains 
+information. Metadata can be null. The <code>result</code> attribute contains
 the result of the action.</p>
 
 <h2 id="parameters">Parameters</h2>
@@ -206,18 +205,10 @@ of these headers to make subsequent requests to those resources using the
 <code>If-Modified-Since</code> and <code>If-None-Match</code> headers, respectively. If the resource
 has not changed, the server will return a <code>304 Not Modified</code>.</p>
 
-<h2 id="json-p-callbacks">JSON-P Callbacks</h2>
-
-<p>You can send a <code>?callback</code> parameter to any GET call to have the results
-wrapped in a JSON function.  This is typically used when browsers want
-to embed SeeClickFix content in web pages by getting around cross domain
-issues.  The response includes the same data output as the regular API,
-plus the relevant HTTP Header information.</p>
-
 <h2 id="geography">Geography</h2>
 
-<p>At various endpoints SeeClickFix recognizes geography either by a <code>point</code> 
-or <code>area</code> attribute. If multiple points are specified, they will be 
+<p>At various endpoints SeeClickFix recognizes geography either by a <code>point</code>
+or <code>area</code> attribute. If multiple points are specified, they will be
 evaulated in the listed order of precedence.</p>
 
 <p>Points can be defined in one of two forms:</p>
@@ -244,10 +235,10 @@ evaulated in the listed order of precedence.</p>
 
 <h2 id="locales">Locales</h2>
 
-<p>All attributes are consistent between locales. Errors may be translated 
-based on the given locale. Objects created will record the locale they 
-were created in and notices based on these objects will be delivered with 
-the proper locale. i.e. if an issue is created with the “es” locale, all 
+<p>All attributes are consistent between locales. Errors may be translated
+based on the given locale. Objects created will record the locale they
+were created in and notices based on these objects will be delivered with
+the proper locale. i.e. if an issue is created with the “es” locale, all
 email to the creator will be delivered with Spanish translations.</p>
 
 <h2 id="data-license">Data License</h2>
