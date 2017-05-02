@@ -88,6 +88,13 @@ Returns the 20 closest users.
   end 
 %>
 
+### Errors
+
+Returns error code 400 if a point is not specified
+
+<%= headers 400 %>
+<%= json(message: "Point missing from request.", documentation_url: "http://dev.seeclickfix.com") %>
+
 ## Register
 
     POST <%= root_version_url %>/users
