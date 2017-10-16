@@ -20,7 +20,7 @@ Reporting an Issue is a three step process. Step 1 requires querying for a repor
 ### Examples
 
 <pre class="terminal">
-$ curl -i <%= root_version_url %>/issues/new?lat=41.308274&lng=-72.9278835
+$ curl -i "<%= root_version_url %>/issues/new?lat=41.308274&lng=-72.9278835"
 </pre>
 
 Return a list of request types for the given location.
