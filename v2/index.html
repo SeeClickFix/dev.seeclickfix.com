@@ -211,20 +211,25 @@ has not changed, the server will return a <code>304 Not Modified</code>.</p>
 or <code>area</code> attribute. If multiple points are specified, they will be
 evaulated in the listed order of precedence.</p>
 
+<p>NOTE: The use of the <code>address</code> parameter to specifiy a location is deprecated on our public endpoints.
+API clients must handle reverse geocoding locally and use one of the alternate parameter forms to
+specify a point or area. Queries using <code>address</code> may result in an error response.</p>
+
 <p>Points can be defined in one of two forms:</p>
 
 <ol>
   <li>
 <code>lat=:latitude&amp;lng=:longitude</code> - The latitude and longitude of the point of interest.</li>
   <li>
-<code>address=:address</code> - Geocode the address and use the resulting latitude/longitude as a point.</li>
+<code>address=:address</code> - (deprecated) Geocode the address and use the resulting latitude/longitude as a point.</li>
 </ol>
 
 <p><code>area</code> attributes can be submitted in the following forms:</p>
 
 <ol>
   <li><code>lat=:latitude&amp;lng=:longitude&amp;zoom=:zoom</code></li>
-  <li><code>address=:address&amp;zoom=:zoom</code></li>
+  <li>
+<code>address=:address&amp;zoom=:zoom</code> - (deprecated)</li>
   <li>
 <code>place_url=:url_name</code> - See <a href="/v2/places">the places documentation</a> for more information.</li>
   <li>
