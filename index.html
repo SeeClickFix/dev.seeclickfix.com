@@ -266,8 +266,7 @@ email to the creator will be delivered with Spanish translations.</p>
 
 <p>If you go over the rate limits, we will return a HTTP 429 Too Many Requests error, and a Retry-After HTTP header containing the number of seconds until you can retry.</p>
 
-<p>```
-HTTP/1.1 429 Too Many Requests
+<pre><code>HTTP/1.1 429 Too Many Requests
 Cache-Control: private
 Content-Length: 23
 Content-Type: application/json; charset=utf-8
@@ -277,21 +276,20 @@ X-AspNetMvc-Version: 5.1
 Access-Control-Allow-Origin: *
 X-AspNet-Version: 4.0.30319
 X-Powered-By: ASP.NET
-Set-Cookie: ARRAffinity=beec3692492323782378d2f49514e054d865a22ad2951c84f51dbaf93
-Date: Fri, 01 Mar 2019 15:23:13 GMT</p>
+Set-Cookie: ARRAffinity=beec3692492323782378d2f49514e054d865a22ad2951c
+Date: Fri, 01 Mar 2019 15:23:13 GMT
 
-<p>{
-  “message”: “Too Many Requests”,
-  “documentation_url”: “http://dev.seeclickfix.com”
+{
+    "message": "Too Many Requests",
+    "documentation_url": "http://dev.seeclickfix.com"
 }
-```</p>
+</code></pre>
 
 <h4 id="blacklisting">Blacklisting</h4>
 
 <p>If an application abuses the rate limits, we will return a HTTP 403 Forbidden error. </p>
 
-<p>```
-HTTP/1.1 403 Forbidden
+<pre><code>HTTP/1.1 403 Forbidden
 Cache-Control: private
 Content-Length: 15
 Content-Type: application/json; charset=utf-8
@@ -300,14 +298,14 @@ X-AspNetMvc-Version: 5.1
 Access-Control-Allow-Origin: *
 X-AspNet-Version: 4.0.30319
 X-Powered-By: ASP.NET
-Set-Cookie: ARRAffinity=beec3692492323782378d2f49514e054d865a22ad2951c84f51dbaf93
-Date: Fri, 01 Mar 2019 16:11:07 GMT</p>
+Set-Cookie: ARRAffinity=beec3692492323782378d2f49514e054d865a22ad2951c
+Date: Fri, 01 Mar 2019 16:11:07 GMT
 
-<p>{
-    “message”: “Request forbidden by administrative rules.”,
-    “documentation_url”: “http://dev.seeclickfix.com”
+{
+    "message": "Request forbidden by administrative rules.",
+    "documentation_url": "http://dev.seeclickfix.com"
 }
-```</p>
+</code></pre>
 
 <p>If you or your application has been blacklisted and you think there has been a mistake, please contact us at <a href="mailto:support@seeclickfix.com">support@seeclickfix.com</a></p>
 
