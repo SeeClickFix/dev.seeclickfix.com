@@ -17,7 +17,7 @@ title: Issues | SeeClickFix API
 
 * **page**=`:page_number` - number of the page to return, default: 1
 
-* **per_page**=`:per_page` - number of issues returned per page, default: 20, maximum: 100, over 30 will force the details to false.
+* **per_page**=`:per_page` - number of issues returned per page, default: 20, maximum: 100, requests with details are limited to 20.
 
 * **status**=`:status1,:status2` - one of 'open', 'acknowledged', 'closed', 'archived'. default: open,acknowledged,closed
 
@@ -60,10 +60,6 @@ To filter issues by their update time (`updated_at`) use:
 
 * `updated_at_after`: only include issues where `updated_at` >= `updated_at_after`
 * `updated_at_before`: only include issues where `updated_at` < `updated_at_before`
-
-### Notes
-
-For performance reasons, results larger than 30 will be abbreviated.
 
 ### Examples
 
