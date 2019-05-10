@@ -37,27 +37,27 @@ developer-support@seeclickfix.com:
 1. Administrative Contact Name, Email, Phone
 1. The callback URI to be used during the authentication phase and token phase
 
-SeeClickFix will register the application and return an application id and secret.
+SeeClickFix will register the application and return an application id.
 The name of the application will be presented to users on authorization and
 deauthorization views and so should be selected such that users understand
 which application is accessing SeeClickFix services on their behalf.
 
-With the id and secret, authentication and API access can proceed as follows:
+With the client id, authentication and API access can proceed as follows using an OAuth Implicit Flow:
 
 1. Client Application initiates browser access to SCF authentication endpoint
 
 <pre class="terminal">
-https://seeclickfix.com/oauth/authorize?client_id=YOUR_CLIENT_ID&redirect_uri=YOUR_REDIRECT_URI&response_type=code
+https://seeclickfix.com/oauth/authorize?client_id=YOUR_CLIENT_ID&redirect_uri=YOUR_REDIRECT_URI&response_type=token
 </pre>
 
-2. SCF user enters SCF credentials and on success is redirected to Client Application Redirect URI with code
+2. SCF user enters SCF credentials and on success is redirected to Client Application Redirect URI which will include an access_token
 
-3. Client Application uses code to request access token from SCF token endpoint. [Doorkeeper example](https://github.com/doorkeeper-gem/doorkeeper/wiki/authorization-flow#requesting-the-access-token)
+3. Client Application can now make API requests on behalf of the user, by including user's access token. See [RFC 6750](http://tools.ietf.org/html/rfc6750#section-2.1) for options and detail for transmitting the access token to the API endpoints. One method is to send the access_token in the `Authentication` header:
 
 <pre class="terminal">
-https://seeclickfix.com/oauth/token?client_id=YOUR_CLIENT_ID&client_secret=YOUR_SECRET&redirect_uri=YOUR_REDIRECT_URI&code=RETURNED_CODE_FROM_STEP_3&grant_type=authorization_code
+Authentication: Bearer xxxxxxxxxxxxxxxxxxxx
 </pre>
 
-4. SCF returns access token to Client Application
+For more details see this [overview](https://auth0.com/docs/flows/concepts/implicit) of the implicit flow [RFC 6749, section 4.2](https://tools.ietf.org/html/rfc6749#section-4.2)
 
-5. Client Application can now make API requests on behalf of the user, by including user's access token. See [RFC 6750](http://tools.ietf.org/html/rfc6750#section-2.1) for options and detail for transmitting the access token to the API endpoints.
+For additional security we recommend sending a state nonce with the orginal authorize request and verifying that you get it back in the callback. This ensures that the response hasn't been intercepted by other apps on your mobile device, for example.  See this [article](https://auth0.com/docs/protocols/oauth2/oauth-state) for more details.
