@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="Content-Language" content="en-us" />
+  <meta http-equiv="imagetoolbar" content="false" />
+  <meta name="MSSmartTagsPreventParsing" content="true" />
+  <title></title>
+  <link rel="alternate" type="application/atom+xml" title="API Changes" href="/changes.atom" />
+  <link href="/css/reset.css" rel="stylesheet" type="text/css" />
+  <link href="/css/960.css" rel="stylesheet" type="text/css" />
+  <link href="/css/uv_active4d.css" rel="stylesheet" type="text/css" />
+  <link href="/shared/css/documentation.css" media="screen" rel="stylesheet" type="text/css">
+  <link href="/shared/css/pygments.css" media="screen" rel="stylesheet" type="text/css">
+  <script src="/shared/js/jquery.js" type="text/javascript"></script>
+  <script src="/shared/js/documentation.js" type="text/javascript"></script>
+</head>
+<body class="api">
+    <div id="header-wrapper">
+      <div id="header">
+        <div>
+          <a class="logo" href="/"><img src="/images/logo.png" alt="SeeClickFix API" /></a>
+          <ul class="nav">
+            <li><a href="/">v2 (current)</a></li>
+            <li><a href="http://seeclickfix.com" target="_blank">SeeClickFix.com</a></li>
+            <li><a href="http://seeclickfix.com/contact_us" target="_blank">Support</a></li>
+            <li><script async defer src="https://seeclickfix-api-slack.herokuapp.com/slackin.js"></script></li>
+          </ul>
+        </div>
+      </div><!-- #header -->
+    </div><!-- #header-wrapper -->
+
+    <div id="wrapper">
+      <div class="content">
+    <h1 id="api-recommendations">API Recommendations</h1>
+
+<p>This page describes the differences
+between the various APIs offered by SeeClickFix
+and provides some guidance
+regarding which API to use for different situtations.
+In addition to the
+two public APIS, partner organizations have access to a private
+organizational API also. The three APIs discussed here are:</p>
+
+<ul>
+  <li>Open311</li>
+  <li>SeeClickFix APIv2</li>
+  <li>SeeClickFix APIv2 for Organizations</li>
+</ul>
+
+<h2 id="open311">Open311</h2>
+
+<p>The Open311 API is a standards-compliant API that provides access
+to public issues on the SeeClickFix platform as well as the ability
+to report issues without needing to establish a SeeClickFix user
+account.
+The Open311 API is documented <a href="https://wiki.open311.org/GeoReport_v2/">here</a>.</p>
+
+<p>Some additional SeeClickFix specific details can be found <a href="https://seeclickfix.com/open311/v2">here</a>.</p>
+
+<p>Each organization has its own Open311 endpoint
+<a href="https://seeclickfix.com/open311/v2/:organization_id">(https://seeclickfix.com/open311/v2/:organization_id)</a>
+and an aggregate endpoint for all public issues on the SeeClickFix platform is available at
+<a href="https://seeclickfix.com/open311/v2">https://seeclickfix.com/open311/v2</a>
+with extensions for locating issues by location.</p>
+
+<h2 id="seeclickfix-apiv2">SeeClickFix APIv2</h2>
+
+<p>SeeClickFix APIv2 also provides access to public issues as well as
+features designed to be used by interactive issue reporting
+applications. It is geo-spatially organized rather than organized
+around individual organizations.</p>
+
+<p><a href="https://seeclickfix.com/api/v2">https://seeclickfix.com/api/v2</a> is the base URL for this API.
+See <a href="https://dev.seeclickfix.com">https://dev.seeclickfix.com</a> for documentation.</p>
+
+<p>Issues are viewable via this API without authorization but content
+creation and updates requires valid authentication.</p>
+
+<h2 id="seeclickfix-apiv2-for-organizations">SeeClickFix APIv2 for Organizations</h2>
+
+<p>This API is a variation of SeeClickFix APIv2 with
+endpoints scoped to individual organizations:</p>
+
+<pre><code>https://seeclickfix.com/api/v2/organizations/:organization_id
+</code></pre>
+
+<p>This API is the only one that provides access to private issues and
+other non-public content.  Access to this API must be authenticated
+and is only available to properly authorized members of the respective
+organizations.</p>
+
+<h1 id="choosing-an-api">Choosing an API</h1>
+
+<p>The following section reviews suggested uses for the APIs:</p>
+
+<ul>
+  <li>viewing public content</li>
+  <li>accessing API as a public user</li>
+  <li>viewing public and private content</li>
+  <li>accessing API as an organization user</li>
+</ul>
+
+<p>The difference between the three APIs are summarized in this table:</p>
+
+<style>
+table.withborder { border:1px solid black; }
+table.withborder { border-collapse: collapse; }
+table.withborder, table.withborder th, table.withborder td { border: 1px solid black; }
+table.withborder th, table.withborder td { border: 1px solid black; padding: 4px }
+table.withborder th { background-color: #eeeeee }
+</style>
+
+<table class="withborder">
+  <thead>
+    <tr>
+      <th>API</th>
+      <th>Public Only</th>
+      <th>Geo Scoped</th>
+      <th>Org Scoped</th>
+      <th>Private Content</th>
+      <th>Authentication</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Open311</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>not required</td>
+    </tr>
+    <tr>
+      <td>APIv2</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>no</td>
+      <td>required for creating/updating</td>
+    </tr>
+    <tr>
+      <td>APIv2 for Organizations</td>
+      <td>no</td>
+      <td>no</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>always required, organization members only</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="viewing-public-content">Viewing Public Content</h2>
+
+<p>All of the APIs can be used to view public issues.</p>
+
+<p>We recommend using the Open311 API where possible or SeeClickFix
+APIv2 if additional content such as public comments is of interest.
+These APIs are intentionally limited to public issues and public
+details.</p>
+
+<p>The Open311 API does not require any user authentication. See
+<a href="https://seeclickfix.com/open311/v2">https://seeclickfix.com/open311/v2</a>
+for documentation.</p>
+
+<p>SeeClickFix APIv2 does not require user authentication for viewing but
+does require authentication for creating or updating content. It
+can be used for accessing public issues, but it is scoped by geography
+and so can be more difficult to use than the Open311 API if the
+goal is to access issues associated with a particular organization.
+See <a href="https://dev.seeclickfix.com">https://dev.seeclickfix.com</a> for
+documentation.</p>
+
+<p>The organizational API is not recommended if the data is to be used
+for public display as this API includes access to private issues
+and extra attention must be paid to handling the private content.</p>
+
+<h2 id="accessing-api-as-a-public-user">Accessing API as a Public User</h2>
+
+<p>The Open311 API and SeeClickFix APIv2 can be used to report a new
+issue as a public user. Open311 does not require authentication
+while APIv2 does. APIv2 for Organizations is restricted to members
+of an organization and is should not be used to report an issue
+as a public user.</p>
+
+<h2 id="viewing-public-and-private-content">Viewing Public and Private Content</h2>
+
+<p>The only API that allows access to private content is APIv2 for
+Organizations.</p>
+
+<p>In order to access the organizational API, the API client must be
+authenticated as a member of the organization. We recommend that
+API clients be associated with their own user rather than re-using
+a real person’s user id. This “API user” must be added as a member
+of the organization in order to utilize the organizational API and
+will be counted towards any user license limits.</p>
+
+<p>The documentation at <code>dev.seeclickfix.com</code> should be used for
+accessing the organizational API but with the understanding that
+the organizational endpoint is of the form
+<a href="https://seeclickfix.com/api/v2/organizations/:organization_id">https://seeclickfix.com/api/v2/organizations/:organization_id</a>
+where <code>:organization_id</code> is the account id for the partner.</p>
+
+<p>The membership role associated with an API user controls what content
+can be accessed, created, or updated by the API user via the
+organizational API. We recommend that the user be given the limited
+role of an “internal user” and not “owner” or “manager” when
+the API user isn’t creating or updating content.</p>
+
+<h3 id="rd-party-access-considerations">3rd Party Access Considerations</h3>
+
+<p>Some partner organizations may want to allow a 3rd party tool to
+have access to their data via the SeeClickFix APIs. Partners should
+review the following considerations in these circumstances.</p>
+
+<p>Partners are always responsible for adding users to their membership
+roster when needed for API access. SeeClickFix employees are not
+authorized to create members or provide access to credentials
+(passwords) for API access.</p>
+
+<p>If API access is granted to a 3rd party (by adding an API user as
+a member of an organization), the partner is responsible for the actions
+of the 3rd party API client including ensuring that any information
+is used according to all applicable privacy policies and terms of
+use. We strongly recommend using the Open311 API or SeeClickFix
+APIv2 to access content wherever possible to avoid the complications
+associated with private content (private issues, internal comments,
+PII information etc.).</p>
+
+<h2 id="accessing-apis-as-an-organization-user">Accessing APIs as an Organization User</h2>
+
+<p>Open311 can not be used as an organizational member as
+no user authentication is supported.</p>
+
+<p>APIv2 can be used as a member of an organization but access as a
+member only provides access to a few additional capabilities. Those
+capabilities include access to internal request categories and questions
+as well as transitioning an issue to and from the Acknowledged state.</p>
+
+<p>APIv2 for Organizations can only be used by authenticated organization
+members according to their membership role. It is designed to to be
+used by the organization for automation or integration purposes.</p>
+
+<h3 id="apiv2-for-organizations-details">APIv2 for Organizations Details</h3>
+
+<p>When creating content via APIv2 for Organizations, the new content
+(service requests, comments, etc.) will be associated with the
+authentiated as with basic APIv2. In addition, during issue reporting,
+it is possible for an authenticated API client to create an issue on
+behalf of another user. For example, an API client can authenticate
+as an autmated “API user” but create issues with staff members as
+the reporter of record.</p>
+
+<h4 id="choosing-an-authentication-method">Choosing an Authentication Method</h4>
+
+<p>Choosing an authentication method is important to ensure that
+appropriate authorization controls are in place and that created
+content is associated with intended user.</p>
+
+<h4 id="single-user-access-basic-authentication">Single User Access: Basic Authentication</h4>
+
+<p>If the API client is always going to interact with the API as the
+same user, such as with an automated system, then Basic Authentication
+can be used to gain authenticated access to the organizational API.
+The user should be configured with an appropriate membership role for
+its purpose (“internal only”, “manager”, etc.).</p>
+
+<p>For the special case of creating an issue, it is possible to use
+the organizational API to create an issue on behalf of a different
+member of the organization. In this case the API client is recorded
+as creating the issue but the other user is recorded as being the
+reporter for the issue, which allows the other user to interact
+with the issue as if they had created it. This can be particularly
+useful for private issues. TODO</p>
+
+<h4 id="multi-user-access-oauth-authentication">Multi-User Access: OAuth Authentication</h4>
+
+<p>If the API client is going to create or update content on behalf
+of multiple organizational users (for example integrating SCF
+reporting into another application) where the actual user is available
+to login as needed, then OAuth authentication should be used. Details
+on establishing an OAuth application ID can be found at
+dev.seeclickfix.com. This method is appropriate when the API client
+needs to present itself as different users to the API and is more
+common when the API client is a website or native app that is being
+used by multiple users as opposed to an API client that is being used
+by an automated system.</p>
+
+
+      </div>
+
+    <div id="js-sidebar" class="sidebar-shell">
+      <div class="js-toggle-list sidebar-module expandable">
+        <ul>
+
+          <li class="js-topic">
+            <h3><a href="#" class="js-expand-btn collapsed">&nbsp;</a><a href="/v2/">Overview</a></h3>
+              <ul class="js-guides">
+                <li><a href="/v2/overview/authentication/">Authentication</a></li>
+                <li><a href="/v2/overview/libraries/">Libraries</a></li>
+                <li><a href="/v2/overview/about/">Reading this Document</a></li>
+            </ul>
+          </li>
+
+          <li class="js-topic">
+            <h3><a href="#" class="js-expand-btn collapsed">&nbsp;</a><a href="/v2/issues/">Issues</a></h3>
+            <ul class="js-guides">
+              <li><a href="/v2/issues/reporting/">Reporting an Issue</a></li>
+              <li><a href="/v2/issues/comments/">Comments</a></li>
+              <li><a href="/v2/issues/changing_status/">Changing Status</a></li>
+              <li><a href="/v2/issues/vote/">Vote</a></li>
+              <li><a href="/v2/issues/follow/">Follow</a></li>
+              <li><a href="/v2/issues/flagging/">Flagging Content</a></li>
+            </ul>
+          </li>
+
+          <li class="js-topic">
+            <h3><a href="#" class="js-expand-btn collapsed">&nbsp;</a><a href="/v2/users/">Users</a></h3>
+            <ul class="js-guides">
+              <li><a href="/v2/users/emails/">Emails</a></li>
+            </ul>
+          </li>
+
+          <li class="js-topic">
+            <h3><a href="#" class="js-expand-btn collapsed">&nbsp;</a><a href="/v2/places/">Places</a></h3>
+          </li>
+
+
+          <li class="js-topic">
+            <h3><a href="#" class="js-expand-btn collapsed">&nbsp;</a><a href="/v2/questions/">Questions</a></h3>
+            <ul class="js-guides">
+              <li><a href="/v2/questions/answers/">Answers</a></li>
+            </ul>
+          </li>
+
+        </ul>
+      </div> <!-- /sidebar-module -->
+      <div class="sidebar-module">
+        <p>This website is a <a href="https://github.com/SeeClickFix/dev.seeclickfix.com" target="_blank">public GitHub repository</a>. Please help us by forking the project and adding to it.</p>
+      </div>
+
+      <div class="sidebar-module">
+        <!-- SCF API Slack badge -->
+        <p>Developers, looking to share ideas or ask questions about the SCF API? Join the Slack channel!<br/><br/>
+        <script async defer src="https://seeclickfix-api-slack.herokuapp.com/slackin.js?large"></script></p>
+      </div>
+
+    </div><!-- /sidebar-shell -->
+
+    </div><!-- #wrapper -->
+
+    <div id="footer" >
+      <div class="lower_footer">
+        <div class="footer_inner clearfix">
+            <div id="legal">
+              <p>&copy; <span id="year">year</span> SeeClickFix All rights reserved.</p>
+            </div><!-- /#legal or /#legal_ie-->
+        </div><!-- /.site -->
+      </div><!-- /.lower_footer -->
+    </div><!-- /#footer -->
+</body>
+</html>
