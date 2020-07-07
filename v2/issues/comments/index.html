@@ -62,8 +62,6 @@
   <li>
 <strong>image</strong> - An image of the problem. Limited to 20Mb. Must be png, jpeg, or gif format.</li>
   <li>
-<strong>video</strong> - A video of the problem. Limited to 20Mb.</li>
-  <li>
 <strong>youtube_url</strong> - A link to a youtube video showing the problem.</li>
   <li>
 <strong>device_id</strong> - A unique identifier for the device creating the comment. This can help us debug problems.</li>
@@ -112,14 +110,13 @@ $ curl -i \
 
 <h3 id="example-with-media">Example, with media</h3>
 
-<p>If you want to attach a image or video or both to your comment, you must use multipart form data not json. Here is an example including both:</p>
+<p>If you want to attach a image to your comment, you must use multipart form data not json.</p>
 
 <pre class="terminal">
 $ curl -i \
        --header "Content-Type: multipart/form-data" \
        --data "comment=pools+are+nice" \
        --data "image=@photo.png" \
-       --data "video=@video.mp4" \
        https://seeclickfix.com/api/v2/issues/1/comments
 </pre>
 

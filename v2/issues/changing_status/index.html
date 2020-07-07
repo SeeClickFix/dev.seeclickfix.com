@@ -41,11 +41,11 @@
   <li><a href="#acknowledge-an-issue">Acknowledge an Issue</a></li>
 </ul>
 
-<p>Any authenticated user can change the status of an issue from Open to Closed and Closed to Open. Only government employees can change the status from Open to Acknowledged and Acknowledged to Closed. To check if the current user has this permission visit the <a href="/v2/users/#show-current-user">current user</a> page. Issues are Archived after being Closed for 7 days. The status can not change for Archived issues. </p>
+<p>Any authenticated user can change the status of an issue from Open to Closed and Closed to Open. Only government employees can change the status from Open to Acknowledged and Acknowledged to Closed. To check if the current user has this permission visit the <a href="/v2/users/#show-current-user">current user</a> page. Issues are Archived after being Closed for 7 days. The status can not change for Archived issues.</p>
 
 <h2 id="close-an-issue">Close an Issue</h2>
 
-<p>Changing the status of an issue is similar to adding a comment on an issue. </p>
+<p>Changing the status of an issue is similar to adding a comment on an issue.</p>
 
 <pre><code>POST /issues/&lt;issue_id&gt;/close
 </code></pre>
@@ -62,8 +62,6 @@
 <ul>
   <li>
 <strong>image</strong> - An image of the problem. Limited to 20Mb.</li>
-  <li>
-<strong>video</strong> - A video of the problem. Limited to 20Mb.</li>
   <li>
 <strong>youtube_url</strong> - A link to a youtube video showing the problem.</li>
 </ul>
@@ -110,20 +108,19 @@ $ curl -i \
 
 <h3 id="example-with-media">Example, with media</h3>
 
-<p>If you want to attach a image or video or both to your comment, you must use multipart form data not json. Here is an example including both:</p>
+<p>If you want to attach a image to your comment, you must use multipart form data not json.</p>
 
 <pre class="terminal" id="with_media">
 $ curl -i \
        --header "Content-Type: multipart/form-data" \
        --data "comment=Pothole+is+gone" \
        --data "image=@photo.png" \
-       --data "video=@video.mp4" \
        https://seeclickfix.com/api/v2/issues/1/close
 </pre>
 
 <h2 id="reopen-an-issue">Reopen an Issue</h2>
 
-<p>Changing the status of an issue is similar to adding a comment on an issue. </p>
+<p>Changing the status of an issue is similar to adding a comment on an issue.</p>
 
 <pre><code>POST /issues/&lt;issue_id&gt;/open
 </code></pre>
@@ -140,8 +137,6 @@ $ curl -i \
 <ul>
   <li>
 <strong>image</strong> - An image of the problem. Limited to 20Mb.</li>
-  <li>
-<strong>video</strong> - A video of the problem. Limited to 20Mb.</li>
   <li>
 <strong>youtube_url</strong> - A link to a youtube video showing the problem.</li>
 </ul>
@@ -190,7 +185,7 @@ $ curl -i \
 
 <h2 id="acknowledge-an-issue">Acknowledge an Issue</h2>
 
-<p>Changing the status of an issue is similar to adding a comment on an issue. </p>
+<p>Changing the status of an issue is similar to adding a comment on an issue.</p>
 
 <pre><code>POST /issues/&lt;issue_id&gt;/acknowledge
 </code></pre>
@@ -207,8 +202,6 @@ $ curl -i \
 <ul>
   <li>
 <strong>image</strong> - An image of the problem. Limited to 20Mb.</li>
-  <li>
-<strong>video</strong> - A video of the problem. Limited to 20Mb.</li>
   <li>
 <strong>youtube_url</strong> - A link to a youtube video showing the problem.</li>
 </ul>
