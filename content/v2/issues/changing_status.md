@@ -7,11 +7,11 @@ title: API v2 - Issues - Changing Status
 * TOC
 {:toc}
 
-Any authenticated user can change the status of an issue from Open to Closed and Closed to Open. Only government employees can change the status from Open to Acknowledged and Acknowledged to Closed. To check if the current user has this permission visit the <a href="/v2/users/#show-current-user">current user</a> page. Issues are Archived after being Closed for 7 days. The status can not change for Archived issues. 
+Any authenticated user can change the status of an issue from Open to Closed and Closed to Open. Only government employees can change the status from Open to Acknowledged and Acknowledged to Closed. To check if the current user has this permission visit the <a href="/v2/users/#show-current-user">current user</a> page. Issues are Archived after being Closed for 7 days. The status can not change for Archived issues.
 
 ## Close an Issue
 
-Changing the status of an issue is similar to adding a comment on an issue. 
+Changing the status of an issue is similar to adding a comment on an issue.
 
     POST /issues/<issue_id>/close
 
@@ -22,7 +22,6 @@ Changing the status of an issue is similar to adding a comment on an issue.
 ### Optional Parameters
 
 * **image** - An image of the problem. Limited to 20Mb.
-* **video** - A video of the problem. Limited to 20Mb.
 * **youtube_url** - A link to a youtube video showing the problem.
 
 ### Example
@@ -41,21 +40,20 @@ $ curl -i \
 
 ### Example, with media
 
-If you want to attach a image or video or both to your comment, you must use multipart form data not json. Here is an example including both:
+If you want to attach a image to your comment, you must use multipart form data not json.
 
 <pre class="terminal" id="with_media">
 $ curl -i \
        --header "Content-Type: multipart/form-data" \
        --data "comment=Pothole+is+gone" \
        --data "image=@photo.png" \
-       --data "video=@video.mp4" \
        <%= root_version_url %>/issues/1/close
 </pre>
 
 
 ## Reopen an Issue
 
-Changing the status of an issue is similar to adding a comment on an issue. 
+Changing the status of an issue is similar to adding a comment on an issue.
 
     POST /issues/<issue_id>/open
 
@@ -66,7 +64,6 @@ Changing the status of an issue is similar to adding a comment on an issue.
 ### Optional Parameters
 
 * **image** - An image of the problem. Limited to 20Mb.
-* **video** - A video of the problem. Limited to 20Mb.
 * **youtube_url** - A link to a youtube video showing the problem.
 
 ### Example
@@ -87,7 +84,7 @@ Media can be attached the same way as [closing comments](#with_media)
 
 ## Acknowledge an Issue
 
-Changing the status of an issue is similar to adding a comment on an issue. 
+Changing the status of an issue is similar to adding a comment on an issue.
 
     POST /issues/<issue_id>/acknowledge
 
@@ -98,7 +95,6 @@ Changing the status of an issue is similar to adding a comment on an issue.
 ### Optional Parameters
 
 * **image** - An image of the problem. Limited to 20Mb.
-* **video** - A video of the problem. Limited to 20Mb.
 * **youtube_url** - A link to a youtube video showing the problem.
 
 ### Example
