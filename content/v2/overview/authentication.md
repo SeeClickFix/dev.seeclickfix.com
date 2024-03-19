@@ -10,8 +10,11 @@ SeeClickFix currently supports the following authentication methods for access t
 
 ### HTTP Basic Authentication
 
-This method is appropriate when the client has direct access to user credentials (username
-and password).
+This method is appropriate when the client has direct access to
+user credentials (username and password), which is typical for
+automated access to our APIs. We strongly recommend that a separate
+user account be utilized for automated API access rather than re-using
+a user account associated with a person.
 
 <pre class="terminal">
 $ curl -u "email@example.com:password" <%= root_version_url %>/profile
@@ -22,7 +25,7 @@ $ curl -u "email@example.com:password" <%= root_version_url %>/profile
 This method is appropriate when the client application is being used by multiple users
 and the user's credentials should not be shared with the client directly.
 
-SeeClickFix supports OAuth2's "authorization code flow" as documented in [RFC 6749](https://tools.ietf.org/html/rfc6749#section-4.1)
+SeeClickFix supports OAuth2's "authorization code flow" as documented in [RFC 6749](https://tools.ietf.org/html/rfc6749#section-4.1). Other OAuth authentication flows are not currently supported. We do not recommend using OAuth access for automated access to our APIs (see Basic Authentication above).
 
 The [Doorkeeper documentation](https://github.com/doorkeeper-gem/doorkeeper/wiki/authorization-flow) provides some easier to read information regarding the sequence of API calls.
 
