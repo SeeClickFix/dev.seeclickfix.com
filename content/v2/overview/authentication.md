@@ -5,17 +5,23 @@ title: API v2 - Overview - Authentication
 # Authentication
 
 SeeClickFix currently supports the following authentication methods for access to API v2.
-1. HTTP Basic Authentication
+1. Token Authentication
 1. OAauth2 Authentication
 
-### HTTP Basic Authentication
+### Token Authentication
+This method is appropriate for API access. It is a secret that is included as a request header.
 
-This method is appropriate when the client has direct access to user credentials (username
-and password).
+Header Format:
+<pre class="terminal">
+Authorization: Bearer [token]
+</pre>
+
+To create and manage Bearer Tokens for Authentication, visit [Password & Security](https://account.civicplus.com/security) and go to the Personal Access Token section. Personal Access Tokens are Bearer Tokens.
 
 <pre class="terminal">
-$ curl -u "email@example.com:password" <%= root_version_url %>/profile
+$ curl -i https://seeclickfix.com/api/v2/profile -H "Authorization: Bearer test-08/12/2024-01/01/2025-xxxxxxxxxxxxxx"
 </pre>
+
 
 ### OAuth2 Authentication
 
