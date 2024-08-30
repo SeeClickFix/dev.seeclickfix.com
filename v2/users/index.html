@@ -24,7 +24,6 @@
             <li><a href="/">v2 (current)</a></li>
             <li><a href="http://seeclickfix.com" target="_blank">SeeClickFix.com</a></li>
             <li><a href="http://seeclickfix.com/contact_us" target="_blank">Support</a></li>
-            <li><script async defer src="https://seeclickfix-api-slack.herokuapp.com/slackin.js"></script></li>
           </ul>
         </div>
       </div><!-- #header -->
@@ -36,11 +35,11 @@
 <h1 id="users">Users</h1>
 
 <ul id="markdown-toc">
-  <li><a href="#show-current-user">Show Current User</a></li>
-  <li><a href="#show-user-by-id">Show User by Id</a></li>
-  <li><a href="#list-users">List Users</a></li>
-  <li><a href="#register">Register</a></li>
-  <li><a href="#update-user-settings">Update User Settings</a></li>
+  <li><a href="#show-current-user" id="markdown-toc-show-current-user">Show Current User</a></li>
+  <li><a href="#show-user-by-id" id="markdown-toc-show-user-by-id">Show User by Id</a></li>
+  <li><a href="#list-users" id="markdown-toc-list-users">List Users</a></li>
+  <li><a href="#register" id="markdown-toc-register">Register</a></li>
+  <li><a href="#update-user-settings" id="markdown-toc-update-user-settings">Update User Settings</a></li>
 </ul>
 
 <h2 id="show-current-user">Show Current User</h2>
@@ -61,24 +60,24 @@ $ curl -i https://seeclickfix.com/api/v2/profile
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
-  <span class="s2">"avatar"</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">"full"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg"</span><span class="p">,</span>
-    <span class="s2">"square_100x100"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg"</span>
-  <span class="p">},</span>
-  <span class="s2">"civic_points"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
-  <span class="s2">"closed_issue_count"</span><span class="o">:</span> <span class="mi">27</span><span class="p">,</span>
-  <span class="s2">"comments_count"</span><span class="o">:</span> <span class="mi">62</span><span class="p">,</span>
-  <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2011-03-22T17:04:31-04:00"</span><span class="p">,</span>
-  <span class="s2">"following_issue_count"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
-  <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-  <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"captainkickstand"</span><span class="p">,</span>
-  <span class="s2">"permissions"</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">"can_acknowledge"</span><span class="o">:</span> <span class="kc">false</span>
-  <span class="p">},</span>
-  <span class="s2">"reported_issue_count"</span><span class="o">:</span> <span class="mi">25</span><span class="p">,</span>
-  <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2014-03-10T07:28:35-04:00"</span><span class="p">,</span>
-  <span class="s2">"voted_issue_count"</span><span class="o">:</span> <span class="mi">31</span><span class="p">,</span>
-  <span class="s2">"witty_title"</span><span class="o">:</span> <span class="s2">"Street Smart"</span>
+<span class="w">  </span><span class="s2">"avatar"</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s2">"full"</span><span class="o">:</span><span class="w"> </span><span class="s2">"http://seeclickfix.com/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"square_100x100"</span><span class="o">:</span><span class="w"> </span><span class="s2">"http://seeclickfix.com/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg"</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="s2">"civic_points"</span><span class="o">:</span><span class="w"> </span><span class="mf">10</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"closed_issue_count"</span><span class="o">:</span><span class="w"> </span><span class="mf">27</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"comments_count"</span><span class="o">:</span><span class="w"> </span><span class="mf">62</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"created_at"</span><span class="o">:</span><span class="w"> </span><span class="s2">"2011-03-22T17:04:31-04:00"</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"following_issue_count"</span><span class="o">:</span><span class="w"> </span><span class="mf">10</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"id"</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"name"</span><span class="o">:</span><span class="w"> </span><span class="s2">"captainkickstand"</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"permissions"</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s2">"can_acknowledge"</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="s2">"reported_issue_count"</span><span class="o">:</span><span class="w"> </span><span class="mf">25</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"updated_at"</span><span class="o">:</span><span class="w"> </span><span class="s2">"2014-03-10T07:28:35-04:00"</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"voted_issue_count"</span><span class="o">:</span><span class="w"> </span><span class="mf">31</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"witty_title"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Street Smart"</span>
 <span class="p">}</span></code></pre>
 
 <p>If the user is not logged in.</p>
@@ -86,7 +85,7 @@ $ curl -i https://seeclickfix.com/api/v2/profile
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
-  <span class="s2">"id"</span><span class="o">:</span> <span class="kc">null</span>
+<span class="w">  </span><span class="s2">"id"</span><span class="o">:</span><span class="w"> </span><span class="kc">null</span>
 <span class="p">}</span></code></pre>
 
 <h2 id="show-user-by-id">Show User by Id</h2>
@@ -105,24 +104,24 @@ $ curl -i https://seeclickfix.com/api/v2/users/1
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
-  <span class="s2">"avatar"</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">"full"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg"</span><span class="p">,</span>
-    <span class="s2">"square_100x100"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg"</span>
-  <span class="p">},</span>
-  <span class="s2">"civic_points"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
-  <span class="s2">"closed_issue_count"</span><span class="o">:</span> <span class="mi">27</span><span class="p">,</span>
-  <span class="s2">"comments_count"</span><span class="o">:</span> <span class="mi">62</span><span class="p">,</span>
-  <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2011-03-22T17:04:31-04:00"</span><span class="p">,</span>
-  <span class="s2">"following_issue_count"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
-  <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-  <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"captainkickstand"</span><span class="p">,</span>
-  <span class="s2">"permissions"</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">"can_acknowledge"</span><span class="o">:</span> <span class="kc">false</span>
-  <span class="p">},</span>
-  <span class="s2">"reported_issue_count"</span><span class="o">:</span> <span class="mi">25</span><span class="p">,</span>
-  <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2014-03-10T07:28:35-04:00"</span><span class="p">,</span>
-  <span class="s2">"voted_issue_count"</span><span class="o">:</span> <span class="mi">31</span><span class="p">,</span>
-  <span class="s2">"witty_title"</span><span class="o">:</span> <span class="s2">"Street Smart"</span>
+<span class="w">  </span><span class="s2">"avatar"</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s2">"full"</span><span class="o">:</span><span class="w"> </span><span class="s2">"http://seeclickfix.com/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"square_100x100"</span><span class="o">:</span><span class="w"> </span><span class="s2">"http://seeclickfix.com/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg"</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="s2">"civic_points"</span><span class="o">:</span><span class="w"> </span><span class="mf">10</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"closed_issue_count"</span><span class="o">:</span><span class="w"> </span><span class="mf">27</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"comments_count"</span><span class="o">:</span><span class="w"> </span><span class="mf">62</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"created_at"</span><span class="o">:</span><span class="w"> </span><span class="s2">"2011-03-22T17:04:31-04:00"</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"following_issue_count"</span><span class="o">:</span><span class="w"> </span><span class="mf">10</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"id"</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"name"</span><span class="o">:</span><span class="w"> </span><span class="s2">"captainkickstand"</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"permissions"</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s2">"can_acknowledge"</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="s2">"reported_issue_count"</span><span class="o">:</span><span class="w"> </span><span class="mf">25</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"updated_at"</span><span class="o">:</span><span class="w"> </span><span class="s2">"2014-03-10T07:28:35-04:00"</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"voted_issue_count"</span><span class="o">:</span><span class="w"> </span><span class="mf">31</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"witty_title"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Street Smart"</span>
 <span class="p">}</span></code></pre>
 
 <h3 id="errors">Errors</h3>
@@ -166,42 +165,42 @@ $ curl -i https://seeclickfix.com/api/v2/users?address=New+Haven,+CT
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
-  <span class="s2">"errors"</span><span class="o">:</span> <span class="p">{</span>
+<span class="w">  </span><span class="s2">"errors"</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
 
-  <span class="p">},</span>
-  <span class="s2">"metadata"</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">"pagination"</span><span class="o">:</span> <span class="p">{</span>
-      <span class="s2">"next_page"</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
-      <span class="s2">"next_page_url"</span><span class="o">:</span> <span class="s2">"https://seeclickfix.com/api/api/v2/&lt;ENDPOINT&gt;?page=2"</span><span class="p">,</span>
-      <span class="s2">"page"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-      <span class="s2">"pages"</span><span class="o">:</span> <span class="mi">40457</span><span class="p">,</span>
-      <span class="s2">"per_page"</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span>
-      <span class="s2">"previous_page"</span><span class="o">:</span> <span class="s2">"null"</span><span class="p">,</span>
-      <span class="s2">"previous_page_url"</span><span class="o">:</span> <span class="s2">"null"</span>
-    <span class="p">}</span>
-  <span class="p">},</span>
-  <span class="s2">"users"</span><span class="o">:</span> <span class="p">[</span>
-    <span class="p">{</span>
-      <span class="s2">"avatar"</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s2">"full"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg"</span><span class="p">,</span>
-        <span class="s2">"square_100x100"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg"</span>
-      <span class="p">},</span>
-      <span class="s2">"civic_points"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
-      <span class="s2">"closed_issue_count"</span><span class="o">:</span> <span class="mi">27</span><span class="p">,</span>
-      <span class="s2">"comments_count"</span><span class="o">:</span> <span class="mi">62</span><span class="p">,</span>
-      <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2011-03-22T17:04:31-04:00"</span><span class="p">,</span>
-      <span class="s2">"following_issue_count"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
-      <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-      <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"captainkickstand"</span><span class="p">,</span>
-      <span class="s2">"permissions"</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s2">"can_acknowledge"</span><span class="o">:</span> <span class="kc">false</span>
-      <span class="p">},</span>
-      <span class="s2">"reported_issue_count"</span><span class="o">:</span> <span class="mi">25</span><span class="p">,</span>
-      <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2014-03-10T07:28:35-04:00"</span><span class="p">,</span>
-      <span class="s2">"voted_issue_count"</span><span class="o">:</span> <span class="mi">31</span><span class="p">,</span>
-      <span class="s2">"witty_title"</span><span class="o">:</span> <span class="s2">"Street Smart"</span>
-    <span class="p">}</span>
-  <span class="p">]</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="s2">"metadata"</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s2">"pagination"</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="s2">"next_page"</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"next_page_url"</span><span class="o">:</span><span class="w"> </span><span class="s2">"https://seeclickfix.com/api/api/v2/&lt;ENDPOINT&gt;?page=2"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"page"</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"pages"</span><span class="o">:</span><span class="w"> </span><span class="mf">40457</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"per_page"</span><span class="o">:</span><span class="w"> </span><span class="mf">20</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"previous_page"</span><span class="o">:</span><span class="w"> </span><span class="s2">"null"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"previous_page_url"</span><span class="o">:</span><span class="w"> </span><span class="s2">"null"</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="s2">"users"</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="s2">"avatar"</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="s2">"full"</span><span class="o">:</span><span class="w"> </span><span class="s2">"http://seeclickfix.com/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"square_100x100"</span><span class="o">:</span><span class="w"> </span><span class="s2">"http://seeclickfix.com/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg"</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="s2">"civic_points"</span><span class="o">:</span><span class="w"> </span><span class="mf">10</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"closed_issue_count"</span><span class="o">:</span><span class="w"> </span><span class="mf">27</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"comments_count"</span><span class="o">:</span><span class="w"> </span><span class="mf">62</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"created_at"</span><span class="o">:</span><span class="w"> </span><span class="s2">"2011-03-22T17:04:31-04:00"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"following_issue_count"</span><span class="o">:</span><span class="w"> </span><span class="mf">10</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"id"</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"name"</span><span class="o">:</span><span class="w"> </span><span class="s2">"captainkickstand"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"permissions"</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="s2">"can_acknowledge"</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="s2">"reported_issue_count"</span><span class="o">:</span><span class="w"> </span><span class="mf">25</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"updated_at"</span><span class="o">:</span><span class="w"> </span><span class="s2">"2014-03-10T07:28:35-04:00"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"voted_issue_count"</span><span class="o">:</span><span class="w"> </span><span class="mf">31</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"witty_title"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Street Smart"</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
 <span class="p">}</span></code></pre>
 
 <h3 id="errors-1">Errors</h3>
@@ -211,8 +210,8 @@ $ curl -i https://seeclickfix.com/api/v2/users?address=New+Haven,+CT
 <pre class="headers"><code>Status: 400 Bad Request</code></pre>
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
-  <span class="s2">"message"</span><span class="o">:</span> <span class="s2">"Point missing from request."</span><span class="p">,</span>
-  <span class="s2">"documentation_url"</span><span class="o">:</span> <span class="s2">"http://dev.seeclickfix.com"</span>
+<span class="w">  </span><span class="s2">"message"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Point missing from request."</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"documentation_url"</span><span class="o">:</span><span class="w"> </span><span class="s2">"http://dev.seeclickfix.com"</span>
 <span class="p">}</span></code></pre>
 
 <h2 id="register">Register</h2>
@@ -229,7 +228,8 @@ $ curl -i https://seeclickfix.com/api/v2/users?address=New+Haven,+CT
   <li>email - Can’t be blank.</li>
   <li>password - Must be between 4 and 40 characters long.</li>
   <li>password_confirmation - Must be equal to password above.</li>
-  <li>accept_terms - Must be set to ‘true’. Confirms user has read <a href="http://seeclickfix.com/registration/new">http://seeclickfix.com/registration/new</a> </li>
+  <li>accept_terms - Must be set to ‘true’. Confirms user has read <a href="http://seeclickfix.com/registration/new">http://seeclickfix.com/registration/new</a>
+</li>
 </ul>
 
 <h3 id="optional-parameters-1">Optional Parameters</h3>
@@ -248,24 +248,24 @@ $ curl -i https://seeclickfix.com/api/v2/users
 <pre class="headers"><code>Status: 201 Created</code></pre>
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
-  <span class="s2">"avatar"</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">"full"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg"</span><span class="p">,</span>
-    <span class="s2">"square_100x100"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg"</span>
-  <span class="p">},</span>
-  <span class="s2">"civic_points"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
-  <span class="s2">"closed_issue_count"</span><span class="o">:</span> <span class="mi">27</span><span class="p">,</span>
-  <span class="s2">"comments_count"</span><span class="o">:</span> <span class="mi">62</span><span class="p">,</span>
-  <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2011-03-22T17:04:31-04:00"</span><span class="p">,</span>
-  <span class="s2">"following_issue_count"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
-  <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-  <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"captainkickstand"</span><span class="p">,</span>
-  <span class="s2">"permissions"</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">"can_acknowledge"</span><span class="o">:</span> <span class="kc">false</span>
-  <span class="p">},</span>
-  <span class="s2">"reported_issue_count"</span><span class="o">:</span> <span class="mi">25</span><span class="p">,</span>
-  <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2014-03-10T07:28:35-04:00"</span><span class="p">,</span>
-  <span class="s2">"voted_issue_count"</span><span class="o">:</span> <span class="mi">31</span><span class="p">,</span>
-  <span class="s2">"witty_title"</span><span class="o">:</span> <span class="s2">"Street Smart"</span>
+<span class="w">  </span><span class="s2">"avatar"</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s2">"full"</span><span class="o">:</span><span class="w"> </span><span class="s2">"http://seeclickfix.com/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"square_100x100"</span><span class="o">:</span><span class="w"> </span><span class="s2">"http://seeclickfix.com/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg"</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="s2">"civic_points"</span><span class="o">:</span><span class="w"> </span><span class="mf">10</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"closed_issue_count"</span><span class="o">:</span><span class="w"> </span><span class="mf">27</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"comments_count"</span><span class="o">:</span><span class="w"> </span><span class="mf">62</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"created_at"</span><span class="o">:</span><span class="w"> </span><span class="s2">"2011-03-22T17:04:31-04:00"</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"following_issue_count"</span><span class="o">:</span><span class="w"> </span><span class="mf">10</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"id"</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"name"</span><span class="o">:</span><span class="w"> </span><span class="s2">"captainkickstand"</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"permissions"</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s2">"can_acknowledge"</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="s2">"reported_issue_count"</span><span class="o">:</span><span class="w"> </span><span class="mf">25</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"updated_at"</span><span class="o">:</span><span class="w"> </span><span class="s2">"2014-03-10T07:28:35-04:00"</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"voted_issue_count"</span><span class="o">:</span><span class="w"> </span><span class="mf">31</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"witty_title"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Street Smart"</span>
 <span class="p">}</span></code></pre>
 
 <h3 id="errors-2">Errors</h3>
@@ -275,9 +275,9 @@ $ curl -i https://seeclickfix.com/api/v2/users
 <pre class="headers"><code>Status: 422 Unprocessable Entity</code></pre>
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
-  <span class="s2">"errors"</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">"login"</span><span class="o">:</span> <span class="s2">"can't be blank."</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="s2">"errors"</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s2">"login"</span><span class="o">:</span><span class="w"> </span><span class="s2">"can't be blank."</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span></code></pre>
 
 <h2 id="update-user-settings">Update User Settings</h2>
@@ -285,7 +285,7 @@ $ curl -i https://seeclickfix.com/api/v2/users
 <pre><code>PUT https://seeclickfix.com/api/v2/profile
 </code></pre>
 
-<p>Updates the settings for the current user. </p>
+<p>Updates the settings for the current user.</p>
 
 <h3 id="required-parameters-2">Required Parameters</h3>
 
@@ -294,7 +294,8 @@ $ curl -i https://seeclickfix.com/api/v2/users
   <li>email - Can’t be blank.</li>
   <li>password - Must be between 4 and 40 characters long.</li>
   <li>password_confirmation - Must be equal to password above.</li>
-  <li>accept_terms - Must be set to ‘true’. Confirms user has read <a href="http://seeclickfix.com/registration/new">http://seeclickfix.com/registration/new</a> </li>
+  <li>accept_terms - Must be set to ‘true’. Confirms user has read <a href="http://seeclickfix.com/registration/new">http://seeclickfix.com/registration/new</a>
+</li>
 </ul>
 
 <h3 id="optional-parameters-2">Optional Parameters</h3>
@@ -313,24 +314,24 @@ $ curl -i https://seeclickfix.com/api/v2/profile
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
-  <span class="s2">"avatar"</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">"full"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg"</span><span class="p">,</span>
-    <span class="s2">"square_100x100"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg"</span>
-  <span class="p">},</span>
-  <span class="s2">"civic_points"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
-  <span class="s2">"closed_issue_count"</span><span class="o">:</span> <span class="mi">27</span><span class="p">,</span>
-  <span class="s2">"comments_count"</span><span class="o">:</span> <span class="mi">62</span><span class="p">,</span>
-  <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2011-03-22T17:04:31-04:00"</span><span class="p">,</span>
-  <span class="s2">"following_issue_count"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
-  <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-  <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"captainkickstand"</span><span class="p">,</span>
-  <span class="s2">"permissions"</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">"can_acknowledge"</span><span class="o">:</span> <span class="kc">false</span>
-  <span class="p">},</span>
-  <span class="s2">"reported_issue_count"</span><span class="o">:</span> <span class="mi">25</span><span class="p">,</span>
-  <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2014-03-10T07:28:35-04:00"</span><span class="p">,</span>
-  <span class="s2">"voted_issue_count"</span><span class="o">:</span> <span class="mi">31</span><span class="p">,</span>
-  <span class="s2">"witty_title"</span><span class="o">:</span> <span class="s2">"Street Smart"</span>
+<span class="w">  </span><span class="s2">"avatar"</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s2">"full"</span><span class="o">:</span><span class="w"> </span><span class="s2">"http://seeclickfix.com/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"square_100x100"</span><span class="o">:</span><span class="w"> </span><span class="s2">"http://seeclickfix.com/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg"</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="s2">"civic_points"</span><span class="o">:</span><span class="w"> </span><span class="mf">10</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"closed_issue_count"</span><span class="o">:</span><span class="w"> </span><span class="mf">27</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"comments_count"</span><span class="o">:</span><span class="w"> </span><span class="mf">62</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"created_at"</span><span class="o">:</span><span class="w"> </span><span class="s2">"2011-03-22T17:04:31-04:00"</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"following_issue_count"</span><span class="o">:</span><span class="w"> </span><span class="mf">10</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"id"</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"name"</span><span class="o">:</span><span class="w"> </span><span class="s2">"captainkickstand"</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"permissions"</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s2">"can_acknowledge"</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="s2">"reported_issue_count"</span><span class="o">:</span><span class="w"> </span><span class="mf">25</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"updated_at"</span><span class="o">:</span><span class="w"> </span><span class="s2">"2014-03-10T07:28:35-04:00"</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"voted_issue_count"</span><span class="o">:</span><span class="w"> </span><span class="mf">31</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"witty_title"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Street Smart"</span>
 <span class="p">}</span></code></pre>
 
 <h3 id="errors-3">Errors</h3>
@@ -340,9 +341,9 @@ $ curl -i https://seeclickfix.com/api/v2/profile
 <pre class="headers"><code>Status: 422 Unprocessable Entity</code></pre>
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
-  <span class="s2">"errors"</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">"login"</span><span class="o">:</span> <span class="s2">"can't be blank."</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="s2">"errors"</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s2">"login"</span><span class="o">:</span><span class="w"> </span><span class="s2">"can't be blank."</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span></code></pre>
 
       </div>
@@ -396,13 +397,6 @@ $ curl -i https://seeclickfix.com/api/v2/profile
       <div class="sidebar-module">
         <p>This website is a <a href="https://github.com/SeeClickFix/dev.seeclickfix.com" target="_blank">public GitHub repository</a>. Please help us by forking the project and adding to it.</p>
       </div>
-
-      <div class="sidebar-module">
-        <!-- SCF API Slack badge -->
-        <p>Developers, looking to share ideas or ask questions about the SCF API? Join the Slack channel!<br/><br/>
-        <script async defer src="https://seeclickfix-api-slack.herokuapp.com/slackin.js?large"></script></p>
-      </div>
-
     </div><!-- /sidebar-shell -->
 
     </div><!-- #wrapper -->

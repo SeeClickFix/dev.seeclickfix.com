@@ -24,7 +24,6 @@
             <li><a href="/">v2 (current)</a></li>
             <li><a href="http://seeclickfix.com" target="_blank">SeeClickFix.com</a></li>
             <li><a href="http://seeclickfix.com/contact_us" target="_blank">Support</a></li>
-            <li><script async defer src="https://seeclickfix-api-slack.herokuapp.com/slackin.js"></script></li>
           </ul>
         </div>
       </div><!-- #header -->
@@ -38,8 +37,8 @@
 <p>Places are administrative areas such as neighborhoods, cities, counties etc.. They can be used to define <a href="/#geography">geographical boundaries</a> and therefore content within those boundaries.</p>
 
 <ul id="markdown-toc">
-  <li><a href="#list-places">List Places</a></li>
-  <li><a href="#show-place">Show Place</a></li>
+  <li><a href="#list-places" id="markdown-toc-list-places">List Places</a></li>
+  <li><a href="#show-place" id="markdown-toc-show-place">Show Place</a></li>
 </ul>
 
 <h2 id="list-places">List Places</h2>
@@ -77,42 +76,42 @@ $ curl -i https://seeclickfix.com/api/v2/places?address=New+Haven,+CT
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
-  <span class="s2">"errors"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-  <span class="s2">"metadata"</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">"pagination"</span><span class="o">:</span> <span class="p">{</span>
-      <span class="s2">"next_page"</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
-      <span class="s2">"next_page_url"</span><span class="o">:</span> <span class="s2">"https://seeclickfix.com/api/api/v2/&lt;ENDPOINT&gt;?page=2"</span><span class="p">,</span>
-      <span class="s2">"page"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-      <span class="s2">"pages"</span><span class="o">:</span> <span class="mi">40457</span><span class="p">,</span>
-      <span class="s2">"per_page"</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span>
-      <span class="s2">"previous_page"</span><span class="o">:</span> <span class="s2">"null"</span><span class="p">,</span>
-      <span class="s2">"previous_page_url"</span><span class="o">:</span> <span class="s2">"null"</span>
-    <span class="p">}</span>
-  <span class="p">},</span>
-  <span class="s2">"places"</span><span class="o">:</span> <span class="p">[</span>
-    <span class="p">{</span>
-      <span class="s2">"id"</span><span class="o">:</span> <span class="mi">3039</span><span class="p">,</span>
-      <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"New Haven"</span><span class="p">,</span>
-      <span class="s2">"url_name"</span><span class="o">:</span> <span class="s2">"new-haven"</span><span class="p">,</span>
-      <span class="s2">"county"</span><span class="o">:</span> <span class="s2">"New Haven"</span><span class="p">,</span>
-      <span class="s2">"state"</span><span class="o">:</span> <span class="s2">"CT"</span><span class="p">,</span>
-      <span class="s2">"center"</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s2">"type"</span><span class="o">:</span> <span class="s2">"Point"</span><span class="p">,</span>
-        <span class="s2">"coordinates"</span><span class="o">:</span> <span class="p">[</span>
-          <span class="o">-</span><span class="mf">72.92415951148533</span><span class="p">,</span>
-          <span class="mf">41.31037258994274</span>
-        <span class="p">]</span>
-      <span class="p">},</span>
-      <span class="s2">"place_type"</span><span class="o">:</span> <span class="s2">"City"</span><span class="p">,</span>
-      <span class="s2">"avatar"</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s2">"full"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/place/place_avatar/3039/IMG_6892_1_.JPG"</span><span class="p">,</span>
-        <span class="s2">"square"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/place/place_avatar/3039/IMG_6892_1__square.JPG"</span>
-      <span class="p">},</span>
-      <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"https://seeclickfix.com/api/v2/places/3039"</span><span class="p">,</span>
-      <span class="s2">"html_url"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/new-haven"</span><span class="p">,</span>
-      <span class="s2">"html_report_url"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/new-haven/report"</span>
-    <span class="p">}</span>
-  <span class="p">]</span>
+<span class="w">  </span><span class="s2">"errors"</span><span class="o">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"metadata"</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s2">"pagination"</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="s2">"next_page"</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"next_page_url"</span><span class="o">:</span><span class="w"> </span><span class="s2">"https://seeclickfix.com/api/api/v2/&lt;ENDPOINT&gt;?page=2"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"page"</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"pages"</span><span class="o">:</span><span class="w"> </span><span class="mf">40457</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"per_page"</span><span class="o">:</span><span class="w"> </span><span class="mf">20</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"previous_page"</span><span class="o">:</span><span class="w"> </span><span class="s2">"null"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"previous_page_url"</span><span class="o">:</span><span class="w"> </span><span class="s2">"null"</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="s2">"places"</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="s2">"id"</span><span class="o">:</span><span class="w"> </span><span class="mf">3039</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"name"</span><span class="o">:</span><span class="w"> </span><span class="s2">"New Haven"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"url_name"</span><span class="o">:</span><span class="w"> </span><span class="s2">"new-haven"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"county"</span><span class="o">:</span><span class="w"> </span><span class="s2">"New Haven"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"state"</span><span class="o">:</span><span class="w"> </span><span class="s2">"CT"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"center"</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="s2">"type"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Point"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"coordinates"</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">          </span><span class="o">-</span><span class="mf">72.92415951148533</span><span class="p">,</span>
+<span class="w">          </span><span class="mf">41.31037258994274</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="s2">"place_type"</span><span class="o">:</span><span class="w"> </span><span class="s2">"City"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"avatar"</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="s2">"full"</span><span class="o">:</span><span class="w"> </span><span class="s2">"http://seeclickfix.com/files/place/place_avatar/3039/IMG_6892_1_.JPG"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"square"</span><span class="o">:</span><span class="w"> </span><span class="s2">"http://seeclickfix.com/files/place/place_avatar/3039/IMG_6892_1__square.JPG"</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="s2">"url"</span><span class="o">:</span><span class="w"> </span><span class="s2">"https://seeclickfix.com/api/v2/places/3039"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"html_url"</span><span class="o">:</span><span class="w"> </span><span class="s2">"http://seeclickfix.com/new-haven"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"html_report_url"</span><span class="o">:</span><span class="w"> </span><span class="s2">"http://seeclickfix.com/new-haven/report"</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
 <span class="p">}</span></code></pre>
 
 <h2 id="show-place">Show Place</h2>
@@ -131,26 +130,26 @@ $ curl -i https://seeclickfix.com/api/v2/places/1
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
-  <span class="s2">"id"</span><span class="o">:</span> <span class="mi">3039</span><span class="p">,</span>
-  <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"New Haven"</span><span class="p">,</span>
-  <span class="s2">"url_name"</span><span class="o">:</span> <span class="s2">"new-haven"</span><span class="p">,</span>
-  <span class="s2">"county"</span><span class="o">:</span> <span class="s2">"New Haven"</span><span class="p">,</span>
-  <span class="s2">"state"</span><span class="o">:</span> <span class="s2">"CT"</span><span class="p">,</span>
-  <span class="s2">"center"</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">"type"</span><span class="o">:</span> <span class="s2">"Point"</span><span class="p">,</span>
-    <span class="s2">"coordinates"</span><span class="o">:</span> <span class="p">[</span>
-      <span class="o">-</span><span class="mf">72.92415951148533</span><span class="p">,</span>
-      <span class="mf">41.31037258994274</span>
-    <span class="p">]</span>
-  <span class="p">},</span>
-  <span class="s2">"place_type"</span><span class="o">:</span> <span class="s2">"City"</span><span class="p">,</span>
-  <span class="s2">"avatar"</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">"full"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/place/place_avatar/3039/IMG_6892_1_.JPG"</span><span class="p">,</span>
-    <span class="s2">"square"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/place/place_avatar/3039/IMG_6892_1__square.JPG"</span>
-  <span class="p">},</span>
-  <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"https://seeclickfix.com/api/v2/places/3039"</span><span class="p">,</span>
-  <span class="s2">"html_url"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/new-haven"</span><span class="p">,</span>
-  <span class="s2">"html_report_url"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/new-haven/report"</span>
+<span class="w">  </span><span class="s2">"id"</span><span class="o">:</span><span class="w"> </span><span class="mf">3039</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"name"</span><span class="o">:</span><span class="w"> </span><span class="s2">"New Haven"</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"url_name"</span><span class="o">:</span><span class="w"> </span><span class="s2">"new-haven"</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"county"</span><span class="o">:</span><span class="w"> </span><span class="s2">"New Haven"</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"state"</span><span class="o">:</span><span class="w"> </span><span class="s2">"CT"</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"center"</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s2">"type"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Point"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"coordinates"</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="o">-</span><span class="mf">72.92415951148533</span><span class="p">,</span>
+<span class="w">      </span><span class="mf">41.31037258994274</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="s2">"place_type"</span><span class="o">:</span><span class="w"> </span><span class="s2">"City"</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"avatar"</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s2">"full"</span><span class="o">:</span><span class="w"> </span><span class="s2">"http://seeclickfix.com/files/place/place_avatar/3039/IMG_6892_1_.JPG"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"square"</span><span class="o">:</span><span class="w"> </span><span class="s2">"http://seeclickfix.com/files/place/place_avatar/3039/IMG_6892_1__square.JPG"</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="s2">"url"</span><span class="o">:</span><span class="w"> </span><span class="s2">"https://seeclickfix.com/api/v2/places/3039"</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"html_url"</span><span class="o">:</span><span class="w"> </span><span class="s2">"http://seeclickfix.com/new-haven"</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"html_report_url"</span><span class="o">:</span><span class="w"> </span><span class="s2">"http://seeclickfix.com/new-haven/report"</span>
 <span class="p">}</span></code></pre>
 
 <h3 id="errors">Errors</h3>
@@ -210,13 +209,6 @@ $ curl -i https://seeclickfix.com/api/v2/places/1
       <div class="sidebar-module">
         <p>This website is a <a href="https://github.com/SeeClickFix/dev.seeclickfix.com" target="_blank">public GitHub repository</a>. Please help us by forking the project and adding to it.</p>
       </div>
-
-      <div class="sidebar-module">
-        <!-- SCF API Slack badge -->
-        <p>Developers, looking to share ideas or ask questions about the SCF API? Join the Slack channel!<br/><br/>
-        <script async defer src="https://seeclickfix-api-slack.herokuapp.com/slackin.js?large"></script></p>
-      </div>
-
     </div><!-- /sidebar-shell -->
 
     </div><!-- #wrapper -->

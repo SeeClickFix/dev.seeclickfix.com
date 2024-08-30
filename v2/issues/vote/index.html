@@ -24,7 +24,6 @@
             <li><a href="/">v2 (current)</a></li>
             <li><a href="http://seeclickfix.com" target="_blank">SeeClickFix.com</a></li>
             <li><a href="http://seeclickfix.com/contact_us" target="_blank">Support</a></li>
-            <li><script async defer src="https://seeclickfix-api-slack.herokuapp.com/slackin.js"></script></li>
           </ul>
         </div>
       </div><!-- #header -->
@@ -35,7 +34,7 @@
     
 <h1 id="issue-voting">Issue Voting</h1>
 
-<p>To check wether the current user has voted for an issue see the attribute <code>current_user_relationship</code> on the issue show or issue list actions.  </p>
+<p>To check wether the current user has voted for an issue see the attribute <code>current_user_relationship</code> on the issue show or issue list actions.</p>
 
 <h2 id="vote-for-an-issue">Vote for an Issue</h2>
 
@@ -53,14 +52,14 @@
 <pre class="headers"><code>Status: 201 Created</code></pre>
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
-  <span class="s2">"vote"</span><span class="o">:</span> <span class="mi">1</span>
+<span class="w">  </span><span class="s2">"vote"</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span>
 <span class="p">}</span></code></pre>
 
 <p>Returns the new value of the vote for the current_user on the specified issue.</p>
 
 <h2 id="revoke-a-vote-for-an-issue">Revoke a vote for an Issue</h2>
 
-<p>Votes can be revoked by an authenticated user if the user has voted for the issue. One can not downvote an issue. </p>
+<p>Votes can be revoked by an authenticated user if the user has voted for the issue. One can not downvote an issue.</p>
 
 <pre><code>DELETE /issues/&lt;issue_id&gt;/vote
 </code></pre>
@@ -129,13 +128,6 @@ BODY INTENTIONALLY BLANK
       <div class="sidebar-module">
         <p>This website is a <a href="https://github.com/SeeClickFix/dev.seeclickfix.com" target="_blank">public GitHub repository</a>. Please help us by forking the project and adding to it.</p>
       </div>
-
-      <div class="sidebar-module">
-        <!-- SCF API Slack badge -->
-        <p>Developers, looking to share ideas or ask questions about the SCF API? Join the Slack channel!<br/><br/>
-        <script async defer src="https://seeclickfix-api-slack.herokuapp.com/slackin.js?large"></script></p>
-      </div>
-
     </div><!-- /sidebar-shell -->
 
     </div><!-- #wrapper -->

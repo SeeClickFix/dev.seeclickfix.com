@@ -24,7 +24,6 @@
             <li><a href="/">v2 (current)</a></li>
             <li><a href="http://seeclickfix.com" target="_blank">SeeClickFix.com</a></li>
             <li><a href="http://seeclickfix.com/contact_us" target="_blank">Support</a></li>
-            <li><script async defer src="https://seeclickfix-api-slack.herokuapp.com/slackin.js"></script></li>
           </ul>
         </div>
       </div><!-- #header -->
@@ -38,13 +37,13 @@
 <p>Reporting an Issue is a three step process. Step 1 requires querying for a report form by location. Step 2 is querying the fields for the request type. Step 3 is to create an issue.</p>
 
 <ul id="markdown-toc">
-  <li><a href="#report-form">Report form</a></li>
-  <li><a href="#details-about-a-request-type">Details about a Request Type</a></li>
-  <li><a href="#question-types">Question Types</a></li>
-  <li><a href="#select-values">Select Values</a></li>
-  <li><a href="#request-type-answer-privacy">Request Type Answer Privacy</a></li>
-  <li><a href="#request-type--questions-for-authenticated-users">Request Type &amp; Questions for authenticated users</a></li>
-  <li><a href="#create-an-issue">Create an issue</a></li>
+  <li><a href="#report-form" id="markdown-toc-report-form">Report form</a></li>
+  <li><a href="#details-about-a-request-type" id="markdown-toc-details-about-a-request-type">Details about a Request Type</a></li>
+  <li><a href="#question-types" id="markdown-toc-question-types">Question Types</a></li>
+  <li><a href="#select-values" id="markdown-toc-select-values">Select Values</a></li>
+  <li><a href="#request-type-answer-privacy" id="markdown-toc-request-type-answer-privacy">Request Type Answer Privacy</a></li>
+  <li><a href="#request-type--questions-for-authenticated-users" id="markdown-toc-request-type--questions-for-authenticated-users">Request Type &amp; Questions for authenticated users</a></li>
+  <li><a href="#create-an-issue" id="markdown-toc-create-an-issue">Create an issue</a></li>
 </ul>
 
 <h2 id="report-form">Report form</h2>
@@ -74,28 +73,28 @@ A null organization represents a community request type that isn’t associated 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
-  <span class="s2">"request_types"</span><span class="o">:</span> <span class="p">[</span>
-    <span class="p">{</span>
-      <span class="s2">"organization"</span><span class="o">:</span> <span class="s2">"City of SeeClickFix"</span><span class="p">,</span>
-      <span class="s2">"title"</span><span class="o">:</span> <span class="s2">"Abandoned Auto"</span><span class="p">,</span>
-      <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"https://seeclickfix.com/api/v2/request_types/121"</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-      <span class="s2">"organization"</span><span class="o">:</span> <span class="s2">"City of SeeClickFix"</span><span class="p">,</span>
-      <span class="s2">"title"</span><span class="o">:</span> <span class="s2">"Graffiti"</span><span class="p">,</span>
-      <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"https://seeclickfix.com/api/v2/request_types/657"</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-      <span class="s2">"organization"</span><span class="o">:</span> <span class="s2">"City of New Haven"</span><span class="p">,</span>
-      <span class="s2">"title"</span><span class="o">:</span> <span class="s2">"Pothole"</span><span class="p">,</span>
-      <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"https://seeclickfix.com/api/v2/request_types/122"</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-      <span class="s2">"organization"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-      <span class="s2">"title"</span><span class="o">:</span> <span class="s2">"Other"</span><span class="p">,</span>
-      <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"https://seeclickfix.com/api/v2/request_types/other"</span>
-    <span class="p">}</span>
-  <span class="p">]</span>
+<span class="w">  </span><span class="s2">"request_types"</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="s2">"organization"</span><span class="o">:</span><span class="w"> </span><span class="s2">"City of SeeClickFix"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"title"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Abandoned Auto"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"url"</span><span class="o">:</span><span class="w"> </span><span class="s2">"https://seeclickfix.com/api/v2/request_types/121"</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="s2">"organization"</span><span class="o">:</span><span class="w"> </span><span class="s2">"City of SeeClickFix"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"title"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Graffiti"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"url"</span><span class="o">:</span><span class="w"> </span><span class="s2">"https://seeclickfix.com/api/v2/request_types/657"</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="s2">"organization"</span><span class="o">:</span><span class="w"> </span><span class="s2">"City of New Haven"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"title"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Pothole"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"url"</span><span class="o">:</span><span class="w"> </span><span class="s2">"https://seeclickfix.com/api/v2/request_types/122"</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="s2">"organization"</span><span class="o">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"title"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Other"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"url"</span><span class="o">:</span><span class="w"> </span><span class="s2">"https://seeclickfix.com/api/v2/request_types/other"</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
 <span class="p">}</span></code></pre>
 
 <h2 id="details-about-a-request-type">Details about a Request Type</h2>
@@ -109,53 +108,53 @@ $ curl -i https://seeclickfix.com/api/v2/request_types/122
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
-  <span class="s2">"id"</span><span class="o">:</span> <span class="mi">122</span><span class="p">,</span>
-  <span class="s2">"organization"</span><span class="o">:</span> <span class="s2">"City of New Haven"</span><span class="p">,</span>
-  <span class="s2">"questions"</span><span class="o">:</span> <span class="p">[</span>
-    <span class="p">{</span>
-      <span class="s2">"primary_key"</span><span class="o">:</span> <span class="s2">"142"</span><span class="p">,</span>
-      <span class="s2">"question"</span><span class="o">:</span> <span class="s2">"Depth of pothole?"</span><span class="p">,</span>
-      <span class="s2">"question_type"</span><span class="o">:</span> <span class="s2">"select"</span><span class="p">,</span>
-      <span class="s2">"answer_kept_private"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-      <span class="s2">"response_required"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-      <span class="s2">"select_values"</span><span class="o">:</span> <span class="p">[</span>
-        <span class="p">{</span>
-          <span class="s2">"key"</span><span class="o">:</span> <span class="s2">"BUMPY"</span><span class="p">,</span>
-          <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"Bumpy Surface"</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-          <span class="s2">"key"</span><span class="o">:</span> <span class="s2">"SHALLOW"</span><span class="p">,</span>
-          <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"Shallow Hole"</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-          <span class="s2">"key"</span><span class="o">:</span> <span class="s2">"DEEP"</span><span class="p">,</span>
-          <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"Deep Hole"</span>
-        <span class="p">}</span>
-      <span class="p">]</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-      <span class="s2">"primary_key"</span><span class="o">:</span> <span class="s2">"summary"</span><span class="p">,</span>
-      <span class="s2">"question"</span><span class="o">:</span> <span class="s2">"Issue Title"</span><span class="p">,</span>
-      <span class="s2">"question_type"</span><span class="o">:</span> <span class="s2">"text"</span><span class="p">,</span>
-      <span class="s2">"answer_kept_private"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-      <span class="s2">"response_required"</span><span class="o">:</span> <span class="kc">true</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-      <span class="s2">"primary_key"</span><span class="o">:</span> <span class="s2">"description"</span><span class="p">,</span>
-      <span class="s2">"question"</span><span class="o">:</span> <span class="s2">"Description"</span><span class="p">,</span>
-      <span class="s2">"question_type"</span><span class="o">:</span> <span class="s2">"textarea"</span><span class="p">,</span>
-      <span class="s2">"answer_kept_private"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-      <span class="s2">"response_required"</span><span class="o">:</span> <span class="kc">false</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-      <span class="s2">"primary_key"</span><span class="o">:</span> <span class="s2">"issue_image"</span><span class="p">,</span>
-      <span class="s2">"question"</span><span class="o">:</span> <span class="s2">"Issue Image"</span><span class="p">,</span>
-      <span class="s2">"question_type"</span><span class="o">:</span> <span class="s2">"file"</span><span class="p">,</span>
-      <span class="s2">"answer_kept_private"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-      <span class="s2">"response_required"</span><span class="o">:</span> <span class="kc">false</span>
-    <span class="p">}</span>
-  <span class="p">],</span>
-  <span class="s2">"title"</span><span class="o">:</span> <span class="s2">"Pothole"</span>
+<span class="w">  </span><span class="s2">"id"</span><span class="o">:</span><span class="w"> </span><span class="mf">122</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"organization"</span><span class="o">:</span><span class="w"> </span><span class="s2">"City of New Haven"</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"questions"</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="s2">"primary_key"</span><span class="o">:</span><span class="w"> </span><span class="s2">"142"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"question"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Depth of pothole?"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"question_type"</span><span class="o">:</span><span class="w"> </span><span class="s2">"select"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"answer_kept_private"</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"response_required"</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"select_values"</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="s2">"key"</span><span class="o">:</span><span class="w"> </span><span class="s2">"BUMPY"</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">"name"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Bumpy Surface"</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="s2">"key"</span><span class="o">:</span><span class="w"> </span><span class="s2">"SHALLOW"</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">"name"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Shallow Hole"</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="s2">"key"</span><span class="o">:</span><span class="w"> </span><span class="s2">"DEEP"</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">"name"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Deep Hole"</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">]</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="s2">"primary_key"</span><span class="o">:</span><span class="w"> </span><span class="s2">"summary"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"question"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Issue Title"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"question_type"</span><span class="o">:</span><span class="w"> </span><span class="s2">"text"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"answer_kept_private"</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"response_required"</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="s2">"primary_key"</span><span class="o">:</span><span class="w"> </span><span class="s2">"description"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"question"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Description"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"question_type"</span><span class="o">:</span><span class="w"> </span><span class="s2">"textarea"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"answer_kept_private"</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"response_required"</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="s2">"primary_key"</span><span class="o">:</span><span class="w"> </span><span class="s2">"issue_image"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"question"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Issue Image"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"question_type"</span><span class="o">:</span><span class="w"> </span><span class="s2">"file"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"answer_kept_private"</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"response_required"</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="s2">"title"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Pothole"</span>
 <span class="p">}</span></code></pre>
 
 <h3 id="details-of-another-request-type">Details of another Request Type</h3>
@@ -169,133 +168,133 @@ $ curl -i https://seeclickfix.com/api/v2/request_types/657
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
-  <span class="s2">"id"</span><span class="o">:</span> <span class="mi">657</span><span class="p">,</span>
-  <span class="s2">"organization"</span><span class="o">:</span> <span class="s2">"City of SeeClickFix"</span><span class="p">,</span>
-  <span class="s2">"questions"</span><span class="o">:</span> <span class="p">[</span>
-    <span class="p">{</span>
-      <span class="s2">"primary_key"</span><span class="o">:</span> <span class="s2">"400"</span><span class="p">,</span>
-      <span class="s2">"question"</span><span class="o">:</span> <span class="s2">"Graffiti is on a surface of:"</span><span class="p">,</span>
-      <span class="s2">"question_type"</span><span class="o">:</span> <span class="s2">"multivaluelist"</span><span class="p">,</span>
-      <span class="s2">"answer_kept_private"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-      <span class="s2">"response_required"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-      <span class="s2">"select_values"</span><span class="o">:</span> <span class="p">[</span>
-        <span class="p">{</span>
-          <span class="s2">"key"</span><span class="o">:</span> <span class="s2">"Brick"</span><span class="p">,</span>
-          <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"Brick"</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-          <span class="s2">"key"</span><span class="o">:</span> <span class="s2">"PaintedBrick"</span><span class="p">,</span>
-          <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"Painted Brick"</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-          <span class="s2">"key"</span><span class="o">:</span> <span class="s2">"Wood"</span><span class="p">,</span>
-          <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"Wood"</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-          <span class="s2">"key"</span><span class="o">:</span> <span class="s2">"PaintedWood"</span><span class="p">,</span>
-          <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"Painted Wood"</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-          <span class="s2">"key"</span><span class="o">:</span> <span class="s2">"Metal"</span><span class="p">,</span>
-          <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"Metal"</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-          <span class="s2">"key"</span><span class="o">:</span> <span class="s2">"Sandstone"</span><span class="p">,</span>
-          <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"Sandstone or rock"</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-          <span class="s2">"key"</span><span class="o">:</span> <span class="s2">"Pavers"</span><span class="p">,</span>
-          <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"Pavers"</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-          <span class="s2">"key"</span><span class="o">:</span> <span class="s2">"Concrete"</span><span class="p">,</span>
-          <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"Concrete"</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-          <span class="s2">"key"</span><span class="o">:</span> <span class="s2">"Tarmac"</span><span class="p">,</span>
-          <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"Tarmac"</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-          <span class="s2">"key"</span><span class="o">:</span> <span class="s2">"Tile"</span><span class="p">,</span>
-          <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"Tiles"</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-          <span class="s2">"key"</span><span class="o">:</span> <span class="s2">"Plastic"</span><span class="p">,</span>
-          <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"Plastic perspex"</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-          <span class="s2">"key"</span><span class="o">:</span> <span class="s2">"Glass"</span><span class="p">,</span>
-          <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"Glass"</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-          <span class="s2">"key"</span><span class="o">:</span> <span class="s2">"Other"</span><span class="p">,</span>
-          <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"Other"</span>
-        <span class="p">}</span>
-      <span class="p">]</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-      <span class="s2">"primary_key"</span><span class="o">:</span> <span class="s2">"401"</span><span class="p">,</span>
-      <span class="s2">"question"</span><span class="o">:</span> <span class="s2">"Material Used to apply graffiti"</span><span class="p">,</span>
-      <span class="s2">"question_type"</span><span class="o">:</span> <span class="s2">"multivaluelist"</span><span class="p">,</span>
-      <span class="s2">"answer_kept_private"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-      <span class="s2">"response_required"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-      <span class="s2">"select_values"</span><span class="o">:</span> <span class="p">[</span>
-        <span class="p">{</span>
-          <span class="s2">"key"</span><span class="o">:</span> <span class="s2">"Paint"</span><span class="p">,</span>
-          <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"Paint"</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-          <span class="s2">"key"</span><span class="o">:</span> <span class="s2">"Pen"</span><span class="p">,</span>
-          <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"Pen"</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-          <span class="s2">"key"</span><span class="o">:</span> <span class="s2">"Texta"</span><span class="p">,</span>
-          <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"Texta"</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-          <span class="s2">"key"</span><span class="o">:</span> <span class="s2">"Whiteout"</span><span class="p">,</span>
-          <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"White out"</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-          <span class="s2">"key"</span><span class="o">:</span> <span class="s2">"Crayon"</span><span class="p">,</span>
-          <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"Crayon"</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-          <span class="s2">"key"</span><span class="o">:</span> <span class="s2">"Other"</span><span class="p">,</span>
-          <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"Other"</span>
-        <span class="p">}</span>
-      <span class="p">]</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-      <span class="s2">"primary_key"</span><span class="o">:</span> <span class="s2">"offensive"</span><span class="p">,</span>
-      <span class="s2">"question"</span><span class="o">:</span> <span class="s2">"Is the graffiti offensive?"</span><span class="p">,</span>
-      <span class="s2">"question_type"</span><span class="o">:</span> <span class="s2">"boolean"</span><span class="p">,</span>
-      <span class="s2">"answer_kept_private"</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-      <span class="s2">"response_required"</span><span class="o">:</span> <span class="kc">true</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-      <span class="s2">"primary_key"</span><span class="o">:</span> <span class="s2">"summary"</span><span class="p">,</span>
-      <span class="s2">"question"</span><span class="o">:</span> <span class="s2">"Issue Title"</span><span class="p">,</span>
-      <span class="s2">"question_type"</span><span class="o">:</span> <span class="s2">"text"</span><span class="p">,</span>
-      <span class="s2">"answer_kept_private"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-      <span class="s2">"response_required"</span><span class="o">:</span> <span class="kc">true</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-      <span class="s2">"primary_key"</span><span class="o">:</span> <span class="s2">"description"</span><span class="p">,</span>
-      <span class="s2">"question"</span><span class="o">:</span> <span class="s2">"Description"</span><span class="p">,</span>
-      <span class="s2">"question_type"</span><span class="o">:</span> <span class="s2">"textarea"</span><span class="p">,</span>
-      <span class="s2">"answer_kept_private"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-      <span class="s2">"response_required"</span><span class="o">:</span> <span class="kc">false</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-      <span class="s2">"primary_key"</span><span class="o">:</span> <span class="s2">"issue_image"</span><span class="p">,</span>
-      <span class="s2">"question"</span><span class="o">:</span> <span class="s2">"Issue Image"</span><span class="p">,</span>
-      <span class="s2">"question_type"</span><span class="o">:</span> <span class="s2">"file"</span><span class="p">,</span>
-      <span class="s2">"answer_kept_private"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-      <span class="s2">"response_required"</span><span class="o">:</span> <span class="kc">false</span>
-    <span class="p">}</span>
-  <span class="p">],</span>
-  <span class="s2">"title"</span><span class="o">:</span> <span class="s2">"Graffiti"</span>
+<span class="w">  </span><span class="s2">"id"</span><span class="o">:</span><span class="w"> </span><span class="mf">657</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"organization"</span><span class="o">:</span><span class="w"> </span><span class="s2">"City of SeeClickFix"</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"questions"</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="s2">"primary_key"</span><span class="o">:</span><span class="w"> </span><span class="s2">"400"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"question"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Graffiti is on a surface of:"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"question_type"</span><span class="o">:</span><span class="w"> </span><span class="s2">"multivaluelist"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"answer_kept_private"</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"response_required"</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"select_values"</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="s2">"key"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Brick"</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">"name"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Brick"</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="s2">"key"</span><span class="o">:</span><span class="w"> </span><span class="s2">"PaintedBrick"</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">"name"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Painted Brick"</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="s2">"key"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Wood"</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">"name"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Wood"</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="s2">"key"</span><span class="o">:</span><span class="w"> </span><span class="s2">"PaintedWood"</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">"name"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Painted Wood"</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="s2">"key"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Metal"</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">"name"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Metal"</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="s2">"key"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Sandstone"</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">"name"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Sandstone or rock"</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="s2">"key"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Pavers"</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">"name"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Pavers"</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="s2">"key"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Concrete"</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">"name"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Concrete"</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="s2">"key"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Tarmac"</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">"name"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Tarmac"</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="s2">"key"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Tile"</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">"name"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Tiles"</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="s2">"key"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Plastic"</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">"name"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Plastic perspex"</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="s2">"key"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Glass"</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">"name"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Glass"</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="s2">"key"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Other"</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">"name"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Other"</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">]</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="s2">"primary_key"</span><span class="o">:</span><span class="w"> </span><span class="s2">"401"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"question"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Material Used to apply graffiti"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"question_type"</span><span class="o">:</span><span class="w"> </span><span class="s2">"multivaluelist"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"answer_kept_private"</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"response_required"</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"select_values"</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="s2">"key"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Paint"</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">"name"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Paint"</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="s2">"key"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Pen"</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">"name"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Pen"</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="s2">"key"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Texta"</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">"name"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Texta"</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="s2">"key"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Whiteout"</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">"name"</span><span class="o">:</span><span class="w"> </span><span class="s2">"White out"</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="s2">"key"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Crayon"</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">"name"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Crayon"</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="s2">"key"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Other"</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">"name"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Other"</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">]</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="s2">"primary_key"</span><span class="o">:</span><span class="w"> </span><span class="s2">"offensive"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"question"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Is the graffiti offensive?"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"question_type"</span><span class="o">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"answer_kept_private"</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"response_required"</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="s2">"primary_key"</span><span class="o">:</span><span class="w"> </span><span class="s2">"summary"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"question"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Issue Title"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"question_type"</span><span class="o">:</span><span class="w"> </span><span class="s2">"text"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"answer_kept_private"</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"response_required"</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="s2">"primary_key"</span><span class="o">:</span><span class="w"> </span><span class="s2">"description"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"question"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Description"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"question_type"</span><span class="o">:</span><span class="w"> </span><span class="s2">"textarea"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"answer_kept_private"</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"response_required"</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="s2">"primary_key"</span><span class="o">:</span><span class="w"> </span><span class="s2">"issue_image"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"question"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Issue Image"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"question_type"</span><span class="o">:</span><span class="w"> </span><span class="s2">"file"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"answer_kept_private"</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"response_required"</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="s2">"title"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Graffiti"</span>
 <span class="p">}</span></code></pre>
 
 <p>We will always provide an “Other” request_type. In the event one is not supplied by the city we will provide one.</p>
@@ -309,32 +308,32 @@ $ curl -i https://seeclickfix.com/api/v2/request_types/other
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
-  <span class="s2">"id"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-  <span class="s2">"organization"</span><span class="o">:</span> <span class="s2">"Community"</span><span class="p">,</span>
-  <span class="s2">"questions"</span><span class="o">:</span> <span class="p">[</span>
-    <span class="p">{</span>
-      <span class="s2">"primary_key"</span><span class="o">:</span> <span class="s2">"summary"</span><span class="p">,</span>
-      <span class="s2">"question"</span><span class="o">:</span> <span class="s2">"Issue Title"</span><span class="p">,</span>
-      <span class="s2">"question_type"</span><span class="o">:</span> <span class="s2">"text"</span><span class="p">,</span>
-      <span class="s2">"answer_kept_private"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-      <span class="s2">"response_required"</span><span class="o">:</span> <span class="kc">true</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-      <span class="s2">"primary_key"</span><span class="o">:</span> <span class="s2">"description"</span><span class="p">,</span>
-      <span class="s2">"question"</span><span class="o">:</span> <span class="s2">"Description"</span><span class="p">,</span>
-      <span class="s2">"question_type"</span><span class="o">:</span> <span class="s2">"textarea"</span><span class="p">,</span>
-      <span class="s2">"answer_kept_private"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-      <span class="s2">"response_required"</span><span class="o">:</span> <span class="kc">false</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-      <span class="s2">"primary_key"</span><span class="o">:</span> <span class="s2">"issue_image"</span><span class="p">,</span>
-      <span class="s2">"question"</span><span class="o">:</span> <span class="s2">"Issue Image"</span><span class="p">,</span>
-      <span class="s2">"question_type"</span><span class="o">:</span> <span class="s2">"file"</span><span class="p">,</span>
-      <span class="s2">"answer_kept_private"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-      <span class="s2">"response_required"</span><span class="o">:</span> <span class="kc">false</span>
-    <span class="p">}</span>
-  <span class="p">],</span>
-  <span class="s2">"title"</span><span class="o">:</span> <span class="s2">"Post to Neighbors"</span>
+<span class="w">  </span><span class="s2">"id"</span><span class="o">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"organization"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Community"</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"questions"</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="s2">"primary_key"</span><span class="o">:</span><span class="w"> </span><span class="s2">"summary"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"question"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Issue Title"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"question_type"</span><span class="o">:</span><span class="w"> </span><span class="s2">"text"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"answer_kept_private"</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"response_required"</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="s2">"primary_key"</span><span class="o">:</span><span class="w"> </span><span class="s2">"description"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"question"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Description"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"question_type"</span><span class="o">:</span><span class="w"> </span><span class="s2">"textarea"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"answer_kept_private"</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"response_required"</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="s2">"primary_key"</span><span class="o">:</span><span class="w"> </span><span class="s2">"issue_image"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"question"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Issue Image"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"question_type"</span><span class="o">:</span><span class="w"> </span><span class="s2">"file"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"answer_kept_private"</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"response_required"</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="s2">"title"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Post to Neighbors"</span>
 <span class="p">}</span></code></pre>
 
 <h2 id="question-types">Question Types</h2>
@@ -430,47 +429,47 @@ $ curl -i https://seeclickfix.com/api/v2/request_types/other
 Location: http://seeclickfix.com/issues/1</code></pre>
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
-  <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-  <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"Open"</span><span class="p">,</span>
-  <span class="s2">"summary"</span><span class="o">:</span> <span class="s2">"Pothole"</span><span class="p">,</span>
-  <span class="s2">"description"</span><span class="o">:</span> <span class="s2">"Please fix my neighborhood."</span><span class="p">,</span>
-  <span class="s2">"rating"</span><span class="o">:</span> <span class="s2">"5"</span><span class="p">,</span>
-  <span class="s2">"lat"</span><span class="o">:</span> <span class="mf">42.30293</span><span class="p">,</span>
-  <span class="s2">"lng"</span><span class="o">:</span> <span class="o">-</span><span class="mf">72.234234234</span><span class="p">,</span>
-  <span class="s2">"point"</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">"type"</span><span class="o">:</span> <span class="s2">"Point"</span><span class="p">,</span>
-    <span class="s2">"coordinates"</span><span class="o">:</span> <span class="p">[</span>
-      <span class="o">-</span><span class="mf">72.234234234</span><span class="p">,</span>
-      <span class="mf">42.30293</span>
-    <span class="p">]</span>
-  <span class="p">},</span>
-  <span class="s2">"address"</span><span class="o">:</span> <span class="s2">"123 State St. New Haven, CT"</span><span class="p">,</span>
-  <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2011-04-22T13:33:48Z"</span><span class="p">,</span>
-  <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2011-04-22T13:33:48Z"</span><span class="p">,</span>
-  <span class="s2">"acknowledged_at"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-  <span class="s2">"closed_at"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-  <span class="s2">"reporter"</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">"avatar"</span><span class="o">:</span> <span class="p">{</span>
-      <span class="s2">"full"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg"</span><span class="p">,</span>
-      <span class="s2">"square_100x100"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg"</span>
-    <span class="p">},</span>
-    <span class="s2">"civic_points"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
-    <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"Jeffb"</span><span class="p">,</span>
-    <span class="s2">"role"</span><span class="o">:</span> <span class="s2">"Verified Official"</span><span class="p">,</span>
-    <span class="s2">"witty_title"</span><span class="o">:</span> <span class="s2">"Street Smart"</span>
-  <span class="p">},</span>
-  <span class="s2">"shortened_url"</span><span class="o">:</span> <span class="s2">"http://scf.cm/i/1"</span><span class="p">,</span>
-  <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"https://seeclickfix.com/api/v2/issues/1"</span><span class="p">,</span>
-  <span class="s2">"comments_url"</span><span class="o">:</span> <span class="s2">"https://seeclickfix.com/api/v2/issues/1/comments"</span><span class="p">,</span>
-  <span class="s2">"flag_url"</span><span class="o">:</span> <span class="s2">"https://seeclickfix.com/api/v2/issues/1/flag"</span><span class="p">,</span>
-  <span class="s2">"html_url"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/issues/1-pothole"</span><span class="p">,</span>
-  <span class="s2">"media"</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">"image_full"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="s2">"image_square_100x100"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="s2">"representative_image_url"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/default_image.png"</span><span class="p">,</span>
-    <span class="s2">"video_url"</span><span class="o">:</span> <span class="kc">null</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="s2">"id"</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"status"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Open"</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"summary"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Pothole"</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"description"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Please fix my neighborhood."</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"rating"</span><span class="o">:</span><span class="w"> </span><span class="s2">"5"</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"lat"</span><span class="o">:</span><span class="w"> </span><span class="mf">42.30293</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"lng"</span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="mf">72.234234234</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"point"</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s2">"type"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Point"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"coordinates"</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="o">-</span><span class="mf">72.234234234</span><span class="p">,</span>
+<span class="w">      </span><span class="mf">42.30293</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="s2">"address"</span><span class="o">:</span><span class="w"> </span><span class="s2">"123 State St. New Haven, CT"</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"created_at"</span><span class="o">:</span><span class="w"> </span><span class="s2">"2011-04-22T13:33:48Z"</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"updated_at"</span><span class="o">:</span><span class="w"> </span><span class="s2">"2011-04-22T13:33:48Z"</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"acknowledged_at"</span><span class="o">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"closed_at"</span><span class="o">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"reporter"</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s2">"avatar"</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="s2">"full"</span><span class="o">:</span><span class="w"> </span><span class="s2">"http://seeclickfix.com/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"square_100x100"</span><span class="o">:</span><span class="w"> </span><span class="s2">"http://seeclickfix.com/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg"</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="s2">"civic_points"</span><span class="o">:</span><span class="w"> </span><span class="mf">10</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"id"</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"name"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Jeffb"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"role"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Verified Official"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"witty_title"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Street Smart"</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="s2">"shortened_url"</span><span class="o">:</span><span class="w"> </span><span class="s2">"http://scf.cm/i/1"</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"url"</span><span class="o">:</span><span class="w"> </span><span class="s2">"https://seeclickfix.com/api/v2/issues/1"</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"comments_url"</span><span class="o">:</span><span class="w"> </span><span class="s2">"https://seeclickfix.com/api/v2/issues/1/comments"</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"flag_url"</span><span class="o">:</span><span class="w"> </span><span class="s2">"https://seeclickfix.com/api/v2/issues/1/flag"</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"html_url"</span><span class="o">:</span><span class="w"> </span><span class="s2">"http://seeclickfix.com/issues/1-pothole"</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"media"</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s2">"image_full"</span><span class="o">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"image_square_100x100"</span><span class="o">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"representative_image_url"</span><span class="o">:</span><span class="w"> </span><span class="s2">"http://seeclickfix.com/files/default_image.png"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"video_url"</span><span class="o">:</span><span class="w"> </span><span class="kc">null</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span></code></pre>
 
 <h3 id="example-request-2">Example request #2</h3>
@@ -499,47 +498,47 @@ Location: http://seeclickfix.com/issues/1</code></pre>
 Location: http://seeclickfix.com/issues/1</code></pre>
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
-  <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-  <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"Open"</span><span class="p">,</span>
-  <span class="s2">"summary"</span><span class="o">:</span> <span class="s2">"Pothole"</span><span class="p">,</span>
-  <span class="s2">"description"</span><span class="o">:</span> <span class="s2">"Please fix my neighborhood."</span><span class="p">,</span>
-  <span class="s2">"rating"</span><span class="o">:</span> <span class="s2">"5"</span><span class="p">,</span>
-  <span class="s2">"lat"</span><span class="o">:</span> <span class="mf">42.30293</span><span class="p">,</span>
-  <span class="s2">"lng"</span><span class="o">:</span> <span class="o">-</span><span class="mf">72.234234234</span><span class="p">,</span>
-  <span class="s2">"point"</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">"type"</span><span class="o">:</span> <span class="s2">"Point"</span><span class="p">,</span>
-    <span class="s2">"coordinates"</span><span class="o">:</span> <span class="p">[</span>
-      <span class="o">-</span><span class="mf">72.234234234</span><span class="p">,</span>
-      <span class="mf">42.30293</span>
-    <span class="p">]</span>
-  <span class="p">},</span>
-  <span class="s2">"address"</span><span class="o">:</span> <span class="s2">"123 State St. New Haven, CT"</span><span class="p">,</span>
-  <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2011-04-22T13:33:48Z"</span><span class="p">,</span>
-  <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2011-04-22T13:33:48Z"</span><span class="p">,</span>
-  <span class="s2">"acknowledged_at"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-  <span class="s2">"closed_at"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-  <span class="s2">"reporter"</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">"avatar"</span><span class="o">:</span> <span class="p">{</span>
-      <span class="s2">"full"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg"</span><span class="p">,</span>
-      <span class="s2">"square_100x100"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg"</span>
-    <span class="p">},</span>
-    <span class="s2">"civic_points"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
-    <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"Jeffb"</span><span class="p">,</span>
-    <span class="s2">"role"</span><span class="o">:</span> <span class="s2">"Verified Official"</span><span class="p">,</span>
-    <span class="s2">"witty_title"</span><span class="o">:</span> <span class="s2">"Street Smart"</span>
-  <span class="p">},</span>
-  <span class="s2">"shortened_url"</span><span class="o">:</span> <span class="s2">"http://scf.cm/i/1"</span><span class="p">,</span>
-  <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"https://seeclickfix.com/api/v2/issues/1"</span><span class="p">,</span>
-  <span class="s2">"comments_url"</span><span class="o">:</span> <span class="s2">"https://seeclickfix.com/api/v2/issues/1/comments"</span><span class="p">,</span>
-  <span class="s2">"flag_url"</span><span class="o">:</span> <span class="s2">"https://seeclickfix.com/api/v2/issues/1/flag"</span><span class="p">,</span>
-  <span class="s2">"html_url"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/issues/1-pothole"</span><span class="p">,</span>
-  <span class="s2">"media"</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">"image_full"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="s2">"image_square_100x100"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="s2">"representative_image_url"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/default_image.png"</span><span class="p">,</span>
-    <span class="s2">"video_url"</span><span class="o">:</span> <span class="kc">null</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="s2">"id"</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"status"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Open"</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"summary"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Pothole"</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"description"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Please fix my neighborhood."</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"rating"</span><span class="o">:</span><span class="w"> </span><span class="s2">"5"</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"lat"</span><span class="o">:</span><span class="w"> </span><span class="mf">42.30293</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"lng"</span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="mf">72.234234234</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"point"</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s2">"type"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Point"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"coordinates"</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="o">-</span><span class="mf">72.234234234</span><span class="p">,</span>
+<span class="w">      </span><span class="mf">42.30293</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="s2">"address"</span><span class="o">:</span><span class="w"> </span><span class="s2">"123 State St. New Haven, CT"</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"created_at"</span><span class="o">:</span><span class="w"> </span><span class="s2">"2011-04-22T13:33:48Z"</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"updated_at"</span><span class="o">:</span><span class="w"> </span><span class="s2">"2011-04-22T13:33:48Z"</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"acknowledged_at"</span><span class="o">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"closed_at"</span><span class="o">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"reporter"</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s2">"avatar"</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="s2">"full"</span><span class="o">:</span><span class="w"> </span><span class="s2">"http://seeclickfix.com/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"square_100x100"</span><span class="o">:</span><span class="w"> </span><span class="s2">"http://seeclickfix.com/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg"</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="s2">"civic_points"</span><span class="o">:</span><span class="w"> </span><span class="mf">10</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"id"</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"name"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Jeffb"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"role"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Verified Official"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"witty_title"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Street Smart"</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="s2">"shortened_url"</span><span class="o">:</span><span class="w"> </span><span class="s2">"http://scf.cm/i/1"</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"url"</span><span class="o">:</span><span class="w"> </span><span class="s2">"https://seeclickfix.com/api/v2/issues/1"</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"comments_url"</span><span class="o">:</span><span class="w"> </span><span class="s2">"https://seeclickfix.com/api/v2/issues/1/comments"</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"flag_url"</span><span class="o">:</span><span class="w"> </span><span class="s2">"https://seeclickfix.com/api/v2/issues/1/flag"</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"html_url"</span><span class="o">:</span><span class="w"> </span><span class="s2">"http://seeclickfix.com/issues/1-pothole"</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"media"</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s2">"image_full"</span><span class="o">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"image_square_100x100"</span><span class="o">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"representative_image_url"</span><span class="o">:</span><span class="w"> </span><span class="s2">"http://seeclickfix.com/files/default_image.png"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"video_url"</span><span class="o">:</span><span class="w"> </span><span class="kc">null</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span></code></pre>
 
 <h3 id="example-request-3-with-image-media">Example request #3, with image media</h3>
@@ -564,47 +563,47 @@ $ curl -i \
 Location: http://seeclickfix.com/issues/1</code></pre>
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
-  <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-  <span class="s2">"status"</span><span class="o">:</span> <span class="s2">"Open"</span><span class="p">,</span>
-  <span class="s2">"summary"</span><span class="o">:</span> <span class="s2">"Pothole"</span><span class="p">,</span>
-  <span class="s2">"description"</span><span class="o">:</span> <span class="s2">"Please fix my neighborhood."</span><span class="p">,</span>
-  <span class="s2">"rating"</span><span class="o">:</span> <span class="s2">"5"</span><span class="p">,</span>
-  <span class="s2">"lat"</span><span class="o">:</span> <span class="mf">42.30293</span><span class="p">,</span>
-  <span class="s2">"lng"</span><span class="o">:</span> <span class="o">-</span><span class="mf">72.234234234</span><span class="p">,</span>
-  <span class="s2">"point"</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">"type"</span><span class="o">:</span> <span class="s2">"Point"</span><span class="p">,</span>
-    <span class="s2">"coordinates"</span><span class="o">:</span> <span class="p">[</span>
-      <span class="o">-</span><span class="mf">72.234234234</span><span class="p">,</span>
-      <span class="mf">42.30293</span>
-    <span class="p">]</span>
-  <span class="p">},</span>
-  <span class="s2">"address"</span><span class="o">:</span> <span class="s2">"123 State St. New Haven, CT"</span><span class="p">,</span>
-  <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2011-04-22T13:33:48Z"</span><span class="p">,</span>
-  <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2011-04-22T13:33:48Z"</span><span class="p">,</span>
-  <span class="s2">"acknowledged_at"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-  <span class="s2">"closed_at"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-  <span class="s2">"reporter"</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">"avatar"</span><span class="o">:</span> <span class="p">{</span>
-      <span class="s2">"full"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg"</span><span class="p">,</span>
-      <span class="s2">"square_100x100"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg"</span>
-    <span class="p">},</span>
-    <span class="s2">"civic_points"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
-    <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"Jeffb"</span><span class="p">,</span>
-    <span class="s2">"role"</span><span class="o">:</span> <span class="s2">"Verified Official"</span><span class="p">,</span>
-    <span class="s2">"witty_title"</span><span class="o">:</span> <span class="s2">"Street Smart"</span>
-  <span class="p">},</span>
-  <span class="s2">"shortened_url"</span><span class="o">:</span> <span class="s2">"http://scf.cm/i/1"</span><span class="p">,</span>
-  <span class="s2">"url"</span><span class="o">:</span> <span class="s2">"https://seeclickfix.com/api/v2/issues/1"</span><span class="p">,</span>
-  <span class="s2">"comments_url"</span><span class="o">:</span> <span class="s2">"https://seeclickfix.com/api/v2/issues/1/comments"</span><span class="p">,</span>
-  <span class="s2">"flag_url"</span><span class="o">:</span> <span class="s2">"https://seeclickfix.com/api/v2/issues/1/flag"</span><span class="p">,</span>
-  <span class="s2">"html_url"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/issues/1-pothole"</span><span class="p">,</span>
-  <span class="s2">"media"</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">"image_full"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/comment_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg"</span><span class="p">,</span>
-    <span class="s2">"image_square_100x100"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/comment_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg"</span><span class="p">,</span>
-    <span class="s2">"representative_image_url"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/files/comment_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg"</span><span class="p">,</span>
-    <span class="s2">"video_url"</span><span class="o">:</span> <span class="s2">"http://www.youtube.com/watch?v=dQw4w9WgXcQ"</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="s2">"id"</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"status"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Open"</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"summary"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Pothole"</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"description"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Please fix my neighborhood."</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"rating"</span><span class="o">:</span><span class="w"> </span><span class="s2">"5"</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"lat"</span><span class="o">:</span><span class="w"> </span><span class="mf">42.30293</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"lng"</span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="mf">72.234234234</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"point"</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s2">"type"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Point"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"coordinates"</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="o">-</span><span class="mf">72.234234234</span><span class="p">,</span>
+<span class="w">      </span><span class="mf">42.30293</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="s2">"address"</span><span class="o">:</span><span class="w"> </span><span class="s2">"123 State St. New Haven, CT"</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"created_at"</span><span class="o">:</span><span class="w"> </span><span class="s2">"2011-04-22T13:33:48Z"</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"updated_at"</span><span class="o">:</span><span class="w"> </span><span class="s2">"2011-04-22T13:33:48Z"</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"acknowledged_at"</span><span class="o">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"closed_at"</span><span class="o">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"reporter"</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s2">"avatar"</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="s2">"full"</span><span class="o">:</span><span class="w"> </span><span class="s2">"http://seeclickfix.com/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"square_100x100"</span><span class="o">:</span><span class="w"> </span><span class="s2">"http://seeclickfix.com/files/user_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg"</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="s2">"civic_points"</span><span class="o">:</span><span class="w"> </span><span class="mf">10</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"id"</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"name"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Jeffb"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"role"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Verified Official"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"witty_title"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Street Smart"</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="s2">"shortened_url"</span><span class="o">:</span><span class="w"> </span><span class="s2">"http://scf.cm/i/1"</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"url"</span><span class="o">:</span><span class="w"> </span><span class="s2">"https://seeclickfix.com/api/v2/issues/1"</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"comments_url"</span><span class="o">:</span><span class="w"> </span><span class="s2">"https://seeclickfix.com/api/v2/issues/1/comments"</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"flag_url"</span><span class="o">:</span><span class="w"> </span><span class="s2">"https://seeclickfix.com/api/v2/issues/1/flag"</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"html_url"</span><span class="o">:</span><span class="w"> </span><span class="s2">"http://seeclickfix.com/issues/1-pothole"</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"media"</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s2">"image_full"</span><span class="o">:</span><span class="w"> </span><span class="s2">"http://seeclickfix.com/files/comment_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf.jpeg"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"image_square_100x100"</span><span class="o">:</span><span class="w"> </span><span class="s2">"http://seeclickfix.com/files/comment_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"representative_image_url"</span><span class="o">:</span><span class="w"> </span><span class="s2">"http://seeclickfix.com/files/comment_images/0001/3476/32eebb4f8669b5beb441280bc16f26bf_square.jpeg"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"video_url"</span><span class="o">:</span><span class="w"> </span><span class="s2">"http://www.youtube.com/watch?v=dQw4w9WgXcQ"</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span></code></pre>
 
 <h3 id="in-the-event-of-validation-errors">In the event of validation errors</h3>
@@ -612,24 +611,24 @@ Location: http://seeclickfix.com/issues/1</code></pre>
 <pre class="headers"><code>Status: 422 Unprocessable Entity</code></pre>
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
-  <span class="s2">"errors"</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">"address"</span><span class="o">:</span> <span class="p">[</span>
-      <span class="s2">"Address can't be blank"</span>
-    <span class="p">],</span>
-    <span class="s2">"lat"</span><span class="o">:</span> <span class="p">[</span>
-      <span class="s2">"Lat can't be blank"</span>
-    <span class="p">],</span>
-    <span class="s2">"lng"</span><span class="o">:</span> <span class="p">[</span>
-      <span class="s2">"Lng can't be blank"</span>
-    <span class="p">],</span>
-    <span class="s2">"point"</span><span class="o">:</span> <span class="p">[</span>
-      <span class="s2">"Point can't be blank"</span><span class="p">,</span>
-      <span class="s2">"Point Issue is not within boundary of associated request type."</span>
-    <span class="p">],</span>
-    <span class="s2">"summary"</span><span class="o">:</span> <span class="p">[</span>
-      <span class="s2">"Summary can't be blank"</span>
-    <span class="p">]</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="s2">"errors"</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s2">"address"</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="s2">"Address can't be blank"</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="s2">"lat"</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="s2">"Lat can't be blank"</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="s2">"lng"</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="s2">"Lng can't be blank"</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="s2">"point"</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="s2">"Point can't be blank"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"Point Issue is not within boundary of associated request type."</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="s2">"summary"</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="s2">"Summary can't be blank"</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span></code></pre>
 
 <h3 id="if-for-any-reason-we-decide-to-hold-the-report-in-moderation">If for any reason we decide to hold the report in moderation</h3>
@@ -639,9 +638,9 @@ Location: http://seeclickfix.com/issues/1</code></pre>
 <pre class="headers"><code>Status: 202 Accepted</code></pre>
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
-  <span class="s2">"metadata"</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">"moderated"</span><span class="o">:</span> <span class="kc">true</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="s2">"metadata"</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s2">"moderated"</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span></code></pre>
 
       </div>
@@ -695,13 +694,6 @@ Location: http://seeclickfix.com/issues/1</code></pre>
       <div class="sidebar-module">
         <p>This website is a <a href="https://github.com/SeeClickFix/dev.seeclickfix.com" target="_blank">public GitHub repository</a>. Please help us by forking the project and adding to it.</p>
       </div>
-
-      <div class="sidebar-module">
-        <!-- SCF API Slack badge -->
-        <p>Developers, looking to share ideas or ask questions about the SCF API? Join the Slack channel!<br/><br/>
-        <script async defer src="https://seeclickfix-api-slack.herokuapp.com/slackin.js?large"></script></p>
-      </div>
-
     </div><!-- /sidebar-shell -->
 
     </div><!-- #wrapper -->

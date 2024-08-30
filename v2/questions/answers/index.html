@@ -24,7 +24,6 @@
             <li><a href="/">v2 (current)</a></li>
             <li><a href="http://seeclickfix.com" target="_blank">SeeClickFix.com</a></li>
             <li><a href="http://seeclickfix.com/contact_us" target="_blank">Support</a></li>
-            <li><script async defer src="https://seeclickfix-api-slack.herokuapp.com/slackin.js"></script></li>
           </ul>
         </div>
       </div><!-- #header -->
@@ -38,8 +37,8 @@
 <p>Answers are user submitted responses to questions.</p>
 
 <ul id="markdown-toc">
-  <li><a href="#list-answers-to-a-question">List answers to a question.</a></li>
-  <li><a href="#answer-a-question">Answer a Question</a></li>
+  <li><a href="#list-answers-to-a-question" id="markdown-toc-list-answers-to-a-question">List answers to a question.</a></li>
+  <li><a href="#answer-a-question" id="markdown-toc-answer-a-question">Answer a Question</a></li>
 </ul>
 
 <h2 id="list-answers-to-a-question">List answers to a question.</h2>
@@ -62,35 +61,35 @@ $ curl -i https://seeclickfix.com/api/v2/questions/1/answers
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
-  <span class="s2">"answers"</span><span class="o">:</span> <span class="p">[</span>
-    <span class="p">{</span>
-      <span class="s2">"accepted_at"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-      <span class="s2">"answer"</span><span class="o">:</span> <span class="s2">"Pretty sure it's ok to keep chickens"</span><span class="p">,</span>
-      <span class="s2">"answerer"</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s2">"avatar"</span><span class="o">:</span> <span class="p">{</span>
-          <span class="s2">"full"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/assets/no-avatar-100.png"</span><span class="p">,</span>
-          <span class="s2">"square_100x100"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/assets/no-avatar-100.png"</span>
-        <span class="p">},</span>
-        <span class="s2">"civic_points"</span><span class="o">:</span> <span class="mi">100</span><span class="p">,</span>
-        <span class="s2">"id"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
-        <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"Mike Helpless"</span><span class="p">,</span>
-        <span class="s2">"role"</span><span class="o">:</span> <span class="s2">"Verified Official"</span><span class="p">,</span>
-        <span class="s2">"witty_title"</span><span class="o">:</span> <span class="s2">"Street Smart"</span>
-      <span class="p">},</span>
-      <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2013-05-14T19:49:13-04:00"</span><span class="p">,</span>
-      <span class="s2">"id"</span><span class="o">:</span> <span class="mi">4</span><span class="p">,</span>
-      <span class="s2">"locale"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-      <span class="s2">"question_id"</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
-      <span class="s2">"total_votes"</span><span class="o">:</span> <span class="mi">15</span><span class="p">,</span>
-      <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2013-05-14T19:49:13-04:00"</span>
-    <span class="p">}</span>
-  <span class="p">],</span>
-  <span class="s2">"errors"</span><span class="o">:</span> <span class="p">{</span>
+<span class="w">  </span><span class="s2">"answers"</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="s2">"accepted_at"</span><span class="o">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"answer"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Pretty sure it's ok to keep chickens"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"answerer"</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="s2">"avatar"</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="s2">"full"</span><span class="o">:</span><span class="w"> </span><span class="s2">"http://seeclickfix.com/assets/no-avatar-100.png"</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">"square_100x100"</span><span class="o">:</span><span class="w"> </span><span class="s2">"http://seeclickfix.com/assets/no-avatar-100.png"</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="s2">"civic_points"</span><span class="o">:</span><span class="w"> </span><span class="mf">100</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"id"</span><span class="o">:</span><span class="w"> </span><span class="mf">10</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"name"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Mike Helpless"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"role"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Verified Official"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"witty_title"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Street Smart"</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="s2">"created_at"</span><span class="o">:</span><span class="w"> </span><span class="s2">"2013-05-14T19:49:13-04:00"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"id"</span><span class="o">:</span><span class="w"> </span><span class="mf">4</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"locale"</span><span class="o">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"question_id"</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"total_votes"</span><span class="o">:</span><span class="w"> </span><span class="mf">15</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"updated_at"</span><span class="o">:</span><span class="w"> </span><span class="s2">"2013-05-14T19:49:13-04:00"</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="s2">"errors"</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
 
-  <span class="p">},</span>
-  <span class="s2">"metadata"</span><span class="o">:</span> <span class="p">{</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="s2">"metadata"</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
 
-  <span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span></code></pre>
 
 <h2 id="answer-a-question">Answer a Question</h2>
@@ -122,25 +121,25 @@ $ curl --data "answer=Taxes+are+due+Jan.+1st." -i https://seeclickfix.com/api/v2
 <pre class="headers"><code>Status: 201 Created</code></pre>
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
-  <span class="s2">"accepted_at"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-  <span class="s2">"answer"</span><span class="o">:</span> <span class="s2">"Pretty sure it's ok to keep chickens"</span><span class="p">,</span>
-  <span class="s2">"answerer"</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">"avatar"</span><span class="o">:</span> <span class="p">{</span>
-      <span class="s2">"full"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/assets/no-avatar-100.png"</span><span class="p">,</span>
-      <span class="s2">"square_100x100"</span><span class="o">:</span> <span class="s2">"http://seeclickfix.com/assets/no-avatar-100.png"</span>
-    <span class="p">},</span>
-    <span class="s2">"civic_points"</span><span class="o">:</span> <span class="mi">100</span><span class="p">,</span>
-    <span class="s2">"id"</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
-    <span class="s2">"name"</span><span class="o">:</span> <span class="s2">"Mike Helpless"</span><span class="p">,</span>
-    <span class="s2">"role"</span><span class="o">:</span> <span class="s2">"Verified Official"</span><span class="p">,</span>
-    <span class="s2">"witty_title"</span><span class="o">:</span> <span class="s2">"Street Smart"</span>
-  <span class="p">},</span>
-  <span class="s2">"created_at"</span><span class="o">:</span> <span class="s2">"2013-05-14T19:49:13-04:00"</span><span class="p">,</span>
-  <span class="s2">"id"</span><span class="o">:</span> <span class="mi">4</span><span class="p">,</span>
-  <span class="s2">"locale"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-  <span class="s2">"question_id"</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
-  <span class="s2">"total_votes"</span><span class="o">:</span> <span class="mi">15</span><span class="p">,</span>
-  <span class="s2">"updated_at"</span><span class="o">:</span> <span class="s2">"2013-05-14T19:49:13-04:00"</span>
+<span class="w">  </span><span class="s2">"accepted_at"</span><span class="o">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"answer"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Pretty sure it's ok to keep chickens"</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"answerer"</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s2">"avatar"</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="s2">"full"</span><span class="o">:</span><span class="w"> </span><span class="s2">"http://seeclickfix.com/assets/no-avatar-100.png"</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"square_100x100"</span><span class="o">:</span><span class="w"> </span><span class="s2">"http://seeclickfix.com/assets/no-avatar-100.png"</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="s2">"civic_points"</span><span class="o">:</span><span class="w"> </span><span class="mf">100</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"id"</span><span class="o">:</span><span class="w"> </span><span class="mf">10</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"name"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Mike Helpless"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"role"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Verified Official"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"witty_title"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Street Smart"</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="s2">"created_at"</span><span class="o">:</span><span class="w"> </span><span class="s2">"2013-05-14T19:49:13-04:00"</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"id"</span><span class="o">:</span><span class="w"> </span><span class="mf">4</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"locale"</span><span class="o">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"question_id"</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"total_votes"</span><span class="o">:</span><span class="w"> </span><span class="mf">15</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"updated_at"</span><span class="o">:</span><span class="w"> </span><span class="s2">"2013-05-14T19:49:13-04:00"</span>
 <span class="p">}</span></code></pre>
 
 <h3 id="errors">Errors</h3>
@@ -150,9 +149,9 @@ $ curl --data "answer=Taxes+are+due+Jan.+1st." -i https://seeclickfix.com/api/v2
 <pre class="headers"><code>Status: 422 Unprocessable Entity</code></pre>
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
-  <span class="s2">"errors"</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">"login"</span><span class="o">:</span> <span class="s2">"can't be blank."</span>
-  <span class="p">}</span>
+<span class="w">  </span><span class="s2">"errors"</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s2">"login"</span><span class="o">:</span><span class="w"> </span><span class="s2">"can't be blank."</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span></code></pre>
 
 
@@ -207,13 +206,6 @@ $ curl --data "answer=Taxes+are+due+Jan.+1st." -i https://seeclickfix.com/api/v2
       <div class="sidebar-module">
         <p>This website is a <a href="https://github.com/SeeClickFix/dev.seeclickfix.com" target="_blank">public GitHub repository</a>. Please help us by forking the project and adding to it.</p>
       </div>
-
-      <div class="sidebar-module">
-        <!-- SCF API Slack badge -->
-        <p>Developers, looking to share ideas or ask questions about the SCF API? Join the Slack channel!<br/><br/>
-        <script async defer src="https://seeclickfix-api-slack.herokuapp.com/slackin.js?large"></script></p>
-      </div>
-
     </div><!-- /sidebar-shell -->
 
     </div><!-- #wrapper -->

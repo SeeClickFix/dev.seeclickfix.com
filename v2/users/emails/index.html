@@ -24,7 +24,6 @@
             <li><a href="/">v2 (current)</a></li>
             <li><a href="http://seeclickfix.com" target="_blank">SeeClickFix.com</a></li>
             <li><a href="http://seeclickfix.com/contact_us" target="_blank">Support</a></li>
-            <li><script async defer src="https://seeclickfix-api-slack.herokuapp.com/slackin.js"></script></li>
           </ul>
         </div>
       </div><!-- #header -->
@@ -36,9 +35,9 @@
 <h1 id="user-emails">User Emails</h1>
 
 <ul id="markdown-toc">
-  <li><a href="#list-emails">List emails</a></li>
-  <li><a href="#add-an-email">Add an email</a></li>
-  <li><a href="#remove-an-email">Remove an email</a></li>
+  <li><a href="#list-emails" id="markdown-toc-list-emails">List emails</a></li>
+  <li><a href="#add-an-email" id="markdown-toc-add-an-email">Add an email</a></li>
+  <li><a href="#remove-an-email" id="markdown-toc-remove-an-email">Remove an email</a></li>
 </ul>
 
 <p>API endpoints to allow the user to manage their emails.</p>
@@ -77,19 +76,19 @@ $ curl -i https://seeclickfix.com/api/v2/emails
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
-  <span class="s2">"metadata"</span><span class="o">:</span> <span class="p">{</span>
+<span class="w">  </span><span class="s2">"metadata"</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
 
-  <span class="p">},</span>
-  <span class="s2">"emails"</span><span class="o">:</span> <span class="p">[</span>
-    <span class="p">{</span>
-      <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-      <span class="s2">"confirmed"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-      <span class="s2">"email"</span><span class="o">:</span> <span class="s2">"foo@bar.com"</span>
-    <span class="p">}</span>
-  <span class="p">],</span>
-  <span class="s2">"errors"</span><span class="o">:</span> <span class="p">{</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="s2">"emails"</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="s2">"id"</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"confirmed"</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">"email"</span><span class="o">:</span><span class="w"> </span><span class="s2">"foo@bar.com"</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="s2">"errors"</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
 
-  <span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span></code></pre>
 
 <h2 id="add-an-email">Add an email</h2>
@@ -123,9 +122,9 @@ $ curl --data "email=foo@bar.com" -i https://seeclickfix.com/api/v2/emails
 <pre class="headers"><code>Status: 201 Created</code></pre>
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
-  <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-  <span class="s2">"confirmed"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-  <span class="s2">"email"</span><span class="o">:</span> <span class="s2">"foo@bar.com"</span>
+<span class="w">  </span><span class="s2">"id"</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"confirmed"</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"email"</span><span class="o">:</span><span class="w"> </span><span class="s2">"foo@bar.com"</span>
 <span class="p">}</span></code></pre>
 
 <h2 id="remove-an-email">Remove an email</h2>
@@ -159,9 +158,9 @@ $ curl -X DELETE -i https://seeclickfix.com/api/v2/emails/1
 <pre class="headers no-response"><code>Status: 204 No Content</code></pre>
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
-  <span class="s2">"id"</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-  <span class="s2">"confirmed"</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
-  <span class="s2">"email"</span><span class="o">:</span> <span class="s2">"foo@bar.com"</span>
+<span class="w">  </span><span class="s2">"id"</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"confirmed"</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"email"</span><span class="o">:</span><span class="w"> </span><span class="s2">"foo@bar.com"</span>
 <span class="p">}</span></code></pre>
 
       </div>
@@ -215,13 +214,6 @@ $ curl -X DELETE -i https://seeclickfix.com/api/v2/emails/1
       <div class="sidebar-module">
         <p>This website is a <a href="https://github.com/SeeClickFix/dev.seeclickfix.com" target="_blank">public GitHub repository</a>. Please help us by forking the project and adding to it.</p>
       </div>
-
-      <div class="sidebar-module">
-        <!-- SCF API Slack badge -->
-        <p>Developers, looking to share ideas or ask questions about the SCF API? Join the Slack channel!<br/><br/>
-        <script async defer src="https://seeclickfix-api-slack.herokuapp.com/slackin.js?large"></script></p>
-      </div>
-
     </div><!-- /sidebar-shell -->
 
     </div><!-- #wrapper -->

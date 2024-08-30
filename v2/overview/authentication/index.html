@@ -24,7 +24,6 @@
             <li><a href="/">v2 (current)</a></li>
             <li><a href="http://seeclickfix.com" target="_blank">SeeClickFix.com</a></li>
             <li><a href="http://seeclickfix.com/contact_us" target="_blank">Support</a></li>
-            <li><script async defer src="https://seeclickfix-api-slack.herokuapp.com/slackin.js"></script></li>
           </ul>
         </div>
       </div><!-- #header -->
@@ -36,16 +35,21 @@
 <h1 id="authentication">Authentication</h1>
 
 <p>SeeClickFix currently supports the following authentication methods for access to API v2.
-1. HTTP Basic Authentication
+1. Token Authentication
 1. OAauth2 Authentication</p>
 
-<h3 id="http-basic-authentication">HTTP Basic Authentication</h3>
+<h3 id="token-authentication">Token Authentication</h3>
+<p>This method is appropriate for API access. It is a secret that is included as a request header.</p>
 
-<p>This method is appropriate when the client has direct access to user credentials (username
-and password).</p>
+<p>Header Format:</p>
+<pre class="terminal">
+Authorization: Bearer [token]
+</pre>
+
+<p>To create and manage Bearer Tokens for Authentication, visit <a href="https://account.civicplus.com/security">Password &amp; Security</a> and go to the Personal Access Token section. Personal Access Tokens are Bearer Tokens.</p>
 
 <pre class="terminal">
-$ curl -u "email@example.com:password" https://seeclickfix.com/api/v2/profile
+$ curl -i https://seeclickfix.com/api/v2/profile -H "Authorization: Bearer test-08/12/2024-01/01/2025-xxxxxxxxxxxxxx"
 </pre>
 
 <h3 id="oauth2-authentication">OAuth2 Authentication</h3>
@@ -152,13 +156,6 @@ Authentication: Bearer xxxxxxxxxxxxxxxxxxxx
       <div class="sidebar-module">
         <p>This website is a <a href="https://github.com/SeeClickFix/dev.seeclickfix.com" target="_blank">public GitHub repository</a>. Please help us by forking the project and adding to it.</p>
       </div>
-
-      <div class="sidebar-module">
-        <!-- SCF API Slack badge -->
-        <p>Developers, looking to share ideas or ask questions about the SCF API? Join the Slack channel!<br/><br/>
-        <script async defer src="https://seeclickfix-api-slack.herokuapp.com/slackin.js?large"></script></p>
-      </div>
-
     </div><!-- /sidebar-shell -->
 
     </div><!-- #wrapper -->

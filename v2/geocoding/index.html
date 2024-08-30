@@ -24,7 +24,6 @@
             <li><a href="/">v2 (current)</a></li>
             <li><a href="http://seeclickfix.com" target="_blank">SeeClickFix.com</a></li>
             <li><a href="http://seeclickfix.com/contact_us" target="_blank">Support</a></li>
-            <li><script async defer src="https://seeclickfix-api-slack.herokuapp.com/slackin.js"></script></li>
           </ul>
         </div>
       </div><!-- #header -->
@@ -47,7 +46,7 @@
 <code>:point</code> - See <a href="/#geography">how to specify a geography</a> for syntax help.</li>
 </ul>
 
-<p>For forward geocoding, pass an address as the point and we will return the latitude / longitude. </p>
+<p>For forward geocoding, pass an address as the point and we will return the latitude / longitude.</p>
 
 <p>For reverse geocoding, pass a latitude / longitude pair and receive the address information.</p>
 
@@ -65,11 +64,11 @@ $ curl -i https://seeclickfix.com/api/v2/geocode/New+Haven,+CT
 pagination: true</code></pre>
 
 <pre class="highlight"><code class="language-javascript"><span class="p">{</span>
-  <span class="s2">"metadata"</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
-  <span class="s2">"result"</span><span class="o">:</span> <span class="p">{</span>
+<span class="w">  </span><span class="s2">"metadata"</span><span class="o">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">"result"</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
 
-  <span class="p">},</span>
-  <span class="s2">"errors"</span><span class="o">:</span> <span class="kc">null</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="s2">"errors"</span><span class="o">:</span><span class="w"> </span><span class="kc">null</span>
 <span class="p">}</span></code></pre>
 
 
@@ -124,13 +123,6 @@ pagination: true</code></pre>
       <div class="sidebar-module">
         <p>This website is a <a href="https://github.com/SeeClickFix/dev.seeclickfix.com" target="_blank">public GitHub repository</a>. Please help us by forking the project and adding to it.</p>
       </div>
-
-      <div class="sidebar-module">
-        <!-- SCF API Slack badge -->
-        <p>Developers, looking to share ideas or ask questions about the SCF API? Join the Slack channel!<br/><br/>
-        <script async defer src="https://seeclickfix-api-slack.herokuapp.com/slackin.js?large"></script></p>
-      </div>
-
     </div><!-- /sidebar-shell -->
 
     </div><!-- #wrapper -->
