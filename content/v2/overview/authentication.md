@@ -9,7 +9,7 @@ SeeClickFix currently supports the following authentication methods for access t
 1. Token Authentication
 1. OAauth2 Authentication
 
-### Token Authentication
+## Token Authentication
 This method is appropriate for API access. It is a secret that is included as a request header.
 
 Header Format:
@@ -24,7 +24,7 @@ $ curl -i https://seeclickfix.com/api/v2/profile -H "Authorization: Bearer test-
 </pre>
 
 
-### OAuth2 Authentication
+## OAuth2 Authentication
 
 This method is appropriate when the client application is being used by multiple users
 and the user's credentials should not be shared with the client directly.
