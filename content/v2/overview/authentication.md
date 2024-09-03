@@ -53,17 +53,17 @@ With the client id, authentication and API access can proceed as follows using a
 
 1. Client Application initiates browser access to SCF authentication endpoint
 
-<pre class="terminal">
-https://seeclickfix.com/oauth/authorize?client_id=YOUR_CLIENT_ID&redirect_uri=YOUR_REDIRECT_URI&response_type=token
-</pre>
+    <pre class="terminal">
+    https://seeclickfix.com/oauth/authorize?client_id=YOUR_CLIENT_ID&redirect_uri=YOUR_REDIRECT_URI&response_type=token
+    </pre>
 
 2. SCF user enters SCF credentials and on success is redirected to Client Application Redirect URI which will include an access_token
 
 3. Client Application can now make API requests on behalf of the user, by including user's access token. See [RFC 6750](http://tools.ietf.org/html/rfc6750#section-2.1) for options and detail for transmitting the access token to the API endpoints. One method is to send the access_token in the `Authentication` header:
 
-<pre class="terminal">
-Authentication: Bearer xxxxxxxxxxxxxxxxxxxx
-</pre>
+    <pre class="terminal">
+    Authentication: Bearer xxxxxxxxxxxxxxxxxxxx
+    </pre>
 
 For more details see this [overview](https://auth0.com/docs/flows/concepts/implicit) of the implicit flow [RFC 6749, section 4.2](https://tools.ietf.org/html/rfc6749#section-4.2)
 
