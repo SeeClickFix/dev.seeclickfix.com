@@ -5,6 +5,7 @@ title: API v2 - Overview - Authentication
 # Authentication
 
 SeeClickFix currently supports the following authentication methods for access to API v2.
+
 1. Token Authentication
 1. OAauth2 Authentication
 
