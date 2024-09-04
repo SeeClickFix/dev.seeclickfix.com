@@ -41,7 +41,7 @@
   <li>OAauth2 Authentication</li>
 </ol>
 
-<h3 id="token-authentication">Token Authentication</h3>
+<h2 id="token-authentication">Token Authentication</h2>
 <p>This method is appropriate for API access. It is a secret that is included as a request header.</p>
 
 <p>Header Format:</p>
@@ -55,7 +55,7 @@ Authorization: Bearer [token]
 $ curl -i https://seeclickfix.com/api/v2/profile -H "Authorization: Bearer test-08/12/2024-01/01/2025-xxxxxxxxxxxxxx"
 </pre>
 
-<h3 id="oauth2-authentication">OAuth2 Authentication</h3>
+<h2 id="oauth2-authentication">OAuth2 Authentication</h2>
 
 <p>This method is appropriate when the client application is being used by multiple users
 and the user’s credentials should not be shared with the client directly.</p>
@@ -84,25 +84,24 @@ which application is accessing SeeClickFix services on their behalf.</p>
 <p>With the client id, authentication and API access can proceed as follows using an OAuth Implicit Flow:</p>
 
 <ol>
-  <li>Client Application initiates browser access to SCF authentication endpoint</li>
-</ol>
+  <li>
+    <p>Client Application initiates browser access to SCF authentication endpoint</p>
 
-<pre class="terminal">
-https://seeclickfix.com/oauth/authorize?client_id=YOUR_CLIENT_ID&amp;redirect_uri=YOUR_REDIRECT_URI&amp;response_type=token
-</pre>
-
-<ol>
+    <pre class="terminal">
+ https://seeclickfix.com/oauth/authorize?client_id=YOUR_CLIENT_ID&amp;redirect_uri=YOUR_REDIRECT_URI&amp;response_type=token
+ </pre>
+  </li>
   <li>
     <p>SCF user enters SCF credentials and on success is redirected to Client Application Redirect URI which will include an access_token</p>
   </li>
   <li>
     <p>Client Application can now make API requests on behalf of the user, by including user’s access token. See <a href="http://tools.ietf.org/html/rfc6750#section-2.1">RFC 6750</a> for options and detail for transmitting the access token to the API endpoints. One method is to send the access_token in the <code>Authentication</code> header:</p>
+
+    <pre class="terminal">
+ Authentication: Bearer xxxxxxxxxxxxxxxxxxxx
+ </pre>
   </li>
 </ol>
-
-<pre class="terminal">
-Authentication: Bearer xxxxxxxxxxxxxxxxxxxx
-</pre>
 
 <p>For more details see this <a href="https://auth0.com/docs/flows/concepts/implicit">overview</a> of the implicit flow <a href="https://tools.ietf.org/html/rfc6749#section-4.2">RFC 6749, section 4.2</a></p>
 
