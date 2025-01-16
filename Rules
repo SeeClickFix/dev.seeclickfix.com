@@ -36,7 +36,7 @@ compile '*' do
 end
 
 route '/static/*' do
-  item.identifier[7..-2]
+  item.identifier.to_s.sub(/\A\/static/, '')
 end
 
 route '/CNAME/' do

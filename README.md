@@ -105,7 +105,11 @@ smart enough not to try to compile unchanged files:
 You can setup whatever you want to view the files.  If you have the adsf
 gem, however (I hope so, it was in the Gemfile), you can start Webrick:
 
-    $ nanoc view
+    $ nanoc view -p [port]
+
+You can provide a port number other than 3000 if you don't want to have to
+stop an existing (SCF?) rails instance. eg. "-p 3030" will allow viewing on
+port 3030.
 
 Compilation times got you down?  Use `autocompile`!
 
