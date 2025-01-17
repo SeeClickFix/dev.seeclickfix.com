@@ -123,20 +123,26 @@ a img {
 #header-wrapper {
   margin-bottom: 0;
   clear: both;
-  height: 55px;
+  height: 70px;
   background: white url(../images/background-v2.png) 0 0 repeat-x;
   border-bottom: 1px solid #CCC;
 }
 
 #header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
   margin: 0 auto;
   width: 920px;
+  height: inherit;
 }
 
 #header a.logo {
-  float: left;
-  margin-top: 10px;
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
 }
 
 #header ul.nav {
