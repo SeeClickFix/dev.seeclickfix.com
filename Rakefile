@@ -1,4 +1,3 @@
-require 'nanoc3/tasks'
 
 desc "Compile the site"
 task :compile do
@@ -19,7 +18,7 @@ def commit_message
 end
 
 desc "Publish to http://developer.github.com"
-task :publish => [:clean] do
+task :publish do
   mesg = commit_message
 
   FileUtils.rm_r('output') if File.exist?('output')
