@@ -49,14 +49,6 @@ Returns the current user's emails
 %>
 
 
-## Add an email
-
-Adds an email to the current user.
-
-    POST <%= root_version_url %>/emails
-
-Returns the email just added.
-
 ### Required Parameters
 
 * logged in user - The user must be logged in as the user to add an email to.
@@ -81,14 +73,6 @@ Returns the current user's emails
     h
   end 
 %>
-
-## Remove an email
-
-Removes an email from the current user.
-
-    DELETE <%= root_version_url %>/emails/:id
-
-Returns the email just removed.
 
 ### Required Parameters
 
