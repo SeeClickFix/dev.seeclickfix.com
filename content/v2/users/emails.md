@@ -9,7 +9,7 @@ title: API v2 - User Emails
 
 API endpoints to allow the user to manage their emails.
 
-## List emails 
+## List emails
 
 List emails of the currently logged in user.
 
@@ -39,23 +39,15 @@ Returns the current user's emails
 
 <%= headers 200 %>
 
-<%= 
-  json(:email) do |h| 
+<%=
+  json(:email) do |h|
     { metadata: {},
       emails: [h],
       errors: {}
     }
-  end 
+  end
 %>
 
-
-## Add an email
-
-Adds an email to the current user.
-
-    POST <%= root_version_url %>/emails
-
-Returns the email just added.
 
 ### Required Parameters
 
@@ -76,19 +68,11 @@ Returns the current user's emails
 
 <%= headers 201 %>
 
-<%= 
+<%=
   json(:email) do |h|
     h
-  end 
+  end
 %>
-
-## Remove an email
-
-Removes an email from the current user.
-
-    DELETE <%= root_version_url %>/emails/:id
-
-Returns the email just removed.
 
 ### Required Parameters
 
@@ -109,8 +93,8 @@ Returns the email just deleted.
 
 <%= headers 204 %>
 
-<%= 
+<%=
   json(:email) do |h|
     h
-  end 
+  end
 %>
