@@ -36,7 +36,7 @@ The [Doorkeeper documentation](https://github.com/doorkeeper-gem/doorkeeper/wiki
 
 Before an application (API client) can use OAuth2 with SeeClickFix it must be registered
 with our system. Register your app by sending the following information to
-developer-support@seeclickfix.com:
+seeclickfix@civicplus.help:
 
 1. Name of Application
 1. Organization Name
