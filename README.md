@@ -6,7 +6,7 @@ All submissions are welcome. To submit a change, fork this repo, commit your cha
 
 ## Setup
 
-Ruby 3.1.4+ is required to build the site.
+Ruby 3.3.5+ is required to build the site.
 Python 3.12.9+ is required to build the site.
 
 Install ruby/python using ASDF:
